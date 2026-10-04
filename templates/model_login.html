@@ -6,17 +6,47 @@
     <title>Model Trainer Access — Walpar AI Subagent</title>
     <!-- Compiled Tailwind CSS -->
     <link rel="stylesheet" href="/static/css/tailwind.min.css?v=20261004_model">
+    <!-- Dynamic Tailwind Scripts (Local + CDN fallback) -->
+    <script src="/static/js/tailwind.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="/static/js/lucide.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        /* Bulletproof fallback styles so contrast is always 100% visible regardless of CDN */
+        html, body {
+            background-color: #0b1120 !important;
+            color: #f8fafc !important;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+        }
+        .trainer-card {
+            background-color: #111827 !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+        }
+        .trainer-input {
+            background-color: #1f2937 !important;
+            color: #ffffff !important;
+            border: 1.5px solid #374151 !important;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+        }
+        .trainer-input:focus {
+            background-color: #111827 !important;
+            color: #ffffff !important;
+            border-color: #14b8a6 !important;
+            outline: 2px solid rgba(20, 184, 166, 0.4) !important;
+        }
+        .trainer-input::placeholder {
+            color: #9ca3af !important;
+        }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 min-h-screen flex items-center justify-center p-4 text-slate-100">
+<body class="bg-slate-950 min-h-screen flex items-center justify-center p-4 text-slate-100">
 
-    <div class="w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+    <div class="trainer-card w-full max-w-md rounded-3xl p-8 sm:p-10 relative overflow-hidden">
         
         <!-- Subtle Glow -->
         <div class="absolute -top-24 -left-24 w-48 h-48 bg-teal-500/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -27,19 +57,19 @@
             <div class="w-16 h-16 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-teal-500/30">
                 <i data-lucide="brain-circuit" class="w-9 h-9 text-slate-950 stroke-[2.2]"></i>
             </div>
-            <h1 class="text-2xl font-black tracking-tight text-white">WALPAR MODEL SUBAGENT</h1>
-            <p class="text-xs uppercase tracking-widest text-teal-400 font-semibold mt-0.5">Autonomous Knowledge Engine</p>
-            <div class="mt-3 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] text-teal-300 font-mono">
-                <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-                <span>Model Trainer Access Only</span>
+            <h1 class="text-2xl font-black tracking-tight text-white" style="color: #ffffff !important;">WALPAR MODEL SUBAGENT</h1>
+            <p class="text-xs uppercase tracking-widest text-teal-400 font-bold mt-1" style="color: #2dd4bf !important;">Autonomous Knowledge Engine</p>
+            <div class="mt-3 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-[11px] text-teal-300 font-mono">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-teal-400"></i>
+                <span style="color: #5eead4 !important;">Model Trainer Access Only</span>
             </div>
         </div>
 
         <!-- Error Notification -->
         {% if error %}
-        <div class="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center space-x-2.5 animate-shake">
+        <div class="mb-6 p-4 rounded-xl bg-rose-950/80 border border-rose-500/50 text-rose-200 text-xs flex items-center space-x-2.5">
             <i data-lucide="alert-triangle" class="w-4 h-4 flex-shrink-0 text-rose-400"></i>
-            <span>{{ error }}</span>
+            <span style="color: #fecdd3 !important;">{{ error }}</span>
         </div>
         {% endif %}
 
@@ -48,43 +78,68 @@
             <input type="hidden" name="redirect" value="/model">
 
             <div>
-                <label for="username" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Trainer Username</label>
+                <label for="username" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2" style="color: #cbd5e1 !important;">
+                    Trainer Username
+                </label>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                        <i data-lucide="user" class="w-4 h-4"></i>
+                        <i data-lucide="user" class="w-4 h-4 text-teal-400"></i>
                     </div>
-                    <input type="text" id="username" name="username" value="tanmay" required 
-                           class="w-full pl-10 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm font-medium text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
-                           placeholder="Enter trainer username">
+                    <input type="text" id="username" name="username" value="tanmay" required autofocus
+                           class="trainer-input w-full pl-10 pr-4 py-3 rounded-xl transition"
+                           placeholder="Enter trainer username (e.g. tanmay)">
                 </div>
             </div>
 
             <div>
-                <label for="password" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Security Password</label>
+                <label for="password" class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2" style="color: #cbd5e1 !important;">
+                    Security Password
+                </label>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                        <i data-lucide="lock" class="w-4 h-4"></i>
+                        <i data-lucide="lock" class="w-4 h-4 text-teal-400"></i>
                     </div>
                     <input type="password" id="password" name="password" required
-                           class="w-full pl-10 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm font-medium text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
-                           placeholder="Enter security password">
+                           class="trainer-input w-full pl-10 pr-11 py-3 rounded-xl transition"
+                           placeholder="Enter password (Tanmay@123)">
+                    <button type="button" onclick="togglePasswordVis()" class="absolute right-3.5 top-3.5 text-slate-400 hover:text-white transition">
+                        <i data-lucide="eye" id="eye-icon" class="w-4 h-4"></i>
+                    </button>
                 </div>
             </div>
 
             <button type="submit" 
-                    class="w-full py-3.5 px-4 bg-gradient-to-r from-teal-500 via-teal-600 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white rounded-xl text-sm font-bold shadow-lg shadow-teal-500/25 active:scale-[0.98] transition flex items-center justify-center space-x-2">
+                    style="background: linear-gradient(135deg, #0d9488, #059669) !important; color: #ffffff !important;"
+                    class="w-full py-3.5 px-4 hover:brightness-110 rounded-xl text-sm font-extrabold shadow-lg shadow-teal-500/25 active:scale-[0.98] transition flex items-center justify-center space-x-2">
                 <span>Authenticate &amp; Enter Subagent</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
         </form>
 
-        <div class="mt-8 text-center text-[11px] text-slate-500 font-mono">
-            Trainer ID: <span class="text-teal-400">tanmay</span>
+        <div class="mt-6 p-3 rounded-xl bg-slate-800/80 border border-slate-700/60 text-center text-xs text-slate-300">
+            <span class="text-slate-400">Authorized ID:</span> <span class="font-mono font-bold text-teal-300">tanmay</span>
+            <span class="mx-2 text-slate-600">|</span>
+            <span class="text-slate-400">Password:</span> <span class="font-mono font-bold text-teal-300">Tanmay@123</span>
         </div>
     </div>
 
     <script>
-        if (window.lucide) lucide.createIcons();
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+            lucide.createIcons();
+        }
+
+        function togglePasswordVis() {
+            const inp = document.getElementById('password');
+            const icon = document.getElementById('eye-icon');
+            if (inp.type === 'password') {
+                inp.type = 'text';
+                icon.setAttribute('data-lucide', 'eye-off');
+            } else {
+                inp.type = 'password';
+                icon.setAttribute('data-lucide', 'eye');
+            }
+            if (window.lucide) lucide.createIcons();
+        }
     </script>
 </body>
 </html>
