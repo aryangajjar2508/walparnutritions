@@ -71,6 +71,17 @@ app.mount("/samples", StaticFiles(directory=str(SAMPLE_DIR)), name="samples")
 
 templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 
+def render_template(request: Request, name: str, context: Optional[Dict[str, Any]] = None, status_code: int = 200) -> HTMLResponse:
+    """Universal template response helper supporting both Starlette 0.36+ and legacy versions"""
+    ctx = dict(context or {})
+    ctx["request"] = request
+    try:
+        # Starlette 0.36+ keyword syntax
+        return templates.TemplateResponse(request=request, name=name, context=ctx, status_code=status_code)
+    except TypeError:
+        # Legacy Starlette positional syntax
+        return templates.TemplateResponse(name, ctx, status_code=status_code)
+
 # Initialize services
 ocr_manager = OCRManager.get_instance()
 formula_parser = FormulaParser()
@@ -100,14 +111,17 @@ class EvaluatePayload(BaseModel):
 # AUTHENTICATION & ACCESS CONTROL (ID / PASSWORD WALL)
 # ══════════════════════════════════════════════════════════════════
 
+@app.get("/api/health")
+async def health_check():
+    return {"status": "ok", "app": "Walpar Neural Formula OCR", "version": "3.2.0"}
+
 @app.get("/login", response_class=HTMLResponse)
 async def login_page(request: Request):
     user = get_current_user(request)
     if user:
         return RedirectResponse(url="/", status_code=303)
     error = request.query_params.get("error")
-    return templates.TemplateResponse("login.html", {
-        "request": request,
+    return render_template(request, "login.html", {
         "error": error
     })
 
@@ -167,8 +181,7 @@ async def admin_panel(request: Request):
     per_user_stats = get_per_user_quotation_stats()
     total_pipeline_val = sum(float(x.get("total_batch_val") or 0.0) for x in batch_logs)
 
-    return templates.TemplateResponse("admin.html", {
-        "request": request,
+    return render_template(request, "admin.html", {
         "current_user": user,
         "users": users,
         "uploads": uploads,
@@ -280,8 +293,7 @@ async def index_page(request: Request):
     mobile_url = cloudflare_url if cloudflare_url else f"http://{local_ip}:{port}"
     is_cloudflare = bool(cloudflare_url)
 
-    return templates.TemplateResponse("index.html", {
-        "request": request,
+    return render_template(request, "index.html", {
         "current_user": user,
         "samples": samples,
         "total_db_ingredients": len(formula_parser.ingredients_master),
