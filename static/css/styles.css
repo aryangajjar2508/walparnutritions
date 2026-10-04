@@ -1,0 +1,580 @@
+/* Walpar Custom Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #print-area, #print-area * {
+        visibility: visible;
+    }
+    #print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+    }
+}
+
+.sample-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Canvas overlay styles */
+#ocr-canvas {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Touch friendly scrolling */
+.overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Radar Scanline Animation */
+@keyframes radar-scan {
+    0% {
+        top: 0%;
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.9;
+    }
+    100% {
+        top: 96%;
+        opacity: 0.2;
+    }
+}
+
+#scanning-overlay::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #38bdf8, #0284c7, #38bdf8, transparent);
+    box-shadow: 0 0 15px #38bdf8, 0 0 25px #0284c7;
+    animation: radar-scan 2.4s ease-in-out infinite;
+}
+
+/* Walpar Document Scanner Styles */
+#scanner-stage {
+    background-color: #030712;
+    background-image: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#scanner-overlay-canvas {
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#scanner-loupe {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.5);
+    pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE RESPONSIVE OVERHAUL (Mobile-First Design System)
+   ═══════════════════════════════════════════════════════ */
+
+/* Base mobile input tweaks */
+@media (max-width: 640px) {
+    table input[type="text"],
+    table input[type="number"],
+    table select {
+        font-size: 12px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    /* Header mobile layout */
+    header .max-w-7xl > div {
+        gap: 0.5rem;
+    }
+
+    /* Compact header buttons on mobile */
+    header button span:not(.hidden) {
+        font-size: 11px;
+    }
+
+    /* Sample cards - full width on tiny phones */
+    .sample-card {
+        padding: 0.625rem;
+    }
+
+    /* Main content padding */
+    main.max-w-7xl {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    /* Batch master modal - full screen on mobile */
+    #batch-master-modal > div {
+        border-radius: 0.75rem;
+        max-height: 98vh;
+    }
+
+    /* BMR stepper - compact text on mobile */
+    #batch-master-modal [id^="step-nav-"] span:last-child {
+        font-size: 10px;
+    }
+
+    /* Commercial rate cards - full width on mobile */
+    #bmr-commercial-rates-card .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Modals - no outer padding on mobile */
+    #ingredients-modal > div,
+    #salt-rda-modal > div,
+    #my-quotations-modal > div {
+        border-radius: 1rem;
+        max-height: 95vh;
+    }
+
+    /* Rate card large numbers - smaller on mobile */
+    #rate-primary-val,
+    #rate-per-unit-val,
+    #rate-total-batch-val {
+        font-size: 1.5rem !important;
+    }
+
+    /* Footer actions - stack vertically */
+    #table-footer-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #table-footer-actions > div {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    #table-footer-actions > div button:last-child {
+        flex: 1;
+    }
+
+    /* Ingredient table - compact on mobile */
+    #ingredients-table-body td {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Batch trigger card text */
+    #batch-master-trigger-card h3 {
+        font-size: 0.75rem;
+    }
+
+    /* Evaluation card compact */
+    #evaluation-card .flex.items-center.justify-between {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    /* Admin tabs - horizontal scroll */
+    #tab-panel-users .overflow-x-auto table,
+    #tab-panel-uploads .overflow-x-auto table {
+        min-width: 550px;
+    }
+
+    /* BMR step active ingredients table compact */
+    #bmr-active-table-body td {
+        padding: 0.5rem 0.5rem;
+    }
+
+    /* Commercial costing formula boxes */
+    #bmr-unlocked-costing-card .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Password modal - wide on mobile */
+    #bmr-password-modal > div {
+        margin: 0.5rem;
+        width: calc(100% - 1rem);
+    }
+
+    /* Batch master locked container */
+    #bmr-locked-container {
+        padding: 1.5rem 1rem;
+    }
+    #bmr-locked-container button {
+        font-size: 0.7rem;
+        padding: 0.625rem 1rem;
+    }
+}
+
+/* ── Tablet (641px–1023px) ── */
+@media (min-width: 641px) and (max-width: 1023px) {
+    /* Main 2-col layout stacks on tablet below lg breakpoint */
+    .lg\\:grid-cols-12 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sample cards 2-col on tablet */
+    .lg\\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Batch master modal - allow more height */
+    #batch-master-modal > div {
+        max-height: 95vh;
+    }
+
+    /* Stat cards on admin - 3 col on tablet */
+    .sm\\:grid-cols-5 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Admin stat cards last 2 span full width */
+    .sm\\:grid-cols-5 > div:nth-child(4),
+    .sm\\:grid-cols-5 > div:nth-child(5) {
+        grid-column: auto;
+    }
+}
+
+/* ── Mobile header compact layout ── */
+@media (max-width: 480px) {
+    /* Ultra compact header for very small phones */
+    header .flex.items-center.space-x-2.sm\\:space-x-2\\.5 {
+        gap: 0.25rem;
+    }
+    header button {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    /* Hide "Elemental & RDA Calc" text, show only icon */
+    header button[onclick="openSaltRdaModal()"] span {
+        display: none;
+    }
+    header button[onclick="openMyQuotationsModal()"] span {
+        display: none;
+    }
+    header .flex.items-center.space-x-1\\.5.pl-2 span:first-of-type {
+        display: none;
+    }
+}
+
+/* ── BMR Wizard Mobile Stepper ── */
+@media (max-width: 480px) {
+    /* Stepper: show only step number + short label */
+    #batch-master-modal [id^="step-nav-"] > span:last-child {
+        display: none;
+    }
+    /* Step number badge is enough on very small screens */
+    #batch-master-modal .flex.items-center.justify-between.text-xs.font-semibold {
+        justify-content: space-around;
+        gap: 0.25rem;
+    }
+    /* Divider lines shorter */
+    #batch-master-modal .w-4.h-\\[1px\\] {
+        width: 0.5rem;
+    }
+}
+
+/* ── Responsive BMR output table ── */
+@media (max-width: 768px) {
+    #bmr-output-table-body td {
+        font-size: 11px;
+    }
+    /* Sticky columns hack for narrow screens */
+    .min-w-\\[750px\\] {
+        min-width: 620px;
+    }
+    .min-w-\\[650px\\] {
+        min-width: 540px;
+    }
+    .min-w-\\[540px\\] {
+        min-width: 440px;
+    }
+    .min-w-\\[620px\\] {
+        min-width: 520px;
+    }
+}
+
+/* ── Ingredients table card layout on mobile ── */
+@media (max-width: 640px) {
+    /* Convert ingredients table to a card-per-row layout on very small screens */
+    .ingredients-table-wrapper {
+        border-radius: 0.75rem;
+        overflow: hidden;
+    }
+}
+
+/* ── Touch targets - ensure minimum 44px tap targets ── */
+@media (pointer: coarse) {
+    button, a, input[type="radio"], input[type="checkbox"], select {
+        min-height: 40px;
+    }
+    /* Exceptions for inline tiny badges */
+    .min-h-override {
+        min-height: unset !important;
+    }
+    /* Lucide icon buttons in tables */
+    table button {
+        min-height: 36px;
+        min-width: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* Header buttons comfortable tap area */
+    header button {
+        min-height: 40px;
+    }
+    /* Nav step buttons */
+    [id^="step-nav-"] {
+        min-height: 40px;
+    }
+}
+
+/* ── Safe area insets for notched phones (iPhone X+) ── */
+@supports (padding: max(0px)) {
+    header {
+        padding-top: max(0.5rem, env(safe-area-inset-top));
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+    #batch-master-modal > div {
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+}
+
+/* ── Batch Master Card Mobile Layout ── */
+@media (max-width: 640px) {
+    #batch-master-modal > div {
+        height: 100dvh;
+        max-height: 100dvh;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    /* Step panel scroll area */
+    #batch-master-modal .flex-1.overflow-y-auto {
+        padding: 0.75rem;
+    }
+
+    /* Product type cards - 1 col stacked */
+    #bmr-step-panel-1 .grid.grid-cols-1.sm\\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Packaging section grids - 2 col on mobile */
+    #bmr-step-panel-3 .grid.grid-cols-1.sm\\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Rates grid - 1 col on mobile */
+    #bmr-commercial-rates-card > .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer nav */
+    #batch-master-modal .bg-slate-100 {
+        padding: 0.625rem 0.75rem;
+        padding-bottom: max(0.625rem, env(safe-area-inset-bottom));
+    }
+
+    /* BMR nav prev/next buttons */
+    #bmr-prev-btn, #bmr-next-btn {
+        font-size: 11px;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+/* ── Admin Panel Mobile ── */
+@media (max-width: 640px) {
+    /* Admin header compact */
+    header.bg-slate-950 > div {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    header.bg-slate-950 p {
+        display: none;
+    }
+
+    /* Admin stat cards - 2x2 grid on mobile */
+    .grid.grid-cols-2.sm\\:grid-cols-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Last stat if odd - full width */
+    .grid.grid-cols-2.sm\\:grid-cols-5 > div:nth-child(5):last-child {
+        grid-column: 1 / -1;
+    }
+
+    /* Admin tab nav - scrollable */
+    #tab-panel-users ~ div,
+    .bg-slate-950\\/80.border.border-slate-800.rounded-2xl {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Admin form grids - 1 col on mobile */
+    #create-user-form {
+        grid-template-columns: 1fr;
+    }
+
+    /* Admin tables - scrollable */
+    .admin-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Rate update modal - full width */
+    #rate-edit-modal-inner {
+        width: calc(100vw - 2rem);
+    }
+}
+
+/* ── Responsive Modal Sizing ── */
+@media (max-width: 640px) {
+    /* Quotations modal */
+    #my-quotations-modal > div {
+        height: 95vh;
+        max-height: 95vh;
+        border-radius: 1rem 1rem 0 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+    }
+
+    /* Ingredients DB modal */
+    #ingredients-modal > div {
+        height: 90vh;
+        max-height: 90vh;
+        border-radius: 1rem 1rem 0 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+    }
+
+    /* Salt RDA modal */
+    #salt-rda-modal > div {
+        height: 95vh;
+        max-height: 95vh;
+        border-radius: 1rem 1rem 0 0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+    }
+
+    /* Ingredients grid - 1 col on mobile */
+    #modal-ingredients-list {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* RDA calc grids - stack on mobile */
+    #rda-panel-minerals .grid.grid-cols-1.sm\\:grid-cols-3,
+    #rda-panel-vitamins .grid.grid-cols-1.sm\\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── OCR Evaluation Card Mobile ── */
+@media (max-width: 640px) {
+    #evaluation-card .my-3\\.5.p-3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    #eval-synergies-list,
+    #eval-evidence-list {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ── Upload Drop Zone Mobile ── */
+@media (max-width: 480px) {
+    #drop-zone {
+        padding: 1.25rem 0.75rem;
+    }
+    #drop-zone .mt-3\\.5 {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #drop-zone .mt-3\\.5 button {
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* ── Smooth transitions for modals ── */
+.modal-slide-up {
+    animation: modalSlideUp 0.25s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from {
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ── Utility: Hide scrollbar but keep scrollable ── */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* ── Responsive text truncation ── */
+@media (max-width: 480px) {
+    .truncate-mobile {
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/* ── Ensure buttons don't overflow on mobile ── */
+@media (max-width: 380px) {
+    #table-footer-actions button {
+        font-size: 10px;
+        padding: 0.375rem 0.5rem;
+    }
+    .batch-master-trigger-card button {
+        font-size: 10px;
+    }
+}
+
+/* ── Active state visual feedback for touch ── */
+@media (pointer: coarse) {
+    button:active {
+        opacity: 0.75;
+        transform: scale(0.98);
+        transition: opacity 0.1s, transform 0.1s;
+    }
+    a:active {
+        opacity: 0.75;
+    }
+}

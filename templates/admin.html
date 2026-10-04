@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin &amp; Audit Panel — Walpar Formulation Intelligence</title>
+    <!-- Compiled Tailwind CSS (Fast, standalone native stylesheet) -->
+    <link rel="stylesheet" href="/static/css/tailwind.min.css?v=20260930_css1">
+    <!-- Local & CDN Fallback for dynamic scripts -->
+    <script src="/static/js/tailwind.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="/static/js/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        if (window.tailwind) {
+            tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        walpar: {
+                            50: '#f0fdf9',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        };
+        }
+    </script>
+    <link rel="stylesheet" href="/static/css/styles.css?v=20260930_responsive1">
+    <style>
+        /* Scrollbar hide utility for admin tabs */
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        /* Touch targets */
+        @media (pointer: coarse) {
+            button, a, select { min-height: 40px; }
+        }
+        /* Admin header compact on mobile */
+        @media (max-width: 640px) {
+            header.bg-slate-950 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+            header.bg-slate-950 p { display: none; }
+            #create-user-form { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+            #create-user-form > div:nth-child(3),
+            #create-user-form > div:nth-child(4) { grid-column: 1 / -1; }
+        }
+        @media (max-width: 480px) {
+            #create-user-form { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 min-h-screen text-slate-100 font-sans antialiased flex flex-col">
+
+    <!-- Top Admin Header -->
+    <header class="bg-slate-950 border-b border-slate-800 sticky top-0 z-50 px-4 sm:px-8 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-xl flex items-center justify-center shadow-md shadow-teal-500/20">
+                <i data-lucide="shield-alert" class="w-6 h-6 text-slate-950 stroke-[2.2]"></i>
+            </div>
+            <div>
+                <div class="flex items-center space-x-2">
+                    <h1 class="text-base font-black tracking-tight text-white">WALPAR ADMIN PANEL</h1>
+                    <span class="px-2 py-0.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 text-[10px] font-bold uppercase tracking-wider">Super Admin</span>
+                </div>
+                <p class="text-xs text-slate-400">User ID Management, Formulation Upload Tracking &amp; Rate Audit</p>
+            </div>
+        </div>
+
+        <!-- Right Tools -->
+        <div class="flex items-center space-x-3">
+            <!-- IST Live Clock -->
+            <div class="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-teal-300">
+                <i data-lucide="clock" class="w-4 h-4 text-teal-400"></i>
+                <span id="live-ist-clock">Loading IST...</span>
+            </div>
+
+            <!-- Back to Dashboard -->
+            <a href="/" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-xl text-xs font-semibold transition flex items-center space-x-1.5">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <span class="hidden sm:inline">OCR Dashboard</span>
+            </a>
+
+            <!-- Logout -->
+            <a href="/api/auth/logout" class="px-3.5 py-1.5 bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 rounded-xl text-xs font-bold transition flex items-center space-x-1">
+                <i data-lucide="log-out" class="w-4 h-4"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+        
+        <!-- Stat Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3.5">
+            <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 shadow-sm">
+                <div class="flex items-center justify-between text-slate-400 mb-1.5">
+                    <span class="text-xs font-medium uppercase tracking-wider">Active Users</span>
+                    <i data-lucide="users" class="w-4 h-4 text-teal-400"></i>
+                </div>
+                <div class="text-2xl font-black text-white" id="stat-users">{{ users|length }}</div>
+                <div class="text-[10px] text-teal-400 mt-1">Configured Accounts</div>
+            </div>
+
+            <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 shadow-sm">
+                <div class="flex items-center justify-between text-slate-400 mb-1.5">
+                    <span class="text-xs font-medium uppercase tracking-wider">Formula Uploads</span>
+                    <i data-lucide="file-text" class="w-4 h-4 text-sky-400"></i>
+                </div>
+                <div class="text-2xl font-black text-white" id="stat-uploads">{{ uploads|length }}</div>
+                <div class="text-[10px] text-sky-400 mt-1">Logged with Rates</div>
+            </div>
+
+            <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 shadow-sm">
+                <div class="flex items-center justify-between text-slate-400 mb-1.5">
+                    <span class="text-xs font-medium uppercase tracking-wider">Total Logins</span>
+                    <i data-lucide="log-in" class="w-4 h-4 text-emerald-400"></i>
+                </div>
+                <div class="text-2xl font-black text-white" id="stat-logins">{{ logins|length }}</div>
+                <div class="text-[10px] text-emerald-400 mt-1">Tracked in IST</div>
+            </div>
+
+            <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 shadow-sm">
+                <div class="flex items-center justify-between text-slate-400 mb-1.5">
+                    <span class="text-xs font-medium uppercase tracking-wider">Quotations</span>
+                    <i data-lucide="badge-percent" class="w-4 h-4 text-emerald-400"></i>
+                </div>
+                <div class="text-2xl font-black text-white" id="stat-batch">{{ batch_logs|length }}</div>
+                <div class="text-[10px] text-emerald-400 mt-1">Commercial Billing</div>
+            </div>
+
+            <div class="bg-slate-950/60 border {% if pending_missing_rates|length > 0 %}border-amber-500/60 bg-amber-950/20{% else %}border-slate-800/80{% endif %} rounded-2xl p-4 shadow-sm">
+                <div class="flex items-center justify-between text-slate-400 mb-1.5">
+                    <span class="text-xs font-medium uppercase tracking-wider">Pending Rates</span>
+                    <i data-lucide="bell" class="w-4 h-4 {% if pending_missing_rates|length > 0 %}text-amber-400 animate-bounce{% else %}text-slate-500{% endif %}"></i>
+                </div>
+                <div class="text-2xl font-black {% if pending_missing_rates|length > 0 %}text-amber-400{% else %}text-white{% endif %}" id="stat-pending">{{ pending_missing_rates|length }}</div>
+                <div class="text-[10px] {% if pending_missing_rates|length > 0 %}text-amber-300 font-bold{% else %}text-slate-500{% endif %} mt-1">Action Required</div>
+            </div>
+        </div>
+
+        {% if pending_missing_rates|length > 0 %}
+        <!-- Urgent Pending Rate Requests Alert Banner -->
+        <div class="bg-gradient-to-r from-amber-950/90 via-amber-900/60 to-slate-950 border border-amber-500/60 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xl shadow-amber-950/40">
+            <div class="flex items-center space-x-3">
+                <span class="p-2.5 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex-shrink-0 animate-bounce">
+                    <i data-lucide="bell-ring" class="w-5 h-5"></i>
+                </span>
+                <div>
+                    <h4 class="text-xs sm:text-sm font-bold text-amber-300 flex items-center space-x-2">
+                        <span>Action Required: {{ pending_missing_rates|length }} Missing Ingredient Rate Request(s) Pending!</span>
+                    </h4>
+                    <p class="text-[11px] text-amber-100/80 mt-0.5">Users calculated formulations with unpriced ingredients. Set the ₹/Kg rate to automatically push updated commercial quotations to their panels.</p>
+                </div>
+            </div>
+            <button onclick="switchAdminTab('rates'); scrollToPendingRates();" class="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold rounded-xl text-xs whitespace-nowrap shadow-md transition flex items-center space-x-1.5 self-start sm:self-auto">
+                <span>Add Missing Rates</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+        </div>
+        {% endif %}
+
+        <!-- Navigation Tabs -->
+        <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-1.5 flex items-center space-x-1 overflow-x-auto scrollbar-hide">
+            <button onclick="switchAdminTab('users')" id="tab-btn-users" 
+                    class="tab-btn active px-3 sm:px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-1.5 bg-teal-500/20 text-teal-300 border border-teal-500/30 whitespace-nowrap flex-shrink-0">
+                <i data-lucide="user-plus" class="w-4 h-4 flex-shrink-0"></i>
+                <span>Users</span>
+            </button>
+            <button onclick="switchAdminTab('uploads')" id="tab-btn-uploads" 
+                    class="tab-btn px-3 sm:px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0">
+                <i data-lucide="image" class="w-4 h-4 flex-shrink-0"></i>
+                <span>Formula Uploads</span>
+            </button>
+            <button onclick="switchAdminTab('logins')" id="tab-btn-logins" 
+                    class="tab-btn px-3 sm:px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0">
+                <i data-lucide="history" class="w-4 h-4 flex-shrink-0"></i>
+                <span class="hidden sm:inline">Login History</span>
+                <span class="sm:hidden">Logins</span>
+            </button>
+            <button onclick="switchAdminTab('security')" id="tab-btn-security" 
+                    class="tab-btn px-3 sm:px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0">
+                <i data-lucide="badge-percent" class="w-4 h-4 flex-shrink-0"></i>
+                <span class="hidden sm:inline">User Quotations</span>
+                <span class="sm:hidden">Quotes</span>
+            </button>
+            <button onclick="switchAdminTab('rates')" id="tab-btn-rates" 
+                    class="tab-btn px-3 sm:px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0">
+                <i data-lucide="table-properties" class="w-4 h-4 flex-shrink-0"></i>
+                <span class="hidden sm:inline">Ingredient Rates</span>
+                <span class="sm:hidden">Rates</span>
+                {% if pending_missing_rates|length > 0 %}
+                <span class="px-2 py-0.5 rounded-full bg-amber-500 text-slate-950 text-[10px] font-black animate-pulse">
+                    {{ pending_missing_rates|length }}
+                </span>
+                {% endif %}
+            </button>
+        </div>
+
+        <!-- TAB 1: USER MANAGEMENT -->
+        <div id="tab-panel-users" class="space-y-6">
+            
+            <!-- Create User Card -->
+            <div class="bg-slate-950/70 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-md">
+                <h3 class="text-sm font-bold text-white flex items-center space-x-2 mb-4">
+                    <i data-lucide="user-plus" class="w-4 h-4 text-teal-400"></i>
+                    <span>Create New User Account (ID &amp; Password)</span>
+                </h3>
+                
+                <form id="create-user-form" onsubmit="handleCreateUser(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">User ID / Username *</label>
+                        <input type="text" id="new-username" required placeholder="e.g. aryan, chemist1" 
+                               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-teal-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Password *</label>
+                        <input type="password" id="new-password" required placeholder="Set user password" 
+                               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-teal-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name / Designation</label>
+                        <input type="text" id="new-fullname" placeholder="e.g. Aryan (Formulation Chemist)" 
+                               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-teal-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">System Role</label>
+                        <div class="flex items-center space-x-2">
+                            <select id="new-role" class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:border-teal-500 outline-none">
+                                <option value="user" selected>Standard User</option>
+                                <option value="admin">Administrator</option>
+                            </select>
+                            <button type="submit" class="px-4 py-2 bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-slate-950 font-bold rounded-xl text-xs transition shadow-md shadow-teal-500/20 whitespace-nowrap">
+                                Create User
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div id="create-user-status" class="mt-3 text-xs hidden"></div>
+            </div>
+
+            <!-- Existing Users Table -->
+            <div class="bg-slate-950/70 border border-slate-800 rounded-2xl overflow-hidden shadow-md">
+                <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+                    <h3 class="text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+                        <i data-lucide="users" class="w-4 h-4 text-teal-400"></i>
+                        <span>Registered Users List</span>
+                    </h3>
+                    <span class="text-xs text-slate-400 font-mono">{{ users|length }} Total</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-900/80 text-slate-400 font-semibold border-b border-slate-800">
+                            <tr>
+                                <th class="py-3 px-4">User ID</th>
+                                <th class="py-3 px-4">Full Name</th>
+                                <th class="py-3 px-4">Role</th>
+                                <th class="py-3 px-4">Status</th>
+                                <th class="py-3 px-4">Created Date (IST)</th>
+                                <th class="py-3 px-4 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60" id="users-table-body">
+                            {% for u in users %}
+                            <tr class="hover:bg-slate-900/40 transition">
+                                <td class="py-3 px-4 font-bold text-white flex items-center space-x-2">
+                                    <div class="w-7 h-7 rounded-lg bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 text-xs font-bold">
+                                        {{ u.username[0]|upper }}
+                                    </div>
+                                    <span>{{ u.username }}</span>
+                                </td>
+                                <td class="py-3 px-4 text-slate-300">{{ u.full_name or '—' }}</td>
+                                <td class="py-3 px-4">
+                                    {% if u.role == 'admin' %}
+                                    <span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-md font-bold text-[10px] uppercase">Admin</span>
+                                    {% else %}
+                                    <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700 rounded-md font-medium text-[10px] uppercase">User</span>
+                                    {% endif %}
+                                </td>
+                                <td class="py-3 px-4">
+                                    {% if u.is_active == 1 %}
+                                    <span class="inline-flex items-center text-emerald-400 font-semibold">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span> Active
+                                    </span>
+                                    {% else %}
+                                    <span class="inline-flex items-center text-rose-400 font-semibold">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-rose-400 mr-1.5"></span> Disabled
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td class="py-3 px-4 font-mono text-slate-400 text-[11px]">{{ u.created_at_ist }}</td>
+                                <td class="py-3 px-4 text-right space-x-2">
+                                    <button onclick="promptResetPassword('{{ u.username }}')" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-[11px] font-semibold border border-slate-700 transition">
+                                        Change Password
+                                    </button>
+                                    {% if u.username != 'admin' %}
+                                    <button onclick="handleToggleStatus('{{ u.username }}')" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-[11px] font-semibold border border-slate-700 transition">
+                                        {{ 'Disable' if u.is_active == 1 else 'Enable' }}
+                                    </button>
+                                    <button onclick="handleDeleteUser('{{ u.username }}')" class="px-2.5 py-1 bg-rose-500/20 hover:bg-rose-500/40 text-rose-300 rounded-lg text-[11px] font-semibold border border-rose-500/30 transition">
+                                        Delete
+                                    </button>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TAB 2: FORMULA UPLOADS & SOFTWARE RATES AUDIT -->
+        <div id="tab-panel-uploads" class="space-y-6 hidden">
+            <div class="bg-slate-950/70 border border-slate-800 rounded-2xl overflow-hidden shadow-md">
+                <div class="p-4 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <h3 class="text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+                            <i data-lucide="eye" class="w-4 h-4 text-teal-400"></i>
+                            <span>Formulation Photo Uploads &amp; Software Rate Audit Log</span>
+                        </h3>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Shows which user uploaded which photo of formulation and which rate the software gave</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <input type="text" id="upload-search" oninput="filterUploadsTable()" placeholder="Filter by User or Ingredient..." 
+                               class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white placeholder-slate-500 outline-none w-56">
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs" id="uploads-table">
+                        <thead class="bg-slate-900/80 text-slate-400 font-semibold border-b border-slate-800">
+                            <tr>
+                                <th class="py-3 px-4 w-12 text-center">Photo</th>
+                                <th class="py-3 px-4">Upload Time (IST)</th>
+                                <th class="py-3 px-4">User</th>
+                                <th class="py-3 px-4">Formula Summary</th>
+                                <th class="py-3 px-4">Software Rates Matched</th>
+                                <th class="py-3 px-4 text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60" id="uploads-table-body">
+                            {% for up in uploads %}
+                            <tr class="hover:bg-slate-900/40 transition">
+                                <td class="py-3 px-4 text-center">
+                                    <a href="{{ up.image_url }}" target="_blank" title="Click to view high-res photo" class="block">
+                                        <img src="{{ up.image_url }}" alt="Formula" class="w-12 h-12 object-cover rounded-lg border border-slate-700 hover:scale-105 transition shadow">
+                                    </a>
+                                </td>
+                                <td class="py-3 px-4 font-mono text-slate-300 text-[11px] whitespace-nowrap">
+                                    <div class="flex items-center space-x-1.5">
+                                        <i data-lucide="clock" class="w-3.5 h-3.5 text-teal-400 flex-shrink-0"></i>
+                                        <span>{{ up.upload_time_ist }}</span>
+                                    </div>
+                                    <span class="text-[10px] text-slate-500 block mt-0.5">{{ up.original_filename }} ({{ up.engine_used }})</span>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <span class="font-bold text-white px-2 py-1 rounded bg-slate-900 border border-slate-800 font-mono">
+                                        {{ up.username }}
+                                    </span>
+                                </td>
+                                <td class="py-3 px-4 max-w-xs">
+                                    <div class="font-semibold text-slate-200 truncate" title="{{ up.ocr_summary }}">
+                                        {{ up.ocr_summary or 'No summary' }}
+                                    </div>
+                                    <span class="text-[10px] text-teal-400 font-mono">{{ up.ingredients_count }} Active Ingredients</span>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <div class="space-y-1 max-h-24 overflow-y-auto pr-1">
+                                        {% for r in up.software_rates %}
+                                        <div class="text-[11px] bg-slate-900/90 border border-slate-800 px-2 py-0.5 rounded flex items-center justify-between space-x-2">
+                                            <span class="text-slate-300 truncate max-w-[130px]" title="{{ r.name }}">{{ r.name }}</span>
+                                            {% if r.available and r.rate > 0 %}
+                                            <span class="font-mono font-bold text-emerald-400">₹{{ r.rate }}/Kg</span>
+                                            {% else %}
+                                            <span class="text-[10px] text-rose-400 font-semibold">Not in DB</span>
+                                            {% endif %}
+                                        </div>
+                                        {% else %}
+                                        <span class="text-slate-500 italic text-[11px]">No rates logged</span>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-center">
+                                    <button onclick="showUploadDetailModal({{ up|tojson|forceescape }})" 
+                                            class="px-2.5 py-1.5 bg-teal-600/20 hover:bg-teal-600 text-teal-300 hover:text-slate-950 font-bold rounded-lg text-[11px] border border-teal-500/30 transition">
+                                        View All
+                                    </button>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="6" class="p-8 text-center text-slate-500 text-xs">
+                                    No formula uploads recorded yet. Upload customer photos via the main dashboard.
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: USER LOGIN HISTORY (IST) -->
+        <div id="tab-panel-logins" class="space-y-6 hidden">
+            <div class="bg-slate-950/70 border border-slate-800 rounded-2xl overflow-hidden shadow-md">
+                <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+                            <i data-lucide="history" class="w-4 h-4 text-teal-400"></i>
+                            <span>User Login History (Indian Standard Time)</span>
+                        </h3>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Real-time audit log of which user logged in at what time</p>
+                    </div>
+                    <span class="text-xs text-slate-400 font-mono">{{ logins|length }} Logins Recorded</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-900/80 text-slate-400 font-semibold border-b border-slate-800">
+                            <tr>
+                                <th class="py-3 px-4">Login Time (IST)</th>
+                                <th class="py-3 px-4">User ID</th>
+                                <th class="py-3 px-4">IP Address</th>
+                                <th class="py-3 px-4">Device / User Agent</th>
+                                <th class="py-3 px-4 text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60">
+                            {% for l in logins %}
+                            <tr class="hover:bg-slate-900/40 transition">
+                                <td class="py-3 px-4 font-mono text-teal-300 font-semibold">{{ l.login_time_ist }}</td>
+                                <td class="py-3 px-4 font-bold text-white font-mono">{{ l.username }}</td>
+                                <td class="py-3 px-4 font-mono text-slate-400">{{ l.ip_address }}</td>
+                                <td class="py-3 px-4 text-slate-400 truncate max-w-xs" title="{{ l.user_agent }}">{{ l.user_agent }}</td>
+                                <td class="py-3 px-4 text-center">
+                                    <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded text-[10px] font-bold">
+                                        {{ l.status }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="5" class="p-8 text-center text-slate-500 text-xs">No logins recorded yet.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: USER QUOTATIONS & FINAL RATES AUDIT (PER-USER HISTORY) -->
+        <div id="tab-panel-security" class="space-y-6 hidden">
+            
+            <!-- User Filter & Per-User Portfolio Summary Card -->
+            <div class="bg-slate-950/70 border border-slate-800 rounded-2xl p-5 shadow-md space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+                    <div>
+                        <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                            <i data-lucide="user-check" class="w-4 h-4 text-emerald-400"></i>
+                            <span>User Commercial Quotation History &amp; Portfolio</span>
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Track formulation commercial quotations, rates given, and revisions per individual user</p>
+                    </div>
+                    
+                    <!-- User Filter Dropdown -->
+                    <div class="flex items-center space-x-2">
+                        <label class="text-xs text-slate-300 font-semibold flex items-center space-x-1">
+                            <i data-lucide="filter" class="w-3.5 h-3.5 text-teal-400"></i>
+                            <span>Filter User:</span>
+                        </label>
+                        <select id="quotation-user-filter" onchange="filterQuotationsByUser()" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white focus:border-teal-500 outline-none font-semibold">
+                            <option value="ALL">All Users ({{ batch_logs|length }} total quotations)</option>
+                            {% for u in users %}
+                            <option value="{{ u.username }}">{{ u.username }} ({{ u.full_name or 'User' }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Per-User Summary Stats Grid -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Selected User</span>
+                        <span id="user-summary-name" class="text-sm font-bold text-white font-mono">All Users</span>
+                    </div>
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-teal-400 uppercase tracking-wider block">Total Quotations</span>
+                        <span id="user-summary-count" class="text-sm font-bold text-teal-300 font-mono">{{ batch_logs|length }}</span>
+                    </div>
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-amber-400 uppercase tracking-wider block">Total Commercial Pipeline</span>
+                        <span id="user-summary-val" class="text-sm font-bold text-amber-300 font-mono">
+                            ₹{{ "{:,.2f}".format(total_pipeline_val) }}
+                        </span>
+                    </div>
+                    <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                        <span class="text-[10px] text-emerald-400 uppercase tracking-wider block">Pending Ingredient Rates</span>
+                        <span id="user-summary-pending" class="text-sm font-bold text-emerald-300 font-mono">
+                            {{ pending_missing_rates|length }} Requests
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quotations Table -->
+            <div class="bg-slate-950/70 border border-slate-800 rounded-2xl overflow-hidden shadow-md">
+                <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+                            <i data-lucide="badge-percent" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Commercial Quotations &amp; Final Rates Audit</span>
+                        </h3>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Exact commercial rates given to user per strip, jar, loose pack, and commercial batch values</p>
+                    </div>
+                    <span id="quotation-table-count" class="text-xs text-slate-400 font-mono">{{ batch_logs|length }} Records Logged</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs min-w-[850px]">
+                        <thead class="bg-slate-900/80 text-slate-400 font-semibold border-b border-slate-800">
+                            <tr>
+                                <th class="py-3 px-3">Timestamp (IST)</th>
+                                <th class="py-3 px-3">User ID</th>
+                                <th class="py-3 px-3">Product</th>
+                                <th class="py-3 px-3">Batch Qty</th>
+                                <th class="py-3 px-3">Packaging Type</th>
+                                <th class="py-3 px-3 text-right">Rate Given / Pack</th>
+                                <th class="py-3 px-3 text-right">Rate / Unit</th>
+                                <th class="py-3 px-3 text-right">Total Batch Value</th>
+                                <th class="py-3 px-3 text-center">Quotation Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60" id="quotations-tbody">
+                            {% for b in batch_logs %}
+                            <tr class="hover:bg-slate-900/40 transition quote-row" data-user="{{ b.username }}" data-val="{{ b.total_batch_val or 0 }}" data-status="{{ b.status }}">
+                                <td class="py-3 px-3 font-mono text-slate-300 text-[11px]">{{ b.timestamp_ist }}</td>
+                                <td class="py-3 px-3 font-bold text-white font-mono flex items-center space-x-1.5">
+                                    <span class="w-5 h-5 rounded bg-teal-500/20 text-teal-300 text-[10px] flex items-center justify-center font-bold">{{ b.username[0]|upper }}</span>
+                                    <span>{{ b.username }}</span>
+                                </td>
+                                <td class="py-3 px-3 font-medium text-teal-300">{{ b.product_type }}</td>
+                                <td class="py-3 px-3 font-mono text-slate-300">{{ b.batch_qty }} Units</td>
+                                <td class="py-3 px-3 font-medium text-slate-300">
+                                    <span>{{ b.pack_type or 'Standard' }}</span>
+                                    {% if b.missing_items and b.missing_items|length > 0 %}
+                                    <div class="text-[10px] text-amber-400 font-semibold mt-0.5">⚠️ Unpriced: {{ b.missing_items|join(', ') }}</div>
+                                    {% endif %}
+                                </td>
+                                <td class="py-3 px-3 text-right font-mono font-bold text-emerald-300">
+                                    {% if b.updated_rate_per_pack and b.updated_rate_per_pack > 0 %}
+                                    <div class="text-emerald-400 font-black">₹{{ "%.2f"|format(b.updated_rate_per_pack) }}</div>
+                                    <div class="text-[9px] text-slate-400 line-through">₹{{ "%.2f"|format(b.rate_per_pack) }}</div>
+                                    {% elif b.rate_per_pack and b.rate_per_pack > 0 %}
+                                    ₹{{ "%.2f"|format(b.rate_per_pack) }}
+                                    {% else %}
+                                    <span class="text-slate-500">—</span>
+                                    {% endif %}
+                                </td>
+                                <td class="py-3 px-3 text-right font-mono text-teal-300 font-semibold">
+                                    {% if b.updated_rate_per_unit and b.updated_rate_per_unit > 0 %}
+                                    <div class="text-teal-300 font-bold">₹{{ "%.2f"|format(b.updated_rate_per_unit) }}</div>
+                                    <div class="text-[9px] text-slate-400 line-through">₹{{ "%.2f"|format(b.rate_per_unit) }}</div>
+                                    {% elif b.rate_per_unit and b.rate_per_unit > 0 %}
+                                    ₹{{ "%.2f"|format(b.rate_per_unit) }}
+                                    {% else %}
+                                    <span class="text-slate-500">—</span>
+                                    {% endif %}
+                                </td>
+                                <td class="py-3 px-3 text-right font-mono font-black text-amber-300">
+                                    {% if b.updated_total_val and b.updated_total_val > 0 %}
+                                    <div class="text-amber-300 font-black">₹{{ "{:,.2f}".format(b.updated_total_val) }}</div>
+                                    <div class="text-[9px] text-slate-400 line-through">₹{{ "{:,.2f}".format(b.total_batch_val) }}</div>
+                                    {% elif b.total_batch_val and b.total_batch_val > 0 %}
+                                    ₹{{ "{:,.2f}".format(b.total_batch_val) }}
+                                    {% else %}
+                                    <span class="text-slate-500">—</span>
+                                    {% endif %}
+                                </td>
+                                <td class="py-3 px-3 text-center">
+                                    {% if b.status == 'RATE_UPDATED_BY_ADMIN' or b.rate_status == 'RESOLVED_BY_ADMIN' %}
+                                    <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded text-[10px] font-bold block whitespace-nowrap">
+                                        REVISED BY ADMIN
+                                    </span>
+                                    {% elif b.status == 'PENDING_ADMIN_RATE' or b.rate_status == 'PENDING_ADMIN_RATE' %}
+                                    <span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded text-[10px] font-bold block whitespace-nowrap">
+                                        RATE PENDING
+                                    </span>
+                                    {% elif b.status == 'QUOTATION_CALCULATED' %}
+                                    <span class="px-2 py-0.5 bg-sky-500/20 text-sky-300 border border-sky-500/30 rounded text-[10px] font-bold block">
+                                        QUOTATION
+                                    </span>
+                                    {% elif b.status == 'DOWNLOADED_EXCEL' or b.status == 'UNLOCKED' %}
+                                    <span class="px-2 py-0.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded text-[10px] font-bold block">
+                                        BMR DOWNLOADED
+                                    </span>
+                                    {% else %}
+                                    <span class="px-2 py-0.5 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded text-[10px] font-bold block">
+                                        {{ b.status }}
+                                    </span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr id="no-quotes-row">
+                                <td colspan="9" class="p-8 text-center text-slate-500 text-xs">No quotation or BMR records found yet.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: MASTER INGREDIENT RATES & RATE SHEET MANAGEMENT -->
+        <div id="tab-panel-rates" class="space-y-6 hidden">
+            
+            <!-- SECTION 1: ACTION REQUIRED - PENDING MISSING INGREDIENT RATE REQUESTS -->
+            <div id="pending-rates-card" class="bg-slate-950/70 border {% if pending_missing_rates|length > 0 %}border-amber-500/60 shadow-lg shadow-amber-950/20{% else %}border-slate-800{% endif %} rounded-2xl p-5 sm:p-6 shadow-md space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+                    <div class="flex items-center space-x-3">
+                        <span class="p-2.5 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                            <i data-lucide="bell" class="w-5 h-5"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                                <span>Pending Missing Ingredient Rate Requests from Users</span>
+                                {% if pending_missing_rates|length > 0 %}
+                                <span class="px-2.5 py-0.5 rounded-full bg-amber-500 text-slate-950 text-[10px] font-black animate-pulse">
+                                    {{ pending_missing_rates|length }} Requests Waiting
+                                </span>
+                                {% endif %}
+                            </h3>
+                            <p class="text-xs text-slate-400 mt-0.5">When users calculate formulations with unpriced ingredients, set the ₹/Kg rate here to update master database &amp; push revised quotations to users</p>
+                        </div>
+                    </div>
+                </div>
+
+                {% if pending_missing_rates|length > 0 %}
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs min-w-[700px]">
+                        <thead class="bg-slate-900/90 text-slate-400 font-semibold border-b border-slate-800">
+                            <tr>
+                                <th class="py-2.5 px-3">Requested At (IST)</th>
+                                <th class="py-2.5 px-3">User ID</th>
+                                <th class="py-2.5 px-3">Product / Batch</th>
+                                <th class="py-2.5 px-3">Missing Ingredient Name</th>
+                                <th class="py-2.5 px-3 w-40">Rate (₹ / Kg)</th>
+                                <th class="py-2.5 px-3 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60 font-mono">
+                            {% for p in pending_missing_rates %}
+                            <tr class="hover:bg-slate-900/40 transition" id="pending-row-{{ p.id }}">
+                                <td class="py-2.5 px-3 text-slate-400 text-[11px]">{{ p.timestamp_ist }}</td>
+                                <td class="py-2.5 px-3 text-white font-bold">{{ p.username }}</td>
+                                <td class="py-2.5 px-3 text-teal-300 font-sans">{{ p.product_type }} ({{ p.batch_qty or 100000 }} units)</td>
+                                <td class="py-2.5 px-3 text-amber-300 font-bold font-sans text-xs flex items-center space-x-1.5">
+                                    <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-amber-400 flex-shrink-0"></i>
+                                    <span>{{ p.ingredient_name }}</span>
+                                </td>
+                                <td class="py-2.5 px-3">
+                                    <div class="flex items-center space-x-1 bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 focus-within:border-teal-400">
+                                        <span class="text-slate-400 text-xs font-sans">₹</span>
+                                        <input type="number" step="0.01" min="0" id="pending-input-{{ p.id }}" placeholder="e.g. 450.00" 
+                                               class="w-full bg-transparent text-xs text-emerald-400 font-bold font-mono outline-none">
+                                    </div>
+                                </td>
+                                <td class="py-2.5 px-3 text-right">
+                                    <button onclick="resolvePendingMissingRate({{ p.id }}, '{{ p.ingredient_name|replace("'", "\\'") }}', 'pending-input-{{ p.id }}')" 
+                                            class="px-3 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-lg text-xs font-bold transition shadow-sm flex items-center space-x-1 ml-auto">
+                                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                        <span>Set Rate &amp; Update User</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="py-6 px-4 text-center rounded-xl bg-slate-900/40 border border-slate-800/60">
+                    <div class="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center mx-auto mb-2">
+                        <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    </div>
+                    <h5 class="text-xs font-bold text-white">All Raw Material Rates Verified</h5>
+                    <p class="text-[11px] text-slate-400 mt-0.5">No missing ingredient rates requested by users. When a user requests an unpriced ingredient, it will appear here for pricing.</p>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- SECTION 1B: USER-ESTIMATED RATES LOG (AUDITED - NOT IN DATABASE) -->
+            <div id="user-estimated-rates-card" class="bg-slate-950/70 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-md space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+                    <div class="flex items-center space-x-3">
+                        <span class="p-2.5 rounded-xl bg-teal-500/20 text-teal-400 border border-teal-500/30">
+                            <i data-lucide="edit-3" class="w-5 h-5"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                                <span>User-Estimated Rates (Filled by Users — Not in Database)</span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30 text-[10px] font-black">
+                                    {{ user_estimated_rates|length }} Entries Recorded
+                                </span>
+                            </h3>
+                            <p class="text-xs text-slate-400 mt-0.5">Ingredients where users entered their own estimated rate for instant quotation. These rates are maintained here for Admin visibility and audit, without altering the official database.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {% if user_estimated_rates|length > 0 %}
+                <div class="overflow-x-auto max-h-[380px]">
+                    <table class="w-full text-left text-xs min-w-[700px]">
+                        <thead class="bg-slate-900/90 text-slate-400 font-semibold border-b border-slate-800 sticky top-0 z-10">
+                            <tr>
+                                <th class="py-2.5 px-3">Date / Time (IST)</th>
+                                <th class="py-2.5 px-3">User ID</th>
+                                <th class="py-2.5 px-3">Product / Batch</th>
+                                <th class="py-2.5 px-3">Ingredient Name</th>
+                                <th class="py-2.5 px-3 text-right">User Filled Rate (₹ / Kg)</th>
+                                <th class="py-2.5 px-3">Database Status</th>
+                                <th class="py-2.5 px-3 text-right">Official Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60 font-mono">
+                            {% for u in user_estimated_rates %}
+                            <tr class="hover:bg-slate-900/40 transition">
+                                <td class="py-2.5 px-3 text-slate-400 text-[11px]">{{ u.timestamp_ist }}</td>
+                                <td class="py-2.5 px-3 text-white font-bold">{{ u.username }}</td>
+                                <td class="py-2.5 px-3 text-teal-300 font-sans">{{ u.product_type }} ({{ u.batch_qty or 100000 }} units)</td>
+                                <td class="py-2.5 px-3 text-slate-200 font-bold font-sans text-xs">
+                                    {{ u.ingredient_name }}
+                                </td>
+                                <td class="py-2.5 px-3 text-right">
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/40 text-amber-300 font-black text-xs">
+                                        ₹{{ "%.2f"|format(u.user_estimated_rate) }} / kg
+                                    </span>
+                                </td>
+                                <td class="py-2.5 px-3">
+                                    <span class="inline-flex items-center text-[10px] text-slate-400 font-sans bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                                        Audited User Rate (Excluded from DB)
+                                    </span>
+                                </td>
+                                <td class="py-2.5 px-3 text-right">
+                                    <button onclick="approveUserRateToDb('{{ u.ingredient_name|replace("'", "\\'") }}', {{ u.user_estimated_rate }})" 
+                                            class="px-2.5 py-1 bg-slate-800 hover:bg-teal-700 text-teal-300 hover:text-white rounded-lg text-[11px] font-semibold transition border border-slate-700 flex items-center space-x-1 ml-auto"
+                                            title="Click only if Admin explicitly wants to promote this rate to official database">
+                                        <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                                        <span>Add to Official DB</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="py-6 px-4 text-center rounded-xl bg-slate-900/40 border border-slate-800/60">
+                    <p class="text-xs text-slate-400">No user-estimated rates filled yet. When a user fills an estimated rate for an unpriced ingredient, it will be audited here.</p>
+                </div>
+                {% endif %}
+            </div>
+            
+            <!-- SECTION 2: UPLOAD INGREDIENT RATE SHEET (EXCEL / CSV) -->
+            <div class="bg-slate-950/70 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-md space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
+                    <div>
+                        <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                            <i data-lucide="file-up" class="w-4 h-4 text-teal-400"></i>
+                            <span>Upload Ingredient Rate Sheet (Excel / CSV)</span>
+                        </h3>
+                        <p class="text-xs text-slate-400 mt-0.5">Upload vendor rate sheet to update raw material prices. Existing rates will be updated, similar names matched automatically, and new ingredients added.</p>
+                    </div>
+                    <span class="text-xs text-teal-400 font-mono font-semibold">{{ all_rates|length }} Active Database Ingredients</span>
+                </div>
+
+                <form id="upload-rate-form" onsubmit="handleUploadRateSheet(event)" class="flex flex-col sm:flex-row items-center gap-3">
+                    <div class="flex-1 w-full">
+                        <input type="file" id="rate-sheet-file" accept=".xlsx,.xls,.csv" required 
+                               class="w-full text-xs text-slate-400 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-600 file:text-white hover:file:bg-teal-700 bg-slate-900 border border-slate-700 rounded-xl cursor-pointer">
+                    </div>
+                    <button type="submit" id="rate-upload-btn" class="w-full sm:w-auto px-5 py-2.5 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white rounded-xl text-xs font-bold shadow-md transition flex items-center justify-center space-x-2 flex-shrink-0">
+                        <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+                        <span>Update &amp; Match Rates</span>
+                    </button>
+                </form>
+
+                <!-- Upload Results Banner -->
+                <div id="rate-upload-result-box" class="p-4 rounded-xl border border-slate-800 bg-slate-900/60 hidden space-y-3">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400" id="rate-result-icon"></i>
+                        <span class="text-xs font-bold text-white" id="rate-result-title">Processing completed</span>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center" id="rate-result-stats"></div>
+                    <div id="rate-result-samples" class="text-[11px] text-slate-300 border-t border-slate-800 pt-2 space-y-1"></div>
+                </div>
+            </div>
+
+            <!-- SECTION 2B: MASTER PACKAGING & PRODUCTION CONFIGURATION (LIQUID, TABLET & CAPSULE) -->
+            <div class="bg-slate-950/70 border border-teal-500/30 rounded-2xl p-5 sm:p-6 shadow-md space-y-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+                    <div class="flex items-center space-x-3">
+                        <span class="p-2.5 rounded-xl bg-teal-500/20 text-teal-400 border border-teal-500/30">
+                            <i data-lucide="sliders" class="w-5 h-5"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                                <span>Master Packaging &amp; Production Rates (Liquid, Tablet &amp; Capsule)</span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30 text-[10px] font-bold">
+                                    Variable Master Inputs
+                                </span>
+                            </h3>
+                            <p class="text-xs text-slate-400 mt-0.5">Control standard packaging tiers, bottle rates, conversion charges, excipients, and margins without code modifications.</p>
+                        </div>
+                    </div>
+                    <button onclick="saveMasterConfig(event)" id="btn-save-master-config" class="px-4 py-2 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-sm flex items-center space-x-1.5 ml-auto cursor-pointer">
+                        <i data-lucide="save" class="w-4 h-4"></i>
+                        <span>Save Master Production Rates</span>
+                    </button>
+                </div>
+
+                <div id="master-config-status" class="hidden text-xs"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                    <!-- Column 1: Liquid Standard Packaging (Mode A) & Manufacturing -->
+                    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-3">
+                        <h4 class="text-xs font-bold text-teal-300 uppercase tracking-wider flex items-center space-x-1.5">
+                            <i data-lucide="flask-conical" class="w-3.5 h-3.5"></i>
+                            <span>Liquid Standard Packaging (Mode A)</span>
+                        </h4>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">15–60 mL Standard Cost (₹/bottle):</label>
+                                <input type="number" step="0.01" id="cfg-liq-std-15-60" value="{{ master_config.liquid.standard_packaging['15_60ml'] if master_config else 8.00 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">&gt;60–100 mL Standard Cost (₹/bottle):</label>
+                                <input type="number" step="0.01" id="cfg-liq-std-60-100" value="{{ master_config.liquid.standard_packaging['60_100ml'] if master_config else 10.00 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">200 mL Standard Cost (₹/bottle):</label>
+                                <input type="number" step="0.01" id="cfg-liq-std-200" value="{{ master_config.liquid.standard_packaging['200ml'] if master_config else 12.00 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                        </div>
+
+                        <h4 class="text-xs font-bold text-amber-300 uppercase tracking-wider pt-2 border-t border-slate-800 flex items-center space-x-1.5">
+                            <i data-lucide="settings" class="w-3.5 h-3.5"></i>
+                            <span>Liquid Manufacturing Charges</span>
+                        </h4>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Conversion Charge (₹/bottle):</label>
+                                <input type="number" step="0.01" id="cfg-liq-conv" value="{{ master_config.liquid.manufacturing.conversion_cost_per_bottle if master_config else 1.50 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-teal-300 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Stereo Charge (₹/bottle):</label>
+                                <input type="number" step="0.01" id="cfg-liq-stereo" value="{{ master_config.liquid.manufacturing.stereo_cost_per_bottle if master_config else 0.05 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-teal-300 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Testing Charge (₹/bottle):</label>
+                                <input type="number" step="0.01" id="cfg-liq-testing" value="{{ master_config.liquid.manufacturing.testing_charge_per_bottle if master_config else 0.50 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-teal-300 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Operating Margin (₹/bottle):</label>
+                                <input type="number" step="0.01" id="cfg-liq-margin" value="{{ master_config.liquid.manufacturing.margin_per_bottle if master_config else 1.00 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-amber-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">DM Water Rate (₹/Ltr):</label>
+                                <input type="number" step="0.01" id="cfg-liq-water" value="{{ master_config.liquid.manufacturing.dm_water_rate_per_L if master_config else 0.80 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-sky-400 font-mono font-bold">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Liquid Packaging Components (Mode B) -->
+                    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-3">
+                        <h4 class="text-xs font-bold text-teal-300 uppercase tracking-wider flex items-center space-x-1.5">
+                            <i data-lucide="package" class="w-3.5 h-3.5"></i>
+                            <span>Liquid Packaging Components (Mode B)</span>
+                        </h4>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">200 mL PET Bottle (₹):</label>
+                                <input type="number" step="0.01" id="cfg-liq-btl-200" value="{{ master_config.liquid.components.bottles['200ml'].PET if master_config else 4.00 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">100 mL PET Bottle (₹):</label>
+                                <input type="number" step="0.01" id="cfg-liq-btl-100" value="{{ master_config.liquid.components.bottles['100ml'].PET if master_config else 2.25 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">ROPP Golden Cap (₹):</label>
+                                <input type="number" step="0.01" id="cfg-liq-cap-golden" value="{{ master_config.liquid.components.caps['ROPP Golden'] if master_config else 0.72 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Measuring Cup (₹):</label>
+                                <input type="number" step="0.01" id="cfg-liq-cup" value="{{ master_config.liquid.components.measuring_cup['default'] if master_config else 0.30 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">UV Drip Off Carton (₹):</label>
+                                <input type="number" step="0.01" id="cfg-liq-carton" value="{{ master_config.liquid.components.cartons['Mono Carton UV Drip Off'] if master_config else 3.20 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">UV Varnish Label (₹):</label>
+                                <input type="number" step="0.01" id="cfg-liq-label" value="{{ master_config.liquid.components.labels['UV Varnish Roll (120x45)'] if master_config else 0.65 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Corrugated Box (₹):</label>
+                                <input type="number" step="0.01" id="cfg-liq-box" value="{{ master_config.liquid.components.boxes['60 BOTT Corrugated (5-ply)'] if master_config else 1.00 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Standard Dropper (&lt;60ml) (₹):</label>
+                                <input type="number" step="0.01" id="cfg-liq-dropper" value="{{ master_config.liquid.components.dropper['Standard Dropper'] if master_config else 1.50 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Paper Leaflet / Insert (₹):</label>
+                                <input type="number" step="0.01" id="cfg-liq-insert" value="{{ master_config.liquid.components.insert['Paper Leaflet / Insert'] if master_config else 0.35 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Tablet & Capsule Master Rates -->
+                    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 space-y-3">
+                        <h4 class="text-xs font-bold text-teal-300 uppercase tracking-wider flex items-center space-x-1.5">
+                            <i data-lucide="pill" class="w-3.5 h-3.5"></i>
+                            <span>Tablet &amp; Capsule Parameters</span>
+                        </h4>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Tablet Conversion (₹/tab):</label>
+                                <input type="number" step="0.01" id="cfg-tab-conv" value="{{ master_config.tablet.conversion_cost_per_tablet if master_config else 0.25 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-teal-300 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Capsule Conversion (₹/cap):</label>
+                                <input type="number" step="0.01" id="cfg-cap-conv" value="{{ master_config.capsule.conversion_cost_per_capsule if master_config else 0.25 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-teal-300 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Tablet/Capsule Margin (%):</label>
+                                <input type="number" step="0.1" id="cfg-tab-margin" value="{{ master_config.tablet.margin_percent if master_config else 20.0 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-amber-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Alu Alu Strip 1*10 (₹):</label>
+                                <input type="number" step="0.01" id="cfg-strip-alu-10" value="{{ master_config.tablet.strip_costs['Alu Alu 1*10'] if master_config else 1.80 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Blister Strip 1*10 (₹):</label>
+                                <input type="number" step="0.01" id="cfg-strip-blist-10" value="{{ master_config.tablet.strip_costs['Blister 1*10'] if master_config else 0.90 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Veg HPMC Shell (₹/shell):</label>
+                                <input type="number" step="0.01" id="cfg-shell-veg" value="{{ master_config.capsule.shell_costs.veg_hpmc if master_config else 0.48 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Gelatin Shell (₹/shell):</label>
+                                <input type="number" step="0.01" id="cfg-shell-gel" value="{{ master_config.capsule.shell_costs.gelatin if master_config else 0.18 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="text-slate-300 text-[11px]">Delayed Release (DR) (₹):</label>
+                                <input type="number" step="0.01" id="cfg-shell-dr" value="{{ master_config.capsule.shell_costs.dr_delayed_release if master_config else 0.75 }}" class="w-24 bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-right text-emerald-400 font-mono font-bold">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: MASTER RAW MATERIAL PRICING CATALOG (RATE AVG.XLSX) WITH DIRECT EDITING -->
+            <div class="bg-slate-950/70 border border-slate-800 rounded-2xl overflow-hidden shadow-md">
+                <div class="p-4 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <h3 class="text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+                            <i data-lucide="database" class="w-4 h-4 text-teal-400"></i>
+                            <span>Master Raw Material Pricing Catalog (rate avg.xlsx)</span>
+                        </h3>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Live rates utilized by BMR calculation &amp; cost evaluation engine. Edit any rate directly or add new items.</p>
+                    </div>
+                    
+                    <div class="flex items-center space-x-2">
+                        <button onclick="openAddIngredientModal()" class="px-3 py-1.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shadow-sm whitespace-nowrap">
+                            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+                            <span>Add New Ingredient</span>
+                        </button>
+                        <div class="w-48 sm:w-60">
+                            <input type="text" id="rate-search-input" oninput="filterIngredientRates()" placeholder="Search ingredient..." 
+                                   class="w-full px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-teal-500">
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-x-auto max-h-[500px]">
+                    <table class="w-full text-left text-xs min-w-[600px]">
+                        <thead class="bg-slate-900/90 text-slate-400 font-semibold border-b border-slate-800 sticky top-0 z-10">
+                            <tr>
+                                <th class="py-2.5 px-4 w-16 text-center">#</th>
+                                <th class="py-2.5 px-4">Raw Material / Active Ingredient Name</th>
+                                <th class="py-2.5 px-4 text-right">Master Rate (₹ / Kg)</th>
+                                <th class="py-2.5 px-4 text-right w-28">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-rates-tbody" class="divide-y divide-slate-800/60 font-mono">
+                            {% for r in all_rates %}
+                            <tr class="hover:bg-slate-900/40 transition rate-row" data-name="{{ r.name|lower }}">
+                                <td class="py-2 px-4 text-center text-slate-500 font-sans">{{ loop.index }}</td>
+                                <td class="py-2 px-4 font-semibold text-slate-200 font-sans">{{ r.name }}</td>
+                                <td class="py-2 px-4 text-right font-bold text-emerald-400" id="rate-display-{{ loop.index }}">₹{{ "{:,.2f}".format(r.rate) }}</td>
+                                <td class="py-2 px-4 text-right">
+                                    <button onclick="openEditRateModal('{{ r.name|replace("'", "\\'") }}', {{ r.rate }})" 
+                                            class="px-2.5 py-1 bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 border border-teal-500/40 rounded-lg text-xs font-semibold inline-flex items-center space-x-1 transition">
+                                        <i data-lucide="edit-3" class="w-3 h-3"></i>
+                                        <span>Edit</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="4" class="p-8 text-center text-slate-500 text-xs">No ingredients loaded in database.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Upload Detail Modal -->
+    <div id="upload-detail-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                <h4 class="text-sm font-bold text-white flex items-center space-x-2">
+                    <i data-lucide="file-spreadsheet" class="w-4 h-4 text-teal-400"></i>
+                    <span>Formula Upload &amp; Software Rates Detail</span>
+                </h4>
+                <button onclick="closeUploadModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div id="upload-modal-content" class="space-y-4 text-xs">
+                <!-- Dynamically rendered -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Ingredient Rate Modal -->
+    <div id="edit-rate-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                <h4 class="text-sm font-bold text-white flex items-center space-x-2">
+                    <i data-lucide="edit-3" class="w-4 h-4 text-teal-400"></i>
+                    <span>Modify Master Ingredient Rate</span>
+                </h4>
+                <button onclick="closeEditRateModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <form onsubmit="handleSaveEditRate(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="block text-slate-400 mb-1 font-semibold">Master Ingredient Name</label>
+                    <input type="text" id="edit-rate-name" readonly 
+                           class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white font-bold cursor-not-allowed">
+                </div>
+                <div>
+                    <label class="block text-slate-400 mb-1 font-semibold">Current Database Rate</label>
+                    <input type="text" id="edit-rate-current" readonly 
+                           class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-slate-400 font-mono cursor-not-allowed">
+                </div>
+                <div>
+                    <label class="block text-slate-200 mb-1 font-semibold">New Master Rate (₹ / Kg) *</label>
+                    <div class="flex items-center bg-slate-950 border border-slate-700 focus-within:border-teal-400 rounded-xl px-3 py-2.5">
+                        <span class="text-teal-400 font-bold text-sm mr-1">₹</span>
+                        <input type="number" step="0.01" min="0" id="edit-rate-new" required placeholder="Enter revised rate..."
+                               class="w-full bg-transparent text-emerald-400 font-mono font-bold text-sm outline-none">
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-1">Updates rate avg.xlsx, creates automated backup, and pushes revised rate to all affected user quotations.</p>
+                </div>
+                <div id="edit-rate-status" class="hidden text-xs"></div>
+                <div class="flex items-center justify-end space-x-2 pt-2">
+                    <button type="button" onclick="closeEditRateModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl font-semibold">
+                        Cancel
+                    </button>
+                    <button type="submit" id="edit-rate-submit-btn" class="px-5 py-2 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white rounded-xl font-bold shadow-md flex items-center space-x-1.5">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                        <span>Save Rate &amp; Update Quotes</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add New Ingredient Modal -->
+    <div id="add-ingredient-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                <h4 class="text-sm font-bold text-white flex items-center space-x-2">
+                    <i data-lucide="plus-circle" class="w-4 h-4 text-teal-400"></i>
+                    <span>Add New Master Ingredient</span>
+                </h4>
+                <button onclick="closeAddIngredientModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <form onsubmit="handleAddIngredient(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="block text-slate-200 mb-1 font-semibold">Raw Material / Active Ingredient Name *</label>
+                    <input type="text" id="add-ing-name" required placeholder="e.g. Coenzyme Q10, Alpha Lipoic Acid 99%" 
+                           class="w-full bg-slate-950 border border-slate-700 focus:border-teal-400 rounded-xl px-3 py-2 text-white font-semibold outline-none">
+                </div>
+                <div>
+                    <label class="block text-slate-200 mb-1 font-semibold">Master Rate (₹ / Kg) *</label>
+                    <div class="flex items-center bg-slate-950 border border-slate-700 focus-within:border-teal-400 rounded-xl px-3 py-2.5">
+                        <span class="text-teal-400 font-bold text-sm mr-1">₹</span>
+                        <input type="number" step="0.01" min="0" id="add-ing-rate" required placeholder="e.g. 1250.00"
+                               class="w-full bg-transparent text-emerald-400 font-mono font-bold text-sm outline-none">
+                    </div>
+                </div>
+                <div id="add-ing-status" class="hidden text-xs"></div>
+                <div class="flex items-center justify-end space-x-2 pt-2">
+                    <button type="button" onclick="closeAddIngredientModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl font-semibold">
+                        Cancel
+                    </button>
+                    <button type="submit" id="add-ing-submit-btn" class="px-5 py-2 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white rounded-xl font-bold shadow-md flex items-center space-x-1.5">
+                        <i data-lucide="plus" class="w-4 h-4"></i>
+                        <span>Add to Database</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function safeCreateIcons() {
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                try { lucide.createIcons(); } catch(e) {}
+            }
+        }
+        safeCreateIcons();
+
+        // Tab Switching
+        function switchAdminTab(tab) {
+            ['users', 'uploads', 'logins', 'security', 'rates'].forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                const panel = document.getElementById(`tab-panel-${t}`);
+                const isCur = t === tab;
+                if (panel) panel.classList.toggle('hidden', !isCur);
+                if (btn) {
+                    if (isCur) {
+                        btn.className = "tab-btn active px-4 py-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-2 bg-teal-500/20 text-teal-300 border border-teal-500/30";
+                    } else {
+                        btn.className = "tab-btn px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition flex items-center space-x-2";
+                    }
+                }
+            });
+            lucide.createIcons();
+        }
+
+        // Live IST Clock
+        function updateISTClock() {
+            const now = new Date();
+            const istString = now.toLocaleString("en-IN", {
+                timeZone: "Asia/Kolkata",
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true
+            });
+            const el = document.getElementById('live-ist-clock');
+            if (el) el.innerText = `${istString} IST`;
+        }
+        setInterval(updateISTClock, 1000);
+        updateISTClock();
+
+        // Create User
+        async function handleCreateUser(e) {
+            e.preventDefault();
+            const username = document.getElementById('new-username').value.trim();
+            const password = document.getElementById('new-password').value;
+            const full_name = document.getElementById('new-fullname').value.trim();
+            const role = document.getElementById('new-role').value;
+            const statusDiv = document.getElementById('create-user-status');
+
+            statusDiv.className = "mt-3 text-xs text-slate-300";
+            statusDiv.innerText = "Creating user...";
+            statusDiv.classList.remove('hidden');
+
+            try {
+                const res = await fetch('/api/admin/users/create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password, full_name, role })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    statusDiv.className = "mt-3 text-xs text-emerald-400 font-bold";
+                    statusDiv.innerText = `User '${username}' created successfully! Refreshing...`;
+                    setTimeout(() => window.location.reload(), 1000);
+                } else {
+                    statusDiv.className = "mt-3 text-xs text-rose-400 font-bold";
+                    statusDiv.innerText = `Error: ${data.error}`;
+                }
+            } catch (err) {
+                statusDiv.className = "mt-3 text-xs text-rose-400 font-bold";
+                statusDiv.innerText = `Network error: ${err.message}`;
+            }
+        }
+
+        // Password Reset
+        async function promptResetPassword(username) {
+            const newPass = prompt(`Enter new password for user '${username}':`);
+            if (!newPass) return;
+            try {
+                const res = await fetch('/api/admin/users/reset-password', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, new_password: newPass })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert(`Password for '${username}' updated successfully!`);
+                } else {
+                    alert(`Error: ${data.error}`);
+                }
+            } catch (err) {
+                alert(`Network error: ${err.message}`);
+            }
+        }
+
+        // Toggle Status
+        async function handleToggleStatus(username) {
+            if (!confirm(`Are you sure you want to toggle status for '${username}'?`)) return;
+            try {
+                const res = await fetch('/api/admin/users/toggle-status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username })
+                });
+                const data = await res.json();
+                if (data.success) window.location.reload();
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+
+        // Delete User
+        async function handleDeleteUser(username) {
+            if (!confirm(`Permanently delete user '${username}'?`)) return;
+            try {
+                const res = await fetch('/api/admin/users/delete', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username })
+                });
+                const data = await res.json();
+                if (data.success) window.location.reload();
+                else alert(data.error);
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+
+        // Modal Upload Detail
+        function showUploadDetailModal(up) {
+            const m = document.getElementById('upload-detail-modal');
+            const cont = document.getElementById('upload-modal-content');
+            let ratesHtml = (up.software_rates || []).map(r => `
+                <tr class="border-b border-slate-800">
+                    <td class="py-2 text-white font-medium">${r.name || ''}</td>
+                    <td class="py-2 text-slate-400">${r.matched_name || '—'}</td>
+                    <td class="py-2 text-right font-mono font-bold ${r.available ? 'text-emerald-400' : 'text-rose-400'}">
+                        ${r.available && r.rate > 0 ? '₹' + r.rate + '/Kg' : 'Not in DB'}
+                    </td>
+                </tr>
+            `).join('');
+
+            cont.innerHTML = `
+                <div class="flex items-center space-x-4 bg-slate-950 p-3 rounded-xl border border-slate-800">
+                    <img src="${up.image_url}" class="w-20 h-20 object-cover rounded-lg border border-slate-700">
+                    <div>
+                        <div class="font-bold text-white text-sm">${up.original_filename || 'Upload Photo'}</div>
+                        <div class="text-teal-400 font-mono mt-0.5">Uploaded by: <strong>${up.username}</strong></div>
+                        <div class="text-slate-400 font-mono text-[11px]">${up.upload_time_ist}</div>
+                        <div class="text-slate-500 text-[10px] mt-1">Engine: ${up.engine_used} | ${up.ingredients_count} Active Ingredients</div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <h5 class="font-bold text-slate-300 uppercase tracking-wider text-[11px]">Software Internal Rates Matched:</h5>
+                    <div class="bg-slate-950 rounded-xl p-3 border border-slate-800 max-h-60 overflow-y-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead class="text-slate-500 border-b border-slate-800">
+                                <tr>
+                                    <th class="pb-2">Ingredient</th>
+                                    <th class="pb-2">Database Matched Name</th>
+                                    <th class="pb-2 text-right">Software Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${ratesHtml || '<tr><td colspan="3" class="py-3 text-center text-slate-500">No individual rates recorded</td></tr>'}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            m.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        function closeUploadModal() {
+            document.getElementById('upload-detail-modal').classList.add('hidden');
+        }
+
+        function filterUploadsTable() {
+            const q = document.getElementById('upload-search').value.toLowerCase();
+            const rows = document.querySelectorAll('#uploads-table-body tr');
+            rows.forEach(r => {
+                const txt = r.innerText.toLowerCase();
+                r.style.display = txt.includes(q) ? '' : 'none';
+            });
+        }
+
+        // Live Search in Ingredient Rates Table
+        function filterIngredientRates() {
+            const q = (document.getElementById('rate-search-input')?.value || '').toLowerCase().trim();
+            const rows = document.querySelectorAll('.rate-row');
+            rows.forEach(r => {
+                const name = r.getAttribute('data-name') || r.innerText.toLowerCase();
+                r.style.display = name.includes(q) ? '' : 'none';
+            });
+        }
+
+        // Upload and Merge Rate Sheet Handler
+        async function handleUploadRateSheet(e) {
+            e.preventDefault();
+            const fileInput = document.getElementById('rate-sheet-file');
+            const file = fileInput?.files?.[0];
+            if (!file) return;
+
+            const btn = document.getElementById('rate-upload-btn');
+            const resBox = document.getElementById('rate-upload-result-box');
+            const resTitle = document.getElementById('rate-result-title');
+            const resStats = document.getElementById('rate-result-stats');
+            const resSamples = document.getElementById('rate-result-samples');
+
+            btn.disabled = true;
+            btn.innerHTML = `<div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Analyzing &amp; Matching Rates...</span>`;
+
+            resBox.classList.remove('hidden');
+            resTitle.innerText = "Analyzing file and performing intelligent ingredient matching...";
+            resStats.innerHTML = `<div class="col-span-4 text-xs text-slate-400 py-2">Please wait while ingredient names are matched and merged into database...</div>`;
+            resSamples.innerHTML = '';
+
+            const fd = new FormData();
+            fd.append('file', file);
+
+            try {
+                const res = await fetch('/api/admin/rates/upload', {
+                    method: 'POST',
+                    body: fd
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    resTitle.className = "text-xs font-bold text-emerald-400";
+                    resTitle.innerText = `Rate Sheet Successfully Updated! Total Items in Master Database: ${data.total_database_items}`;
+
+                    resStats.innerHTML = `
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Processed</span>
+                            <span class="text-base font-bold text-white font-mono">${data.total_processed}</span>
+                        </div>
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-teal-400 uppercase tracking-wider block">Exact Updates</span>
+                            <span class="text-base font-bold text-teal-300 font-mono">${data.exact_updated}</span>
+                        </div>
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-amber-400 uppercase tracking-wider block">Smart Matches</span>
+                            <span class="text-base font-bold text-amber-300 font-mono">${data.similar_updated}</span>
+                        </div>
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span class="text-[10px] text-emerald-400 uppercase tracking-wider block">New Added</span>
+                            <span class="text-base font-bold text-emerald-300 font-mono">${data.new_added}</span>
+                        </div>
+                    `;
+
+                    let samplesHtml = `<div class="font-bold text-slate-300 pb-1">Sample Updates Preview:</div>`;
+                    (data.sample_updates || []).slice(0, 10).forEach(u => {
+                        samplesHtml += `
+                            <div class="flex items-center justify-between py-0.5">
+                                <span class="font-semibold text-slate-200">${u.item} <span class="text-[10px] text-teal-400 font-normal">(${u.match_type})</span></span>
+                                <span class="font-mono text-emerald-300 font-bold">₹${u.new_rate.toFixed(2)} / Kg</span>
+                            </div>
+                        `;
+                    });
+                    resSamples.innerHTML = samplesHtml;
+
+                    // Automatically reload after 3 seconds to update the live catalog table
+                    setTimeout(() => window.location.reload(), 3000);
+                } else {
+                    resTitle.className = "text-xs font-bold text-rose-400";
+                    resTitle.innerText = `Update Failed: ${data.error}`;
+                    resStats.innerHTML = `<div class="col-span-4 text-xs text-rose-400 py-2">Please ensure the Excel/CSV file contains ingredient names and rate columns.</div>`;
+                }
+            } catch (err) {
+                resTitle.className = "text-xs font-bold text-rose-400";
+                resTitle.innerText = `Network or Server Error: ${err.message}`;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i data-lucide="upload-cloud" class="w-4 h-4"></i><span>Update &amp; Match Rates</span>`;
+                lucide.createIcons();
+            }
+        }
+
+        // Scroll directly to Pending Rates section
+        function scrollToPendingRates() {
+            setTimeout(() => {
+                const el = document.getElementById('pending-rates-card');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        // Per-User Quotation Filter & Aggregate Portfolio Calculation
+        function filterQuotationsByUser() {
+            const filterVal = document.getElementById('quotation-user-filter').value;
+            const rows = document.querySelectorAll('.quote-row');
+            let visibleCount = 0;
+            let totalVal = 0;
+            let pendingCount = 0;
+
+            rows.forEach(r => {
+                const u = r.getAttribute('data-user');
+                const val = parseFloat(r.getAttribute('data-val') || '0');
+                const status = r.getAttribute('data-status') || '';
+                const isMatch = filterVal === 'ALL' || u === filterVal;
+                
+                r.style.display = isMatch ? '' : 'none';
+                if (isMatch) {
+                    visibleCount++;
+                    totalVal += val;
+                    if (status.includes('PENDING')) pendingCount++;
+                }
+            });
+
+            // Update Summary Card
+            const nameEl = document.getElementById('user-summary-name');
+            const countEl = document.getElementById('user-summary-count');
+            const valEl = document.getElementById('user-summary-val');
+            const pendingEl = document.getElementById('user-summary-pending');
+            const tableCount = document.getElementById('quotation-table-count');
+
+            if (nameEl) nameEl.innerText = filterVal === 'ALL' ? 'All Users' : filterVal;
+            if (countEl) countEl.innerText = `${visibleCount} Quotations`;
+            if (valEl) valEl.innerText = `₹${totalVal.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            if (pendingEl) pendingEl.innerText = `${pendingCount} Pending Rates`;
+            if (tableCount) tableCount.innerText = `${visibleCount} Records Shown`;
+
+            const noRow = document.getElementById('no-quotes-row');
+            if (noRow) noRow.style.display = visibleCount === 0 ? '' : 'none';
+        }
+
+        // Resolve Pending Missing Rate Request & Push to User
+        async function resolvePendingMissingRate(reqId, ingName, inputId) {
+            const inputEl = document.getElementById(inputId);
+            const rateVal = parseFloat(inputEl?.value || '0');
+            if (!rateVal || rateVal <= 0) {
+                alert(`Please enter a valid rate (₹/Kg) greater than 0 for '${ingName}'`);
+                inputEl?.focus();
+                return;
+            }
+
+            const row = document.getElementById(`pending-row-${reqId}`);
+            const btn = row?.querySelector('button');
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = `<div class="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Updating...</span>`;
+            }
+
+            try {
+                const res = await fetch('/api/admin/rates/resolve-missing', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ingredient_name: ingName, rate: rateVal })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert(`✅ ${data.message}`);
+                    window.location.reload();
+                } else {
+                    alert(`❌ Failed: ${data.error}`);
+                    if (btn) {
+                        btn.disabled = false;
+                        btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i><span>Set Rate &amp; Update User</span>`;
+                        lucide.createIcons();
+                    }
+                }
+            } catch (err) {
+                alert(`Network error: ${err.message}`);
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i><span>Set Rate &amp; Update User</span>`;
+                    lucide.createIcons();
+                }
+            }
+        }
+
+        // Edit Rate Modal Handlers
+        function openEditRateModal(name, currentRate) {
+            document.getElementById('edit-rate-name').value = name;
+            document.getElementById('edit-rate-current').value = `₹${currentRate.toFixed(2)} / Kg`;
+            document.getElementById('edit-rate-new').value = currentRate.toFixed(2);
+            document.getElementById('edit-rate-status').classList.add('hidden');
+            document.getElementById('edit-rate-modal').classList.remove('hidden');
+            lucide.createIcons();
+            document.getElementById('edit-rate-new').focus();
+        }
+
+        function closeEditRateModal() {
+            document.getElementById('edit-rate-modal').classList.add('hidden');
+        }
+
+        async function handleSaveEditRate(e) {
+            e.preventDefault();
+            const name = document.getElementById('edit-rate-name').value;
+            const rate = parseFloat(document.getElementById('edit-rate-new').value || '0');
+            const statusDiv = document.getElementById('edit-rate-status');
+            const btn = document.getElementById('edit-rate-submit-btn');
+
+            if (isNaN(rate) || rate < 0) {
+                statusDiv.className = "text-xs text-rose-400 font-bold block";
+                statusDiv.innerText = "Please enter a valid positive rate";
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = `<div class="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Saving Rate...</span>`;
+
+            try {
+                const res = await fetch('/api/admin/rates/update-single', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, rate: rate })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    statusDiv.className = "text-xs text-emerald-400 font-bold block";
+                    statusDiv.innerText = `Rate updated to ₹${rate.toFixed(2)} / Kg! Refreshing...`;
+                    setTimeout(() => window.location.reload(), 1000);
+                } else {
+                    statusDiv.className = "text-xs text-rose-400 font-bold block";
+                    statusDiv.innerText = `Error: ${data.error}`;
+                    btn.disabled = false;
+                    btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>Save Rate &amp; Update Quotes</span>`;
+                    lucide.createIcons();
+                }
+            } catch (err) {
+                statusDiv.className = "text-xs text-rose-400 font-bold block";
+                statusDiv.innerText = `Network error: ${err.message}`;
+                btn.disabled = false;
+                btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>Save Rate &amp; Update Quotes</span>`;
+                lucide.createIcons();
+            }
+        }
+
+        // Approve a User-Estimated Rate to Official Database (rate avg.xlsx)
+        async function approveUserRateToDb(ingredientName, rate) {
+            if (!confirm(`Are you sure you want to promote '${ingredientName}' at ₹${Number(rate).toFixed(2)}/Kg into the official database (rate avg.xlsx)?`)) {
+                return;
+            }
+            try {
+                const res = await fetch('/api/admin/rates/update-single', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: ingredientName, rate: Number(rate) })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert(`Success: '${ingredientName}' added to official database at ₹${Number(rate).toFixed(2)}/Kg.`);
+                    window.location.reload();
+                } else {
+                    alert(`Error: ${data.error || 'Failed to update database'}`);
+                }
+            } catch (err) {
+                alert(`Network error: ${err.message}`);
+            }
+        }
+
+        // Add Ingredient Modal Handlers
+        function openAddIngredientModal() {
+            document.getElementById('add-ing-name').value = '';
+            document.getElementById('add-ing-rate').value = '';
+            document.getElementById('add-ing-status').classList.add('hidden');
+            document.getElementById('add-ingredient-modal').classList.remove('hidden');
+            lucide.createIcons();
+            document.getElementById('add-ing-name').focus();
+        }
+
+        function closeAddIngredientModal() {
+            document.getElementById('add-ingredient-modal').classList.add('hidden');
+        }
+
+        async function handleAddIngredient(e) {
+            e.preventDefault();
+            const name = document.getElementById('add-ing-name').value.trim();
+            const rate = parseFloat(document.getElementById('add-ing-rate').value || '0');
+            const statusDiv = document.getElementById('add-ing-status');
+            const btn = document.getElementById('add-ing-submit-btn');
+
+            if (!name) {
+                statusDiv.className = "text-xs text-rose-400 font-bold block";
+                statusDiv.innerText = "Please enter ingredient name";
+                return;
+            }
+            if (isNaN(rate) || rate < 0) {
+                statusDiv.className = "text-xs text-rose-400 font-bold block";
+                statusDiv.innerText = "Please enter valid rate (₹/Kg)";
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = `<div class="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Adding...</span>`;
+
+            try {
+                const res = await fetch('/api/admin/rates/update-single', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, rate: rate })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    statusDiv.className = "text-xs text-emerald-400 font-bold block";
+                    statusDiv.innerText = `Added '${name}' at ₹${rate.toFixed(2)}/Kg! Reloading...`;
+                    setTimeout(() => window.location.reload(), 1000);
+                } else {
+                    statusDiv.className = "text-xs text-rose-400 font-bold block";
+                    statusDiv.innerText = `Error: ${data.error}`;
+                    btn.disabled = false;
+                    btn.innerHTML = `<i data-lucide="plus" class="w-4 h-4"></i><span>Add to Database</span>`;
+                    lucide.createIcons();
+                }
+            } catch (err) {
+                statusDiv.className = "text-xs text-rose-400 font-bold block";
+                statusDiv.innerText = `Network error: ${err.message}`;
+                btn.disabled = false;
+                btn.innerHTML = `<i data-lucide="plus" class="w-4 h-4"></i><span>Add to Database</span>`;
+                lucide.createIcons();
+            }
+        }
+
+        async function saveMasterConfig(e) {
+            if (e) e.preventDefault();
+            const btn = document.getElementById('btn-save-master-config');
+            const statusDiv = document.getElementById('master-config-status');
+            
+            const payload = {
+                liquid: {
+                    standard_packaging: {
+                        "15_60ml": parseFloat(document.getElementById('cfg-liq-std-15-60')?.value || '8.0'),
+                        "60_100ml": parseFloat(document.getElementById('cfg-liq-std-60-100')?.value || '10.0'),
+                        "200ml": parseFloat(document.getElementById('cfg-liq-std-200')?.value || '12.0')
+                    },
+                    manufacturing: {
+                        conversion_cost_per_bottle: parseFloat(document.getElementById('cfg-liq-conv')?.value || '1.50'),
+                        stereo_cost_per_bottle: parseFloat(document.getElementById('cfg-liq-stereo')?.value || '0.05'),
+                        testing_charge_per_bottle: parseFloat(document.getElementById('cfg-liq-testing')?.value || '0.50'),
+                        margin_per_bottle: parseFloat(document.getElementById('cfg-liq-margin')?.value || '1.00'),
+                        dm_water_rate_per_L: parseFloat(document.getElementById('cfg-liq-water')?.value || '0.80')
+                    },
+                    components: {
+                        bottles: {
+                            "200ml": { PET: parseFloat(document.getElementById('cfg-liq-btl-200')?.value || '4.00') },
+                            "100ml": { PET: parseFloat(document.getElementById('cfg-liq-btl-100')?.value || '2.25') }
+                        },
+                        caps: {
+                            "ROPP Golden": parseFloat(document.getElementById('cfg-liq-cap-golden')?.value || '0.72')
+                        },
+                        measuring_cup: {
+                            default: parseFloat(document.getElementById('cfg-liq-cup')?.value || '0.30')
+                        },
+                        cartons: {
+                            "Mono Carton UV Drip Off": parseFloat(document.getElementById('cfg-liq-carton')?.value || '3.20')
+                        },
+                        labels: {
+                            "UV Varnish Roll (120x45)": parseFloat(document.getElementById('cfg-liq-label')?.value || '0.65')
+                        },
+                        boxes: {
+                            "60 BOTT Corrugated (5-ply)": parseFloat(document.getElementById('cfg-liq-box')?.value || '1.00')
+                        },
+                        dropper: {
+                            "Standard Dropper": parseFloat(document.getElementById('cfg-liq-dropper')?.value || '1.50')
+                        },
+                        insert: {
+                            "Paper Leaflet / Insert": parseFloat(document.getElementById('cfg-liq-insert')?.value || '0.35')
+                        }
+                    }
+                },
+                tablet: {
+                    conversion_cost_per_tablet: parseFloat(document.getElementById('cfg-tab-conv')?.value || '0.25'),
+                    margin_percent: parseFloat(document.getElementById('cfg-tab-margin')?.value || '20.0'),
+                    strip_costs: {
+                        "Alu Alu 1*10": parseFloat(document.getElementById('cfg-strip-alu-10')?.value || '1.80'),
+                        "Blister 1*10": parseFloat(document.getElementById('cfg-strip-blist-10')?.value || '0.90')
+                    }
+                },
+                capsule: {
+                    conversion_cost_per_capsule: parseFloat(document.getElementById('cfg-cap-conv')?.value || '0.25'),
+                    shell_costs: {
+                        veg_hpmc: parseFloat(document.getElementById('cfg-shell-veg')?.value || '0.48'),
+                        gelatin: parseFloat(document.getElementById('cfg-shell-gel')?.value || '0.18'),
+                        dr_delayed_release: parseFloat(document.getElementById('cfg-shell-dr')?.value || '0.75')
+                    }
+                }
+            };
+
+            btn.disabled = true;
+            btn.innerHTML = `<div class="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Saving...</span>`;
+
+            try {
+                const res = await fetch('/api/admin/master-config/update', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (data.success) {
+                    statusDiv.className = "p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold block";
+                    statusDiv.innerText = "Master packaging & production configuration saved successfully!";
+                    setTimeout(() => statusDiv.classList.add('hidden'), 4000);
+                } else {
+                    statusDiv.className = "p-3 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 font-bold block";
+                    statusDiv.innerText = "Error: " + (data.error || "Failed to update configuration");
+                }
+            } catch (err) {
+                statusDiv.className = "p-3 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 font-bold block";
+                statusDiv.innerText = "Network Error: " + err.message;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i data-lucide="save" class="w-4 h-4"></i><span>Save Master Production Rates</span>`;
+                lucide.createIcons();
+            }
+        }
+    </script>
+</body>
+</html>

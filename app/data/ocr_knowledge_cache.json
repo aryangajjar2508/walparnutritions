@@ -1,0 +1,2661 @@
+{
+  "3182eee349d5a223362ad235a9102dc6": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C (Ascorbic Acid)",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Sulphate)",
+        "dosage": 12,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3 (Cholecalciferol)",
+        "dosage": 600,
+        "unit": "IU"
+      },
+      {
+        "name": "Elderberry Extract",
+        "dosage": 150,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C (Ascorbic Acid)\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Sulphate)\", \"dosage\": 12, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3 (Cholecalciferol)\", \"dosage\": 600, \"unit\": \"IU\"},\n  {\"name\": \"Elderberry Extract\", \"dosage\": 150, \"unit\": \"mg\"}\n]"
+  },
+  "ac1d35a5823df7e8ab957a84573d2dc6": {
+    "extracted_items": [
+      {
+        "name": "FolliFlora Complex",
+        "dosage": 340,
+        "unit": "mg"
+      },
+      {
+        "name": "FemBalance Complex",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "Solubilized Keratin",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "Bamboo Extract (Bambusa vulgaris)",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "Lycopene",
+        "dosage": 10,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"FolliFlora Complex\", \"dosage\": 340, \"unit\": \"mg\"},\n  {\"name\": \"FemBalance Complex\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"Solubilized Keratin\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"Bamboo Extract (Bambusa vulgaris)\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"Lycopene\", \"dosage\": 10, \"unit\": \"mg\"}\n]"
+  },
+  "c3e48d822e90b7fd71238aa27354d0f7": {
+    "extracted_items": [
+      {
+        "name": "Lactobacillus plantarum",
+        "dosage": 2.5,
+        "unit": "B CFU"
+      },
+      {
+        "name": "Lactobacillus salivarius",
+        "dosage": 2.5,
+        "unit": "B CFU"
+      },
+      {
+        "name": "Lactobacillus acidophilus",
+        "dosage": 1.5,
+        "unit": "B CFU"
+      },
+      {
+        "name": "Lactobacillus rhamnosus",
+        "dosage": 1,
+        "unit": "B CFU"
+      },
+      {
+        "name": "Lactobacillus paracasei",
+        "dosage": 1,
+        "unit": "B CFU"
+      },
+      {
+        "name": "Cranberry fruit juice powder",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "D-mannose",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Fructooligosaccharide",
+        "dosage": 30,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Lactobacillus plantarum\", \"dosage\": 2.5, \"unit\": \"B CFU\"},\n  {\"name\": \"Lactobacillus salivarius\", \"dosage\": 2.5, \"unit\": \"B CFU\"},\n  {\"name\": \"Lactobacillus acidophilus\", \"dosage\": 1.5, \"unit\": \"B CFU\"},\n  {\"name\": \"Lactobacillus rhamnosus\", \"dosage\": 1, \"unit\": \"B CFU\"},\n  {\"name\": \"Lactobacillus paracasei\", \"dosage\": 1, \"unit\": \"B CFU\"},\n  {\"name\": \"Cranberry fruit juice powder\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"D-mannose\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Fructooligosaccharide\", \"dosage\": 30, \"unit\": \"mg\"}\n]"
+  },
+  "0ba06c65782f4b83824981c8a09b5cdd": {
+    "extracted_items": [
+      {
+        "name": "Vitamin K2 (MK-7)",
+        "dosage": 55,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3 (Lichen source)",
+        "dosage": 15,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin K2 (MK-7)\", \"dosage\": 55, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3 (Lichen source)\", \"dosage\": 15, \"unit\": \"mg\"}\n]"
+  },
+  "b99262b749d6086e36c0faec8bdbe306": {
+    "extracted_items": [
+      {
+        "name": "Turmeric (Curcuma Longa) root",
+        "dosage": 1350,
+        "unit": "mg"
+      },
+      {
+        "name": "Turmeric Extract (95% Standardized Curcuminoids)",
+        "dosage": 150,
+        "unit": "mg"
+      },
+      {
+        "name": "Black Pepper Fruit Extract",
+        "dosage": 10,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Turmeric (Curcuma Longa) root\", \"dosage\": 1350, \"unit\": \"mg\"},\n  {\"name\": \"Turmeric Extract (95% Standardized Curcuminoids)\", \"dosage\": 150, \"unit\": \"mg\"},\n  {\"name\": \"Black Pepper Fruit Extract\", \"dosage\": 10, \"unit\": \"mg\"}\n]"
+  },
+  "f98fcdbc132bde790f5fdcba0bc06edc": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C (as Ascorbic Acid)",
+        "dosage": 20,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E (as D-alpha Tocopherol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B1 (as Thiamine Hydrochloride)",
+        "dosage": 1.25,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B2 (as Riboflavin 5 Phosphate)",
+        "dosage": 2.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B3 (as Nicotinamide)",
+        "dosage": 15,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B5 (as D-Panthenol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6 (as Pyridoxine hydrochloride)",
+        "dosage": 1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A Palmitate",
+        "dosage": 1250,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B9 (as Folic Acid)",
+        "dosage": 200,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin D (as Cholecalciferol)",
+        "dosage": 400,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B12 (as Cyanocobalamin)",
+        "dosage": 1,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron (as ferrous fumarate)",
+        "dosage": 2,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Sulphate)",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese (as Manganese Sulphate)",
+        "dosage": 0.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Iodine (as Potassium Iodide)",
+        "dosage": 50,
+        "unit": "mcg"
+      },
+      {
+        "name": "Copper (as copper sulphate)",
+        "dosage": 25,
+        "unit": "mcg"
+      },
+      {
+        "name": "Selenium (as Sodium Selenate)",
+        "dosage": 20,
+        "unit": "mcg"
+      },
+      {
+        "name": "Chromium (as Chromium picolinate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "Molybdenum (Sodium molybdate dehydrate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "L-Lysine (as L-Lysine hcl)",
+        "dosage": 75,
+        "unit": "mg"
+      },
+      {
+        "name": "Lycopene",
+        "dosage": 1000,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C (as Ascorbic Acid)\", \"dosage\": 20, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E (as D-alpha Tocopherol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B1 (as Thiamine Hydrochloride)\", \"dosage\": 1.25, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B2 (as Riboflavin 5 Phosphate)\", \"dosage\": 2.1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B3 (as Nicotinamide)\", \"dosage\": 15, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B5 (as D-Panthenol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6 (as Pyridoxine hydrochloride)\", \"dosage\": 1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin A Palmitate\", \"dosage\": 1250, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B9 (as Folic Acid)\", \"dosage\": 200, \"unit\": \"mcg\"},\n  {\"name\": \"Vitamin D (as Cholecalciferol)\", \"dosage\": 400, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B12 (as Cyanocobalamin)\", \"dosage\": 1, \"unit\": \"mcg\"},\n  {\"name\": \"Iron (as ferrous fumarate)\", \"dosage\": 2, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Sulphate)\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Manganese (as Manganese Sulphate)\", \"dosage\": 0.8, \"unit\": \"mg\"},\n  {\"name\": \"Iodine (as Potassium Iodide)\", \"dosage\": 50, \"unit\": \"mcg\"},\n  {\"name\": \"Copper (as copper sulphate)\", \"dosage\": 25, \"unit\": \"mcg\"},\n  {\"name\": \"Selenium (as Sodium Selenate)\", \"dosage\": 20, \"unit\": \"mcg\"},\n  {\"name\": \"Chromium (as Chromium picolinate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"Molybdenum (Sodium molybdate dehydrate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"L-Lysine (as L-Lysine hcl)\", \"dosage\": 75, \"unit\": \"mg\"},\n  {\"name\": \"Lycopene\", \"dosage\": 1000, \"unit\": \"mcg\"}\n]"
+  },
+  "3eaa7c348e54638fc010f4eb94b10ddd": {
+    "extracted_items": [
+      {
+        "name": "Co-Enzyme Q10 (Ubiquinol)",
+        "dosage": 200,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 3,
+        "unit": "gm"
+      },
+      {
+        "name": "L-Carnitine L-Tartrate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 0.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "dosage": 12,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Co-Enzyme Q10 (Ubiquinol)\", \"dosage\": 200, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 3, \"unit\": \"gm\"},\n  {\"name\": \"L-Carnitine L-Tartrate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 0.3, \"unit\": \"mg\"},\n  {\"name\": \"Zinc\", \"dosage\": 12, \"unit\": \"mg\"}\n]"
+  },
+  "87b7625eab681417d16074adeeed905a": {
+    "extracted_items": [
+      {
+        "name": "Co-Enzyme Q10 (Ubiquinol)",
+        "dosage": 200,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 3,
+        "unit": "gm"
+      },
+      {
+        "name": "L-Carnitine L-Tartrate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 0.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "dosage": 12,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Co-Enzyme Q10 (Ubiquinol)\", \"dosage\": 200, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 3, \"unit\": \"gm\"},\n  {\"name\": \"L-Carnitine L-Tartrate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 0.3, \"unit\": \"mg\"},\n  {\"name\": \"Zinc\", \"dosage\": 12, \"unit\": \"mg\"}\n]"
+  },
+  "90fd37a54335d80da517de19b91a012e": {
+    "extracted_items": [
+      {
+        "name": "Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen)",
+        "dosage": 125,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin K2 MK7 (as Menaquinone)",
+        "dosage": 120,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen)\", \"dosage\": 125, \"unit\": \"mcg\"},\n  {\"name\": \"Vitamin K2 MK7 (as Menaquinone)\", \"dosage\": 120, \"unit\": \"mcg\"}\n]"
+  },
+  "7b7c0761578dfeca48c7758b5de0b3ff": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C (Ascorbic Acid)",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Sulphate)",
+        "dosage": 12,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3 (Cholecalciferol)",
+        "dosage": 600,
+        "unit": "IU"
+      },
+      {
+        "name": "Elderberry Extract",
+        "dosage": 150,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C (Ascorbic Acid)\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Sulphate)\", \"dosage\": 12, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3 (Cholecalciferol)\", \"dosage\": 600, \"unit\": \"IU\"},\n  {\"name\": \"Elderberry Extract\", \"dosage\": 150, \"unit\": \"mg\"}\n]"
+  },
+  "f824ec0aa135342ad36a8e0a9b4d1fb9": {
+    "extracted_items": [
+      {
+        "name": "L-Glutathione",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Alpha Lipoic Acid",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Grape Seed Extract",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 50,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"L-Glutathione\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Alpha Lipoic Acid\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"Grape Seed Extract\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 50, \"unit\": \"mg\"}\n]"
+  },
+  "952ce6b29a330e7a5c10ec44153fbd64": {
+    "extracted_items": [
+      {
+        "name": "L-Glutathione",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Alpha Lipoic Acid",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Grape Seed Extract",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 50,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"L-Glutathione\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Alpha Lipoic Acid\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"Grape Seed Extract\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 50, \"unit\": \"mg\"}\n]"
+  },
+  "602d02d8d3054005010d0e532af1cb59": {
+    "extracted_items": [
+      {
+        "name": "L-Glutathione",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Alpha Lipoic Acid",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Grape Seed Extract",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 50,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"L-Glutathione\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Alpha Lipoic Acid\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"Grape Seed Extract\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 50, \"unit\": \"mg\"}\n]"
+  },
+  "4756d23b4ae6b3b29619fda066564244": {
+    "extracted_items": [
+      {
+        "name": "Opitac™ L-Glutathione (Reduced)",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "N-Acetyl L-Cysteine",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Taurine",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Energy",
+        "dosage": 0.76,
+        "unit": "Kcal"
+      },
+      {
+        "name": "Carbohydrate",
+        "dosage": 0.19,
+        "unit": "g"
+      },
+      {
+        "name": "Protein",
+        "dosage": 0.0,
+        "unit": "g"
+      },
+      {
+        "name": "Fat & Fatty Acids",
+        "dosage": 0.0,
+        "unit": "g"
+      },
+      {
+        "name": "Cholesterol",
+        "dosage": 0.0,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Opitac™ L-Glutathione (Reduced)\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"N-Acetyl L-Cysteine\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"L-Taurine\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Energy\", \"dosage\": 0.76, \"unit\": \"Kcal\"},\n  {\"name\": \"Carbohydrate\", \"dosage\": 0.19, \"unit\": \"g\"},\n  {\"name\": \"Protein\", \"dosage\": 0.00, \"unit\": \"g\"},\n  {\"name\": \"Fat & Fatty Acids\", \"dosage\": 0.00, \"unit\": \"g\"},\n  {\"name\": \"Cholesterol\", \"dosage\": 0.00, \"unit\": \"mg\"}\n]"
+  },
+  "357ce04a8cae077e4bb72b6f7dfefd90": {
+    "extracted_items": [
+      {
+        "name": "Co-Enzyme Q10 (Ubiquinol)",
+        "dosage": 200,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 3,
+        "unit": "gm"
+      },
+      {
+        "name": "L-Carnitine L-Tartrate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 0.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "dosage": 12,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Co-Enzyme Q10 (Ubiquinol)\", \"dosage\": 200, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 3, \"unit\": \"gm\"},\n  {\"name\": \"L-Carnitine L-Tartrate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 0.3, \"unit\": \"mg\"},\n  {\"name\": \"Zinc\", \"dosage\": 12, \"unit\": \"mg\"}\n]"
+  },
+  "a3e21bed6e5ac322fddc113fb775806c": {
+    "extracted_items": [
+      {
+        "name": "L-Glutathione",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Alpha Lipoic Acid",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Grape Seed Extract",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 50,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"L-Glutathione\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Alpha Lipoic Acid\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"Grape Seed Extract\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 50, \"unit\": \"mg\"}\n]"
+  },
+  "b2d10939ff6c8a75113a9b8c627ad119": {
+    "extracted_items": [
+      {
+        "name": "L-Glutathione",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Alpha Lipoic Acid",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Grape Seed Extract",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 50,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"L-Glutathione\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Alpha Lipoic Acid\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"Grape Seed Extract\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 50, \"unit\": \"mg\"}\n]"
+  },
+  "0d5dbfd5a9fd1941b1afe382576d3ddf": {
+    "extracted_items": [
+      {
+        "name": "L-Glutathione",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Alpha Lipoic Acid",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Grape Seed Extract",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 50,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"L-Glutathione\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Alpha Lipoic Acid\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"Grape Seed Extract\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 50, \"unit\": \"mg\"}\n]"
+  },
+  "979e9969baf6df6dadcd9028b3ee593a": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C (as Ascorbic Acid)",
+        "dosage": 20,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E (as D-alpha Tocopherol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B1(as Thiamine Hydrochloride)",
+        "dosage": 1.25,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B2 (as Riboflavin 5 Phosphate)",
+        "dosage": 2.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B3 (as Nicotinamide)",
+        "dosage": 15,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B5 (as D-Pnthenol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6 (as Pyridoxine Hydrochloride)",
+        "dosage": 1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A Palmitate",
+        "dosage": 1250,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B9 (as Folic Acid)",
+        "dosage": 200,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin D (as Cholecalciferol)",
+        "dosage": 400,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B12 (as Cyanocobalamin)",
+        "dosage": 1,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron (as ferrous fumarate)",
+        "dosage": 2,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Sulphate)",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese (as Manganese Sulphate)",
+        "dosage": 0.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Iodine (as Potassium Iodide)",
+        "dosage": 50,
+        "unit": "mcg"
+      },
+      {
+        "name": "Copper (as copper sulphate)",
+        "dosage": 25,
+        "unit": "mcg"
+      },
+      {
+        "name": "Selenium (as Sodium Selenite)",
+        "dosage": 20,
+        "unit": "mcg"
+      },
+      {
+        "name": "Chromium (as Chromium picolinate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "Molybdenum (Sodium molybdate dehydrate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "L-Lysine (as L-Lysine hcl)",
+        "dosage": 75,
+        "unit": "mg"
+      },
+      {
+        "name": "Lycopene",
+        "dosage": 1000,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C (as Ascorbic Acid)\", \"dosage\": 20, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E (as D-alpha Tocopherol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B1(as Thiamine Hydrochloride)\", \"dosage\": 1.25, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B2 (as Riboflavin 5 Phosphate)\", \"dosage\": 2.1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B3 (as Nicotinamide)\", \"dosage\": 15, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B5 (as D-Pnthenol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6 (as Pyridoxine Hydrochloride)\", \"dosage\": 1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin A Palmitate\", \"dosage\": 1250, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B9 (as Folic Acid)\", \"dosage\": 200, \"unit\": \"mcg\"},\n  {\"name\": \"Vitamin D (as Cholecalciferol)\", \"dosage\": 400, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B12 (as Cyanocobalamin)\", \"dosage\": 1, \"unit\": \"mcg\"},\n  {\"name\": \"Iron (as ferrous fumarate)\", \"dosage\": 2, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Sulphate)\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Manganese (as Manganese Sulphate)\", \"dosage\": 0.8, \"unit\": \"mg\"},\n  {\"name\": \"Iodine (as Potassium Iodide)\", \"dosage\": 50, \"unit\": \"mcg\"},\n  {\"name\": \"Copper (as copper sulphate)\", \"dosage\": 25, \"unit\": \"mcg\"},\n  {\"name\": \"Selenium (as Sodium Selenite)\", \"dosage\": 20, \"unit\": \"mcg\"},\n  {\"name\": \"Chromium (as Chromium picolinate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"Molybdenum (Sodium molybdate dehydrate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"L-Lysine (as L-Lysine hcl)\", \"dosage\": 75, \"unit\": \"mg\"},\n  {\"name\": \"Lycopene\", \"dosage\": 1000, \"unit\": \"mcg\"}\n]"
+  },
+  "c24fa1c644f5885f2c7446c7973a1ece": {
+    "extracted_items": [
+      {
+        "name": "Blend of Lactobacillus Spp. Probiotics (Lactobacillus acidophilus (MBLAM3®), Lactobacillus johnsonii (MBLJM69), Limosilactobacillus reuteri (MBLREM24®), Lacticaseibacillus rhamnosus (MBLRM6®), Lactobacillus crispatus (MBLCM75), Lactobacillus delbrueckii spp. bulgaricus (MBLBM18), Lactiplantibacillus plantarum (MBLPM27®), Lactobacillus helviticus (MBLHM63), Lactobacillus gasseri (MBLGM21))",
+        "dosage": 22,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Blend of Bifidobacterium Spp. Probiotics (Bifidobacterium breve (MBBBRM60), Bifidobacterium bifidum (MBBBM12®), Bifidobacterium longum (MBBBLM15®), Bifidobacterium lactis (MBBALM27))",
+        "dosage": 8,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Cranberry Extract (Vaccinium Macrocarpon L.)",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "D-mannose",
+        "dosage": 250,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A",
+        "dosage": 0.21,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "dosage": 1.4,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\n    \"name\": \"Blend of Lactobacillus Spp. Probiotics (Lactobacillus acidophilus (MBLAM3®), Lactobacillus johnsonii (MBLJM69), Limosilactobacillus reuteri (MBLREM24®), Lacticaseibacillus rhamnosus (MBLRM6®), Lactobacillus crispatus (MBLCM75), Lactobacillus delbrueckii spp. bulgaricus (MBLBM18), Lactiplantibacillus plantarum (MBLPM27®), Lactobacillus helviticus (MBLHM63), Lactobacillus gasseri (MBLGM21))\",\n    \"dosage\": 22,\n    \"unit\": \"Billion CFU\"\n  },\n  {\n    \"name\": \"Blend of Bifidobacterium Spp. Probiotics (Bifidobacterium breve (MBBBRM60), Bifidobacterium bifidum (MBBBM12®), Bifidobacterium longum (MBBBLM15®), Bifidobacterium lactis (MBBALM27))\",\n    \"dosage\": 8,\n    \"unit\": \"Billion CFU\"\n  },\n  {\n    \"name\": \"Cranberry Extract (Vaccinium Macrocarpon L.)\",\n    \"dosage\": 100,\n    \"unit\": \"mg\"\n  },\n  {\n    \"name\": \"D-mannose\",\n    \"dosage\": 250,\n    \"unit\": \"mg\"\n  },\n  {\n    \"name\": \"Vitamin A\",\n    \"dosage\": 0.21,\n    \"unit\": \"mg\"\n  },\n  {\n    \"name\": \"Vitamin B6\",\n    \"dosage\": 1.4,\n    \"unit\": \"mg\"\n  }\n]"
+  },
+  "51090fc7ba3f35fba73cdb97614aebc9": {
+    "extracted_items": [
+      {
+        "name": "Co-Enzyme Q10 (Ubiquinol)",
+        "dosage": 200,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 3,
+        "unit": "g"
+      },
+      {
+        "name": "L-Carnitine L-Tartrate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 0.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "dosage": 12,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Co-Enzyme Q10 (Ubiquinol)\", \"dosage\": 200, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 3, \"unit\": \"g\"},\n  {\"name\": \"L-Carnitine L-Tartrate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 0.3, \"unit\": \"mg\"},\n  {\"name\": \"Zinc\", \"dosage\": 12, \"unit\": \"mg\"}\n]"
+  },
+  "13808e02412eec963cc0cb4db503acc6": {
+    "extracted_items": [
+      {
+        "name": "Myo Inositol",
+        "dosage": 125,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C (Ascorbic Acid)",
+        "dosage": 65,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron (As Ferrous Sulphate)",
+        "dosage": 29,
+        "unit": "mg"
+      },
+      {
+        "name": "Choline Bitartrate",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Cysteine",
+        "dosage": 18,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Methionine",
+        "dosage": 18,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B3 (Niacin)",
+        "dosage": 14,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (As Zinc Sulphate)",
+        "dosage": 13.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E",
+        "dosage": 7.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B5 (Pantothenic Acid)",
+        "dosage": 5,
+        "unit": "mg"
+      },
+      {
+        "name": "D Chiro Inositol",
+        "dosage": 3.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B2 (Riboflavin)",
+        "dosage": 2.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Inositol",
+        "dosage": 2,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6 (Pyridoxine)",
+        "dosage": 1.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Copper",
+        "dosage": 1.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B1 (Thiamine)",
+        "dosage": 1.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B9 (Folic acid)",
+        "dosage": 0.22,
+        "unit": "mg"
+      },
+      {
+        "name": "Iodine",
+        "dosage": 0.14,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A (Beta Carotene)",
+        "dosage": 0.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Chromium",
+        "dosage": 0.05,
+        "unit": "mg"
+      },
+      {
+        "name": "Selenium",
+        "dosage": 0.04,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B12 (Cyanocobalamin)",
+        "dosage": 0.0022,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B7 (Biotin)",
+        "dosage": 0.03,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D (Cholecalciferol)",
+        "dosage": 0.015,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Myo Inositol\", \"dosage\": 125, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C (Ascorbic Acid)\", \"dosage\": 65, \"unit\": \"mg\"},\n  {\"name\": \"Iron (As Ferrous Sulphate)\", \"dosage\": 29, \"unit\": \"mg\"},\n  {\"name\": \"Choline Bitartrate\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"L-Cysteine\", \"dosage\": 18, \"unit\": \"mg\"},\n  {\"name\": \"L-Methionine\", \"dosage\": 18, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B3 (Niacin)\", \"dosage\": 14, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (As Zinc Sulphate)\", \"dosage\": 13.2, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E\", \"dosage\": 7.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B5 (Pantothenic Acid)\", \"dosage\": 5, \"unit\": \"mg\"},\n  {\"name\": \"D Chiro Inositol\", \"dosage\": 3.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B2 (Riboflavin)\", \"dosage\": 2.4, \"unit\": \"mg\"},\n  {\"name\": \"Inositol\", \"dosage\": 2, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6 (Pyridoxine)\", \"dosage\": 1.9, \"unit\": \"mg\"},\n  {\"name\": \"Copper\", \"dosage\": 1.7, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B1 (Thiamine)\", \"dosage\": 1.7, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B9 (Folic acid)\", \"dosage\": 0.22, \"unit\": \"mg\"},\n  {\"name\": \"Iodine\", \"dosage\": 0.14, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin A (Beta Carotene)\", \"dosage\": 0.1, \"unit\": \"mg\"},\n  {\"name\": \"Chromium\", \"dosage\": 0.05, \"unit\": \"mg\"},\n  {\"name\": \"Selenium\", \"dosage\": 0.04, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B12 (Cyanocobalamin)\", \"dosage\": 0.0022, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B7 (Biotin)\", \"dosage\": 0.03, \"unit\": \"mg\"},\n\n  {\"name\": \"Vitamin D (Cholecalciferol)\", \"dosage\": 0.015, \"unit\": \"mg\"}\n]"
+  },
+  "9daff19e5776f225aa895f393d778637": {
+    "extracted_items": [
+      {
+        "name": "Potassium Magnesium Citrate",
+        "dosage": 978,
+        "unit": "mg"
+      },
+      {
+        "name": "D-Mannose",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "Cranberry Extract",
+        "dosage": 200,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Potassium Magnesium Citrate\", \"dosage\": 978, \"unit\": \"mg\"},\n  {\"name\": \"D-Mannose\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"Cranberry Extract\", \"dosage\": 200, \"unit\": \"mg\"}\n]\n```"
+  },
+  "5b9500ba0ce1aadd7f5a2ee28c2eac39": {
+    "extracted_items": [
+      {
+        "name": "Co-Enzyme Q10 (Ubiquinol)",
+        "dosage": 200,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 3,
+        "unit": "g"
+      },
+      {
+        "name": "L-Carnitine L-Tartrate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 0.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "dosage": 12,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Co-Enzyme Q10 (Ubiquinol)\", \"dosage\": 200, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 3, \"unit\": \"g\"},\n  {\"name\": \"L-Carnitine L-Tartrate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 0.3, \"unit\": \"mg\"},\n  {\"name\": \"Zinc\", \"dosage\": 12, \"unit\": \"mg\"}\n]"
+  },
+  "582bdc825650fba000a7d2422556fb0e": {
+    "extracted_items": [
+      {
+        "name": "Co-Enzyme Q10 (Ubiquinol)",
+        "dosage": 200,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 3,
+        "unit": "g"
+      },
+      {
+        "name": "L-Carnitine L-Tartrate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 0.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "dosage": 12,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Co-Enzyme Q10 (Ubiquinol)\", \"dosage\": 200, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 3, \"unit\": \"g\"},\n  {\"name\": \"L-Carnitine L-Tartrate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 0.3, \"unit\": \"mg\"},\n  {\"name\": \"Zinc\", \"dosage\": 12, \"unit\": \"mg\"}\n]\n```"
+  },
+  "e5f74cdbe094df99c343ef8fe2b4ce72": {
+    "extracted_items": [
+      {
+        "name": "Co-Enzyme Q10 (Ubiquinol)",
+        "dosage": 200,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 3,
+        "unit": "g"
+      },
+      {
+        "name": "L-Carnitine L-Tartrate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 0.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "dosage": 12,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Co-Enzyme Q10 (Ubiquinol)\", \"dosage\": 200, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 3, \"unit\": \"g\"},\n  {\"name\": \"L-Carnitine L-Tartrate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 0.3, \"unit\": \"mg\"},\n  {\"name\": \"Zinc\", \"dosage\": 12, \"unit\": \"mg\"}\n]"
+  },
+  "ec7378b9475a2141c813068e980755ac": {
+    "extracted_items": [
+      {
+        "name": "Co-Enzyme Q10 (Ubiquinol)",
+        "dosage": 200,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 3,
+        "unit": "g"
+      },
+      {
+        "name": "L-Carnitine L-Tartrate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 0.3,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc",
+        "dosage": 12,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Co-Enzyme Q10 (Ubiquinol)\", \"dosage\": 200, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 3, \"unit\": \"g\"},\n  {\"name\": \"L-Carnitine L-Tartrate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 0.3, \"unit\": \"mg\"},\n  {\"name\": \"Zinc\", \"dosage\": 12, \"unit\": \"mg\"}\n]"
+  },
+  "b4397207ed4bda6c9b1e6c0681e54f86": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C (as Ascorbic Acid)",
+        "dosage": 20,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E (as D-alpha Tocopherol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B1 (as Thiamine Hydrochloride)",
+        "dosage": 1.25,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B2 (as Riboflavin 5 Phosphate)",
+        "dosage": 1.25,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B3 (as Nicotinamide)",
+        "dosage": 15,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B5 (as D-Panthenol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6 (as Pyridoxine hydrochloride)",
+        "dosage": 1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A Palmitate",
+        "dosage": 1250,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B9 (as Folic Acid)",
+        "dosage": 200,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin D (as Cholecalciferol)",
+        "dosage": 400,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B12 (as Cyanocobalamin)",
+        "dosage": 1,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron (as ferrous fumarate)",
+        "dosage": 2,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Sulphate)",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese (as Manganese Sulphate)",
+        "dosage": 0.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Iodine (as Potassium Iodide)",
+        "dosage": 50,
+        "unit": "mcg"
+      },
+      {
+        "name": "Copper (as copper sulphate)",
+        "dosage": 25,
+        "unit": "mcg"
+      },
+      {
+        "name": "Selenium (as Sodium Selenite)",
+        "dosage": 20,
+        "unit": "mcg"
+      },
+      {
+        "name": "Chromium (as Chromium picolinate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "Molybdenum (Sodium molybdate dehydrate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "L-Lysine (as L-Lysine hcl)",
+        "dosage": 75,
+        "unit": "mg"
+      },
+      {
+        "name": "Lycopene",
+        "dosage": 1000,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C (as Ascorbic Acid)\", \"dosage\": 20, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E (as D-alpha Tocopherol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B1 (as Thiamine Hydrochloride)\", \"dosage\": 1.25, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B2 (as Riboflavin 5 Phosphate)\", \"dosage\": 1.25, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B3 (as Nicotinamide)\", \"dosage\": 15, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B5 (as D-Panthenol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6 (as Pyridoxine hydrochloride)\", \"dosage\": 1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin A Palmitate\", \"dosage\": 1250, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B9 (as Folic Acid)\", \"dosage\": 200, \"unit\": \"mcg\"},\n  {\"name\": \"Vitamin D (as Cholecalciferol)\", \"dosage\": 400, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B12 (as Cyanocobalamin)\", \"dosage\": 1, \"unit\": \"mcg\"},\n  {\"name\": \"Iron (as ferrous fumarate)\", \"dosage\": 2, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Sulphate)\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Manganese (as Manganese Sulphate)\", \"dosage\": 0.8, \"unit\": \"mg\"},\n  {\"name\": \"Iodine (as Potassium Iodide)\", \"dosage\": 50, \"unit\": \"mcg\"},\n  {\"name\": \"Copper (as copper sulphate)\", \"dosage\": 25, \"unit\": \"mcg\"},\n  {\"name\": \"Selenium (as Sodium Selenite)\", \"dosage\": 20, \"unit\": \"mcg\"},\n  {\"name\": \"Chromium (as Chromium picolinate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"Molybdenum (Sodium molybdate dehydrate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"L-Lysine (as L-Lysine hcl)\", \"dosage\": 75, \"unit\": \"mg\"},\n  {\"name\": \"Lycopene\", \"dosage\": 1000, \"unit\": \"mcg\"}\n]"
+  },
+  "0db8b6269642d8c199645424ed41bea8": {
+    "extracted_items": [
+      {
+        "name": "Blend of Lactobacillus Spp. Probiotics",
+        "dosage": 22,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Blend of Bifidobacterium Spp. Probiotics",
+        "dosage": 8,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Cranberry Extract (Vaccinium Macrocarpon L.)",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "D-mannose",
+        "dosage": 250,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A",
+        "dosage": 0.21,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "dosage": 1.4,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Blend of Lactobacillus Spp. Probiotics\", \"dosage\": 22, \"unit\": \"Billion CFU\"},\n  {\"name\": \"Blend of Bifidobacterium Spp. Probiotics\", \"dosage\": 8, \"unit\": \"Billion CFU\"},\n  {\"name\": \"Cranberry Extract (Vaccinium Macrocarpon L.)\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"D-mannose\", \"dosage\": 250, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin A\", \"dosage\": 0.21, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6\", \"dosage\": 1.4, \"unit\": \"mg\"}\n]"
+  },
+  "3614f9e8c6a5107349cc14f5d22a2728": {
+    "extracted_items": [
+      {
+        "name": "FolliFlora Complex",
+        "dosage": 340,
+        "unit": "mg"
+      },
+      {
+        "name": "FemBalance Complex",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "Solubilized Keratin",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "Bamboo Extract (Bambusa vulgaris)",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "Lycopene",
+        "dosage": 10,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"FolliFlora Complex\", \"dosage\": 340, \"unit\": \"mg\"},\n  {\"name\": \"FemBalance Complex\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"Solubilized Keratin\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"Bamboo Extract (Bambusa vulgaris)\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"Lycopene\", \"dosage\": 10, \"unit\": \"mg\"}\n]"
+  },
+  "6f343f2e60792bb797fa6810fe6fbcab": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C (as Ascorbic Acid)",
+        "dosage": 20,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E (as D-alpha Tocopherol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B1(as Thiamine Hydrochloride)",
+        "dosage": 1.25,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B2 (as Riboflavin 5 Phosphate)",
+        "dosage": 2.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B3 (as Nicotinamide)",
+        "dosage": 15,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B5 (as D-Pnthenol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6 (as Pyridoxine hydrochloride)",
+        "dosage": 1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A Palmitate",
+        "dosage": 1250,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B9 (as Folic Acid)",
+        "dosage": 200,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin D (as Cholecalciferol)",
+        "dosage": 400,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B12 (as Cyanocobalamin)",
+        "dosage": 1,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron (as ferrous fumarate)",
+        "dosage": 2,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Sulphate)",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese (as Manganese Sulphate)",
+        "dosage": 0.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Iodine (as Potassium Iodide)",
+        "dosage": 50,
+        "unit": "mcg"
+      },
+      {
+        "name": "Copper (as copper sulphate)",
+        "dosage": 25,
+        "unit": "mcg"
+      },
+      {
+        "name": "Selenium (as Sodium Selenite)",
+        "dosage": 20,
+        "unit": "mcg"
+      },
+      {
+        "name": "Chromium (as Chromium picolinate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "Molybdenum (Sodium molybdate dehydrate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "L-Lysine (as L-Lysine hcl)",
+        "dosage": 75,
+        "unit": "mg"
+      },
+      {
+        "name": "Lycopene",
+        "dosage": 1000,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C (as Ascorbic Acid)\", \"dosage\": 20, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E (as D-alpha Tocopherol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B1(as Thiamine Hydrochloride)\", \"dosage\": 1.25, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B2 (as Riboflavin 5 Phosphate)\", \"dosage\": 2.1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B3 (as Nicotinamide)\", \"dosage\": 15, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B5 (as D-Pnthenol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6 (as Pyridoxine hydrochloride)\", \"dosage\": 1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin A Palmitate\", \"dosage\": 1250, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B9 (as Folic Acid)\", \"dosage\": 200, \"unit\": \"mcg\"},\n  {\"name\": \"Vitamin D (as Cholecalciferol)\", \"dosage\": 400, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B12 (as Cyanocobalamin)\", \"dosage\": 1, \"unit\": \"mcg\"},\n  {\"name\": \"Iron (as ferrous fumarate)\", \"dosage\": 2, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Sulphate)\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Manganese (as Manganese Sulphate)\", \"dosage\": 0.8, \"unit\": \"mg\"},\n  {\"name\": \"Iodine (as Potassium Iodide)\", \"dosage\": 50, \"unit\": \"mcg\"},\n  {\"name\": \"Copper (as copper sulphate)\", \"dosage\": 25, \"unit\": \"mcg\"},\n  {\"name\": \"Selenium (as Sodium Selenite)\", \"dosage\": 20, \"unit\": \"mcg\"},\n  {\"name\": \"Chromium (as Chromium picolinate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"Molybdenum (Sodium molybdate dehydrate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"L-Lysine (as L-Lysine hcl)\", \"dosage\": 75, \"unit\": \"mg\"},\n  {\"name\": \"Lycopene\", \"dosage\": 1000, \"unit\": \"mcg\"}\n]"
+  },
+  "6ccdc2165deb42a4092b2607afdc282c": {
+    "extracted_items": [],
+    "raw_text": "```json\n[]\n```"
+  },
+  "2b82a31edf0000bbe85c4750602f1ca3": {
+    "extracted_items": [
+      {
+        "name": "Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen)",
+        "dosage": 125,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin K2 MK7 (as Menaquinone)",
+        "dosage": 120,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\n    \"name\": \"Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen)\",\n    \"dosage\": 125,\n    \"unit\": \"mcg\"\n  },\n  {\n    \"name\": \"Vitamin K2 MK7 (as Menaquinone)\",\n    \"dosage\": 120,\n    \"unit\": \"mcg\"\n  }\n]"
+  },
+  "3e5475ca235aff490b5df581754f63b1": {
+    "extracted_items": [
+      {
+        "name": "L-Tyrosine",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium (as Magnesium Oxide)",
+        "dosage": 90,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Oxide)",
+        "dosage": 17,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "dosage": 2.4,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"L-Tyrosine\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium (as Magnesium Oxide)\", \"dosage\": 90, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Oxide)\", \"dosage\": 17, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6\", \"dosage\": 2.4, \"unit\": \"mg\"}\n]\n```"
+  },
+  "94288857fd63fd0d68dcdbf943394125": {
+    "extracted_items": [
+      {
+        "name": "Vitamin D3",
+        "dosage": 4000,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin K2",
+        "dosage": 80,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin D3\", \"dosage\": 4000, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin K2\", \"dosage\": 80, \"unit\": \"mcg\"}\n]"
+  },
+  "198c866f48168d6bf121bc3713f156b2": {
+    "extracted_items": [
+      {
+        "name": "Lactobacillus acidophilus",
+        "dosage": 4,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Lactobacillus rhamnosus",
+        "dosage": 2,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Lactobacillus casei",
+        "dosage": 2,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Lactobacillus plantarum",
+        "dosage": 2,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Bifidobacterium bifidum",
+        "dosage": 5,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Bifidobacterium longum",
+        "dosage": 5,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Bifidobacterium infantis",
+        "dosage": 5,
+        "unit": "Billion CFU"
+      },
+      {
+        "name": "Fructo-oligosaccharides (FOS)",
+        "dosage": 250,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Lactobacillus acidophilus\", \"dosage\": 4, \"unit\": \"Billion CFU\"},\n  {\"name\": \"Lactobacillus rhamnosus\", \"dosage\": 2, \"unit\": \"Billion CFU\"},\n  {\"name\": \"Lactobacillus casei\", \"dosage\": 2, \"unit\": \"Billion CFU\"},\n  {\"name\": \"Lactobacillus plantarum\", \"dosage\": 2, \"unit\": \"Billion CFU\"},\n  {\"name\": \"Bifidobacterium bifidum\", \"dosage\": 5, \"unit\": \"Billion CFU\"},\n  {\"name\": \"Bifidobacterium longum\", \"dosage\": 5, \"unit\": \"Billion CFU\"},\n  {\"name\": \"Bifidobacterium infantis\", \"dosage\": 5, \"unit\": \"Billion CFU\"},\n  {\"name\": \"Fructo-oligosaccharides (FOS)\", \"dosage\": 250, \"unit\": \"mg\"}\n]"
+  },
+  "87265eccc5cb814871fc54a11a2f5beb": {
+    "extracted_items": [
+      {
+        "name": "Myo-Inositol",
+        "dosage": 400,
+        "unit": "mg"
+      },
+      {
+        "name": "D-Chiro-Inositol",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitex (Chaste Tree) Extract",
+        "dosage": 80,
+        "unit": "mg"
+      },
+      {
+        "name": "KSM-66® (Ashwagandha Root Extract)",
+        "dosage": 60,
+        "unit": "mg"
+      },
+      {
+        "name": "Chromium Picolinate",
+        "dosage": 200,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Myo-Inositol\", \"dosage\": 400, \"unit\": \"mg\"},\n  {\"name\": \"D-Chiro-Inositol\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Vitex (Chaste Tree) Extract\", \"dosage\": 80, \"unit\": \"mg\"},\n  {\"name\": \"KSM-66® (Ashwagandha Root Extract)\", \"dosage\": 60, \"unit\": \"mg\"},\n  {\"name\": \"Chromium Picolinate\", \"dosage\": 200, \"unit\": \"mcg\"}\n]"
+  },
+  "2482012892e975764a6d8fa24e29aaa4": {
+    "extracted_items": [
+      {
+        "name": "L-Glutathione",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Alpha Lipoic Acid",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Grape Seed Extract",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Arginine",
+        "dosage": 50,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"L-Glutathione\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Alpha Lipoic Acid\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"Grape Seed Extract\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"L-Arginine\", \"dosage\": 50, \"unit\": \"mg\"}\n]"
+  },
+  "0699f64673711ef813094be8f0f3ba5b": {
+    "extracted_items": [
+      {
+        "name": "Calcium Carbonate (from CORAL GRAINS) Equivalent to elemental calcium",
+        "dosage": 250,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": 400,
+        "unit": "IU"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Calcium Carbonate (from CORAL GRAINS) Equivalent to elemental calcium\", \"dosage\": 250, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3\", \"dosage\": 400, \"unit\": \"IU\"}\n]\n```"
+  },
+  "8dfe4fd6e91cf3219cc51ef57e21da13": {
+    "extracted_items": [],
+    "raw_text": "[]"
+  },
+  "ed6c8eed403568796c2ec2912e3bc62e": {
+    "extracted_items": [],
+    "raw_text": "[]"
+  },
+  "3e0f75ff5fda116a42c9059c0ab86b30": {
+    "extracted_items": [
+      {
+        "name": "EPA (Eicosapentaenoic acid)",
+        "dosage": 360,
+        "unit": "mg"
+      },
+      {
+        "name": "DHA (Docosahexaenoic acid)",
+        "dosage": 240,
+        "unit": "mg"
+      },
+      {
+        "name": "Wheat germ oil",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Grape seed oil",
+        "dosage": 15,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E",
+        "dosage": 10,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"EPA (Eicosapentaenoic acid)\", \"dosage\": 360, \"unit\": \"mg\"},\n  {\"name\": \"DHA (Docosahexaenoic acid)\", \"dosage\": 240, \"unit\": \"mg\"},\n  {\"name\": \"Wheat germ oil\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Grape seed oil\", \"dosage\": 15, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E\", \"dosage\": 10, \"unit\": \"mg\"}\n]\n```"
+  },
+  "226afa806fd1ec458ed6327e49bfca0a": {
+    "extracted_items": [
+      {
+        "name": "Myo Inositol",
+        "dosage": 125,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C (Ascorbic Acid)",
+        "dosage": 65,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron (As Ferrous Sulphate)",
+        "dosage": 29,
+        "unit": "mg"
+      },
+      {
+        "name": "Choline Bitartrate",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Cysteine",
+        "dosage": 18,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Methionine",
+        "dosage": 18,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B3 (Niacin)",
+        "dosage": 14,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (As Zinc Sulphate)",
+        "dosage": 13.2,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E",
+        "dosage": 7.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B5 (Pantothenic Acid)",
+        "dosage": 5,
+        "unit": "mg"
+      },
+      {
+        "name": "D Chiro Inositol",
+        "dosage": 3.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B2 (Riboflavin)",
+        "dosage": 2.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Inositol",
+        "dosage": 2,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6 (Pyridoxine)",
+        "dosage": 1.9,
+        "unit": "mg"
+      },
+      {
+        "name": "Copper",
+        "dosage": 1.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B1 (Thiamine)",
+        "dosage": 1.7,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B9 (Folic acid)",
+        "dosage": 0.22,
+        "unit": "mg"
+      },
+      {
+        "name": "Iodine",
+        "dosage": 0.14,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A (Beta Carotene)",
+        "dosage": 0.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Chromium",
+        "dosage": 0.05,
+        "unit": "mg"
+      },
+      {
+        "name": "Selenium",
+        "dosage": 0.04,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B12 (Cyanocobalamin)",
+        "dosage": 0.0022,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B7 (Biotin)",
+        "dosage": 0.03,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D (Cholecalciferol)",
+        "dosage": 0.015,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Myo Inositol\", \"dosage\": 125, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C (Ascorbic Acid)\", \"dosage\": 65, \"unit\": \"mg\"},\n  {\"name\": \"Iron (As Ferrous Sulphate)\", \"dosage\": 29, \"unit\": \"mg\"},\n  {\"name\": \"Choline Bitartrate\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"L-Cysteine\", \"dosage\": 18, \"unit\": \"mg\"},\n  {\"name\": \"L-Methionine\", \"dosage\": 18, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B3 (Niacin)\", \"dosage\": 14, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (As Zinc Sulphate)\", \"dosage\": 13.2, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E\", \"dosage\": 7.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B5 (Pantothenic Acid)\", \"dosage\": 5, \"unit\": \"mg\"},\n  {\"name\": \"D Chiro Inositol\", \"dosage\": 3.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B2 (Riboflavin)\", \"dosage\": 2.4, \"unit\": \"mg\"},\n  {\"name\": \"Inositol\", \"dosage\": 2, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6 (Pyridoxine)\", \"dosage\": 1.9, \"unit\": \"mg\"},\n  {\"name\": \"Copper\", \"dosage\": 1.7, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B1 (Thiamine)\", \"dosage\": 1.7, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B9 (Folic acid)\", \"dosage\": 0.22, \"unit\": \"mg\"},\n  {\"name\": \"Iodine\", \"dosage\": 0.14, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin A (Beta Carotene)\", \"dosage\": 0.1, \"unit\": \"mg\"},\n  {\"name\": \"Chromium\", \"dosage\": 0.05, \"unit\": \"mg\"},\n  {\"name\": \"Selenium\", \"dosage\": 0.04, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B12 (Cyanocobalamin)\", \"dosage\": 0.0022, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B7 (Biotin)\", \"dosage\": 0.03, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D (Cholecalciferol)\", \"dosage\": 0.015, \"unit\": \"mg\"}\n]"
+  },
+  "c9e332159f6595ca6419c4debb1d7b96": {
+    "extracted_items": [
+      {
+        "name": "Phosphatidylcholine (S. Lecithin)",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "Silymarin",
+        "dosage": 140,
+        "unit": "mg"
+      },
+      {
+        "name": "Inositol",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "CoQ10",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Choline Bitartrate",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 40,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Ornithine",
+        "dosage": 50,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Phosphatidylcholine (S. Lecithin)\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"Silymarin\", \"dosage\": 140, \"unit\": \"mg\"},\n  {\"name\": \"Inositol\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"CoQ10\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"Choline Bitartrate\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 40, \"unit\": \"mg\"},\n  {\"name\": \"L-Ornithine\", \"dosage\": 50, \"unit\": \"mg\"}\n]"
+  },
+  "4ef490a2037097951bf3d71506343fbe": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C (Ascorbic Acid)",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Sulphate)",
+        "dosage": 12,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3 (Cholecalciferol)",
+        "dosage": 600,
+        "unit": "IU"
+      },
+      {
+        "name": "Elderberry Extract",
+        "dosage": 150,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C (Ascorbic Acid)\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Sulphate)\", \"dosage\": 12, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3 (Cholecalciferol)\", \"dosage\": 600, \"unit\": \"IU\"},\n  {\"name\": \"Elderberry Extract\", \"dosage\": 150, \"unit\": \"mg\"}\n]"
+  },
+  "c929920d4da0de1aad48cf30a49ec916": {
+    "extracted_items": [
+      {
+        "name": "Curcumin Extract 95%",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Piperine (Black Pepper Extract 95%)",
+        "dosage": 5,
+        "unit": "mg"
+      },
+      {
+        "name": "Ginger Extract",
+        "dosage": 100,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Curcumin Extract 95%\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Piperine (Black Pepper Extract 95%)\", \"dosage\": 5, \"unit\": \"mg\"},\n  {\"name\": \"Ginger Extract\", \"dosage\": 100, \"unit\": \"mg\"}\n]\n```"
+  },
+  "5f11b7e3989f80e2e816ea133a940481": {
+    "extracted_items": [
+      {
+        "name": "Magnesium Bisglycinate",
+        "dosage": 856,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium L Threonate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium Acetyl Taurate",
+        "dosage": 150,
+        "unit": "mg"
+      },
+      {
+        "name": "Pyridoxine",
+        "dosage": 2.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": 600,
+        "unit": "IU"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Magnesium Bisglycinate\", \"dosage\": 856, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium L Threonate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium Acetyl Taurate\", \"dosage\": 150, \"unit\": \"mg\"},\n  {\"name\": \"Pyridoxine\", \"dosage\": 2.4, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3\", \"dosage\": 600, \"unit\": \"IU\"}\n]\n```"
+  },
+  "6ee7261b9d40c1dabb7741d17ad6d8f8": {
+    "extracted_items": [
+      {
+        "name": "Calcium Carbonate (from CORAL GRAINS)",
+        "dosage": 250,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": 400,
+        "unit": "IU"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Calcium Carbonate (from CORAL GRAINS)\", \"dosage\": 250, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3\", \"dosage\": 400, \"unit\": \"IU\"}\n]\n```"
+  },
+  "78238c0a592cd718cc90fe6bd6a3ddc1": {
+    "extracted_items": [],
+    "raw_text": "[]"
+  },
+  "3eea7cf0906d892e6593fd811194a04c": {
+    "extracted_items": [
+      {
+        "name": "Magnesium Bisglycinate",
+        "dosage": 856,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium L Threonate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium Acetyl Taurate",
+        "dosage": 150,
+        "unit": "mg"
+      },
+      {
+        "name": "Pyridoxine",
+        "dosage": 2.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": 600,
+        "unit": "IU"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Magnesium Bisglycinate\", \"dosage\": 856, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium L Threonate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium Acetyl Taurate\", \"dosage\": 150, \"unit\": \"mg\"},\n  {\"name\": \"Pyridoxine\", \"dosage\": 2.4, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3\", \"dosage\": 600, \"unit\": \"IU\"}\n]"
+  },
+  "059181689eb83385d555e16bd939fd9c": {
+    "extracted_items": [
+      {
+        "name": "Magnesium Bisglycinate",
+        "dosage": 856,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium L Threonate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium Acetyl Taurate",
+        "dosage": 150,
+        "unit": "mg"
+      },
+      {
+        "name": "Pyridoxine",
+        "dosage": 2.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": 600,
+        "unit": "IU"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Magnesium Bisglycinate\", \"dosage\": 856, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium L Threonate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium Acetyl Taurate\", \"dosage\": 150, \"unit\": \"mg\"},\n  {\"name\": \"Pyridoxine\", \"dosage\": 2.4, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3\", \"dosage\": 600, \"unit\": \"IU\"}\n]"
+  },
+  "5978ba76c0f39cfa90724af854874dce": {
+    "extracted_items": [
+      {
+        "name": "Magnesium Bisglycinate",
+        "dosage": 856,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium L Threonate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium Acetyl Taurate",
+        "dosage": 150,
+        "unit": "mg"
+      },
+      {
+        "name": "Pyridoxine",
+        "dosage": 2.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": 600,
+        "unit": "IU"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Magnesium Bisglycinate\", \"dosage\": 856, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium L Threonate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium Acetyl Taurate\", \"dosage\": 150, \"unit\": \"mg\"},\n  {\"name\": \"Pyridoxine\", \"dosage\": 2.4, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3\", \"dosage\": 600, \"unit\": \"IU\"}\n]"
+  },
+  "31937ee53ff021bab6e3320e9dadb20e": {
+    "extracted_items": [
+      {
+        "name": "Magnesium Bisglycinate",
+        "dosage": 856,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium L Threonate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium Acetyl Taurate",
+        "dosage": 150,
+        "unit": "mg"
+      },
+      {
+        "name": "Pyridoxine",
+        "dosage": 2.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": 600,
+        "unit": "IU"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Magnesium Bisglycinate\", \"dosage\": 856, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium L Threonate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium Acetyl Taurate\", \"dosage\": 150, \"unit\": \"mg\"},\n  {\"name\": \"Pyridoxine\", \"dosage\": 2.4, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3\", \"dosage\": 600, \"unit\": \"IU\"}\n]"
+  },
+  "e0df76ea2e69b070c92ca899c7517d57": {
+    "extracted_items": [
+      {
+        "name": "Sodium",
+        "dosage": 50,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Tyrosine",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium (as Magnesium Oxide)",
+        "dosage": 90,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Oxide)",
+        "dosage": 17,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "dosage": 2.4,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Sodium\", \"dosage\": 50, \"unit\": \"mg\"},\n  {\"name\": \"L-Tyrosine\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium (as Magnesium Oxide)\", \"dosage\": 90, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Oxide)\", \"dosage\": 17, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6\", \"dosage\": 2.4, \"unit\": \"mg\"}\n]\n```"
+  },
+  "8df5341f0d43c65e03e2cba3199a723f": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C (as Ascorbic Acid)",
+        "dosage": 20,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E (as D-alpha Tocopherol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B1(as Thiamine Hydrochloride)",
+        "dosage": 1.25,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B2 (as Riboflavin 5 Phosphate)",
+        "dosage": 2.1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B3 (as Nicotinamide)",
+        "dosage": 15,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B5 (as D-Pnthenol)",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6 (as Pyridoxine hydrochloride)",
+        "dosage": 1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A Palmitate",
+        "dosage": 1250,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B9 (as Folic Acid)",
+        "dosage": 200,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin D (as Cholecalciferol)",
+        "dosage": 400,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B12 (as Cyanocobalamin)",
+        "dosage": 1,
+        "unit": "mcg"
+      },
+      {
+        "name": "Iron (as ferrous fumarate)",
+        "dosage": 2,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc (as Zinc Sulphate)",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese (as Manganese Sulphate)",
+        "dosage": 0.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Iodine (as Potassium Iodide)",
+        "dosage": 50,
+        "unit": "mcg"
+      },
+      {
+        "name": "Copper ( as copper sulphate)",
+        "dosage": 25,
+        "unit": "mcg"
+      },
+      {
+        "name": "Selenium (as Sodium Selenate)",
+        "dosage": 20,
+        "unit": "mcg"
+      },
+      {
+        "name": "Chromium (as Chromium picolinate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "Molybdenum (Sodium molybdate dehydrate)",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "L-Lysine (as L-Lysine hcl)",
+        "dosage": 75,
+        "unit": "mg"
+      },
+      {
+        "name": "Lycopene",
+        "dosage": 1000,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C (as Ascorbic Acid)\", \"dosage\": 20, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E (as D-alpha Tocopherol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B1(as Thiamine Hydrochloride)\", \"dosage\": 1.25, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B2 (as Riboflavin 5 Phosphate)\", \"dosage\": 2.1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B3 (as Nicotinamide)\", \"dosage\": 15, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B5 (as D-Pnthenol)\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6 (as Pyridoxine hydrochloride)\", \"dosage\": 1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin A Palmitate\", \"dosage\": 1250, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B9 (as Folic Acid)\", \"dosage\": 200, \"unit\": \"mcg\"},\n  {\"name\": \"Vitamin D (as Cholecalciferol)\", \"dosage\": 400, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B12 (as Cyanocobalamin)\", \"dosage\": 1, \"unit\": \"mcg\"},\n  {\"name\": \"Iron (as ferrous fumarate)\", \"dosage\": 2, \"unit\": \"mg\"},\n  {\"name\": \"Zinc (as Zinc Sulphate)\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Manganese (as Manganese Sulphate)\", \"dosage\": 0.8, \"unit\": \"mg\"},\n  {\"name\": \"Iodine (as Potassium Iodide)\", \"dosage\": 50, \"unit\": \"mcg\"},\n  {\"name\": \"Copper ( as copper sulphate)\", \"dosage\": 25, \"unit\": \"mcg\"},\n  {\"name\": \"Selenium (as Sodium Selenate)\", \"dosage\": 20, \"unit\": \"mcg\"},\n  {\"name\": \"Chromium (as Chromium picolinate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"Molybdenum (Sodium molybdate dehydrate)\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"L-Lysine (as L-Lysine hcl)\", \"dosage\": 75, \"unit\": \"mg\"},\n  {\"name\": \"Lycopene\", \"dosage\": 1000, \"unit\": \"mcg\"}\n]"
+  },
+  "bfd2f418d0271a6e5ffb5e2c54571d2c": {
+    "extracted_items": [
+      {
+        "name": "Vitamin D3",
+        "dosage": 4000,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin K2",
+        "dosage": 80,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin D3\", \"dosage\": 4000, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin K2\", \"dosage\": 80, \"unit\": \"mcg\"}\n]"
+  },
+  "bdf7610f04e7398bfc4268ad943dfa11": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C",
+        "dosage": 80,
+        "unit": "mg"
+      },
+      {
+        "name": "Amla extract",
+        "dosage": 420,
+        "unit": "mg"
+      },
+      {
+        "name": "Pyridoxine Hydrochloride",
+        "dosage": 2.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Nicotinamide",
+        "dosage": 18,
+        "unit": "mg"
+      },
+      {
+        "name": "Ferrous Bisglycinate",
+        "dosage": 20,
+        "unit": "mg"
+      },
+      {
+        "name": "Cyanocobalamin",
+        "dosage": 2.5,
+        "unit": "mcg"
+      },
+      {
+        "name": "Folic acid",
+        "dosage": 300,
+        "unit": "mcg"
+      },
+      {
+        "name": "Chromium picolinate",
+        "dosage": 50,
+        "unit": "mcg"
+      },
+      {
+        "name": "Selenium",
+        "dosage": 40,
+        "unit": "mcg"
+      },
+      {
+        "name": "Zinc sulphate",
+        "dosage": 22.5,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C\", \"dosage\": 80, \"unit\": \"mg\"},\n  {\"name\": \"Amla extract\", \"dosage\": 420, \"unit\": \"mg\"},\n  {\"name\": \"Pyridoxine Hydrochloride\", \"dosage\": 2.4, \"unit\": \"mg\"},\n  {\"name\": \"Nicotinamide\", \"dosage\": 18, \"unit\": \"mg\"},\n  {\"name\": \"Ferrous Bisglycinate\", \"dosage\": 20, \"unit\": \"mg\"},\n  {\"name\": \"Cyanocobalamin\", \"dosage\": 2.5, \"unit\": \"mcg\"},\n  {\"name\": \"Folic acid\", \"dosage\": 300, \"unit\": \"mcg\"},\n  {\"name\": \"Chromium picolinate\", \"dosage\": 50, \"unit\": \"mcg\"},\n  {\"name\": \"Selenium\", \"dosage\": 40, \"unit\": \"mcg\"},\n  {\"name\": \"Zinc sulphate\", \"dosage\": 22.5, \"unit\": \"mg\"}\n]"
+  },
+  "cdc78f4b36bb45342978df718ca6ab2c": {
+    "extracted_items": [],
+    "raw_text": "[]"
+  },
+  "4821bb8420000fd6a06da8bc6fbfe9be": {
+    "extracted_items": [
+      {
+        "name": "Opitac™ L-Glutathione (Reduced)",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "N-Acetyl L-Cysteine",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Taurine",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 10,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Opitac™ L-Glutathione (Reduced)\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"N-Acetyl L-Cysteine\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"L-Taurine\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 10, \"unit\": \"mg\"}\n]"
+  },
+  "ceb9ad638e3733d6ad0cf9f3817bc0ad": {
+    "extracted_items": [
+      {
+        "name": "Opitac™ L-Glutathione (Reduced)",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "N-Acetyl L-Cysteine",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Taurine",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 10,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Opitac™ L-Glutathione (Reduced)\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"N-Acetyl L-Cysteine\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"L-Taurine\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 10, \"unit\": \"mg\"}\n]"
+  },
+  "0315e8c293555b8854fb147ef3a5b787": {
+    "extracted_items": [
+      {
+        "name": "Opitac™ L-Glutathione (Reduced)",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "N-Acetyl L-Cysteine",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Taurine",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin C",
+        "dosage": 10,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Opitac™ L-Glutathione (Reduced)\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"N-Acetyl L-Cysteine\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"L-Taurine\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin C\", \"dosage\": 10, \"unit\": \"mg\"}\n]"
+  },
+  "3e0308087b19424b3bc22f58c6b81029": {
+    "extracted_items": [
+      {
+        "name": "Vitamin D3",
+        "dosage": 125,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin K2 MK7",
+        "dosage": 120,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin D3\", \"dosage\": 125, \"unit\": \"mcg\"},\n  {\"name\": \"Vitamin K2 MK7\", \"dosage\": 120, \"unit\": \"mcg\"}\n]"
+  },
+  "8bbb38a30280ddb88dd485771894b95a": {
+    "extracted_items": [
+      {
+        "name": "FolliFlora Complex",
+        "dosage": 340,
+        "unit": "mg"
+      },
+      {
+        "name": "FemBalance Complex",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "Solubilized Keratin",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "Bamboo Extract (Bambusa vulgaris)",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "Lycopene",
+        "dosage": 10,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"FolliFlora Complex\", \"dosage\": 340, \"unit\": \"mg\"},\n  {\"name\": \"FemBalance Complex\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"Solubilized Keratin\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"Bamboo Extract (Bambusa vulgaris)\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"Lycopene\", \"dosage\": 10, \"unit\": \"mg\"}\n]"
+  },
+  "902d2d9d9d888aba10d0866628e6e666": {
+    "extracted_items": [
+      {
+        "name": "Magnesium Bisglycinate",
+        "dosage": 856,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium L Threonate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium Acetyl Taurate",
+        "dosage": 150,
+        "unit": "mg"
+      },
+      {
+        "name": "Pyridoxine",
+        "dosage": 2.4,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": 600,
+        "unit": "IU"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Magnesium Bisglycinate\", \"dosage\": 856, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium L Threonate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium Acetyl Taurate\", \"dosage\": 150, \"unit\": \"mg\"},\n  {\"name\": \"Pyridoxine\", \"dosage\": 2.4, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin D3\", \"dosage\": 600, \"unit\": \"IU\"}\n]\n```"
+  },
+  "215ce10bc8aea6f94a5c0abac0d8c0db": {
+    "extracted_items": [
+      {
+        "name": "Broccoli Sprout Extract",
+        "dosage": 400,
+        "unit": "mg"
+      },
+      {
+        "name": "Alpha Lipoic Acid",
+        "dosage": 75,
+        "unit": "mg"
+      },
+      {
+        "name": "Betacarotene (10%)",
+        "dosage": 40,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc Sulphate",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E (50% Dry Powder)",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Astaxanthin (1%)",
+        "dosage": 8,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Broccoli Sprout Extract\", \"dosage\": 400, \"unit\": \"mg\"},\n  {\"name\": \"Alpha Lipoic Acid\", \"dosage\": 75, \"unit\": \"mg\"},\n  {\"name\": \"Betacarotene (10%)\", \"dosage\": 40, \"unit\": \"mg\"},\n  {\"name\": \"Zinc Sulphate\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E (50% Dry Powder)\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Astaxanthin (1%)\", \"dosage\": 8, \"unit\": \"mg\"}\n]"
+  },
+  "e0deebd3c3f560212af17c68b9344bae": {
+    "extracted_items": [
+      {
+        "name": "Agmatine sulphate",
+        "dosage": 500,
+        "unit": "mg"
+      },
+      {
+        "name": "Cytidine monophosphate",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Palmitoylethanolamide",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "Uridine monophosphate",
+        "dosage": 1.5,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Agmatine sulphate\", \"dosage\": 500, \"unit\": \"mg\"},\n  {\"name\": \"Cytidine monophosphate\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Palmitoylethanolamide\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"Uridine monophosphate\", \"dosage\": 1.5, \"unit\": \"mg\"}\n]"
+  },
+  "87054cf01a44c47b921bc31c24264688": {
+    "extracted_items": [
+      {
+        "name": "EPA (Eicosapentaenoic acid)",
+        "dosage": 360,
+        "unit": "mg"
+      },
+      {
+        "name": "DHA (Docosahexaenoic acid)",
+        "dosage": 240,
+        "unit": "mg"
+      },
+      {
+        "name": "Wheat germ oil",
+        "dosage": 100,
+        "unit": "mg"
+      },
+      {
+        "name": "Grape seed oil",
+        "dosage": 15,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E",
+        "dosage": 10,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"EPA (Eicosapentaenoic acid)\", \"dosage\": 360, \"unit\": \"mg\"},\n  {\"name\": \"DHA (Docosahexaenoic acid)\", \"dosage\": 240, \"unit\": \"mg\"},\n  {\"name\": \"Wheat germ oil\", \"dosage\": 100, \"unit\": \"mg\"},\n  {\"name\": \"Grape seed oil\", \"dosage\": 15, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E\", \"dosage\": 10, \"unit\": \"mg\"}\n]\n```"
+  },
+  "2187dfab86579c4c8bc3e5ae0fa1bbfb": {
+    "extracted_items": [
+      {
+        "name": "Ferrous Ascorbate Equivalent to Elemental Iron",
+        "dosage": 30,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 0.5,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Ferrous Ascorbate Equivalent to Elemental Iron\", \"dosage\": 30, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 0.5, \"unit\": \"mg\"}\n]\n```"
+  },
+  "11d05fb95ebd013b6c099599798a555b": {
+    "extracted_items": [
+      {
+        "name": "Cranberry Extract",
+        "dosage": 200,
+        "unit": "mg"
+      },
+      {
+        "name": "D-Mannose",
+        "dosage": 300,
+        "unit": "mg"
+      },
+      {
+        "name": "Potassium Magnesium Citrate",
+        "dosage": 975,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Cranberry Extract\", \"dosage\": 200, \"unit\": \"mg\"},\n  {\"name\": \"D-Mannose\", \"dosage\": 300, \"unit\": \"mg\"},\n  {\"name\": \"Potassium Magnesium Citrate\", \"dosage\": 975, \"unit\": \"mg\"}\n]"
+  },
+  "693a3a0142e2c7d0d58f708687725f67": {
+    "extracted_items": [
+      {
+        "name": "Broccoli Sprout Extract",
+        "dosage": 400,
+        "unit": "mg"
+      },
+      {
+        "name": "Alpha Lipoic Acid",
+        "dosage": 75,
+        "unit": "mg"
+      },
+      {
+        "name": "Betacarotene (10%)",
+        "dosage": 40,
+        "unit": "mg"
+      },
+      {
+        "name": "Zinc Sulphate",
+        "dosage": 25,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E (50% Dry Powder)",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Astaxanthin (1%)",
+        "dosage": 8,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Broccoli Sprout Extract\", \"dosage\": 400, \"unit\": \"mg\"},\n  {\"name\": \"Alpha Lipoic Acid\", \"dosage\": 75, \"unit\": \"mg\"},\n  {\"name\": \"Betacarotene (10%)\", \"dosage\": 40, \"unit\": \"mg\"},\n  {\"name\": \"Zinc Sulphate\", \"dosage\": 25, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E (50% Dry Powder)\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Astaxanthin (1%)\", \"dosage\": 8, \"unit\": \"mg\"}\n]"
+  },
+  "fbf3ca5d444d0a9772ff687a7bfd3643": {
+    "extracted_items": [],
+    "raw_text": "[]"
+  },
+  "05402f09b3c5e1ee892a3da0276c6c07": {
+    "extracted_items": [
+      {
+        "name": "Liposomal Iron (As Ferric Pyrophosphate)",
+        "dosage": 10,
+        "unit": "mg"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 25,
+        "unit": "mcg"
+      },
+      {
+        "name": "L-Lysine",
+        "dosage": 70,
+        "unit": "mg"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Liposomal Iron (As Ferric Pyrophosphate)\", \"dosage\": 10, \"unit\": \"mg\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 25, \"unit\": \"mcg\"},\n  {\"name\": \"L-Lysine\", \"dosage\": 70, \"unit\": \"mg\"}\n]\n```"
+  },
+  "9a36e7f6ef3ba4ac16fd96b1f52e3528": {
+    "extracted_items": [
+      {
+        "name": "Ferric Iron",
+        "dosage": 210,
+        "unit": "mg"
+      },
+      {
+        "name": "Ferric Citrate",
+        "dosage": 1,
+        "unit": "g"
+      }
+    ],
+    "raw_text": "```json\n[\n  {\"name\": \"Ferric Iron\", \"dosage\": 210, \"unit\": \"mg\"},\n  {\"name\": \"Ferric Citrate\", \"dosage\": 1, \"unit\": \"g\"}\n]\n```"
+  },
+  "4d71ee81a1034c739e488da97fe91af4": {
+    "extracted_items": [
+      {
+        "name": "Vitamin C",
+        "dosage": 20,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B3",
+        "dosage": 5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin E",
+        "dosage": 5,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B5",
+        "dosage": 1.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B2",
+        "dosage": 1,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B1",
+        "dosage": 0.8,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin B6",
+        "dosage": 0.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Vitamin A",
+        "dosage": 1250,
+        "unit": "IU"
+      },
+      {
+        "name": "Folic Acid",
+        "dosage": 176.47,
+        "unit": "mcg"
+      },
+      {
+        "name": "Biotin",
+        "dosage": 10,
+        "unit": "mcg"
+      },
+      {
+        "name": "Vitamin D3",
+        "dosage": 200,
+        "unit": "IU"
+      },
+      {
+        "name": "Vitamin B12",
+        "dosage": 1,
+        "unit": "mcg"
+      },
+      {
+        "name": "Zinc",
+        "dosage": 5,
+        "unit": "mg"
+      },
+      {
+        "name": "Magnesium",
+        "dosage": 5,
+        "unit": "mg"
+      },
+      {
+        "name": "Iron",
+        "dosage": 2,
+        "unit": "mg"
+      },
+      {
+        "name": "Manganese",
+        "dosage": 0.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Iodine",
+        "dosage": 100,
+        "unit": "mcg"
+      },
+      {
+        "name": "Potassium",
+        "dosage": 33,
+        "unit": "mcg"
+      },
+      {
+        "name": "Copper",
+        "dosage": 30,
+        "unit": "mcg"
+      },
+      {
+        "name": "Selenium",
+        "dosage": 10,
+        "unit": "mcg"
+      },
+      {
+        "name": "Molybdenum",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "Chromium",
+        "dosage": 5,
+        "unit": "mcg"
+      },
+      {
+        "name": "L-Lysine",
+        "dosage": 5,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Leucine",
+        "dosage": 1,
+        "unit": "mg"
+      },
+      {
+        "name": "DL-Methionine",
+        "dosage": 0.5,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Histidine",
+        "dosage": 1,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Isoleucine",
+        "dosage": 0.5,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Phenylalanine",
+        "dosage": 0.5,
+        "unit": "mg"
+      },
+      {
+        "name": "L-Tryptophan",
+        "dosage": 0.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Taurine",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Inositol",
+        "dosage": 2.5,
+        "unit": "mg"
+      },
+      {
+        "name": "Lycopene",
+        "dosage": 75,
+        "unit": "mcg"
+      },
+      {
+        "name": "Choline",
+        "dosage": 20,
+        "unit": "mcg"
+      }
+    ],
+    "raw_text": "[\n  {\"name\": \"Vitamin C\", \"dosage\": 20, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B3\", \"dosage\": 5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin E\", \"dosage\": 5, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B5\", \"dosage\": 1.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B2\", \"dosage\": 1, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B1\", \"dosage\": 0.8, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin B6\", \"dosage\": 0.5, \"unit\": \"mg\"},\n  {\"name\": \"Vitamin A\", \"dosage\": 1250, \"unit\": \"IU\"},\n  {\"name\": \"Folic Acid\", \"dosage\": 176.47, \"unit\": \"mcg\"},\n  {\"name\": \"Biotin\", \"dosage\": 10, \"unit\": \"mcg\"},\n  {\"name\": \"Vitamin D3\", \"dosage\": 200, \"unit\": \"IU\"},\n  {\"name\": \"Vitamin B12\", \"dosage\": 1, \"unit\": \"mcg\"},\n  {\"name\": \"Zinc\", \"dosage\": 5, \"unit\": \"mg\"},\n  {\"name\": \"Magnesium\", \"dosage\": 5, \"unit\": \"mg\"},\n  {\"name\": \"Iron\", \"dosage\": 2, \"unit\": \"mg\"},\n  {\"name\": \"Manganese\", \"dosage\": 0.5, \"unit\": \"mg\"},\n  {\"name\": \"Iodine\", \"dosage\": 100, \"unit\": \"mcg\"},\n  {\"name\": \"Potassium\", \"dosage\": 33, \"unit\": \"mcg\"},\n  {\"name\": \"Copper\", \"dosage\": 30, \"unit\": \"mcg\"},\n  {\"name\": \"Selenium\", \"dosage\": 10, \"unit\": \"mcg\"},\n  {\"name\": \"Molybdenum\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"Chromium\", \"dosage\": 5, \"unit\": \"mcg\"},\n  {\"name\": \"L-Lysine\", \"dosage\": 5, \"unit\": \"mg\"},\n  {\"name\": \"L-Leucine\", \"dosage\": 1, \"unit\": \"mg\"},\n  {\"name\": \"DL-Methionine\", \"dosage\": 0.5, \"unit\": \"mg\"},\n  {\"name\": \"L-Histidine\", \"dosage\": 1, \"unit\": \"mg\"},\n  {\"name\": \"L-Isoleucine\", \"dosage\": 0.5, \"unit\": \"mg\"},\n  {\"name\": \"L-Phenylalanine\", \"dosage\": 0.5, \"unit\": \"mg\"},\n  {\"name\": \"L-Tryptophan\", \"dosage\": 0.5, \"unit\": \"mg\"},\n  {\"name\": \"Taurine\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Inositol\", \"dosage\": 2.5, \"unit\": \"mg\"},\n  {\"name\": \"Lycopene\", \"dosage\": 75, \"unit\": \"mcg\"},\n  {\"name\": \"Choline\", \"dosage\": 20, \"unit\": \"mcg\"}\n]"
+  }
+}

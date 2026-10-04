@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.exe
+cloudflared.exe
+uploads/*
+!uploads/.gitkeep
+static/downloads/*
+!static/downloads/.gitkeep
+scratch/
+database.db
+walpar_auth.db
+index (1).html
+.env
+myenv/
+venv/
+.venv/
+.idea/
+.vscode/
+.DS_Store

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walpar - Evidence-Based Clinical Nutrition, Conditions, Guides & AI Formulator</title>
+  <link rel="stylesheet" href="/static/style.css?v=4.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand-group">
+        <div class="nav-brand" onclick="switchMainTab('supplements')" title="Walpar Home">
+          <div class="brand-logo">W</div>
+          <span class="brand-name">Walpar<span class="brand-badge">Clinical Pro</span></span>
+        </div>
+
+        <!-- Global History Navigation Controls -->
+        <div class="nav-history-controls" id="nav-history-controls">
+          <button id="global-back-btn" class="nav-history-btn can-go-back" onclick="navigateBack()" title="Go back to previous view (Alt + Left Arrow)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span class="nav-back-label">Back</span>
+          </button>
+          <button id="global-forward-btn" class="nav-history-btn" onclick="navigateForward()" title="Go forward (Alt + Right Arrow)" disabled>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs (All Examine Pillars + AI Tools) -->
+      <div class="nav-tabs">
+        <button id="tab-btn-supplements" class="nav-tab active" onclick="switchMainTab('supplements')">
+          <span>📚 Supplements</span>
+        </button>
+        <button id="tab-btn-conditions" class="nav-tab" onclick="switchMainTab('conditions')">
+          <span>🩺 Conditions</span>
+        </button>
+        <button id="tab-btn-categories" class="nav-tab" onclick="switchMainTab('categories')">
+          <span>🏷️ Categories</span>
+        </button>
+        <button id="tab-btn-guides" class="nav-tab" onclick="switchMainTab('guides')">
+          <span>📖 Guides</span>
+        </button>
+        <button id="tab-btn-symptoms" class="nav-tab special-tab" onclick="switchMainTab('symptoms')">
+          <span>⚡ Symptom AI</span>
+        </button>
+        <button id="tab-btn-formulator" class="nav-tab special-tab-purple" onclick="switchMainTab('formulator')">
+          <span>🧪 Formulator</span>
+        </button>
+        <button id="tab-btn-feed" class="nav-tab" onclick="switchMainTab('feed')">
+          <span>📰 Live Feed</span>
+          <span class="new-dot"></span>
+        </button>
+        <button id="tab-btn-ai" class="nav-tab" onclick="switchMainTab('ai')">
+          <span>🤖 Ask AI</span>
+        </button>
+      </div>
+
+      <div class="nav-search">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="global-search-input" placeholder="Search 850+ supplements, foods, diets, conditions, guides..." autocomplete="off">
+        <div id="search-dropdown" class="search-dropdown hidden"></div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline" onclick="openNewSupplementModal()">
+          <span>+ Analyze Any</span>
+        </button>
+        <button id="settings-btn" class="btn btn-icon" onclick="openSettingsModal()" title="API Configuration">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span id="api-status-dot" class="status-dot"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="main-content">
+    
+    <!-- 1. ALL SUPPLEMENTS DIRECTORY VIEW -->
+    <div id="home-view">
+      <section class="hero-section">
+        <div class="hero-tag">Clinical Evidence Engine • Real-Time PubMed & PubChem</div>
+        <h1 class="hero-title">Evidence-based clinical nutrition with <span class="highlight">Walpar</span>.</h1>
+        <p class="hero-subtitle">
+          Unbiased, real-time scientific synthesis of randomized controlled trials, biochemical profiles, and meta-analyses with zero paywalls.
+        </p>
+
+        <!-- Hero Search Bar (Examine.com Signature Hero Search) -->
+        <div class="hero-search-container">
+          <div class="hero-search-box">
+            <svg class="hero-search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="hero-search-input" placeholder="Search 850+ supplements, foods, diets, health conditions, guides..." autocomplete="off">
+            <button id="hero-search-clear-btn" class="hero-search-clear hidden" onclick="clearHeroSearch()" title="Clear search">✕</button>
+            <button id="hero-search-btn" class="hero-search-btn" type="button" onclick="triggerHeroSearch()">
+              <span>Search</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+            <div id="hero-search-dropdown" class="search-dropdown hero-dropdown hidden"></div>
+          </div>
+
+          <div class="hero-search-suggestions">
+            <span class="suggestion-label">🔥 Popular:</span>
+            <button class="hero-suggestion-pill" onclick="searchBySuggestion('Creatine')">Creatine</button>
+            <button class="hero-suggestion-pill" onclick="searchBySuggestion('Ashwagandha')">Ashwagandha</button>
+            <button class="hero-suggestion-pill" onclick="searchBySuggestion('Melatonin')">Melatonin</button>
+            <button class="hero-suggestion-pill" onclick="searchBySuggestion('Omega-3')">Omega-3</button>
+            <button class="hero-suggestion-pill" onclick="searchBySuggestion('Insomnia')">Insomnia</button>
+            <button class="hero-suggestion-pill" onclick="searchBySuggestion('Depression')">Depression</button>
+            <button class="hero-suggestion-pill" onclick="searchBySuggestion('Metabolic Health')">Metabolic Health</button>
+          </div>
+        </div>
+
+        <!-- Category Pills Filter -->
+        <div class="category-pills">
+          <button class="pill active" onclick="filterByCategory('all')">All Supplements</button>
+          <button class="pill" onclick="filterByCategory('Physical Performance')">⚡ Performance & Muscle</button>
+          <button class="pill" onclick="filterByCategory('Sleep & Mood')">🌙 Sleep & Anxiety</button>
+          <button class="pill" onclick="filterByCategory('Brain & Focus')">🧠 Brain & Focus</button>
+          <button class="pill" onclick="filterByCategory('Immunity')">🛡️ Immunity</button>
+          <button class="pill" onclick="filterByCategory('General Health')">❤️ Longevity & Health</button>
+        </div>
+      </section>
+
+      <!-- Category Filter Results View (Hidden by default) -->
+      <section id="category-results-section" class="section hidden">
+        <div class="section-header">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <button class="btn btn-back-primary" onclick="filterByCategory('all')" title="Back to Supplements Overview">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Back to Overview</span>
+            </button>
+            <h2 id="category-title" class="section-title" style="margin: 0;">Category Outcomes</h2>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="effect-table">
+            <thead>
+              <tr>
+                <th>Supplement</th>
+                <th>Health Outcome</th>
+                <th>Effect Magnitude</th>
+                <th>Evidence Grade</th>
+                <th>Trials</th>
+                <th>Clinical Takeaway</th>
+              </tr>
+            </thead>
+            <tbody id="category-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Supplements Grid -->
+      <section id="supplements-overview-section" class="section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">A–Z Supplement & Intervention Encyclopedia</h2>
+            <p class="section-desc">Unbiased, evidence-graded database of 850+ human clinical supplements, functional foods, diet protocols, and therapies.</p>
+          </div>
+          <span id="supplements-count" class="count-badge">Loading compounds...</span>
+        </div>
+
+        <!-- Intervention Type Filter Tabs -->
+        <div class="encyclopedia-type-tabs" id="encyclopedia-type-tabs">
+          <button class="type-tab-btn active" data-type="all" onclick="filterByItemType('all')">All (<span id="count-type-all">874</span>)</button>
+          <button class="type-tab-btn" data-type="supplements" onclick="filterByItemType('supplements')">💊 Supplements (<span id="count-type-supplements">546</span>)</button>
+          <button class="type-tab-btn" data-type="foods" onclick="filterByItemType('foods')">🥑 Functional Foods (<span id="count-type-foods">137</span>)</button>
+          <button class="type-tab-btn" data-type="diets" onclick="filterByItemType('diets')">🥗 Diets (<span id="count-type-diets">50</span>)</button>
+          <button class="type-tab-btn" data-type="other" onclick="filterByItemType('other')">🧘 Therapies &amp; Interventions (<span id="count-type-other">141</span>)</button>
+        </div>
+
+        <!-- Alphabet Navigation Ribbon -->
+        <div class="alphabet-nav-bar">
+          <div class="alphabet-ribbon" id="alphabet-ribbon">
+            <button class="letter-btn active" data-letter="all" onclick="filterByLetter('all')">All</button>
+            <button class="letter-btn" data-letter="0-9" onclick="filterByLetter('0-9')"># 0-9</button>
+            <button class="letter-btn" data-letter="A" onclick="filterByLetter('A')">A</button>
+            <button class="letter-btn" data-letter="B" onclick="filterByLetter('B')">B</button>
+            <button class="letter-btn" data-letter="C" onclick="filterByLetter('C')">C</button>
+            <button class="letter-btn" data-letter="D" onclick="filterByLetter('D')">D</button>
+            <button class="letter-btn" data-letter="E" onclick="filterByLetter('E')">E</button>
+            <button class="letter-btn" data-letter="F" onclick="filterByLetter('F')">F</button>
+            <button class="letter-btn" data-letter="G" onclick="filterByLetter('G')">G</button>
+            <button class="letter-btn" data-letter="H" onclick="filterByLetter('H')">H</button>
+            <button class="letter-btn" data-letter="I" onclick="filterByLetter('I')">I</button>
+            <button class="letter-btn" data-letter="J" onclick="filterByLetter('J')">J</button>
+            <button class="letter-btn" data-letter="K" onclick="filterByLetter('K')">K</button>
+            <button class="letter-btn" data-letter="L" onclick="filterByLetter('L')">L</button>
+            <button class="letter-btn" data-letter="M" onclick="filterByLetter('M')">M</button>
+            <button class="letter-btn" data-letter="N" onclick="filterByLetter('N')">N</button>
+            <button class="letter-btn" data-letter="O" onclick="filterByLetter('O')">O</button>
+            <button class="letter-btn" data-letter="P" onclick="filterByLetter('P')">P</button>
+            <button class="letter-btn" data-letter="Q" onclick="filterByLetter('Q')">Q</button>
+            <button class="letter-btn" data-letter="R" onclick="filterByLetter('R')">R</button>
+            <button class="letter-btn" data-letter="S" onclick="filterByLetter('S')">S</button>
+            <button class="letter-btn" data-letter="T" onclick="filterByLetter('T')">T</button>
+            <button class="letter-btn" data-letter="U" onclick="filterByLetter('U')">U</button>
+            <button class="letter-btn" data-letter="V" onclick="filterByLetter('V')">V</button>
+            <button class="letter-btn" data-letter="W" onclick="filterByLetter('W')">W</button>
+            <button class="letter-btn" data-letter="X" onclick="filterByLetter('X')">X</button>
+            <button class="letter-btn" data-letter="Y" onclick="filterByLetter('Y')">Y</button>
+            <button class="letter-btn" data-letter="Z" onclick="filterByLetter('Z')">Z</button>
+          </div>
+          <div class="alphabet-quick-filter">
+            <input type="text" id="catalog-quick-filter" placeholder="Quick filter by name in view..." oninput="onQuickFilterInput(this.value)" autocomplete="off">
+          </div>
+        </div>
+
+        <div id="supplements-grid" class="supplements-grid"></div>
+      </section>
+    </div>
+
+    <!-- 2. ALL CONDITIONS DIRECTORY VIEW -->
+    <div id="conditions-view" class="hidden">
+      <div class="page-header-row">
+        <div>
+          <div class="hero-tag">Clinical Conditions Directory</div>
+          <h1 class="page-title">Health Conditions & Therapeutic Evidence</h1>
+          <p class="section-desc">Evidence-graded supplement protocols and efficacy tiers across medical conditions.</p>
+        </div>
+      </div>
+      <div id="conditions-grid" class="conditions-grid"></div>
+    </div>
+
+    <!-- 2.1 CONDITION DETAIL VIEW -->
+    <div id="condition-detail-view" class="hidden">
+      <div class="detail-header-bar">
+        <div class="detail-nav-row">
+          <button class="btn btn-back-primary" onclick="backToConditions()" title="Back to Conditions Directory">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back to Conditions</span>
+          </button>
+          <div class="breadcrumbs-nav">
+            <span class="crumb-link" onclick="switchMainTab('conditions')">Conditions</span>
+            <span class="crumb-sep">/</span>
+            <span id="cond-crumb-name" class="crumb-current">Condition Detail</span>
+          </div>
+        </div>
+      </div>
+      <div class="condition-hero-card">
+        <span id="cond-category-badge" class="badge badge-safety">Category</span>
+        <h1 id="cond-name" class="condition-detail-title">Condition Name</h1>
+        <p id="cond-overview" class="condition-overview-text">Loading overview...</p>
+
+        <!-- Tier 1 Supplements -->
+        <div class="evidence-tier-block tier-1-block">
+          <div class="tier-header">
+            <span class="tier-badge tier-1-badge">Tier 1: Primary Evidence (Grade A / B)</span>
+            <span class="tier-subtext">Strong clinical trial proof with statistically significant improvements</span>
+          </div>
+          <div id="cond-tier1-list" class="tier-cards-grid"></div>
+        </div>
+
+        <!-- Tier 2 Supplements -->
+        <div class="evidence-tier-block tier-2-block">
+          <div class="tier-header">
+            <span class="tier-badge tier-2-badge">Tier 2: Secondary / Supportive Evidence</span>
+            <span class="tier-subtext">Promising human trials or synergistic adjunct therapies</span>
+          </div>
+          <div id="cond-tier2-list" class="tier-cards-grid"></div>
+        </div>
+
+        <!-- Ineffective Supplements -->
+        <div class="evidence-tier-block tier-3-block">
+          <div class="tier-header">
+            <span class="tier-badge tier-3-badge">❌ Ineffective / Overhyped (Save Your Money)</span>
+            <span class="tier-subtext">Consistently fails randomized trials or has adverse risk</span>
+          </div>
+          <div id="cond-ineffective-list" class="tier-cards-grid"></div>
+        </div>
+
+        <!-- Lifestyle & Behavioral Factors -->
+        <div class="info-card" style="margin-top: 2rem;">
+          <div class="card-header">
+            <div class="card-icon">⚡</div>
+            <h3>Critical Lifestyle & Dietary Prerequisites</h3>
+          </div>
+          <div class="card-body">
+            <ul id="cond-lifestyle-list" class="effects-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. ALL CATEGORIES DIRECTORY VIEW -->
+    <div id="categories-view" class="hidden">
+      <div class="page-header-row">
+        <div>
+          <div class="hero-tag">Biological Systems</div>
+          <h1 class="page-title">Health & Physiological Categories</h1>
+          <p class="section-desc">Explore evidence-based nutrition organized by bodily systems and clinical goals.</p>
+        </div>
+      </div>
+      <div id="categories-grid" class="categories-grid"></div>
+    </div>
+
+    <!-- 4. PROTOCOL GUIDES VIEW -->
+    <div id="guides-view" class="hidden">
+      <div class="page-header-row">
+        <div>
+          <div class="hero-tag">Clinical Protocols</div>
+          <h1 class="page-title">Step-by-Step Evidence Guides</h1>
+          <p class="section-desc">Detailed clinical blueprints and actionable protocol phases for specific health goals.</p>
+        </div>
+      </div>
+      <div id="guides-grid" class="guides-grid"></div>
+    </div>
+
+    <!-- 4.1 GUIDE DETAIL READER VIEW -->
+    <div id="guide-detail-view" class="hidden">
+      <div class="detail-header-bar">
+        <div class="detail-nav-row">
+          <button class="btn btn-back-primary" onclick="backToGuides()" title="Back to Guides Directory">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back to All Guides</span>
+          </button>
+          <div class="breadcrumbs-nav">
+            <span class="crumb-link" onclick="switchMainTab('guides')">Guides &amp; Protocols</span>
+            <span class="crumb-sep">/</span>
+            <span id="guide-crumb-name" class="crumb-current">Guide Detail</span>
+          </div>
+        </div>
+      </div>
+      <div class="guide-reader-container">
+        <div class="guide-meta-top">
+          <span id="guide-goal-tag" class="hero-tag">Goal</span>
+          <span id="guide-reading-time" class="count-badge">5 min read</span>
+        </div>
+        <h1 id="guide-title" class="guide-reader-title">Guide Title</h1>
+        <p id="guide-subtitle" class="guide-reader-subtitle">Subtitle</p>
+        
+        <div class="summary-box" style="margin: 1.5rem 0;">
+          <h3>Executive Protocol Summary</h3>
+          <p id="guide-summary-text"></p>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 2rem; margin-bottom: 1rem;">Actionable Protocol Phases</h2>
+        <div id="guide-phases-container" class="guide-phases-list"></div>
+
+        <h2 class="section-title" style="margin-top: 2.5rem; margin-bottom: 1rem;">Clinically Recommended Stacks</h2>
+        <div id="guide-stacks-container" class="two-col-grid"></div>
+
+        <div class="info-card" style="margin-top: 2rem;">
+          <div class="card-header">
+            <div class="card-icon">📋</div>
+            <h3>Behavioral & Lifestyle Prerequisites</h3>
+          </div>
+          <ul id="guide-lifestyle-list" class="effects-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. SYMPTOM-TO-SUPPLEMENT AI CONSULTANT VIEW -->
+    <div id="symptoms-view" class="hidden">
+      <div class="ai-hero-section">
+        <div class="hero-tag">Diagnostic AI Consultant</div>
+        <h1 class="page-title">Symptom-to-Supplement AI Consultant</h1>
+        <p class="section-desc">Describe your symptoms in plain language. The AI maps your complaints to underlying biological mechanisms, clinical trials, and an evidence-graded protocol.</p>
+      </div>
+
+      <div class="consult-container">
+        <div class="consult-input-card">
+          <label for="symptoms-input-text" class="consult-label">Describe your symptoms, lifestyle context, or health concerns:</label>
+          <textarea id="symptoms-input-text" rows="4" placeholder="Example: I have trouble falling asleep at night with racing thoughts, wake up with joint stiffness in my knees, and feel an afternoon energy crash around 2 PM..."></textarea>
+          
+          <div class="symptom-preset-chips">
+            <span class="chip" onclick="setSymptomPreset('Insomnia, racing thoughts before bed, waking up at 3 AM with high anxiety')">🌙 Severe Insomnia & Racing Mind</span>
+            <span class="chip" onclick="setSymptomPreset('Post-workout knee and shoulder joint stiffness, cracking joints, and slow recovery')">🦴 Joint Pain & Slow Recovery</span>
+            <span class="chip" onclick="setSymptomPreset('Brain fog, trouble concentrating on complex work, mental fatigue after 2 hours')">🧠 Brain Fog & Executive Fatigue</span>
+            <span class="chip" onclick="setSymptomPreset('severe fatique, brainfog, insomnea, and hartburn')">⚡ Test Typo Auto-Correction (fatique, insomnea, hartburn)</span>
+          </div>
+
+          <div style="text-align: right; margin-top: 1rem;">
+            <button id="symptom-submit-btn" class="btn btn-primary" onclick="submitSymptomConsultation()">
+              <span>Run Biological Diagnostic & Formulate Stack →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Consultation Results -->
+        <div id="symptom-results-container" class="symptom-results-card hidden">
+          <div class="symptom-results-header">
+            <div>
+              <span class="hero-tag">Evidence-Based Clinical Protocol</span>
+              <h2 class="section-title">Personalized Biological Assessment</h2>
+            </div>
+            <button class="btn btn-outline" onclick="window.print()">Print / Export Protocol</button>
+          </div>
+
+          <div class="bio-analysis-box">
+            <h3>Underlying Biological Mechanisms:</h3>
+            <p id="symptom-bio-analysis"></p>
+            <div id="symptom-drivers-list" class="drivers-tags-list"></div>
+          </div>
+
+          <!-- Tier 1 Protocol -->
+          <h3 class="tier-section-heading">Tier 1: Core Priority Interventions (Grade A / B)</h3>
+          <div id="symptom-tier1-cards" class="tier-cards-grid"></div>
+
+          <!-- Tier 2 Supportive -->
+          <h3 class="tier-section-heading" style="margin-top: 2rem;">Tier 2: Synergistic Supportive Compounds</h3>
+          <div id="symptom-tier2-cards" class="tier-cards-grid"></div>
+
+          <!-- Avoid & Warnings Grid -->
+          <div class="two-col-grid" style="margin-top: 2rem;">
+            <div class="info-card">
+              <div class="card-header">
+                <div class="card-icon">🚫</div>
+                <h3>What to Avoid</h3>
+              </div>
+              <ul id="symptom-avoid-list" class="effects-list"></ul>
+            </div>
+
+            <div class="info-card">
+              <div class="card-header">
+                <div class="card-icon">⚠️</div>
+                <h3>Safety & Medical Contraindications</h3>
+              </div>
+              <p id="symptom-safety-text" class="warning-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. CUSTOM SUPPLEMENT FORMULATOR VIEW -->
+    <div id="formulator-view" class="hidden">
+      <div class="ai-hero-section">
+        <div class="hero-tag">Formulation & Stack Studio</div>
+        <h1 class="page-title">Custom Supplement Formulator</h1>
+        <p class="section-desc">Design your own custom supplement blend or stack. The AI checks biological synergy, upper intake limits, and clinical trial evidence.</p>
+      </div>
+
+      <div class="formulator-container">
+        <!-- Formulator Builder Card -->
+        <div class="formulator-card">
+          <div class="formulator-grid-header">
+            <div class="form-group" style="flex: 2;">
+              <label>Formula / Product Name:</label>
+              <input type="text" id="formula-name-input" placeholder="e.g. Neuro-Recovery PM Matrix">
+            </div>
+            <div class="form-group" style="flex: 2;">
+              <label>Target Clinical Goal:</label>
+              <input type="text" id="formula-goal-input" placeholder="e.g. Deep Sleep Architecture & Cortisol Reduction">
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label>Target Audience:</label>
+              <input type="text" id="formula-target-input" value="Active Adults">
+            </div>
+          </div>
+
+          <!-- Ingredients Builder Table -->
+          <div class="builder-ingredients-section">
+            <div class="section-header">
+              <h3 class="section-title" style="font-size: 1.1rem;">Active Ingredients & Dosages</h3>
+              <button class="btn btn-outline" onclick="addIngredientRow()">+ Add Ingredient</button>
+            </div>
+
+            <div id="ingredient-rows-container" class="ingredient-rows-container">
+              <!-- Dynamic Rows inserted here -->
+            </div>
+          </div>
+
+          <div class="formulator-action-bar">
+            <div class="preset-stacks-dropdown">
+              <span>Load Template:</span>
+              <button class="btn btn-text" onclick="loadFormulaPreset('sleep')">🌙 Deep Sleep Stack</button>
+              <button class="btn btn-text" onclick="loadFormulaPreset('focus')">🧠 Focus Nootropic</button>
+              <button class="btn btn-text" onclick="loadFormulaPreset('joint')">🦴 Joint Repair</button>
+            </div>
+            <button id="validate-formula-btn" class="btn btn-primary" onclick="validateCustomFormula()">
+              <span>Validate & Audit Formulation with AI →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Validation Results Audit Sheet -->
+        <div id="formula-audit-sheet" class="formula-audit-sheet hidden">
+          <div class="audit-header">
+            <div>
+              <span class="hero-tag">Clinical Formulation Audit</span>
+              <h2 id="audit-formula-title" class="section-title">Formula Evaluation</h2>
+            </div>
+            <div class="audit-scores">
+              <div class="score-card">
+                <span class="score-num" id="audit-synergy-score">88</span>
+                <span class="score-label">Synergy Score (1-100)</span>
+              </div>
+              <div class="score-card">
+                <span class="score-badge-grade" id="audit-evidence-grade">Grade A</span>
+                <span class="score-label">Clinical Evidence</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="summary-box" style="margin: 1.5rem 0;">
+            <h3>Pharmacologist Review</h3>
+            <p id="audit-summary-text"></p>
+          </div>
+
+          <!-- Synergy Breakdown -->
+          <h3 class="tier-section-heading">Biochemical Synergies</h3>
+          <div id="audit-synergies-list" class="synergies-list"></div>
+
+          <!-- Dosage & Upper Limit Safety Audit Table -->
+          <h3 class="tier-section-heading" style="margin-top: 2rem;">Safety & Dosage Upper Limit (UL) Audit</h3>
+          <div class="table-container">
+            <table class="effect-table">
+              <thead>
+                <tr>
+                  <th>Ingredient</th>
+                  <th>Your Dose</th>
+                  <th>Clinical Standard Range</th>
+                  <th>Tolerable Upper Limit (UL)</th>
+                  <th>Status</th>
+                  <th>Pharmacology Feedback</th>
+                </tr>
+              </thead>
+              <tbody id="audit-safety-tbody"></tbody>
+            </table>
+          </div>
+
+          <!-- Delivery & Manufacturing -->
+          <div class="info-card" style="margin-top: 2rem;">
+            <div class="card-header">
+              <div class="card-icon">🏭</div>
+              <h3>Delivery & Manufacturing Specification</h3>
+            </div>
+            <p id="audit-delivery-text" class="info-val"></p>
+            <div style="margin-top: 1rem;">
+              <h4 style="font-size: 0.85rem; text-transform: uppercase; color: var(--gray-500);">Formulation Optimizations:</h4>
+              <ul id="audit-optimizations-list" class="effects-list"></ul>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; text-align: right;">
+            <button class="btn btn-outline" onclick="saveFormulaToLibrary()">Save to Formula Library</button>
+            <button class="btn btn-primary" onclick="window.print()">Export Formula Spec Sheet</button>
+          </div>
+        </div>
+
+        <!-- Saved Formulas Library -->
+        <div class="section" style="margin-top: 3rem;">
+          <div class="section-header">
+            <h2 class="section-title">Saved Custom Formulas</h2>
+          </div>
+          <div id="saved-formulas-grid" class="supplements-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. LIVE RESEARCH FEED VIEW -->
+    <div id="feed-view" class="hidden">
+      <div class="feed-header-section">
+        <div>
+          <div class="hero-tag">Live Study Updates</div>
+          <h1 class="page-title">Newly Published Clinical Research</h1>
+          <p class="section-desc">Latest human trials, RCTs, and systematic reviews published in PubMed with AI evidence breakdowns.</p>
+        </div>
+        <div class="feed-actions">
+          <button class="btn btn-primary" onclick="loadLatestFeed(true)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 4v6h-6"></path>
+              <path d="M1 20v-6h6"></path>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+            </svg>
+            Refresh from PubMed
+          </button>
+        </div>
+      </div>
+
+      <div class="feed-filter-bar">
+        <button class="pill active" onclick="filterFeedTopic('all')">All New Trials</button>
+        <button class="pill" onclick="filterFeedTopic('performance')">⚡ Exercise & Performance</button>
+        <button class="pill" onclick="filterFeedTopic('sleep')">🌙 Sleep, Mood & Stress</button>
+        <button class="pill" onclick="filterFeedTopic('cognition')">🧠 Brain & Nootropics</button>
+        <button class="pill" onclick="filterFeedTopic('longevity')">❤️ Longevity & Aging</button>
+      </div>
+
+      <div id="feed-loading" class="analyze-loading hidden" style="margin: 2rem 0;">
+        <div class="spinner"></div>
+        <span>Searching PubMed for newly published trials and synthesizing takeaways...</span>
+      </div>
+
+      <div id="feed-list" class="feed-list"></div>
+    </div>
+
+    <!-- 8. ASK WALPAR-AI VIEW -->
+    <div id="ai-view" class="hidden">
+      <div class="ai-hero-section">
+        <div class="hero-tag">AI Evidence Synthesizer</div>
+        <h1 class="page-title">Ask WalparAI</h1>
+        <p class="section-desc">Query our clinical trial database. Get direct, citation-backed answers on supplement protocols, safety, and interactions.</p>
+      </div>
+
+      <div class="ai-chat-box">
+        <div class="ai-input-wrapper">
+          <textarea id="ai-question-input" rows="3" placeholder="Ask any question... (e.g. 'What is the optimal creatine timing and dosage?', 'Best evidence-based stack for deep sleep?', 'Can I take Ashwagandha with caffeine?')"></textarea>
+          <div class="ai-input-footer">
+            <div class="suggestion-chips">
+              <span class="chip" onclick="setAiPrompt('creatne')">💊 Creatine (Typo: creatne)</span>
+              <span class="chip" onclick="setAiPrompt('tell me about ashwaganda benefits')">🌿 Ashwagandha (Typo: ashwaganda)</span>
+              <span class="chip" onclick="setAiPrompt('What is NMN and how does it work?')">🔬 NMN (Live PubChem Lookup)</span>
+              <span class="chip" onclick="setAiPrompt('berbrine dosage')">🩸 Berberine (Typo: berbrine)</span>
+              <span class="chip" onclick="setAiPrompt('What is the best evidence-backed stack for deep sleep without next-day grogginess?')">😴 Deep Sleep Protocol</span>
+            </div>
+            <button id="ai-ask-btn" class="btn btn-primary" onclick="submitAiQuestion()">Ask Question →</button>
+          </div>
+        </div>
+
+        <div id="ai-response-container" class="ai-response-card hidden">
+          <div class="ai-response-header">
+            <div class="ai-badge">🔬 WalparAI Clinical Evidence Analysis</div>
+            <button class="btn btn-text" onclick="copyAiResponse()">Copy Answer</button>
+          </div>
+          <div id="ai-response-content" class="ai-markdown-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. DETAIL VIEW (Single Supplement with Human Effect Matrix) -->
+    <div id="detail-view" class="hidden">
+      <div class="detail-header-bar">
+        <div class="detail-nav-row">
+          <button id="detail-back-btn" class="btn btn-back-primary" onclick="backFromSupplement()" title="Go Back">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span id="detail-back-label">Back to Supplements</span>
+          </button>
+          <div class="breadcrumbs-nav" id="supplement-breadcrumbs">
+            <span class="crumb-link" onclick="switchMainTab('supplements')">Home</span>
+            <span class="crumb-sep">/</span>
+            <span class="crumb-link" id="crumb-middle-link" onclick="switchMainTab('supplements')">Encyclopedia</span>
+            <span class="crumb-sep">/</span>
+            <span id="crumb-current" class="crumb-current">Supplement</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-hero">
+        <div class="detail-title-row">
+          <div>
+            <h1 id="detail-name" class="detail-name">Supplement Name</h1>
+            <div id="detail-synonyms" class="synonyms-list"></div>
+          </div>
+          <div class="meta-badges">
+            <div id="safety-badge" class="badge badge-safety">Safety: High</div>
+            <div id="pubchem-badge" class="badge badge-pubchem">PubChem Verified</div>
+          </div>
+        </div>
+
+        <div id="chem-ribbon" class="chem-ribbon">
+          <div class="chem-item"><span id="chem-label-1" class="chem-label">Formula:</span> <span id="chem-formula" class="chem-val">N/A</span></div>
+          <div class="chem-item"><span id="chem-label-2" class="chem-label">Molecular Weight:</span> <span id="chem-weight" class="chem-val">N/A</span> <span id="chem-weight-unit">g/mol</span></div>
+          <div class="chem-item"><span id="chem-label-3" class="chem-label">PubChem CID:</span> <a id="chem-cid-link" href="#" target="_blank" class="chem-link">N/A</a></div>
+        </div>
+
+        <div class="summary-box">
+          <h3>Summary & Biological Mechanism</h3>
+          <p id="detail-summary">Loading summary...</p>
+        </div>
+
+        <!-- Things to Know / At a Glance (Examine.com Parity) -->
+        <div class="things-to-know-card" id="things-to-know-card">
+          <div class="ttk-header">
+            <div class="ttk-icon-badge">💡</div>
+            <div>
+              <h3 class="ttk-heading">At a Glance: Key Clinical Takeaways</h3>
+              <p id="ttk-verdict" class="ttk-verdict">Evaluating clinical trials...</p>
+            </div>
+          </div>
+          <div class="ttk-columns">
+            <div class="ttk-col ttk-benefits-box">
+              <h4 class="ttk-col-title">🟢 Primary Clinical Benefits</h4>
+              <ul id="ttk-benefits-list" class="ttk-list"></ul>
+            </div>
+            <div class="ttk-col ttk-drawbacks-box">
+              <h4 class="ttk-col-title">⚠️ Things to Keep in Mind / Drawbacks</h4>
+              <ul id="ttk-drawbacks-list" class="ttk-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Human Effect Matrix Section -->
+      <section class="section detail-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Human Effect Matrix (HEM)</h2>
+            <p class="section-desc">Evaluates the consistency, magnitude, and clinical trial evidence for specific outcomes.</p>
+          </div>
+        </div>
+
+        <!-- HEM Category Filter Bar -->
+        <div class="hem-filter-bar" id="hem-filter-bar">
+          <button class="hem-filter-btn active" data-cat="all" onclick="filterHemCategory('all')">All Outcomes</button>
+          <button class="hem-filter-btn" data-cat="Physical Performance" onclick="filterHemCategory('Physical Performance')">⚡ Performance</button>
+          <button class="hem-filter-btn" data-cat="Brain & Focus" onclick="filterHemCategory('Brain & Focus')">🧠 Brain & Focus</button>
+          <button class="hem-filter-btn" data-cat="Sleep & Mood" onclick="filterHemCategory('Sleep & Mood')">🌙 Sleep & Mood</button>
+          <button class="hem-filter-btn" data-cat="Metabolic Health" onclick="filterHemCategory('Metabolic Health')">🩸 Metabolic</button>
+          <button class="hem-filter-btn" data-cat="Heart & Longevity" onclick="filterHemCategory('Heart & Longevity')">❤️ Cardiovascular</button>
+          <button class="hem-filter-btn" data-cat="General Health" onclick="filterHemCategory('General Health')">🛡️ General Health</button>
+        </div>
+
+        <div class="table-container">
+          <table class="effect-table">
+            <thead>
+              <tr>
+                <th>Health Outcome</th>
+                <th>Category</th>
+                <th>Effect Magnitude</th>
+                <th>Evidence Grade</th>
+                <th>Trials</th>
+                <th>Clinical Takeaway</th>
+                <th>PubMed Citations</th>
+              </tr>
+            </thead>
+            <tbody id="effect-matrix-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Dosage & Safety Cards -->
+      <div class="two-col-grid">
+        <div class="info-card">
+          <div class="card-header">
+            <div class="card-icon dose-icon">💊</div>
+            <h3>How to Take (Dosage & Usage)</h3>
+          </div>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-title">Recommended Daily Dose:</span>
+              <p id="dosage-rec" class="info-val">Loading...</p>
+            </div>
+            <div class="info-row">
+              <span class="info-title">Optimal Timing:</span>
+              <p id="dosage-timing" class="info-val">Loading...</p>
+            </div>
+            <div class="info-row">
+              <span class="info-title">Best Forms:</span>
+              <p id="dosage-forms" class="info-val">Loading...</p>
+            </div>
+            <div class="info-row">
+              <span class="info-title">Cycling Guidelines:</span>
+              <p id="dosage-cycling" class="info-val">Loading...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="card-header">
+            <div class="card-icon safety-icon">🛡️</div>
+            <h3>Safety, Side Effects & Interactions</h3>
+          </div>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-title">Safety Rating:</span>
+              <p id="safety-rating" class="info-val">Loading...</p>
+            </div>
+            <div class="info-row" id="upper-limit-row">
+              <span class="info-title">Tolerable Upper Limit (UL):</span>
+              <p id="safety-upper-limit" class="info-val">Not established / Standard dose</p>
+            </div>
+            <div class="info-row">
+              <span class="info-title">Common Side Effects:</span>
+              <ul id="side-effects-list" class="effects-list"></ul>
+            </div>
+            <div class="info-row">
+              <span class="info-title">Contraindications & Warnings:</span>
+              <p id="contraindications" class="info-val warning-text">Loading...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frequently Asked Questions (FAQs) -->
+      <section class="section detail-section" id="faqs-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">❓ Frequently Asked Questions (FAQs)</h2>
+            <p class="section-desc">Key clinical questions, common misconceptions, and safety nuances answered with peer-reviewed evidence.</p>
+          </div>
+        </div>
+        <div id="faqs-accordion" class="faqs-accordion"></div>
+      </section>
+
+      <!-- PubMed References -->
+      <section class="section detail-section">
+        <div class="section-header">
+          <h2 class="section-title">Cited Clinical Studies (PubMed)</h2>
+          <span id="studies-count" class="count-badge">0 studies</span>
+        </div>
+        <div id="studies-list" class="studies-list"></div>
+      </section>
+
+      <!-- ClinicalTrials.gov Registry References -->
+      <section class="section detail-section" id="clinical-trials-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">🏛️ Human Clinical Trials Registry (ClinicalTrials.gov)</h2>
+            <p class="section-desc">Official US National Library of Medicine registered randomized interventional human trials.</p>
+          </div>
+          <span id="clinical-trials-count" class="count-badge">0 registered trials</span>
+        </div>
+        <div id="clinical-trials-list" class="studies-list"></div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>API Configuration & System Keys</h3>
+        <button class="modal-close" onclick="closeSettingsModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">
+          Walpar integrates the <strong>NCBI Entrez E-Utilities API</strong> (for 10 req/sec PubMed clinical trial speed) and the <strong>Google Gemini API</strong> (for synthesis, diagnosis, and formulation auditing).
+        </p>
+        <div class="form-group">
+          <label for="gemini-key-input">Gemini API Key:</label>
+          <input type="password" id="gemini-key-input" placeholder="Gemini API Key">
+        </div>
+        <div class="form-group">
+          <label for="ncbi-key-input">PubMed / NCBI API Key:</label>
+          <input type="text" id="ncbi-key-input" placeholder="32-character PubMed Key">
+        </div>
+        <div id="settings-feedback" class="feedback-msg hidden"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeSettingsModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveApiKey()">Save API Keys</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Supplement Modal -->
+  <div id="new-supp-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Analyze Any Supplement on Earth</h3>
+        <button class="modal-close" onclick="closeNewSupplementModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-desc">
+          Enter any nutritional supplement, vitamin, or herb (e.g. <em>Zinc</em>, <em>Berberine</em>, <em>L-Theanine</em>, <em>Urolithin A</em>, <em>Tongkat Ali</em>).
+        </p>
+        <div class="form-group">
+          <label for="new-supp-input">Supplement Name:</label>
+          <input type="text" id="new-supp-input" placeholder="e.g. Berberine, Tongkat Ali, Curcumin, Zinc">
+        </div>
+
+        <div id="analyze-loading" class="analyze-loading hidden">
+          <div class="spinner"></div>
+          <div class="loading-steps">
+            <div id="step-1" class="step active">1. Querying PubChem compound properties...</div>
+            <div id="step-2" class="step">2. Searching PubMed for human clinical trials & RCTs...</div>
+            <div id="step-3" class="step">3. Synthesizing Human Effect Matrix with AI...</div>
+          </div>
+        </div>
+
+        <div id="new-supp-error" class="feedback-msg error hidden"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeNewSupplementModal()">Cancel</button>
+        <button id="start-analyze-btn" class="btn btn-primary" onclick="triggerNewAnalysis()">Start Analysis</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Synthesis Loading Overlay Modal -->
+  <div id="synthesis-loading-modal" class="modal-overlay hidden">
+    <div class="modal-content" style="max-width: 500px; text-align: center; padding: 2.5rem 2rem;">
+      <div class="spinner" style="width: 48px; height: 48px; margin: 0 auto 1.25rem;"></div>
+      <h3 style="color: var(--navy); margin-bottom: 0.5rem;" id="synthesis-modal-title">Synthesizing Clinical Evidence</h3>
+      <p style="font-size: 0.875rem; color: var(--gray-600); margin-bottom: 1.5rem;" id="synthesis-modal-desc">
+        Connecting to PubMed, PubChem &amp; ClinicalTrials.gov to generate authentic evidence monograph...
+      </p>
+      <div class="synthesis-steps-list">
+        <div class="syn-step active" id="syn-step-1">📡 Retrieving PubMed RCTs &amp; MeSH terms...</div>
+        <div class="syn-step" id="syn-step-2">🔬 Auditing PubChem chemical profile &amp; dosages...</div>
+        <div class="syn-step" id="syn-step-3">📊 Synthesizing Effect Matrix, FAQs &amp; Trials with AI...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Sticky Back Button -->
+  <button id="floating-back-btn" class="floating-back-btn hidden" onclick="navigateBack()" title="Go back to previous page (Alt + Left Arrow)">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+    <span>Back</span>
+  </button>
+
+  <script src="/static/app.js?v=4.0"></script>
+</body>
+</html>

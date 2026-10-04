@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walpar - Multi-Engine Formula OCR & Ingredient Extractor</title>
+    <!-- Compiled Tailwind CSS (Fast, standalone native stylesheet) -->
+    <link rel="stylesheet" href="/static/css/tailwind.min.css?v=20260930_css1">
+    <!-- Tailwind CSS (local runtime for dynamic classes) -->
+    <script src="/static/js/tailwind.min.js"></script>
+    <script>
+        if (window.tailwind) {
+            tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        walpar: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                            900: '#082f49'
+                        }
+                    }
+                }
+            };
+        }
+    </script>
+    <!-- Lucide Icons (local - works without internet) -->
+    <script src="/static/js/lucide.min.js"></script>
+    <link rel="stylesheet" href="/static/css/styles.css?v=20260930_responsive1">
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col font-sans">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-gradient-to-r from-walpar-900 via-walpar-800 to-slate-900 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center border border-white/20 shadow-inner flex-shrink-0">
+                    <i data-lucide="flask-conical" class="w-6 h-6 text-sky-400"></i>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-lg sm:text-xl font-extrabold tracking-tight text-white">WALPAR</span>
+                        <span class="bg-sky-500/20 text-sky-300 text-[10px] sm:text-xs px-2 py-0.5 rounded-full font-semibold border border-sky-400/30">NUTRACEUTICALS</span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-slate-300">Multi-Engine Local Formula OCR & Formulation AI</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2 sm:space-x-2.5 text-xs">
+                <!-- Live IST Clock -->
+                <div class="hidden lg:flex items-center space-x-1.5 px-3 py-1.5 bg-white/10 rounded-lg text-xs font-mono text-teal-300 border border-white/10">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-teal-400"></i>
+                    <span id="header-ist-clock">Loading IST...</span>
+                </div>
+
+                <!-- Elemental Salt & RDA Calculator Button -->
+                <button onclick="openSaltRdaModal()" class="bg-teal-500/20 hover:bg-teal-500/30 text-teal-200 px-2.5 sm:px-3 py-1.5 rounded-lg border border-teal-400/30 transition flex items-center space-x-1 sm:space-x-1.5 font-bold shadow-sm" title="Elemental & RDA Calculator">
+                    <i data-lucide="calculator" class="w-3.5 h-3.5 text-teal-300 flex-shrink-0"></i>
+                    <span class="hidden sm:inline text-xs">Elemental & RDA</span>
+                </button>
+
+                <!-- My Quotations & Revision Status Button -->
+                <button onclick="openMyQuotationsModal()" class="bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 px-2.5 sm:px-3 py-1.5 rounded-lg border border-amber-400/30 transition flex items-center space-x-1 sm:space-x-1.5 font-bold shadow-sm relative" title="My Quotations">
+                    <i data-lucide="receipt" class="w-3.5 h-3.5 text-amber-300 flex-shrink-0"></i>
+                    <span class="hidden sm:inline text-xs">Quotations</span>
+                    <span id="user-revised-dot" class="hidden w-2 h-2 rounded-full bg-emerald-400 animate-ping absolute -top-1 -right-1"></span>
+                </button>
+
+                <button onclick="openPhoneModal()" class="bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 px-2.5 sm:px-3 py-1.5 rounded-lg border border-sky-400/30 transition flex items-center space-x-1 sm:space-x-1.5 font-medium shadow-sm" title="Use on Phone">
+                    <i data-lucide="smartphone" class="w-3.5 h-3.5 text-sky-300 flex-shrink-0"></i>
+                    <span class="hidden md:inline text-xs">Use on Phone</span>
+                </button>
+                <button onclick="openIngredientsModal()" class="bg-white/10 hover:bg-white/20 text-white px-2.5 sm:px-3 py-1.5 rounded-lg border border-white/20 transition flex items-center space-x-1 sm:space-x-1.5 font-medium shadow-sm" title="Browse Ingredients DB">
+                    <i data-lucide="database" class="w-3.5 h-3.5 flex-shrink-0"></i>
+                    <span class="hidden md:inline text-xs">Browse DB</span>
+                </button>
+
+                <!-- User Profile & Admin / Logout -->
+                <div class="flex items-center space-x-1 sm:space-x-1.5 pl-1.5 sm:pl-2 border-l border-white/20">
+                    <span class="hidden sm:flex px-2 sm:px-2.5 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs text-slate-200 font-semibold items-center space-x-1.5">
+                        <i data-lucide="user" class="w-3.5 h-3.5 text-teal-400"></i>
+                        <span>{{ current_user.username }}</span>
+                    </span>
+                    {% if current_user.role == 'admin' %}
+                    <a href="/admin" class="bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 px-2 sm:px-2.5 py-1.5 rounded-lg border border-amber-400/30 font-bold text-xs flex items-center space-x-1" title="Open Admin & Audit Panel">
+                        <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
+                        <span class="hidden sm:inline">Admin</span>
+                    </a>
+                    {% endif %}
+                    <a href="/api/auth/logout" class="bg-rose-500/20 hover:bg-rose-500/40 text-rose-300 p-1.5 rounded-lg border border-rose-500/30 transition flex items-center" title="Sign Out">
+                        <i data-lucide="log-out" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- OCR Engine Selector Bar -->
+    <div class="bg-white border-b border-slate-200 py-2.5 px-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs">
+            <div class="flex flex-wrap items-center gap-2">
+                <span class="font-bold text-slate-700 flex items-center space-x-1.5 flex-shrink-0">
+                    <i data-lucide="cpu" class="w-4 h-4 text-walpar-600"></i>
+                    <span>Active OCR Library:</span>
+                </span>
+                <select id="engine-select" onchange="onEngineChange()" class="bg-slate-50 border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs font-semibold text-slate-800 focus:ring-walpar-500 focus:border-walpar-500 max-w-full">
+                    {% for engine in ocr_engines %}
+                    <option value="{{ engine.id }}" {% if engine.is_default %}selected{% endif %}>
+                        {{ engine.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <span id="engine-note" class="text-[11px] text-slate-500 hidden md:inline">
+                    State-of-the-art deep learning model with high accuracy on medicine formulas and tables.
+                </span>
+            </div>
+
+            <div id="re-run-box" class="hidden flex-shrink-0">
+                <button onclick="reRunCurrentEngine()" class="w-full sm:w-auto px-3 py-1.5 bg-sky-50 hover:bg-sky-100 text-walpar-700 border border-sky-300 rounded-lg font-semibold flex items-center justify-center space-x-1 transition shadow-sm">
+                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                    <span>Re-Run with Selected Engine</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5 flex-grow w-full">
+
+        <!-- 1-Click Sample Formulas Bar -->
+        <div class="mb-5 bg-white rounded-xl p-3.5 sm:p-4 shadow-sm border border-slate-200">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2.5">
+                <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center space-x-1.5">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
+                    <span>Quick Test with Sample Formulation Images</span>
+                </h3>
+                <span class="text-[11px] text-slate-400">Click any card to test instant extraction</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+                {% for sample in samples %}
+                <button onclick="loadSample('{{ sample.id }}')"
+                        class="sample-card text-left p-2.5 sm:p-3 rounded-lg border border-slate-200 hover:border-walpar-500 hover:bg-sky-50/50 hover:shadow-md transition group relative overflow-hidden bg-white">
+                    <div class="flex items-start justify-between">
+                        <span class="text-xs font-semibold text-slate-800 group-hover:text-walpar-700">{{ sample.name }}</span>
+                        <i data-lucide="scan-line" class="w-4 h-4 text-slate-400 group-hover:text-walpar-600 transition flex-shrink-0 ml-1"></i>
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-1 line-clamp-1">{{ sample.subtitle }}</p>
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Main Dual-Column Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6">
+
+            <!-- LEFT COLUMN: Image Upload & Visual OCR Inspection (5 cols) -->
+            <div class="lg:col-span-5 space-y-5">
+                
+                <!-- Upload Box -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-5">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-sm font-bold text-slate-800 flex items-center space-x-2">
+                            <i data-lucide="upload-cloud" class="w-4 h-4 text-walpar-600"></i>
+                            <span>Upload Formula File / Document</span>
+                        </h2>
+                        <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono font-semibold">PDF, Excel, Word, Image</span>
+                    </div>
+
+                    <!-- Hidden file & camera inputs -->
+                    <input type="file" id="file-input" class="hidden" accept=".pdf,application/pdf,.docx,.doc,.xlsx,.xls,.csv,.txt,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,text/plain,image/*,.jpg,.jpeg,.png,.webp,.bmp,.jfif,.tiff,.tif,.heic,.heif">
+                    <input type="file" id="crop-file-input" class="hidden" accept=".pdf,application/pdf,.docx,.doc,.xlsx,.xls,.csv,.txt,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/csv,text/plain,image/*,.jpg,.jpeg,.png,.webp,.bmp,.jfif,.tiff,.tif,.heic,.heif">
+                    <input type="file" id="camera-input" class="hidden" accept="image/*" capture="environment">
+
+                    <!-- Drop Zone: Clickable anywhere natively -->
+                    <div id="drop-zone" onclick="onDropZoneClick(event)"
+                         class="relative group block border-2 border-dashed border-slate-300 hover:border-walpar-500 rounded-xl p-5 sm:p-6 text-center cursor-pointer transition bg-slate-50/50 hover:bg-sky-50/40">
+                        
+                        <div class="w-12 h-12 rounded-full bg-sky-100 text-walpar-600 flex items-center justify-center mx-auto mb-2.5 group-hover:scale-105 transition pointer-events-none">
+                            <i data-lucide="file-up" class="w-6 h-6"></i>
+                        </div>
+                        <p class="text-sm font-bold text-slate-800 pointer-events-none">Drag &amp; drop PDF, Excel, Word document or photo here</p>
+                        <p class="text-xs text-slate-500 mt-0.5 pointer-events-none">or click anywhere in this box to select any formulation file</p>
+                        
+                        <div class="mt-3.5 flex flex-wrap items-center justify-center gap-2">
+                            <button type="button" onclick="event.stopPropagation(); document.getElementById('file-input').click()" 
+                                    class="px-4 py-2 bg-walpar-600 hover:bg-walpar-700 active:scale-95 text-white rounded-lg text-xs font-bold shadow-md transition flex items-center space-x-1.5 cursor-pointer">
+                                <i data-lucide="folder-open" class="w-3.5 h-3.5"></i>
+                                <span>Browse Any File / Document</span>
+                            </button>
+                            <button type="button" onclick="event.stopPropagation(); document.getElementById('crop-file-input').click()" 
+                                    class="px-3.5 py-2 bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-300 rounded-lg text-xs font-semibold shadow-sm transition flex items-center space-x-1.5 cursor-pointer" title="Adjust 4 corners for tilted or angled photos">
+                                <i data-lucide="crop" class="w-3.5 h-3.5 text-sky-600"></i>
+                                <span>Crop &amp; Straighten</span>
+                            </button>
+                            <button type="button" id="btn-camera" onclick="event.stopPropagation(); startCameraCapture()" 
+                                    class="px-3.5 py-2 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold shadow-sm transition flex items-center space-x-1.5 cursor-pointer">
+                                <i data-lucide="camera" class="w-3.5 h-3.5 text-slate-600"></i>
+                                <span>Take Photo</span>
+                            </button>
+                        </div>
+                        <p class="text-[10px] text-slate-400 mt-2 pointer-events-none">Clipboard paste supported (Ctrl+V) &bull; PDF, Excel (.xlsx), Word (.docx), CSV, JPG, PNG, WEBP, HEIC</p>
+                    </div>
+
+                    <!-- Processing Spinner -->
+                    <div id="loading-spinner" class="hidden my-3.5 p-3.5 bg-sky-50 rounded-lg border border-sky-200 text-center">
+                        <div class="inline-block animate-spin rounded-full h-7 w-7 border-3 border-walpar-600 border-t-transparent mb-1.5"></div>
+                        <p class="text-xs font-bold text-walpar-800">Processing with Active OCR Engine...</p>
+                        <p id="spinner-subtext" class="text-[11px] text-walpar-600">Extracting formulation text lines & matching ingredients</p>
+                    </div>
+                </div>
+
+                <!-- Image & OCR Visualizer Card -->
+                <div id="image-viewer-card" class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-5 hidden">
+                    <div class="flex items-center justify-between mb-3">
+                        <h3 class="text-sm font-bold text-slate-800 flex items-center space-x-2">
+                            <i data-lucide="eye" class="w-4 h-4 text-walpar-600"></i>
+                            <span>Formula Visual & OCR Overlay</span>
+                        </h3>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="cropCurrentImage()" class="text-xs text-sky-700 bg-sky-50 hover:bg-sky-100 border border-sky-300 px-2.5 py-1 rounded-lg font-semibold flex items-center space-x-1 transition shadow-xs cursor-pointer" title="Straighten or crop tilted medicine photo">
+                                <i data-lucide="crop" class="w-3.5 h-3.5 text-sky-600"></i>
+                                <span>Crop / Straighten</span>
+                            </button>
+                            <label class="text-xs text-slate-600 flex items-center space-x-1 cursor-pointer">
+                                <input type="checkbox" id="toggle-boxes" checked onchange="toggleBoxes()" class="rounded text-walpar-600 focus:ring-walpar-500">
+                                <span>Show Boxes</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Canvas Container -->
+                    <div class="relative bg-slate-900/5 rounded-lg overflow-hidden border border-slate-200 min-h-[200px] max-h-[440px] flex items-center justify-center">
+                        <canvas id="ocr-canvas" class="max-w-full max-h-[440px] w-auto h-auto object-contain"></canvas>
+                        <!-- Dynamic scanning animation overlay -->
+                        <div id="scanning-overlay" class="absolute inset-0 bg-sky-600/10 hidden pointer-events-none flex flex-col items-center justify-center backdrop-blur-[0.5px]">
+                            <span class="bg-slate-900/85 text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-lg flex items-center space-x-2">
+                                <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+                                <span>Analyzing Formula & OCR Text...</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Raw Detected Lines Drawer -->
+                    <div class="mt-3">
+                        <button onclick="toggleRawOcr()" class="text-xs text-slate-500 hover:text-slate-800 flex items-center space-x-1 font-medium">
+                            <i data-lucide="chevron-down" id="raw-ocr-chevron" class="w-3.5 h-3.5 transition"></i>
+                            <span id="raw-ocr-count">View Raw OCR Lines (0)</span>
+                        </button>
+                        <div id="raw-ocr-drawer" class="hidden mt-2 p-3 bg-slate-50 rounded-lg border border-slate-200 max-h-48 overflow-y-auto text-[11px] font-mono space-y-1">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: Extracted Formula & Database Ingredients (7 cols) -->
+            <div class="lg:col-span-7 space-y-5">
+
+                <!-- Extraction Summary Banner -->
+                <div id="summary-banner" class="bg-white rounded-xl shadow-sm border border-slate-200 p-3.5 sm:p-4 hidden">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold border border-emerald-200 flex-shrink-0">
+                                <i data-lucide="check-check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <h3 class="text-sm font-bold text-slate-800">OCR Extraction Complete</h3>
+                                    <span id="engine-used-badge" class="text-[10px] bg-sky-100 text-sky-800 px-2 py-0.5 rounded font-mono font-semibold uppercase">
+                                        RapidOCR
+                                    </span>
+                                </div>
+                                <p id="matched-status-text" class="text-xs text-slate-500">4 of 4 ingredients matched with Walpar master database</p>
+                            </div>
+                        </div>
+                        <span id="match-rate-badge" class="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full flex-shrink-0">
+                            100% Match
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Active Formula Ingredients Table Card -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-5">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                        <div>
+                            <h2 class="text-sm font-bold text-slate-800 flex items-center space-x-2">
+                                <i data-lucide="list-checks" class="w-4 h-4 text-walpar-600"></i>
+                                <span>Formula Ingredients</span>
+                            </h2>
+                            <p class="text-xs text-slate-500">Review OCR extracted ingredients, adjust dosage/unit, or add new ones</p>
+                        </div>
+                        <button onclick="openIngredientsModal()" class="w-full sm:w-auto px-3.5 py-1.5 bg-walpar-600 hover:bg-walpar-700 text-white rounded-lg text-xs font-semibold flex items-center justify-center space-x-1.5 transition shadow-sm flex-shrink-0">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                            <span>Add from Database</span>
+                        </button>
+                    </div>
+
+                    <!-- Ingredients Table Responsive Wrapper -->
+                    <div class="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0 border-y sm:border sm:rounded-lg border-slate-200">
+                        <table class="w-full text-left text-xs min-w-[540px]">
+                            <thead class="bg-slate-100 text-slate-600 font-semibold border-b border-slate-200">
+                                <tr>
+                                    <th class="py-2.5 px-3">Active Ingredient Name</th>
+                                    <th class="py-2.5 px-3 w-28">Dosage</th>
+                                    <th class="py-2.5 px-3 w-24">Unit</th>
+                                    <th class="py-2.5 px-3">Database Match</th>
+                                    <th class="py-2.5 px-3 w-10 text-center"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="ingredients-table-body" class="divide-y divide-slate-100">
+                                <tr id="empty-state-row">
+                                    <td colspan="5" class="text-center py-10 text-slate-400">
+                                        <i data-lucide="file-question" class="w-8 h-8 mx-auto mb-2 text-slate-300"></i>
+                                        <p class="font-medium text-slate-600">No formula loaded yet</p>
+                                        <p class="text-[11px] text-slate-400 mt-0.5">Upload a formula photo on the left or select a sample</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Action buttons bottom bar -->
+                    <div id="table-footer-actions" class="mt-3.5 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 hidden">
+                        <span id="item-count-text" class="text-xs text-slate-500 font-medium">4 Ingredients listed</span>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="clearAllIngredients()" class="text-xs text-rose-600 hover:text-rose-700 font-medium px-2 py-1">
+                                Clear All
+                            </button>
+                            <button onclick="copyFormulaJson()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-3 py-1.5 rounded-lg flex items-center space-x-1 transition">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                <span>Copy Formulation</span>
+                            </button>
+                            <button onclick="openBatchMasterWizard()" class="text-xs bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold px-3.5 py-1.5 rounded-lg flex items-center space-x-1.5 shadow transition">
+                                <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+                                <span>Generate Batch Master Card</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Batch Master Card (12.py) Flow Card -->
+                <div id="batch-master-trigger-card" class="bg-gradient-to-r from-slate-900 via-walpar-950 to-teal-950 rounded-xl shadow-md border border-teal-800/40 p-4 text-white hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-400/40 flex items-center justify-center text-teal-300 flex-shrink-0">
+                                <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <h3 class="text-sm font-extrabold text-white">બેચ માસ્ટર કાર્ડ બનાવો (Batch Master Card / BMR)</h3>
+                                    <span class="bg-teal-500/30 text-teal-200 border border-teal-400/40 text-[9px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">12.py System</span>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-0.5">Active ingredients pre-filled from OCR. Configure batch size, excipients, packaging, and generate the official manufacturing master card.</p>
+                            </div>
+                        </div>
+                        <button onclick="openBatchMasterWizard()" class="w-full sm:w-auto px-4 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 active:scale-[0.98] text-white rounded-xl text-xs font-bold shadow-lg shadow-teal-900/40 transition flex items-center justify-center space-x-2 flex-shrink-0">
+                            <i data-lucide="layers" class="w-4 h-4"></i>
+                            <span>Create Master Card &gt;</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Scientific Formula Evaluation & AI Suggestions Card (કેવું છે evaluation & suggestions) -->
+                <div id="evaluation-card" class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 hidden">
+                    <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold border border-indigo-100">
+                                <i data-lucide="award" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <h3 class="text-sm font-bold text-slate-800">Formula Evaluation & Quality Score</h3>
+                                    <span class="text-[10px] bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded font-mono font-semibold">
+                                        Clinical Intelligence
+                                    </span>
+                                </div>
+                                <p class="text-xs text-slate-500">Biochemical synergy, dosage safety, and expert AI recommendations</p>
+                            </div>
+                        </div>
+
+                        <!-- Score Pill -->
+                        <div class="flex items-center space-x-2.5">
+                            <div class="text-right">
+                                <span class="text-[10px] text-slate-400 uppercase font-semibold block">Quality Rating</span>
+                                <span id="eval-status-badge" class="text-xs font-bold text-emerald-600">Excellent</span>
+                            </div>
+                            <div id="eval-score-circle" class="w-11 h-11 rounded-full border-2 border-emerald-500 flex items-center justify-center font-extrabold text-sm text-emerald-700 bg-emerald-50 shadow-inner">
+                                95
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulation Specs Strip -->
+                    <div class="my-3.5 p-3 bg-slate-50 rounded-lg flex flex-wrap items-center justify-between gap-2 text-xs">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="scale" class="w-4 h-4 text-slate-500"></i>
+                            <span class="text-slate-600">Total Active Core Weight: <strong id="eval-active-weight" class="text-slate-900 font-bold font-mono">0 mg</strong></span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span id="eval-form-recommendation" class="bg-sky-50 text-walpar-700 border border-sky-200 px-2.5 py-1 rounded-full font-semibold text-[11px] flex items-center space-x-1">
+                                <i data-lucide="pill" class="w-3.5 h-3.5 mr-1 text-walpar-600"></i>
+                                <span>Recommended Delivery: Tablet / Capsule</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- AI Scientific Suggestions (સુધારા / AI Suggestions with 1-click apply button) -->
+                    <div id="eval-suggestions-section" class="mb-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
+                                <span>AI Suggestions & Enhancements</span>
+                            </h4>
+                            <span class="text-[10px] text-slate-400">Click to instantly add recommended enhancers</span>
+                        </div>
+                        <div id="eval-suggestions-list" class="space-y-2">
+                            <!-- Injected dynamically via JS with + Apply Suggestion button -->
+                        </div>
+                    </div>
+
+                    <!-- Active Synergies (ખાસિયતો / Synergies) -->
+                    <div id="eval-synergies-section" class="mb-4">
+                        <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 flex items-center space-x-1.5">
+                            <i data-lucide="zap" class="w-4 h-4 text-emerald-600"></i>
+                            <span>Biochemical Synergies Detected</span>
+                        </h4>
+                        <div id="eval-synergies-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Clinical Evidence Matrix (Human Effect Matrix from Examine) -->
+                    <div id="eval-evidence-section" class="mb-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5">
+                                <i data-lucide="microscope" class="w-4 h-4 text-walpar-600"></i>
+                                <span>Clinical Human Effect Matrix (Evidence-Based Research)</span>
+                            </h4>
+                            <span class="text-[10px] text-slate-400">Validated by Clinical Human Trials</span>
+                        </div>
+                        <div id="eval-evidence-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <!-- Injected dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Dosage Safety / Conflicts if any -->
+                    <div id="eval-conflicts-section" class="hidden">
+                        <h4 class="text-xs font-bold text-rose-700 uppercase tracking-wider mb-2 flex items-center space-x-1.5">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-600"></i>
+                            <span>Regulatory & Dosage Compliance Alerts</span>
+                        </h4>
+                        <div id="eval-conflicts-list" class="space-y-2">
+                            <!-- Injected via JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Master Raw Materials Database Modal (NO PRICES) -->
+    <div id="ingredients-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[85vh] flex flex-col overflow-hidden border border-slate-200">
+            <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="database" class="w-5 h-5 text-walpar-600"></i>
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-sm">Walpar Master Ingredients Database</h3>
+                        <p class="text-[11px] text-slate-500">Select an ingredient to add to your formulation</p>
+                    </div>
+                </div>
+                <button onclick="closeIngredientsModal()" class="text-slate-400 hover:text-slate-600 p-1">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="p-4 border-b border-slate-100 flex items-center space-x-3 bg-white">
+                <div class="relative flex-grow">
+                    <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+                    <input type="text" id="modal-search" oninput="filterModalIngredients()" placeholder="Search from 518 ingredients (e.g. Ascorbic Acid, Zinc, Ashwagandha, Melatonin, L-Carnitine)..." 
+                           class="w-full text-xs pl-9 pr-3 py-2 border border-slate-300 rounded-lg focus:ring-walpar-500 focus:border-walpar-500">
+                </div>
+                <span id="search-count-badge" class="text-xs text-slate-500 bg-slate-100 px-2.5 py-1.5 rounded-lg font-mono">
+                    518 Items
+                </span>
+            </div>
+
+            <!-- Ingredients List Grid -->
+            <div class="flex-grow overflow-y-auto p-4 bg-slate-50/50">
+                <div id="modal-ingredients-list" class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phone / Mobile Access QR Modal -->
+    <div id="phone-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6 text-center border border-slate-200 relative animate-in fade-in zoom-in-95 duration-200">
+            <button onclick="closePhoneModal()" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            
+            <div class="w-12 h-12 rounded-full bg-sky-100 text-walpar-600 flex items-center justify-center mx-auto mb-2.5">
+                <i data-lucide="smartphone" class="w-6 h-6"></i>
+            </div>
+            
+            <h3 class="text-base font-extrabold text-slate-800">Use Anywhere on Your Phone</h3>
+            {% if is_cloudflare %}
+            <div class="inline-flex items-center space-x-1.5 mt-1 bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-0.5 rounded-full text-[10px] font-bold">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Cloudflare Secure Tunnel Active (Worldwide HTTPS)</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Scan this QR code from anywhere (Wi-Fi or Mobile Data 4G/5G):</p>
+            {% else %}
+            <p class="text-xs text-slate-500 mt-1">Connect your phone to the same Wi-Fi and scan this QR code:</p>
+            {% endif %}
+            
+            <div class="my-3.5 p-2 bg-slate-50 border border-slate-200 rounded-xl inline-block shadow-sm">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data={{ mobile_url }}" 
+                     alt="Mobile QR Code" class="w-36 h-36 mx-auto rounded-lg bg-white p-1">
+            </div>
+            
+            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-left mb-3">
+                <span class="text-[10px] text-slate-400 uppercase font-semibold block">Or open this link on your phone:</span>
+                <div class="flex items-center justify-between mt-1 gap-2">
+                    <code id="phone-url-text" class="text-xs font-mono font-bold text-walpar-700 truncate">{{ mobile_url }}</code>
+                    <button onclick="copyPhoneUrl()" class="text-xs bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 px-2 py-1 rounded font-semibold transition flex items-center space-x-1 flex-shrink-0">
+                        <i data-lucide="copy" class="w-3 h-3"></i>
+                        <span id="copy-phone-btn-text">Copy</span>
+                    </button>
+                </div>
+            </div>
+
+            <p class="text-[11px] text-slate-400">Snap photos of formula sheets or medicine boxes with your phone's camera directly!</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         WALPAR BATCH MASTER CARD & BMR WIZARD (12.py Integration)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="batch-master-modal" class="fixed inset-0 z-[9990] flex items-end sm:items-center justify-center bg-slate-950/85 backdrop-blur-md hidden p-0 sm:p-4">
+        <div class="bg-white rounded-t-2xl sm:rounded-2xl shadow-2xl w-full sm:max-w-5xl h-[96dvh] sm:max-h-[96vh] flex flex-col overflow-hidden border-0 sm:border sm:border-slate-200 animate-in fade-in zoom-in-95 duration-200">
+            
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-walpar-900 via-teal-900 to-slate-900 text-white px-4 sm:px-6 py-3.5 flex items-center justify-between border-b border-teal-800/40 flex-shrink-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-400/30 flex items-center justify-center text-teal-300">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <h3 class="font-extrabold text-sm sm:text-base text-white tracking-wide">Walpar Batch Master Card Generator</h3>
+                            <span class="bg-teal-500/20 text-teal-300 border border-teal-400/30 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">12.py BMR</span>
+                        </div>
+                        <p class="text-xs text-slate-300">Tablet, Capsule &amp; Liquid Formulations with Packaging &amp; Costing</p>
+                    </div>
+                </div>
+                <button onclick="closeBatchMasterWizard()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Stepper Progress Navigation (4 Clean Steps) -->
+            <div class="bg-slate-50 border-b border-slate-200 px-3 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between text-xs font-semibold overflow-x-auto flex-shrink-0 scrollbar-hide">
+                <div id="step-nav-1" class="flex items-center space-x-1.5 text-teal-700 font-bold whitespace-nowrap cursor-pointer flex-shrink-0" onclick="goToBmrStep(1)">
+                    <span class="w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center text-[11px] flex-shrink-0">1</span>
+                    <span class="hidden xs:inline sm:inline">Product &amp; Batch</span>
+                </div>
+                <div class="flex-1 h-[1px] bg-slate-300 mx-1.5 sm:mx-2 flex-shrink-0 min-w-[0.5rem] max-w-[2rem]"></div>
+                <div id="step-nav-2" class="flex items-center space-x-1.5 text-slate-400 whitespace-nowrap cursor-pointer flex-shrink-0" onclick="goToBmrStep(2)">
+                    <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] flex-shrink-0">2</span>
+                    <span class="hidden xs:inline sm:inline">Active Ingr.</span>
+                </div>
+                <div class="flex-1 h-[1px] bg-slate-300 mx-1.5 sm:mx-2 flex-shrink-0 min-w-[0.5rem] max-w-[2rem]"></div>
+                <div id="step-nav-3" class="flex items-center space-x-1.5 text-slate-400 whitespace-nowrap cursor-pointer flex-shrink-0" onclick="goToBmrStep(3)">
+                    <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] flex-shrink-0">3</span>
+                    <span class="hidden xs:inline sm:inline">Packaging</span>
+                </div>
+                <div class="flex-1 h-[1px] bg-slate-300 mx-1.5 sm:mx-2 flex-shrink-0 min-w-[0.5rem] max-w-[2rem]"></div>
+                <div id="step-nav-4" class="flex items-center space-x-1.5 text-slate-400 whitespace-nowrap cursor-pointer flex-shrink-0" onclick="goToBmrStep(4)">
+                    <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-[11px] flex-shrink-0">4</span>
+                    <span class="hidden xs:inline sm:inline">Rates &amp; BMR</span>
+                </div>
+            </div>
+
+            <!-- Modal Content Steps Container -->
+            <div class="flex-1 overflow-y-auto p-4 sm:p-6 bg-slate-50/50">
+                
+                <!-- STEP 1: Product Type & Batch Size -->
+                <div id="bmr-step-panel-1" class="space-y-5">
+                    <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                        <h4 class="text-sm font-bold text-slate-800 flex items-center space-x-2">
+                            <i data-lucide="pill" class="w-4 h-4 text-teal-600"></i>
+                            <span>Select Dosage Form / Product Type</span>
+                        </h4>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <label class="relative flex flex-col p-4 border-2 rounded-xl cursor-pointer transition text-center hover:bg-slate-50 bmr-type-card" id="card-type-tablet">
+                                <input type="radio" name="bmr_product_type" value="Tablet" checked onchange="onBmrProductTypeChange()" class="sr-only">
+                                <div class="w-10 h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-2 font-bold">
+                                    <i data-lucide="circle-dot" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-bold text-sm text-slate-800">Tablet (ટેબ્લેટ)</span>
+                                <span class="text-[11px] text-slate-500 mt-0.5">DCP Granules, SSG, Lubrication &amp; Coating</span>
+                            </label>
+
+                            <label class="relative flex flex-col p-4 border-2 rounded-xl cursor-pointer transition text-center hover:bg-slate-50 bmr-type-card" id="card-type-capsule">
+                                <input type="radio" name="bmr_product_type" value="Capsule" onchange="onBmrProductTypeChange()" class="sr-only">
+                                <div class="w-10 h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-2 font-bold">
+                                    <i data-lucide="capsule" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-bold text-sm text-slate-800">Capsule (કેપ્સ્યુલ)</span>
+                                <span class="text-[11px] text-slate-500 mt-0.5">Veg / Non-Veg / DR Shells, Talcum, DCP</span>
+                            </label>
+
+                            <label class="relative flex flex-col p-4 border-2 rounded-xl cursor-pointer transition text-center hover:bg-slate-50 bmr-type-card" id="card-type-liquid">
+                                <input type="radio" name="bmr_product_type" value="Liquid" onchange="onBmrProductTypeChange()" class="sr-only">
+                                <div class="w-10 h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-2 font-bold">
+                                    <i data-lucide="flask-conical" class="w-5 h-5"></i>
+                                </div>
+                                <span class="font-bold text-sm text-slate-800">Liquid / Syrup (સિરપ)</span>
+                                <span class="text-[11px] text-slate-500 mt-0.5">Sugar / Sorbitol Base, DM Water, Flavour</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Configuration Fields for Tablet -->
+                    <div id="bmr-tablet-fields" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                        <h4 class="text-sm font-bold text-slate-800">Tablet Specifications</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">
+                                    Tablet Size (Total Weight in mg):
+                                    <span class="text-teal-700 font-bold text-[10px] ml-1 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded">Auto-Calculated by Active mg</span>
+                                </label>
+                                <select id="bmr-tablet-size" disabled class="w-full text-xs p-2.5 bg-slate-100 border border-slate-300 rounded-lg text-slate-800 font-bold cursor-not-allowed shadow-inner pointer-events-none">
+                                    <option value="100">100 mg (Active Core ~15 mg)</option>
+                                    <option value="400" selected>400 mg (Active Core ~150 mg)</option>
+                                    <option value="900">900 mg (Active Core ~337.5 mg)</option>
+                                    <option value="1000">1000 mg (Active Core ~420 mg)</option>
+                                    <option value="1800">1800 mg (Active Core ~800 mg)</option>
+                                </select>
+                                <div id="tablet-auto-calc-badge" class="mt-2 p-2 bg-teal-50 border border-teal-200 rounded-lg text-xs text-teal-800 flex items-center space-x-2 shadow-xs">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-teal-600 flex-shrink-0"></i>
+                                    <span id="tablet-auto-calc-text">Active Formula Mass: Calculating auto tablet size...</span>
+                                </div>
+                                <div id="tablet-limit-warning" class="mt-2 p-3 bg-rose-50 border-l-4 border-rose-500 rounded-r-xl text-rose-900 text-xs hidden shadow-sm">
+                                    <div class="flex items-start space-x-2">
+                                        <i data-lucide="alert-octagon" class="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5 animate-pulse"></i>
+                                        <div>
+                                            <p class="font-extrabold text-rose-800 text-xs" id="tablet-limit-warning-title">Active weight exceeds 1800 mg limit for a single tablet</p>
+                                            <p class="text-[11px] text-rose-700 mt-0.5 font-medium leading-relaxed">
+                                                Please contact with us for custom bilayer, effervescent, or split formulation. Formulation cannot be compressed into a single tablet.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Batch Quantity (No. of Tablets):</label>
+                                <input type="number" id="bmr-tablet-qty" value="100000" min="100000" step="5000" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-mono font-bold">
+                                <span class="text-[10px] text-teal-700 font-semibold mt-1 block">Default: 1,00,000 Tablets (Minimum 1,00,000 required, higher allowed)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Configuration Fields for Capsule -->
+                    <div id="bmr-capsule-fields" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4 hidden">
+                        <h4 class="text-sm font-bold text-slate-800">Capsule Specifications</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">
+                                    Capsule Size:
+                                    <span class="text-teal-700 font-bold text-[10px] ml-1 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded">Auto-Calculated by Active mg</span>
+                                </label>
+                                <select id="bmr-capsule-size" disabled class="w-full text-xs p-2.5 bg-slate-100 border border-slate-300 rounded-lg text-slate-800 font-bold cursor-not-allowed shadow-inner pointer-events-none">
+                                    <option value="2">Size "2" (Max Fill 150 mg)</option>
+                                    <option value="1">Size "1" (Max Fill 250 mg)</option>
+                                    <option value="0">Size "0" (Max Fill 450 mg)</option>
+                                    <option value="00" selected>Size "00" (Max Fill 650 mg)</option>
+                                    <option value="000">Size "000" (Max Fill 1000 mg)</option>
+                                </select>
+                                <div id="capsule-auto-calc-badge" class="mt-2 p-2 bg-teal-50 border border-teal-200 rounded-lg text-xs text-teal-800 flex items-center space-x-2 shadow-xs">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-teal-600 flex-shrink-0"></i>
+                                    <span id="capsule-auto-calc-text">Active Formula Mass: Calculating auto capsule size...</span>
+                                </div>
+                                <!-- 1000mg Limit Warning Banner -->
+                                <div id="capsule-limit-warning" class="hidden mt-2 p-3 bg-rose-50 border border-rose-300 rounded-xl text-rose-700 shadow-sm animate-pulse">
+                                    <div class="flex items-start space-x-2">
+                                        <i data-lucide="alert-triangle" class="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5"></i>
+                                        <div>
+                                            <p class="font-extrabold text-rose-800 text-xs" id="capsule-limit-warning-title">Active weight exceeds 1000 mg maximum capsule limit</p>
+                                            <p class="text-[11px] text-rose-600 mt-0.5 leading-snug">
+                                                Maximum single capsule capacity is 1000 mg in Size "000". Formulations exceeding 1000 mg cannot fit into a single capsule shell. 
+                                                <span class="font-bold underline text-rose-800">Please contact with us for custom multi-capsule or dosage sachet options.</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Shell Type:</label>
+                                <select id="bmr-capsule-type" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-medium">
+                                    <option value="veg" selected>Vegetarian / Veg (HPMC) Shell — ₹0.48 / shell (Size 000: ₹0.60)</option>
+                                    <option value="non_veg">Gelatin / Non-Veg Shell — ₹0.18 / shell (Size 000: ₹0.30)</option>
+                                    <option value="DR">Delayed Release (DR) Shell — ₹0.75 / shell</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Batch Quantity (No. of Capsules):</label>
+                                <input type="number" id="bmr-capsule-qty" value="100000" min="100000" step="5000" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-mono font-bold">
+                                <span class="text-[10px] text-teal-700 font-semibold mt-1 block">Default: 1,00,000 Capsules (Minimum 1,00,000 required, higher allowed)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Configuration Fields for Liquid (Syrup, Suspension, Drops) -->
+                    <div id="bmr-liquid-fields" class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4 hidden">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                            <h4 class="text-sm font-bold text-slate-800 flex items-center space-x-2">
+                                <i data-lucide="flask-conical" class="w-4 h-4 text-teal-600"></i>
+                                <span>Liquid Oral Formulation Parameters</span>
+                            </h4>
+                            <span class="text-[11px] font-semibold text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded-full">Syrup / Suspension / Oral Liquid</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Product Name -->
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Product / Brand Name:</label>
+                                <input type="text" id="bmr-liquid-product-name" value="OSSOFY P suspension 200 ml" placeholder="e.g. OSSOFY P suspension 200 ml" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-semibold text-slate-900">
+                            </div>
+
+                            <!-- Bottle Fill Volume (1-500 mL) -->
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Bottle Fill Volume (1–500 mL):</label>
+                                <div class="flex space-x-2">
+                                    <select id="bmr-bottle-size" onchange="onBottleSizeChange()" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-bold">
+                                        <option value="1 ml">1 ml (Drops)</option>
+                                        <option value="2 ml">2 ml (Drops)</option>
+                                        <option value="5 ml">5 ml</option>
+                                        <option value="10 ml">10 ml</option>
+                                        <option value="15 ml">15 ml</option>
+                                        <option value="20 ml">20 ml</option>
+                                        <option value="30 ml">30 ml</option>
+                                        <option value="50 ml">50 ml</option>
+                                        <option value="60 ml">60 ml</option>
+                                        <option value="75 ml">75 ml</option>
+                                        <option value="100 ml">100 ml</option>
+                                        <option value="120 ml">120 ml</option>
+                                        <option value="150 ml">150 ml</option>
+                                        <option value="200 ml" selected>200 ml</option>
+                                        <option value="250 ml">250 ml</option>
+                                        <option value="300 ml">300 ml</option>
+                                        <option value="500 ml">500 ml</option>
+                                        <option value="custom">Custom Volume (1-500 mL)...</option>
+                                    </select>
+                                    <input type="number" id="bmr-custom-bottle-ml" placeholder="mL" min="1" max="500" class="w-20 text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-mono hidden">
+                                </div>
+                            </div>
+
+                            <!-- Dosage / Composition Basis -->
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Dosage / Composition Basis:</label>
+                                <div class="flex space-x-2">
+                                    <select id="bmr-serving-size" onchange="onServingSizeChange()" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-bold">
+                                        <option value="1 ml">Per 1 mL (Drops)</option>
+                                        <option value="5 ml">Per 5 mL (Teaspoon)</option>
+                                        <option value="10 ml" selected>Per 10 ml</option>
+                                        <option value="15 ml">Per 15 mL (Tablespoon)</option>
+                                        <option value="20 ml">Per 20 mL</option>
+                                        <option value="100 ml">Per 100 mL</option>
+                                        <option value="custom">Custom Basis...</option>
+                                    </select>
+                                    <input type="number" id="bmr-custom-serving-ml" placeholder="mL" min="0.5" max="100" step="0.5" class="w-20 text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-mono hidden">
+                                </div>
+                            </div>
+
+                            <!-- Sugar Base Selection -->
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Sugar Base Type:</label>
+                                <select id="bmr-sugar-type" onchange="onSugarBaseChange()" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-medium">
+                                    <option value="Sugar" selected>With Sugar</option>
+                                    <option value="Sorbitol">Sugar Free / Without Sugar</option>
+                                    <option value="None">None (Pure Aqueous/Extract)</option>
+                                </select>
+                            </div>
+
+                            <!-- Sugar Concentration (30% to 60%, default 60%) -->
+                            <div id="bmr-sugar-conc-box">
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Sugar Concentration (30%–60%):</label>
+                                <select id="bmr-sugar-percent" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-medium">
+                                    <option value="60%" selected>60% w/v (Standard Default)</option>
+                                    <option value="50%">50% w/v</option>
+                                    <option value="40%">40% w/v</option>
+                                    <option value="30%">30% w/v</option>
+                                    <option value="20%">20% w/v</option>
+                                </select>
+                            </div>
+
+                            <!-- Xanthan Gum / Viscosity Adjustment -->
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Xanthan Gum (Viscosity Modifier):</label>
+                                <div class="flex space-x-1 bg-slate-50 border border-slate-200 rounded-lg p-1">
+                                    <input type="number" id="bmr-xanthan-gum-qty" value="0.62" step="0.01" min="0" placeholder="kg/1000 btl" class="w-full text-xs px-2 py-1 bg-white border border-slate-300 rounded font-mono text-slate-800">
+                                    <span class="text-[10px] text-slate-500 self-center whitespace-nowrap pr-1">kg/1000 btl</span>
+                                </div>
+                            </div>
+
+                            <!-- Preservatives Required? -->
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Preservatives Required?</label>
+                                <select id="bmr-preservatives-req" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-medium">
+                                    <option value="yes" selected>Yes (Sodium Benzoate &amp; Parabens)</option>
+                                    <option value="no">No Preservatives</option>
+                                </select>
+                            </div>
+
+                            <!-- Batch Quantity (Bottles) -->
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Order Quantity (No. of Bottles):</label>
+                                <input type="number" id="bmr-liquid-qty" value="5000" min="100" step="100" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-mono font-bold text-teal-800">
+                                <span class="text-[10px] text-slate-400 mt-0.5 block">Common: 1,000 | 5,000 | 10,000 | 25,000 | 50,000 | 1,00,000</span>
+                            </div>
+
+                            <!-- Expected Yield % -->
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Production Yield (%):</label>
+                                <input type="number" id="bmr-yield-percent" value="100.0" min="80" max="100" step="0.5" class="w-full text-xs p-2.5 border border-slate-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 font-mono font-medium">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden Excipients Container (Auto-selected in backend without user interaction) -->
+                <div id="bmr-excipients-list" class="hidden"></div>
+
+                <!-- STEP 2: Active Formulation Ingredients (OCR Pre-filled) -->
+                <div id="bmr-step-panel-2" class="space-y-4 hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-800 flex items-center space-x-2">
+                                <span>Active Formulation Ingredients</span>
+                                <span class="bg-emerald-100 text-emerald-800 text-[10px] px-2 py-0.5 rounded-full font-bold">OCR Pre-filled</span>
+                            </h4>
+                            <p class="text-xs text-slate-500">Dosages fetched from photo OCR. Adjust per-unit active potency (mg) or add components.</p>
+                        </div>
+                        <button onclick="addCustomActiveRow()" class="px-3 py-1.5 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-semibold shadow-sm flex items-center space-x-1.5 flex-shrink-0">
+                            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                            <span>Add New Ingredient</span>
+                        </button>
+                    </div>
+
+                    <div class="overflow-x-auto border border-slate-200 rounded-xl bg-white shadow-sm">
+                        <table class="w-full text-left text-xs min-w-[620px]">
+                            <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                                <tr>
+                                    <th class="py-2.5 px-3">Active Ingredient Name</th>
+                                    <th class="py-2.5 px-3 w-40">Per Unit (mg)</th>
+                                    <th class="py-2.5 px-3 w-36 text-right">Batch Total (Kg)</th>
+                                    <th class="py-2.5 px-3 w-56 text-right">Rate / Status</th>
+                                    <th class="py-2.5 px-3 w-12 text-center"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="bmr-active-table-body" class="divide-y divide-slate-100 font-mono">
+                                <!-- Loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Packaging Specifications -->
+                <div id="bmr-step-panel-3" class="space-y-4 hidden">
+                    <h4 class="text-sm font-bold text-slate-800">Packaging Material &amp; Shipper Specifications</h4>
+
+                    <!-- Tablet / Capsule Packaging Options -->
+                    <div id="bmr-pkg-tablet-box" class="space-y-4">
+                        <!-- Primary Packaging -->
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                            <div class="flex items-center justify-between">
+                                <label class="flex items-center space-x-2 font-bold text-xs text-slate-800 cursor-pointer">
+                                    <input type="checkbox" id="bmr-inc-primary" checked class="rounded text-teal-600 focus:ring-teal-500">
+                                    <span>Primary Packaging (પ્રાથમિક પેકિંગ)</span>
+                                </label>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <label class="flex items-center space-x-2 text-xs text-slate-700 cursor-pointer p-2.5 border rounded-lg hover:bg-slate-50">
+                                    <input type="radio" name="bmr_primary_type" value="STRIP" checked onchange="onBmrPrimaryChange()" class="text-teal-600 focus:ring-teal-500">
+                                    <span class="font-semibold">STRIP (Alu-Alu / Blister)</span>
+                                </label>
+                                <label class="flex items-center space-x-2 text-xs text-slate-700 cursor-pointer p-2.5 border rounded-lg hover:bg-slate-50">
+                                    <input type="radio" name="bmr_primary_type" value="JAR" onchange="onBmrPrimaryChange()" class="text-teal-600 focus:ring-teal-500">
+                                    <span class="font-semibold">JAR (PET / HDPE)</span>
+                                </label>
+                                <label class="flex items-center space-x-2 text-xs text-slate-700 cursor-pointer p-2.5 border rounded-lg hover:bg-slate-50">
+                                    <input type="radio" name="bmr_primary_type" value="LOOSE" onchange="onBmrPrimaryChange()" class="text-teal-600 focus:ring-teal-500">
+                                    <span class="font-semibold">LOOSE (Pouch / Zip / Drum)</span>
+                                </label>
+                            </div>
+
+                            <!-- Strip options -->
+                            <div id="bmr-strip-opts" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-slate-100">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Strip Type:</label>
+                                    <select id="bmr-strip-type" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="Alu Alu" selected>Alu Alu Strip</option>
+                                        <option value="Blister">Blister Strip</option>
+                                        <option value="Pharmafoil">Pharmafoil Strip</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Strip Size:</label>
+                                    <select id="bmr-strip-size" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="1*10" selected>1*10 (10 tablets per strip)</option>
+                                        <option value="1*15">1*15 (15 tablets per strip)</option>
+                                        <option value="1*4">1*4 (4 tablets per strip)</option>
+                                        <option value="1*2">1*2 (2 tablets per strip)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Jar options -->
+                            <div id="bmr-jar-opts" class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-slate-100 hidden">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Jar Material:</label>
+                                    <select id="bmr-jar-type" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="PET" selected>PET Jar</option>
+                                        <option value="HDPE">HDPE Jar</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Cap Type:</label>
+                                    <select id="bmr-cap-type" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="CRC" selected>Child Resistant Cap (CRC)</option>
+                                        <option value="CT">Continuous Thread (CT)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Tablets Per Jar:</label>
+                                    <input type="number" id="bmr-tablets-per-jar" value="60" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                </div>
+                            </div>
+
+                            <!-- Loose options -->
+                            <div id="bmr-loose-opts" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-slate-100 hidden">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Loose Packing Type:</label>
+                                    <select id="bmr-loose-type" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="aluminum pouch" selected>Aluminum Foil Moisture Pouch</option>
+                                        <option value="plastic zip">Plastic Zip Lock Bag</option>
+                                        <option value="jar">Bulk HDPE Container / Fibre Drum</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Tablets Per Loose Pack / Bag:</label>
+                                    <input type="number" id="bmr-tablets-per-loose" value="1000" min="10" step="50" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Packaging -->
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                            <label class="flex items-center space-x-2 font-bold text-xs text-slate-800 cursor-pointer">
+                                <input type="checkbox" id="bmr-inc-secondary" checked class="rounded text-teal-600 focus:ring-teal-500">
+                                <span>Secondary Packaging (Outer Carton / બોક્સ)</span>
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Packaging Method:</label>
+                                    <select id="bmr-sec-method" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="Individual Carton" selected>Individual Carton</option>
+                                        <option value="Box in Box">Box in Box (10 units per box)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Carton Material:</label>
+                                    <select id="bmr-mat-type" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="350 GSM" selected>350 GSM (Standard)</option>
+                                        <option value="300 GSM">300 GSM</option>
+                                        <option value="Metallic">Metallic Foil Board</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Carton Pack Size:</label>
+                                    <select id="bmr-sec-size" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="1*10" selected>1*10</option>
+                                        <option value="1*15">1*15</option>
+                                        <option value="3*10">3*10</option>
+                                        <option value="5*10">5*10</option>
+                                        <option value="6*10">6*10</option>
+                                        <option value="10*10">10*10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tertiary Packaging -->
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                            <label class="flex items-center space-x-2 font-bold text-xs text-slate-800 cursor-pointer">
+                                <input type="checkbox" id="bmr-inc-tertiary" checked class="rounded text-teal-600 focus:ring-teal-500">
+                                <span>Tertiary Shipper Box (કોરુગેટેડ શીપર બોક્સ)</span>
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Shipper Strength:</label>
+                                    <select id="bmr-tert-type" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="5 PLY" selected>5 PLY Corrugated Box</option>
+                                        <option value="7 PLY">7 PLY Heavy Duty Box</option>
+                                    </select>
+                                </div>
+                                <div class="flex items-center pt-5">
+                                    <label class="flex items-center space-x-2 text-xs font-semibold text-slate-700 cursor-pointer">
+                                        <input type="checkbox" id="bmr-inc-cellotape" checked class="rounded text-teal-600 focus:ring-teal-500">
+                                        <span>Include Cellotape &amp; Shrink Wrapping</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Liquid Packaging Options (All Volumes 1-500 mL) -->
+                    <div id="bmr-pkg-liquid-box" class="space-y-4 hidden">
+                        <!-- Mode Selector Banner -->
+                        <div class="bg-gradient-to-r from-teal-900 to-slate-900 text-white p-4 rounded-xl border border-teal-700/50 shadow-sm space-y-2">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                <div>
+                                    <h5 class="text-xs font-bold text-teal-300 uppercase tracking-wider flex items-center space-x-1.5">
+                                        <i data-lucide="package" class="w-4 h-4"></i>
+                                        <span>Liquid Packaging Costing Mode</span>
+                                    </h5>
+                                    <p class="text-[11px] text-slate-300">Choose Standard Combined Tier or Detailed Itemized Packaging</p>
+                                </div>
+                                <div class="flex items-center space-x-2 bg-white/10 p-1 rounded-lg">
+                                    <label class="flex items-center space-x-1.5 px-2.5 py-1 rounded text-xs cursor-pointer font-semibold" id="lbl-mode-a">
+                                        <input type="radio" name="bmr_liq_pkg_mode" value="MODE_A" checked onchange="onLiqPkgModeChange()" class="text-teal-500 focus:ring-teal-400">
+                                        <span>Mode A: Standard Tier</span>
+                                    </label>
+                                    <label class="flex items-center space-x-1.5 px-2.5 py-1 rounded text-xs cursor-pointer font-semibold" id="lbl-mode-b">
+                                        <input type="radio" name="bmr_liq_pkg_mode" value="MODE_B" onchange="onLiqPkgModeChange()" class="text-teal-500 focus:ring-teal-400">
+                                        <span>Mode B: Detailed Itemized</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="bmr-mode-a-notice" class="bg-teal-950/60 p-2.5 rounded-lg border border-teal-500/30 text-[11px] text-teal-200">
+                                <span class="font-bold text-teal-300">Standard Packaging Cost Rule:</span>
+                                15–60 mL = <strong>₹8/btl</strong> | &gt;60–100 mL = <strong>₹10/btl</strong> | 200 mL = <strong>₹12/btl</strong> (All rates editable in Admin Master Rates). Includes Bottle + Cap + Label + Carton + Box + Testing.
+                            </div>
+                        </div>
+
+                        <!-- Packaging Specifications & Components -->
+                        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                            <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center space-x-1.5">
+                                <i data-lucide="sliders" class="w-3.5 h-3.5 text-teal-600"></i>
+                                <span>Packaging Material Specifications</span>
+                            </h5>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Bottle Material &amp; Shape:</label>
+                                    <select id="bmr-liq-bottle-type" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="round brute" selected>PET - Round Brute</option>
+                                        <option value="brute">PET - Brute</option>
+                                        <option value="dome">PET - Dome</option>
+                                        <option value="micro brute">PET - Micro Brute</option>
+                                        <option value="glo back">PET - Glo Back</option>
+                                        <option value="hdpe">HDPE Bottle</option>
+                                        <option value="glass">Glass Bottle (Amber)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Cap / Closure Type:</label>
+                                    <select id="bmr-liq-ropp-type" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="quality" selected>QAP ROPP Cap (Golden/Silver)</option>
+                                        <option value="printed">Branded / Printed ROPP Cap</option>
+                                        <option value="plain">Plain Aluminum ROPP Cap</option>
+                                        <option value="crc">Child Resistant Cap (CRC)</option>
+                                    </select>
+                                </div>
+                                <div id="bmr-dropper-box">
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Dropper Required? (<60 mL):</label>
+                                    <select id="bmr-liq-dropper" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="no" selected>No Dropper</option>
+                                        <option value="yes">Yes (Graduated Calibrated Dropper)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Measuring Cup:</label>
+                                    <select id="bmr-liq-cup" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="yes" selected>Include Calibrated Measuring Cup</option>
+                                        <option value="no">No Measuring Cup</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Bottle Label Type:</label>
+                                    <select id="bmr-liq-label" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="chromo" selected>UV Varnish Roll / Chromo Label</option>
+                                        <option value="metallic">Metallic Foil Label</option>
+                                        <option value="plain">Plain Self-Adhesive Label</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Outer Mono Carton:</label>
+                                    <select id="bmr-liq-carton" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="uv dripp off" selected>UV Drip Off 350 GSM Printed Carton</option>
+                                        <option value="metallic">Metallic Foil Board Carton</option>
+                                        <option value="plain">Plain White Duplex Carton</option>
+                                        <option value="no">No Outer Carton</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Outer Shipper Box:</label>
+                                    <select id="bmr-liq-shipper" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="60 nos|5ply" selected>60 Bottles / 5-PLY Corrugated</option>
+                                        <option value="72 nos|5ply">72 Bottles / 5-PLY Corrugated</option>
+                                        <option value="100 nos|5ply">100 Bottles / 5-PLY Corrugated</option>
+                                        <option value="100 nos|7ply">100 Bottles / 7-PLY Heavy Duty</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Product Leaflet / Insert:</label>
+                                    <select id="bmr-liq-insert" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                        <option value="no" selected>No Insert</option>
+                                        <option value="yes">Include Paper Leaflet / Insert</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-semibold text-slate-600 mb-1">Party / Brand Name:</label>
+                                    <input type="text" id="bmr-liq-party" value="Walpar Standard Quotation" placeholder="e.g. Walpar Health" class="w-full text-xs p-2 border border-slate-300 rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Product Commercial Rates & Master BMR Record -->
+                <div id="bmr-step-panel-4" class="space-y-5 hidden">
+                    
+                    <!-- Commercial Product Rates Quotation (Rate per Jar / Strip / Loose) -->
+                    <div id="bmr-commercial-rates-card" class="bg-gradient-to-br from-teal-950 via-slate-900 to-slate-950 p-5 sm:p-6 rounded-2xl border border-teal-500/30 text-white shadow-xl space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                            <div>
+                                <div class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-[11px] font-bold border border-emerald-500/30 mb-1">
+                                    <i data-lucide="badge-percent" class="w-3.5 h-3.5"></i>
+                                    <span>Walpar Commercial Pricing &amp; Product Quotation</span>
+                                </div>
+                                <h3 class="text-base sm:text-lg font-black tracking-tight text-white flex items-center space-x-2">
+                                    <span>Commercial Product Rates</span>
+                                </h3>
+                                <p class="text-xs text-slate-300" id="rate-product-desc">Accurate rate per pack unit, individual tablet/capsule rate, and complete batch valuation.</p>
+                            </div>
+                            <div class="text-left sm:text-right bg-white/5 sm:bg-transparent p-2.5 sm:p-0 rounded-lg sm:rounded-none">
+                                <span class="text-[10px] text-teal-300 uppercase tracking-widest font-semibold block">Batch Quantity</span>
+                                <span id="rate-batch-qty" class="text-base sm:text-lg font-extrabold text-white font-mono">1,00,000 Units</span>
+                            </div>
+                        </div>
+
+                        <!-- Missing Ingredient Rate Notice Banner -->
+                        <div id="bmr-missing-rate-alert" class="p-4 rounded-xl bg-amber-500/20 border border-amber-500/50 text-amber-200 text-xs hidden space-y-2 shadow-md">
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 flex-shrink-0 animate-pulse"></i>
+                                <span class="font-extrabold text-amber-300 uppercase tracking-wider text-[11px]">Notice: Missing Ingredient Rates Pending Admin Verification</span>
+                            </div>
+                            <p id="bmr-missing-rate-msg" class="text-[11px] text-amber-100 leading-relaxed">
+                                Rate for <strong id="bmr-missing-items-list" class="text-white underline underline-offset-2"></strong> is currently pending review by Admin.
+                                <span class="font-bold text-amber-300">This ingredient rate will be added to this final cost once verified by Admin.</span>
+                            </p>
+                            <div class="text-[10px] text-amber-300/80 font-mono">
+                                🔔 Admin panel notified. You can check updated rates in "My Quotations" anytime.
+                            </div>
+                        </div>
+
+                        <!-- Rates 3-Column Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
+                            <!-- Primary Pack Rate (Rate per Strip / Rate per Jar / Rate per Loose) -->
+                            <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 relative overflow-hidden flex flex-col justify-between shadow-sm">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span id="rate-primary-label" class="text-xs font-bold text-teal-300 uppercase tracking-wider">Rate Per Strip</span>
+                                    <span class="p-1 rounded bg-teal-500/20 text-teal-300"><i data-lucide="package" class="w-4 h-4"></i></span>
+                                </div>
+                                <div class="my-2">
+                                    <div class="flex items-baseline space-x-1">
+                                        <span class="text-xs text-teal-400 font-bold">₹</span>
+                                        <span id="rate-primary-val" class="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">0.00</span>
+                                    </div>
+                                    <p id="rate-primary-sub" class="text-[11px] text-slate-300 mt-1">Per strip (with packaging &amp; outer)</p>
+                                </div>
+                                <div class="text-[10px] text-teal-200/80 font-medium">Ready for Commercial Billing</div>
+                            </div>
+
+                            <!-- Per Single Tablet / Capsule Unit Rate -->
+                            <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 relative overflow-hidden flex flex-col justify-between shadow-sm">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span id="rate-unit-label" class="text-xs font-bold text-emerald-300 uppercase tracking-wider">Rate Per Tablet</span>
+                                    <span class="p-1 rounded bg-emerald-500/20 text-emerald-300"><i data-lucide="circle-dot" class="w-4 h-4"></i></span>
+                                </div>
+                                <div class="my-2">
+                                    <div class="flex items-baseline space-x-1">
+                                        <span class="text-xs text-emerald-400 font-bold">₹</span>
+                                        <span id="rate-per-unit-val" class="text-2xl sm:text-3xl font-black text-emerald-300 font-mono tracking-tight">0.00</span>
+                                    </div>
+                                    <p id="rate-per-unit-sub" class="text-[11px] text-slate-300 mt-1">Single piece conversion &amp; formulation cost</p>
+                                </div>
+                                <div class="text-[10px] text-emerald-200/80 font-medium">GMP Bulk Formulation Rate</div>
+                            </div>
+
+                            <!-- Total Batch Commercial Value -->
+                            <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 relative overflow-hidden flex flex-col justify-between shadow-sm">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-xs font-bold text-amber-300 uppercase tracking-wider">Total Commercial Value</span>
+                                    <span class="p-1 rounded bg-amber-500/20 text-amber-300"><i data-lucide="indian-rupee" class="w-4 h-4"></i></span>
+                                </div>
+                                <div class="my-2">
+                                    <div class="flex items-baseline space-x-1">
+                                        <span class="text-xs text-amber-400 font-bold">₹</span>
+                                        <span id="rate-total-batch-val" class="text-2xl sm:text-3xl font-black text-amber-300 font-mono tracking-tight">0.00</span>
+                                    </div>
+                                    <p id="rate-total-weight-sub" class="text-[11px] text-slate-300 mt-1">Net Weight: 0.00 Kg</p>
+                                </div>
+                                <div class="text-[10px] text-amber-200/80 font-medium">Batch Formulation + Packaging</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Locked Card View by default (Password protected: Walpar@123) -->
+                    <div id="bmr-locked-container" class="bg-white p-8 rounded-2xl border-2 border-dashed border-slate-300 text-center space-y-4 shadow-sm">
+                        <div class="w-16 h-16 rounded-full bg-teal-50 border border-teal-200 text-teal-700 flex items-center justify-center mx-auto shadow-inner">
+                            <i data-lucide="lock" class="w-8 h-8 text-teal-600"></i>
+                        </div>
+                        <div class="max-w-md mx-auto">
+                            <h4 class="text-base font-extrabold text-slate-900">Official Batch Master Card (BMR Record)</h4>
+                            <p class="text-xs text-slate-500 mt-1">This formulation sheet contains confidential manufacturing specifications and GMP excipient ratios. Master Password is required to unlock formulation or export official Excel record.</p>
+                        </div>
+                        <div class="pt-2">
+                            <button onclick="promptUnlockBmrModal()" class="px-6 py-3 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center space-x-2 mx-auto">
+                                <i data-lucide="key" class="w-4 h-4"></i>
+                                <span>Enter Master Password to Download BMR (.xlsx)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Unlocked View (Only revealed after entering Walpar@123) -->
+                    <div id="bmr-unlocked-container" class="space-y-4 hidden">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-200">
+                            <div>
+                                <h4 class="text-base font-extrabold text-slate-900 flex items-center space-x-2">
+                                    <i data-lucide="award" class="w-5 h-5 text-teal-600"></i>
+                                    <span>Batch Master Card (BMR Record)</span>
+                                </h4>
+                                <p id="bmr-output-subtitle" class="text-xs text-slate-500">Theoretical Formulation, Excipients &amp; Material Quantities</p>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="exportBmrExcel()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white rounded-lg text-xs font-bold shadow-md transition flex items-center space-x-1.5">
+                                    <i data-lucide="download" class="w-4 h-4"></i>
+                                    <span>Download Excel (.xlsx)</span>
+                                </button>
+                                <button onclick="window.print()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold transition flex items-center space-x-1">
+                                    <i data-lucide="printer" class="w-4 h-4"></i>
+                                    <span>Print</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Tablet/Capsule BMR Table (Hidden if Liquid) -->
+                        <div id="bmr-tablet-table-container">
+                            <div class="overflow-x-auto border border-slate-200 rounded-xl bg-white shadow-sm max-h-[460px]">
+                                <table class="w-full text-left text-xs min-w-[750px]">
+                                    <thead class="bg-walpar-900 text-white font-bold sticky top-0 z-10">
+                                        <tr>
+                                            <th class="py-2.5 px-3 w-12 text-center">Sr</th>
+                                            <th class="py-2.5 px-3">Stage / Group</th>
+                                            <th class="py-2.5 px-3">Ingredient Name</th>
+                                            <th class="py-2.5 px-3 w-20">Type</th>
+                                            <th class="py-2.5 px-3 text-right">Qty (Kg)</th>
+                                            <th class="py-2.5 px-3 text-right">Qty (g)</th>
+                                            <th class="py-2.5 px-3 text-right">Qty per Unit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="bmr-output-table-body" class="divide-y divide-slate-100 font-mono">
+                                        <!-- Populated dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Technical Batch Formulation Summary (Clean & Price-Free) -->
+                            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 mt-4">
+                                <div class="space-y-1">
+                                    <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center space-x-1.5">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+                                        <span>Master Formulation Card Ready</span>
+                                    </h5>
+                                    <p class="text-xs text-slate-500">All theoretical batch weights, excipient ratios, and packaging specifications verified according to GMP standards.</p>
+                                </div>
+                                <button onclick="exportBmrExcel()" class="py-3 px-6 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition flex items-center space-x-2 flex-shrink-0">
+                                    <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+                                    <span>Export Official Batch Master (.xlsx)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Liquid Oral Master Batch Card View (Exact Sample Layout Table A Bulk + Table B Semi Finish) -->
+                        <div id="bmr-liquid-master-card-container" class="space-y-4 hidden">
+                            <!-- Card Header Info Bar -->
+                            <div class="bg-slate-900 text-white p-4 rounded-xl border border-slate-800 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+                                <div>
+                                    <span class="text-teal-400 font-bold uppercase tracking-wider text-[10px] block">Walpar Pharmaceuticals • Master Batch Card</span>
+                                    <h3 id="liq-card-product-name" class="text-base font-extrabold text-white">OSSOFY P suspension 200 ml</h3>
+                                    <div class="flex flex-wrap gap-x-4 gap-y-1 text-slate-300 mt-1">
+                                        <span>Batch Size: <strong id="liq-card-batch-size" class="text-teal-300 font-mono">1000.00 Ltr</strong></span>
+                                        <span>Bottles: <strong id="liq-card-bottles" class="text-white font-mono">5000</strong></span>
+                                        <span>Pack: <strong id="liq-card-pack-size" class="text-white font-mono">200 ml</strong></span>
+                                        <span>Dosage: <strong id="liq-card-dosage" class="text-white font-mono">Each 10 ml</strong></span>
+                                        <span>Sugar Base: <strong id="liq-card-sugar-base" class="text-amber-300 font-mono">With Sugar (60% w/v)</strong></span>
+                                    </div>
+                                </div>
+                                <div class="text-left md:text-right bg-white/5 p-2 rounded-lg md:bg-transparent md:p-0">
+                                    <div class="text-[10px] text-slate-400">Yield %: <span id="liq-card-yield" class="font-bold text-white font-mono">100%</span></div>
+                                    <div class="text-[10px] text-slate-400">Party: <span id="liq-card-party" class="font-bold text-teal-300">Walpar Standard Quotation</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Table A & Table B Dual Column / Split Layout -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                                <!-- LEFT: Table A (BULK Formulation) -->
+                                <div class="lg:col-span-7 bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                                    <div class="bg-slate-100 px-3.5 py-2.5 border-b border-slate-200 flex items-center justify-between">
+                                        <h5 class="text-xs font-black text-slate-800 uppercase tracking-wide flex items-center space-x-1.5">
+                                            <span class="w-5 h-5 rounded bg-teal-600 text-white flex items-center justify-center text-[10px] font-bold">A</span>
+                                            <span>Table A: BULK Formulation</span>
+                                        </h5>
+                                        <span class="text-[10px] text-teal-700 bg-teal-50 px-2 py-0.5 rounded font-bold font-mono">Raw Materials</span>
+                                    </div>
+                                    <div class="overflow-x-auto flex-1 max-h-[460px]">
+                                        <table class="w-full text-left text-xs min-w-[500px]">
+                                            <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200 text-[11px] sticky top-0">
+                                                <tr>
+                                                    <th class="py-2 px-2.5 w-10 text-center">Sr.</th>
+                                                    <th class="py-2 px-2.5">Item Description</th>
+                                                    <th class="py-2 px-2.5 text-right">Claim</th>
+                                                    <th class="py-2 px-2.5 text-right">Std Qty</th>
+                                                    <th class="py-2 px-2 text-center w-12">Unit</th>
+                                                    <th class="py-2 px-2.5 text-right">Rate</th>
+                                                    <th class="py-2 px-2.5 text-right">Total (₹)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="liq-table-a-body" class="divide-y divide-slate-100 font-mono text-[11px]">
+                                                <!-- Dynamic Table A items -->
+                                            </tbody>
+                                            <tfoot class="bg-slate-100 font-bold font-mono text-slate-900 border-t-2 border-slate-300 text-xs">
+                                                <tr>
+                                                    <td colspan="3" class="py-2.5 px-3 font-sans uppercase">Total Bulk:</td>
+                                                    <td id="liq-total-bulk-qty" class="py-2.5 px-2.5 text-right font-black text-teal-800">1000.00</td>
+                                                    <td class="py-2.5 px-2 text-center">LTR</td>
+                                                    <td class="py-2.5 px-2.5 text-right text-slate-500 font-sans text-[10px]">TOTAL:</td>
+                                                    <td id="liq-total-bulk-cost" class="py-2.5 px-2.5 text-right font-black text-slate-900">₹0.00</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="bg-teal-50 px-3.5 py-2 border-t border-teal-200 flex items-center justify-between text-xs">
+                                        <span class="font-bold text-teal-900">Per Bottle Bulk Cost:</span>
+                                        <span id="liq-per-bottle-bulk-cost" class="font-mono font-black text-sm text-teal-800">₹10.04</span>
+                                    </div>
+                                </div>
+
+                                <!-- RIGHT: Table B (SEMI FINISH / PACKAGING & MFG COST) -->
+                                <div class="lg:col-span-5 bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                                    <div class="bg-slate-100 px-3.5 py-2.5 border-b border-slate-200 flex items-center justify-between">
+                                        <h5 class="text-xs font-black text-slate-800 uppercase tracking-wide flex items-center space-x-1.5">
+                                            <span class="w-5 h-5 rounded bg-emerald-600 text-white flex items-center justify-center text-[10px] font-bold">B</span>
+                                            <span>Table B: SEMI FINISH &amp; COSTING</span>
+                                        </h5>
+                                        <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold font-mono">Per Bottle Rate</span>
+                                    </div>
+                                    <div class="overflow-x-auto flex-1 p-3 space-y-3">
+                                        <!-- Packaging Specs & Costs Table -->
+                                        <table class="w-full text-left text-xs">
+                                            <thead class="bg-slate-50 text-slate-600 font-bold border-b border-slate-200 text-[10px] uppercase">
+                                                <tr>
+                                                    <th class="py-1.5 px-2">Packing Component</th>
+                                                    <th class="py-1.5 px-2">Specification</th>
+                                                    <th class="py-1.5 px-2 text-right">Cost (₹)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="divide-y divide-slate-100 font-mono text-[11px]">
+                                                <tr class="bg-teal-50/50">
+                                                    <td class="py-1.5 px-2 font-sans font-bold text-teal-900">Per bottle bulk</td>
+                                                    <td class="py-1.5 px-2 text-[10px] text-slate-500 font-sans">Formula A Bulk</td>
+                                                    <td id="liq-cost-bulk" class="py-1.5 px-2 text-right font-bold text-teal-800">₹10.04</td>
+                                                </tr>
+                                                <tr class="bg-amber-50/40">
+                                                    <td class="py-1.5 px-2 font-sans text-slate-700">SUGAR CONCENTRATION</td>
+                                                    <td id="liq-spec-sugar" class="py-1.5 px-2 text-[10px] text-amber-900 font-sans font-bold">With Sugar (60% w/v)</td>
+                                                    <td id="liq-cost-sugar" class="py-1.5 px-2 text-right font-medium text-slate-500">Included in Bulk</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1.5 px-2 font-sans text-slate-700">BOTTLE</td>
+                                                    <td id="liq-spec-bottle" class="py-1.5 px-2 text-[10px] text-slate-500 font-sans">WHITE BRUTE</td>
+                                                    <td id="liq-cost-bottle" class="py-1.5 px-2 text-right font-medium">₹4.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1.5 px-2 font-sans text-slate-700">LABEL</td>
+                                                    <td id="liq-spec-label" class="py-1.5 px-2 text-[10px] text-slate-500 font-sans">uv varnish roll</td>
+                                                    <td id="liq-cost-label" class="py-1.5 px-2 text-right font-medium">₹0.65</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1.5 px-2 font-sans text-slate-700">ROPP CAP</td>
+                                                    <td id="liq-spec-ropp" class="py-1.5 px-2 text-[10px] text-slate-500 font-sans">GOLDEN CAP</td>
+                                                    <td id="liq-cost-ropp" class="py-1.5 px-2 text-right font-medium">₹0.72</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1.5 px-2 font-sans text-slate-700">CARTON</td>
+                                                    <td id="liq-spec-carton" class="py-1.5 px-2 text-[10px] text-slate-500 font-sans">uv drip off</td>
+                                                    <td id="liq-cost-carton" class="py-1.5 px-2 text-right font-medium">₹3.20</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1.5 px-2 font-sans text-slate-700">MEASURING CUP</td>
+                                                    <td id="liq-spec-cup" class="py-1.5 px-2 text-[10px] text-slate-500 font-sans">10 ML CUP</td>
+                                                    <td id="liq-cost-cup" class="py-1.5 px-2 text-right font-medium">₹0.30</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1.5 px-2 font-sans text-slate-700">BOX / SHIPPER</td>
+                                                    <td id="liq-spec-box" class="py-1.5 px-2 text-[10px] text-slate-500 font-sans">60 BOTT</td>
+                                                    <td id="liq-cost-box" class="py-1.5 px-2 text-right font-medium">₹1.00</td>
+                                                </tr>
+                                                <tr id="liq-row-dropper" class="hidden">
+                                                    <td class="py-1.5 px-2 font-sans text-slate-700">DROPPER</td>
+                                                    <td id="liq-spec-dropper" class="py-1.5 px-2 text-[10px] text-slate-500 font-sans">Calibrated</td>
+                                                    <td id="liq-cost-dropper" class="py-1.5 px-2 text-right font-medium">₹1.50</td>
+                                                </tr>
+                                                <tr id="liq-row-insert" class="hidden">
+                                                    <td class="py-1.5 px-2 font-sans text-slate-700">INSERT / LEAFLET</td>
+                                                    <td id="liq-spec-insert" class="py-1.5 px-2 text-[10px] text-slate-500 font-sans">Paper Leaflet</td>
+                                                    <td id="liq-cost-insert" class="py-1.5 px-2 text-right font-medium">₹0.40</td>
+                                                </tr>
+                                                <tr class="border-t border-slate-200">
+                                                    <td class="py-1.5 px-2 font-sans text-slate-600">CONVERSION CHARGES</td>
+                                                    <td class="py-1.5 px-2 text-[10px] text-slate-400 font-sans">GMP Bottling</td>
+                                                    <td id="liq-cost-conv" class="py-1.5 px-2 text-right font-medium">₹1.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1.5 px-2 font-sans text-slate-600">STEREO / CYLINDER</td>
+                                                    <td class="py-1.5 px-2 text-[10px] text-slate-400 font-sans">Printing plate</td>
+                                                    <td id="liq-cost-stereo" class="py-1.5 px-2 text-right font-medium">₹0.05</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1.5 px-2 font-sans text-slate-600">MARGIN</td>
+                                                    <td class="py-1.5 px-2 text-[10px] text-slate-400 font-sans">Standard margin</td>
+                                                    <td id="liq-cost-margin" class="py-1.5 px-2 text-right font-medium">₹1.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="py-1.5 px-2 font-sans text-slate-600">TESTING CHARGE</td>
+                                                    <td class="py-1.5 px-2 text-[10px] text-slate-400 font-sans">QC / COA test</td>
+                                                    <td id="liq-cost-testing" class="py-1.5 px-2 text-right font-medium">₹0.50</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <!-- Summary Box: Mfg Cost & Final Rate -->
+                                        <div class="bg-gradient-to-r from-slate-900 to-teal-950 text-white p-3 rounded-lg border border-teal-500/30 space-y-1.5 font-mono">
+                                            <div class="flex items-center justify-between text-xs">
+                                                <span class="text-slate-300 font-sans">Mfg. Cost:</span>
+                                                <span id="liq-total-mfg-cost" class="font-bold text-white text-sm">₹22.96</span>
+                                            </div>
+                                            <div class="flex items-center justify-between text-xs pt-1 border-t border-white/10">
+                                                <span class="text-teal-300 font-sans font-bold">Final Rate:</span>
+                                                <span id="liq-final-rate" class="font-black text-emerald-300 text-base">₹22.96</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ═══════════════════════════════════════════════════════
+                             PASSWORD-UNLOCKED: COMMERCIAL COSTING & RATE DERIVATION
+                             ═══════════════════════════════════════════════════════ -->
+                        <div id="bmr-unlocked-costing-card" class="bg-gradient-to-b from-slate-900 to-slate-950 rounded-2xl border border-slate-800 p-5 sm:p-6 text-white shadow-xl space-y-5">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+                                <div class="flex items-center space-x-3">
+                                    <span class="p-2.5 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                                        <i data-lucide="calculator" class="w-5 h-5"></i>
+                                    </span>
+                                    <div>
+                                        <h4 class="text-sm sm:text-base font-extrabold text-white flex items-center space-x-2">
+                                            <span>Commercial Costing &amp; Rate Derivation</span>
+                                            <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold">
+                                                Unlocked with Master Password
+                                            </span>
+                                        </h4>
+                                        <p class="text-xs text-slate-400 mt-0.5">Mathematical derivation of Rate Per Unit and Rate Per Strip with full breakdown of materials, conversion, packaging, and operating margin.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button onclick="exportBmrExcel()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold transition flex items-center space-x-1.5 shadow-sm">
+                                        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                                        <span>Download Costing Sheet (.xlsx)</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Live Calculation Formulas Callout -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                                <!-- Formula 1: Rate Per Tablet/Capsule -->
+                                <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700/80 space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center space-x-1.5">
+                                            <i data-lucide="circle-dot" class="w-3.5 h-3.5"></i>
+                                            <span id="deriv-unit-title">Formula: Rate Per Tablet</span>
+                                        </span>
+                                        <span class="text-[10px] text-slate-400 font-mono">Step 1</span>
+                                    </div>
+                                    <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 font-mono text-xs text-emerald-300 leading-relaxed" id="deriv-formula-unit">
+                                        Rate Per Tablet = Total Commercial Value (₹0.00) ÷ Batch Quantity (0) = ₹0.0000
+                                    </div>
+                                    <p class="text-[11px] text-slate-400">Total batch cost (materials + ₹0.25 conversion + packaging + 20% margin) divided across the entire production quantity.</p>
+                                </div>
+
+                                <!-- Formula 2: Rate Per Strip -->
+                                <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700/80 space-y-2">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-bold text-teal-400 uppercase tracking-wider flex items-center space-x-1.5">
+                                            <i data-lucide="package" class="w-3.5 h-3.5"></i>
+                                            <span id="deriv-strip-title">Formula: Rate Per Strip</span>
+                                        </span>
+                                        <span class="text-[10px] text-slate-400 font-mono">Step 2</span>
+                                    </div>
+                                    <div class="p-3 bg-slate-900/90 rounded-lg border border-slate-800 font-mono text-xs text-teal-300 leading-relaxed" id="deriv-formula-strip">
+                                        Rate Per Strip = Rate Per Tablet (₹0.0000) × 10 Units/Strip = ₹0.00
+                                    </div>
+                                    <p class="text-[11px] text-slate-400" id="deriv-strip-desc">Per-strip quotation calculated by multiplying single-tablet rate by the number of units per strip (e.g. 10 tablets for 1*10 Alu-Alu / Blister).</p>
+                                </div>
+                            </div>
+
+                            <!-- Cost Component Derivation Table -->
+                            <div class="space-y-2">
+                                <h5 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center space-x-1.5">
+                                    <i data-lucide="layers" class="w-3.5 h-3.5 text-teal-400"></i>
+                                    <span>Manufacturing &amp; Commercial Cost Breakdown</span>
+                                </h5>
+                                <div class="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950/70">
+                                    <table class="w-full text-left text-xs min-w-[650px]">
+                                        <thead class="bg-slate-900 text-slate-400 font-semibold border-b border-slate-800">
+                                            <tr>
+                                                <th class="py-2.5 px-3">Cost Component / Element</th>
+                                                <th class="py-2.5 px-3">Basis of Calculation</th>
+                                                <th class="py-2.5 px-3 text-right">Total Amount (₹)</th>
+                                                <th class="py-2.5 px-3 text-right">Cost / Unit (₹)</th>
+                                                <th class="py-2.5 px-3 text-right" id="deriv-col-strip-hdr">Cost / Strip (₹)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="deriv-cost-table-body" class="divide-y divide-slate-800/60 font-mono">
+                                            <!-- Dynamically populated -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Itemized Active Ingredients Cost Table (with User Estimated Rates) -->
+                            <div class="space-y-2 pt-2">
+                                <div class="flex items-center justify-between">
+                                    <h5 class="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center space-x-1.5">
+                                        <i data-lucide="flask-conical" class="w-3.5 h-3.5 text-amber-400"></i>
+                                        <span>Active Raw Materials Cost Breakdown (Audit &amp; Sources)</span>
+                                    </h5>
+                                    <span id="deriv-user-rate-count-badge" class="hidden text-[10px] font-bold text-amber-300 bg-amber-500/20 border border-amber-500/30 px-2 py-0.5 rounded-full">
+                                        Includes User-Estimated Rates
+                                    </span>
+                                </div>
+                                <div class="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950/70">
+                                    <table class="w-full text-left text-xs min-w-[650px]">
+                                        <thead class="bg-slate-900 text-slate-400 font-semibold border-b border-slate-800">
+                                            <tr>
+                                                <th class="py-2 px-3 w-10 text-center">Sr</th>
+                                                <th class="py-2 px-3">Active Ingredient Name</th>
+                                                <th class="py-2 px-3 text-right">Batch Qty (Kg)</th>
+                                                <th class="py-2 px-3 text-right">Rate / Status</th>
+                                                <th class="py-2 px-3 text-right">Total Cost (₹)</th>
+                                                <th class="py-2 px-3 text-right">Cost / Unit (₹)</th>
+                                                <th class="py-2 px-3 text-center">Rate Source</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="deriv-active-cost-body" class="divide-y divide-slate-800/60 font-mono">
+                                            <!-- Dynamically populated -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Hidden Costing Elements to prevent JS reference errors -->
+                    <div id="bmr-financials-section" class="hidden">
+                        <span id="cost-active"></span>
+                        <span id="cost-other"></span>
+                        <span id="cost-pkg"></span>
+                        <span id="cost-conv"></span>
+                        <span id="cost-profit-margin"></span>
+                        <span id="cost-total-batch"></span>
+                        <span id="unit-cost-val"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Navigation Footer -->
+            <div class="bg-slate-100 border-t border-slate-200 px-4 sm:px-6 py-3 flex items-center justify-between flex-shrink-0">
+                <button type="button" id="bmr-prev-btn" onclick="prevBmrStep()" class="px-4 py-2 bg-white hover:bg-slate-200 text-slate-700 border border-slate-300 rounded-lg text-xs font-semibold transition hidden flex items-center space-x-1.5">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    <span>Back</span>
+                </button>
+                <div class="text-[11px] text-slate-400 font-mono hidden sm:block">Walpar Formulation Intelligence v3.1</div>
+                <button type="button" id="bmr-next-btn" onclick="nextBmrStep()" class="px-5 py-2 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white rounded-lg text-xs font-bold shadow transition flex items-center space-x-1.5">
+                    <span>Next: Active Ingredients</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         MY QUOTATIONS & RATE REVISIONS MODAL
+         ═══════════════════════════════════════════════════════ -->
+    <div id="my-quotations-modal" class="fixed inset-0 z-[9992] bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 hidden">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-3xl w-full max-h-[85vh] flex flex-col overflow-hidden shadow-2xl text-white">
+            <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
+                <div class="flex items-center space-x-2.5">
+                    <span class="p-2 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                        <i data-lucide="receipt" class="w-4 h-4"></i>
+                    </span>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">My Formulation Quotations &amp; Rate History</h4>
+                        <p class="text-[11px] text-slate-400">All commercial quotations calculated on your account, with real-time rate updates from Admin</p>
+                    </div>
+                </div>
+                <button onclick="closeMyQuotationsModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto p-4 space-y-3" id="my-quotations-list">
+                <div class="py-8 text-center text-slate-500 text-xs flex items-center justify-center space-x-2">
+                    <div class="w-4 h-4 border-2 border-teal-400 border-t-transparent rounded-full animate-spin"></div>
+                    <span>Loading your quotations...</span>
+                </div>
+            </div>
+
+            <div class="p-3 border-t border-slate-800 bg-slate-950/40 flex items-center justify-between text-xs text-slate-400">
+                <span id="my-quotes-count">0 Quotations</span>
+                <button onclick="loadMyQuotations()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold flex items-center space-x-1">
+                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                    <span>Refresh</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         BMR MASTER PASSWORD PROMPT MODAL (Walpar@123)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="bmr-password-modal" class="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 text-center space-y-4 animate-in fade-in zoom-in-95 duration-200">
+            <div class="w-12 h-12 rounded-full bg-teal-50 border border-teal-200 text-teal-700 flex items-center justify-center mx-auto shadow-inner">
+                <i data-lucide="shield-check" class="w-6 h-6 text-teal-600"></i>
+            </div>
+            <div>
+                <h4 class="text-sm font-extrabold text-slate-900">Master Password Required</h4>
+                <p class="text-xs text-slate-500 mt-1">Enter authorized password to generate and export official Batch Master Card.</p>
+            </div>
+            <div>
+                <input type="password" id="bmr-master-pass-input" placeholder="Enter Master Password" 
+                       class="w-full p-2.5 border border-slate-300 rounded-xl text-xs text-center font-mono focus:border-teal-500 focus:ring-teal-500 outline-none"
+                       onkeydown="if(event.key==='Enter') submitBmrMasterPassword()">
+                <p id="bmr-pass-error" class="text-rose-600 text-[11px] font-semibold mt-1 hidden"></p>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button type="button" onclick="closeBmrPasswordModal()" class="flex-1 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-semibold">Cancel</button>
+                <button type="button" onclick="submitBmrMasterPassword()" class="flex-1 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-xl text-xs font-bold shadow">Verify &amp; Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         ELEMENTAL SALT & RDA CALCULATOR MODAL (PDF & Index 1)
+         ═══════════════════════════════════════════════════════ -->
+    <div id="salt-rda-modal" class="fixed inset-0 z-[9995] bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[92vh] flex flex-col overflow-hidden border border-slate-200 animate-in fade-in zoom-in-95 duration-200">
+            
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-teal-900 via-teal-800 to-slate-900 text-white px-4 sm:px-6 py-3.5 flex items-center justify-between border-b border-teal-700/40 flex-shrink-0">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-teal-500/20 border border-teal-400/30 flex items-center justify-center text-teal-300">
+                        <i data-lucide="calculator" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-sm sm:text-base text-white">Elemental Salt &amp; RDA Calculator</h3>
+                        <p class="text-[11px] text-teal-200">Calculate elemental mineral yields &amp; demographic RDA compliance percentages</p>
+                    </div>
+                </div>
+                <button onclick="closeSaltRdaModal()" class="text-slate-300 hover:text-white p-1 rounded-lg">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Tab Switcher -->
+            <div class="bg-slate-100 border-b border-slate-200 px-4 sm:px-6 py-2 flex items-center space-x-2 text-xs font-bold flex-shrink-0">
+                <button onclick="switchSaltRdaTab('minerals')" id="rda-tab-minerals" 
+                        class="px-4 py-2 rounded-lg bg-teal-600 text-white shadow-sm transition flex items-center space-x-1.5">
+                    <i data-lucide="flame" class="w-3.5 h-3.5"></i>
+                    <span>Minerals &amp; Salts</span>
+                </button>
+                <button onclick="switchSaltRdaTab('vitamins')" id="rda-tab-vitamins" 
+                        class="px-4 py-2 rounded-lg bg-white text-slate-600 hover:text-slate-900 border border-slate-200 transition flex items-center space-x-1.5">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                    <span>Vitamins</span>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-5 bg-slate-50/50">
+                
+                <!-- AUTO-FETCH FROM ACTIVE FORMULATION INGREDIENTS -->
+                <div class="bg-gradient-to-r from-teal-50 via-teal-100/60 to-emerald-50 border border-teal-300/80 rounded-xl p-3 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="flex items-center space-x-2.5">
+                        <span class="w-8 h-8 rounded-lg bg-teal-600 text-white flex items-center justify-center text-xs font-black shadow-xs flex-shrink-0">
+                            <i data-lucide="zap" class="w-4 h-4"></i>
+                        </span>
+                        <div>
+                            <div class="text-xs font-extrabold text-teal-950 flex items-center space-x-1.5">
+                                <span>Auto-Fetch from Formulation Ingredients</span>
+                                <span class="bg-teal-700 text-white text-[9px] px-1.5 py-0.2 rounded-full uppercase tracking-wider font-mono">Live</span>
+                            </div>
+                            <div class="text-[10px] text-teal-700">Select any ingredient from your active formulation to instantly auto-load element &amp; show all salt options</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-1.5 w-full sm:w-auto sm:min-w-[300px]">
+                        <select id="rda-active-ingredients-select" onchange="onSelectActiveFormulaIngredient(this.value)" 
+                                class="w-full text-xs p-2 bg-white border border-teal-400 rounded-lg font-bold text-slate-800 focus:ring-2 focus:ring-teal-500 shadow-2xs">
+                            <option value="">-- Auto-Fetch from Active Ingredients --</option>
+                        </select>
+                        <button type="button" onclick="populateActiveIngredientsDropdown()" title="Refresh formulation ingredients" 
+                                class="p-2 bg-white hover:bg-slate-50 border border-teal-300 text-teal-700 rounded-lg shadow-2xs">
+                            <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MINERALS & SALTS PANEL -->
+                <div id="rda-panel-minerals" class="space-y-4">
+                    <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Select Mineral / Element:</label>
+                                <select id="rda-mineral-select" onchange="onRdaMineralChange()" class="w-full text-xs p-2 border border-slate-300 rounded-lg focus:ring-teal-500">
+                                    <option value="">-- Select Mineral --</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Salt Form (from Official PDF):</label>
+                                <select id="rda-salt-form-select" onchange="onRdaSaltFormChange()" class="w-full text-xs p-2 border border-slate-300 rounded-lg focus:ring-teal-500">
+                                    <option value="">-- Select Mineral First --</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1" id="rda-dose-label">Supplement Dose (mg):</label>
+                                <div class="flex items-center space-x-1">
+                                    <input type="number" id="rda-mineral-dose" value="100" min="0.01" step="any" 
+                                           class="w-full text-xs p-2 border border-slate-300 rounded-lg font-mono focus:ring-teal-500"
+                                           onkeydown="if(event.key==='Enter') calculateModalSaltRda()">
+                                    <button type="button" onclick="calculateModalSaltRda()" class="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-lg text-xs shadow transition">
+                                        Calculate
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calculation Mode Selector: Salt Dose vs Elemental Target -->
+                        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100 text-[11px] font-bold">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-slate-500">Calculation Mode:</span>
+                                <label class="inline-flex items-center space-x-1.5 cursor-pointer bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200 hover:bg-teal-50 transition">
+                                    <input type="radio" name="rda-calc-mode" id="rda-mode-salt-dose" value="salt_dose" checked onchange="onRdaCalcModeChange()" class="text-teal-600 focus:ring-teal-500">
+                                    <span class="text-slate-700">Salt Dose &rarr; Elemental Yield</span>
+                                </label>
+                                <label class="inline-flex items-center space-x-1.5 cursor-pointer bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200 hover:bg-teal-50 transition">
+                                    <input type="radio" name="rda-calc-mode" id="rda-mode-elemental-target" value="elemental_target" onchange="onRdaCalcModeChange()" class="text-teal-600 focus:ring-teal-500">
+                                    <span class="text-slate-700">Elemental Target &rarr; Required Salt Quantities</span>
+                                </label>
+                            </div>
+                            <span class="text-[10px] text-teal-700 font-semibold italic" id="rda-calc-mode-hint">Entering salt dose yields elemental mineral content</span>
+                        </div>
+                    </div>
+
+                    <!-- Available Salt Options Table (Shows all salt form options for selected element) -->
+                    <div id="rda-salt-options-box" class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm space-y-3 hidden">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+                            <div>
+                                <h4 class="text-xs font-black text-slate-800 uppercase tracking-wide flex items-center space-x-1.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
+                                    <span>Available Salt Form Options for <span id="rda-options-element-title" class="text-teal-700">Element</span></span>
+                                </h4>
+                                <p class="text-[10px] text-slate-500 mt-0.5">Compare required salt quantities, % elemental yields &amp; click 'Select' on any salt to apply</p>
+                            </div>
+                            <span class="text-[10px] font-bold text-teal-800 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-full font-mono self-start sm:self-auto" id="rda-options-count-badge">
+                                0 Options
+                            </span>
+                        </div>
+                        <div class="overflow-x-auto border border-slate-200 rounded-lg max-h-[300px] overflow-y-auto">
+                            <table class="w-full text-left text-xs min-w-[550px]">
+                                <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200 text-[11px] sticky top-0">
+                                    <tr>
+                                        <th class="py-2 px-3">Salt Form Name</th>
+                                        <th class="py-2 px-2 text-center">% Elemental</th>
+                                        <th class="py-2 px-3 text-right">Required Salt (mg)</th>
+                                        <th class="py-2 px-3 text-right">Elemental Yield (mg)</th>
+                                        <th class="py-2 px-2.5">Secondary Nutrient</th>
+                                        <th class="py-2 px-2 text-right">% Adult RDA</th>
+                                        <th class="py-2 px-2.5 text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rda-salt-options-tbody" class="divide-y divide-slate-100 font-mono text-[11px]">
+                                    <!-- Dynamic options populated -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Mineral Results Box (Elemental Yield & Demographic RDA Table) -->
+                    <div id="rda-mineral-results-box" class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm space-y-4 hidden">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 bg-teal-50 border border-teal-200 rounded-xl">
+                            <div>
+                                <span class="text-[11px] uppercase tracking-wider text-teal-800 font-extrabold" id="rda-elemental-title">Elemental Amount Yielded:</span>
+                                <div id="rda-elemental-amount" class="text-xl font-black text-teal-900 mt-0.5 font-mono">0 mg</div>
+                            </div>
+                            <div id="rda-secondary-amount-box" class="hidden sm:text-right border-t sm:border-t-0 sm:border-l border-teal-200 pt-2 sm:pt-0 sm:pl-4">
+                                <span class="text-[11px] uppercase tracking-wider text-slate-600 font-bold" id="rda-secondary-title">Secondary Element:</span>
+                                <div id="rda-secondary-amount" class="text-sm font-bold text-slate-800 font-mono mt-0.5">0 mg</div>
+                            </div>
+                        </div>
+
+                        <!-- RDA Table -->
+                        <div>
+                            <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">Age &amp; Gender Demographic RDA Compliance:</h5>
+                            <div class="overflow-x-auto border border-slate-200 rounded-lg">
+                                <table class="w-full text-left text-xs">
+                                    <thead class="bg-slate-100 text-slate-600 border-b border-slate-200 font-semibold">
+                                        <tr>
+                                            <th class="py-2 px-3">Demographic Group</th>
+                                            <th class="py-2 px-3">Standard RDA (mg/day)</th>
+                                            <th class="py-2 px-3 text-right">% RDA Met</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="rda-demographic-tbody" class="divide-y divide-slate-100 font-mono">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VITAMINS PANEL -->
+                <div id="rda-panel-vitamins" class="space-y-4 hidden">
+                    <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Select Vitamin:</label>
+                                <select id="rda-vitamin-select" onchange="onRdaVitaminChange()" class="w-full text-xs p-2 border border-slate-300 rounded-lg focus:ring-teal-500">
+                                    <option value="">-- Select Vitamin --</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Vitamin Chemical Form:</label>
+                                <select id="rda-vitamin-form-select" class="w-full text-xs p-2 border border-slate-300 rounded-lg focus:ring-teal-500">
+                                    <option value="">-- Select Vitamin First --</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Dose &amp; Unit:</label>
+                                <div class="flex items-center space-x-1">
+                                    <input type="number" id="rda-vitamin-dose" value="10" min="0.001" step="any" class="w-full text-xs p-2 border border-slate-300 rounded-lg font-mono focus:ring-teal-500">
+                                    <select id="rda-vitamin-unit" class="text-xs p-2 border border-slate-300 rounded-lg bg-slate-50 font-semibold">
+                                        <option value="mg">mg</option>
+                                        <option value="mcg">mcg</option>
+                                        <option value="IU">IU</option>
+                                    </select>
+                                    <button type="button" onclick="calculateModalVitaminRda()" class="px-3.5 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-lg text-xs shadow transition">
+                                        Calc
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vitamin Results Box -->
+                    <div id="rda-vitamin-results-box" class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm space-y-4 hidden">
+                        <div class="p-3.5 bg-teal-50 border border-teal-200 rounded-xl">
+                            <span class="text-[11px] uppercase tracking-wider text-teal-800 font-extrabold">Active Elemental Vitamin Yield:</span>
+                            <div id="rda-vitamin-elemental-amount" class="text-xl font-black text-teal-900 mt-0.5 font-mono">0 mg</div>
+                        </div>
+
+                        <!-- Vitamin RDA Table -->
+                        <div>
+                            <h5 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-2">RDA Percentage by Demographic Group:</h5>
+                            <div class="overflow-x-auto border border-slate-200 rounded-lg">
+                                <table class="w-full text-left text-xs">
+                                    <thead class="bg-slate-100 text-slate-600 border-b border-slate-200 font-semibold">
+                                        <tr>
+                                            <th class="py-2 px-3">Demographic Group</th>
+                                            <th class="py-2 px-3">Standard RDA</th>
+                                            <th class="py-2 px-3 text-right">% RDA Met</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="rda-vitamin-demographic-tbody" class="divide-y divide-slate-100 font-mono">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts with Cache Buster -->
+    <script src="/static/js/app.js?v=20260929_rate_fuzzy_v7"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════
+         WALPAR DOC SCANNER MODAL — 4-Corner Perspective Crop
+         ═══════════════════════════════════════════════════════ -->
+    <div id="crop-modal" class="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/95 sm:bg-black/85 backdrop-blur-md hidden p-0 sm:p-4 select-none">
+        <div class="bg-slate-900 border-0 sm:border sm:border-slate-700/80 rounded-none sm:rounded-2xl shadow-2xl w-full max-w-2xl mx-auto overflow-hidden flex flex-col h-[100dvh] sm:h-auto sm:max-h-[96vh]">
+            
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-walpar-900 via-walpar-800 to-slate-900 text-white px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between border-b border-slate-700/80 flex-shrink-0">
+                <div class="flex items-center space-x-2 sm:space-x-2.5 min-w-0">
+                    <div class="w-8 h-8 rounded-lg bg-sky-500/20 border border-sky-400/30 flex items-center justify-center text-sky-400 flex-shrink-0">
+                        <i data-lucide="scan-line" class="w-4 h-4"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="flex items-center space-x-2">
+                            <h3 class="font-extrabold text-xs sm:text-sm text-white tracking-wide truncate">Walpar Document Scanner</h3>
+                            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[9px] px-1.5 py-0.5 rounded-full font-bold flex-shrink-0">4-Corner Perspective</span>
+                        </div>
+                        <p class="text-[10px] sm:text-[11px] text-slate-300 truncate">Drag any corner to match angled or tilted medicine formulas</p>
+                    </div>
+                </div>
+                <button type="button" onclick="cropSkip()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition flex-shrink-0 touch-manipulation">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Interactive Stage Area (Auto-fits mobile screens with touch-action: none) -->
+            <div id="scanner-stage" class="relative flex-1 bg-black overflow-hidden flex items-center justify-center select-none w-full min-h-[200px]" style="touch-action: none;">
+                <!-- Base Image Canvas -->
+                <canvas id="scanner-img-canvas" class="block w-full h-full object-contain pointer-events-none"></canvas>
+                <!-- Interactive 4-Corner Overlay Canvas -->
+                <canvas id="scanner-overlay-canvas" class="absolute inset-0 w-full h-full cursor-crosshair" style="touch-action: none;"></canvas>
+                
+                <!-- Magnifier Loupe Lens (floats above user finger on touch/drag) -->
+                <div id="scanner-loupe" class="hidden absolute pointer-events-none w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-white shadow-2xl overflow-hidden ring-2 ring-sky-400 bg-slate-900 z-30 transform -translate-x-1/2 -translate-y-full">
+                    <canvas id="scanner-loupe-canvas" class="w-full h-full"></canvas>
+                    <!-- Loupe Crosshair Target -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div class="w-full h-[1px] bg-red-500/80"></div>
+                        <div class="h-full w-[1px] bg-red-500/80 absolute"></div>
+                        <div class="w-2.5 h-2.5 rounded-full border border-red-500 absolute"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toolbar (Quick Controls) -->
+            <div class="bg-slate-800/95 border-t border-slate-700/80 px-2 sm:px-3 py-2 flex items-center justify-between gap-1.5 sm:gap-2 flex-shrink-0 text-xs">
+                <div class="flex items-center space-x-1 sm:space-x-1.5">
+                    <button type="button" onclick="docScanner.autoDetect()" title="Auto-Detect Document Corners"
+                            class="px-2 sm:px-2.5 py-1.5 bg-sky-500/20 active:bg-sky-500/40 hover:bg-sky-500/30 text-sky-300 border border-sky-400/40 rounded-lg font-semibold flex items-center space-x-1 transition shadow-sm touch-manipulation">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-sky-400"></i>
+                        <span class="text-[11px] sm:text-xs">Auto-Detect</span>
+                    </button>
+                    <button type="button" onclick="docScanner.fullImage()" title="Full Image (Snap to Edges)"
+                            class="px-2 sm:px-2.5 py-1.5 bg-slate-700/60 active:bg-slate-600 hover:bg-slate-700 text-slate-200 border border-slate-600 rounded-lg font-semibold flex items-center space-x-1 transition touch-manipulation">
+                        <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                        <span class="text-[11px] sm:text-xs">Full Box</span>
+                    </button>
+                    <button type="button" onclick="docScanner.reset()" title="Reset to standard 6% inset"
+                            class="px-2 py-1.5 bg-slate-700/60 active:bg-slate-600 hover:bg-slate-700 text-slate-300 border border-slate-600 rounded-lg transition touch-manipulation" title="Reset corners">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+
+                <div class="flex items-center space-x-1">
+                    <span class="text-[10px] text-slate-400 mr-1 uppercase font-semibold hidden md:inline">Rotate</span>
+                    <button type="button" onclick="docScanner.rotate(-90)" title="Rotate Left 90°"
+                            class="p-1.5 sm:px-2 sm:py-1.5 bg-slate-700/60 active:bg-slate-600 hover:bg-slate-700 text-slate-200 border border-slate-600 rounded-lg transition touch-manipulation">
+                        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <button type="button" onclick="docScanner.rotate(90)" title="Rotate Right 90°"
+                            class="p-1.5 sm:px-2 sm:py-1.5 bg-slate-700/60 active:bg-slate-600 hover:bg-slate-700 text-slate-200 border border-slate-600 rounded-lg transition touch-manipulation">
+                        <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <button type="button" onclick="docScanner.rotate(180)" title="Flip 180°"
+                            class="p-1.5 sm:px-2 sm:py-1.5 bg-slate-700/60 active:bg-slate-600 hover:bg-slate-700 text-slate-200 border border-slate-600 rounded-lg transition touch-manipulation">
+                        <i data-lucide="flip-vertical-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="bg-slate-900 px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-2 sm:gap-2.5 flex-shrink-0 border-t border-slate-800 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+                <button type="button" onclick="docScanner.confirmCrop()"
+                        class="flex-1 py-3 px-4 bg-gradient-to-r from-walpar-600 via-sky-600 to-walpar-700 hover:from-walpar-700 hover:to-sky-700 active:scale-[0.99] text-white rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center space-x-2 shadow-lg shadow-sky-900/30 transition touch-manipulation">
+                    <i data-lucide="scan" class="w-4 h-4"></i>
+                    <span>Crop &amp; Straighten Formula</span>
+                </button>
+                <button type="button" onclick="cropSkip()"
+                        class="px-3.5 sm:px-4 py-3 bg-slate-800 active:bg-slate-700 hover:bg-slate-700 text-slate-300 border border-slate-700 rounded-xl text-xs sm:text-sm font-semibold transition flex-shrink-0 touch-manipulation">
+                    Full Image
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         WALPAR LAPTOP & WEBCAM CAMERA MODAL
+         ═══════════════════════════════════════════════════════ -->
+    <div id="camera-modal" class="fixed inset-0 z-[9998] flex items-center justify-center bg-slate-950/95 sm:bg-black/90 backdrop-blur-md hidden p-0 sm:p-4 select-none">
+        <div class="bg-slate-900 border-0 sm:border sm:border-slate-700/80 rounded-none sm:rounded-2xl shadow-2xl w-full max-w-2xl mx-auto overflow-hidden flex flex-col h-[100dvh] sm:h-auto sm:max-h-[96vh]">
+            
+            <!-- Modal Header -->
+            <div class="bg-gradient-to-r from-walpar-900 via-walpar-800 to-slate-900 text-white px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between border-b border-slate-700/80 flex-shrink-0">
+                <div class="flex items-center space-x-2.5 min-w-0">
+                    <div class="w-8 h-8 rounded-lg bg-rose-500/20 border border-rose-400/30 flex items-center justify-center text-rose-400 flex-shrink-0">
+                        <i data-lucide="camera" class="w-4 h-4"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <div class="flex items-center space-x-2">
+                            <h3 class="font-extrabold text-xs sm:text-sm text-white tracking-wide truncate">Live Camera Capture</h3>
+                            <span class="inline-flex items-center space-x-1 bg-rose-500/20 text-rose-300 border border-rose-400/30 text-[9px] px-2 py-0.5 rounded-full font-bold flex-shrink-0">
+                                <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
+                                <span>LIVE</span>
+                            </span>
+                        </div>
+                        <p class="text-[10px] sm:text-[11px] text-slate-300 truncate">Hold medicine box or formula sheet in front of your camera</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeCameraModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition flex-shrink-0 touch-manipulation">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Video Viewfinder Area -->
+            <div class="relative flex-1 bg-black overflow-hidden flex items-center justify-center min-h-[300px]">
+                <!-- Live Video Element -->
+                <video id="camera-video" autoplay playsinline muted class="w-full h-full object-contain max-h-[65vh] bg-black"></video>
+
+                <!-- Document Framing Reticle (Corners) -->
+                <div class="absolute inset-8 sm:inset-12 pointer-events-none border border-sky-400/25 rounded-lg flex flex-col justify-between">
+                    <div class="flex justify-between">
+                        <div class="w-6 h-6 border-t-2 border-l-2 border-sky-400 -mt-0.5 -ml-0.5"></div>
+                        <div class="w-6 h-6 border-t-2 border-r-2 border-sky-400 -mt-0.5 -mr-0.5"></div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="w-6 h-6 border-b-2 border-l-2 border-sky-400 -mb-0.5 -ml-0.5"></div>
+                        <div class="w-6 h-6 border-b-2 border-r-2 border-sky-400 -mb-0.5 -mr-0.5"></div>
+                    </div>
+                </div>
+
+                <!-- Live Info & Controls Overlays -->
+                <div class="absolute top-3 left-3 flex items-center space-x-2">
+                    <span id="camera-resolution-badge" class="bg-black/70 backdrop-blur-sm text-sky-300 border border-sky-500/30 px-2 py-0.5 rounded text-[10px] font-mono">
+                        Connecting...
+                    </span>
+                </div>
+
+                <!-- Mirror / Flip Button -->
+                <div class="absolute top-3 right-3 flex items-center space-x-1.5">
+                    <button type="button" id="camera-mirror-btn" onclick="toggleCameraMirror()" title="Flip image mirror (Document mode)" 
+                            class="bg-black/70 hover:bg-black text-slate-200 border border-slate-700 hover:border-slate-500 px-2.5 py-1 rounded-lg text-xs backdrop-blur-sm flex items-center space-x-1 transition shadow-md touch-manipulation">
+                        <i data-lucide="flip-horizontal" class="w-3.5 h-3.5"></i>
+                        <span id="camera-mirror-text" class="text-[11px]">Normal View</span>
+                    </button>
+                </div>
+
+                <!-- Permission Error State (shown if camera is blocked) -->
+                <div id="camera-error-banner" class="hidden absolute inset-0 bg-slate-950/95 flex flex-col items-center justify-center p-6 text-center text-white z-20">
+                    <div class="w-14 h-14 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-400 flex items-center justify-center mb-3">
+                        <i data-lucide="camera-off" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-sm font-bold text-white mb-1">Camera Access Required</h4>
+                    <p id="camera-error-msg" class="text-xs text-slate-300 max-w-sm mb-4 leading-relaxed">
+                        Please allow camera permissions in your browser's address bar (click the lock or camera icon near the URL) to use your laptop camera.
+                    </p>
+                    <div class="flex items-center space-x-2">
+                        <button type="button" onclick="startCameraCapture()" class="px-4 py-2 bg-walpar-600 hover:bg-walpar-700 text-white rounded-lg text-xs font-semibold">
+                            Try Again
+                        </button>
+                        <button type="button" onclick="closeCameraModal(); document.getElementById('file-input').click();" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold">
+                            Upload File Instead
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Shutter Flash Animation Screen -->
+                <div id="camera-flash" class="hidden absolute inset-0 bg-white pointer-events-none opacity-0 transition-opacity duration-150 z-30"></div>
+            </div>
+
+            <!-- Camera Toolbar & Device Selector -->
+            <div class="bg-slate-800/95 border-t border-slate-700/80 px-3 py-2 flex items-center justify-between gap-2 flex-shrink-0 text-xs">
+                <!-- Camera Select Dropdown (if multiple devices) -->
+                <div class="flex items-center space-x-1.5 flex-1 min-w-0 max-w-xs">
+                    <i data-lucide="video" class="w-3.5 h-3.5 text-slate-400 flex-shrink-0"></i>
+                    <select id="camera-device-select" onchange="switchCameraDevice(this.value)" 
+                            class="bg-slate-900 text-slate-200 border border-slate-700 rounded-lg text-xs px-2 py-1 w-full truncate focus:ring-walpar-500 focus:border-walpar-500">
+                        <option value="">Default Camera</option>
+                    </select>
+                </div>
+
+                <div class="flex items-center space-x-1.5">
+                    <button type="button" id="camera-cycle-btn" onclick="cycleCamera()" title="Switch Front / Back / External Camera"
+                            class="px-2.5 py-1.5 bg-slate-700 hover:bg-slate-600 text-slate-200 rounded-lg text-xs font-medium flex items-center space-x-1 transition touch-manipulation">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                        <span class="hidden sm:inline">Switch</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Shutter Capture Action Bar -->
+            <div class="bg-slate-900 px-4 py-3 flex items-center justify-between gap-3 flex-shrink-0 border-t border-slate-800 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+                <button type="button" onclick="closeCameraModal()" 
+                        class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold transition touch-manipulation">
+                    Cancel
+                </button>
+
+                <!-- Big Shutter Button -->
+                <button type="button" id="camera-shutter-btn" onclick="captureCameraFrame()" 
+                        class="flex-1 py-3 px-6 bg-gradient-to-r from-rose-600 via-rose-500 to-amber-600 hover:from-rose-700 hover:to-amber-700 active:scale-[0.98] text-white rounded-xl text-sm font-extrabold flex items-center justify-center space-x-2.5 shadow-xl shadow-rose-900/30 transition touch-manipulation">
+                    <i data-lucide="aperture" class="w-5 h-5"></i>
+                    <span>Capture Photo</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1217 @@
+{
+  "mineralData": {
+    "calcium": {
+      "name": "Calcium",
+      "saltForms": [
+        {
+          "id": "carbonate",
+          "name": "Calcium Carbonate",
+          "percentage": 0.4
+        },
+        {
+          "id": "citrate",
+          "name": "Calcium Citrate",
+          "percentage": 0.2407
+        },
+        {
+          "id": "citrate-maleate",
+          "name": "Calcium Citrate Maleate",
+          "percentage": 0.1845
+        },
+        {
+          "id": "asparto-glycinate",
+          "name": "Calcium Asparto Glycinate",
+          "percentage": 0.1529
+        },
+        {
+          "id": "phosphate",
+          "name": "Calcium Phosphate",
+          "percentage": 0.3876,
+          "secondary": {
+            "name": "Phosphorous",
+            "percentage": 0.1996
+          }
+        },
+        {
+          "id": "orotate",
+          "name": "Calcium Orotate",
+          "percentage": 0.1144
+        },
+        {
+          "id": "gluconate",
+          "name": "Calcium Gluconate",
+          "percentage": 0.0931
+        },
+        {
+          "id": "lactate",
+          "name": "Calcium Lactate",
+          "percentage": 0.1836
+        },
+        {
+          "id": "pantothenate",
+          "name": "Calcium Pantothenate",
+          "percentage": 0.084,
+          "secondary": {
+            "name": "Pantothenic Acid",
+            "percentage": 0.916
+          }
+        },
+        {
+          "id": "dicalcium-phosphate",
+          "name": "Dicalcium Phosphate",
+          "percentage": 0.2945,
+          "secondary": {
+            "name": "Phosphorous",
+            "percentage": 0.2276
+          }
+        },
+        {
+          "id": "ascorbate",
+          "name": "Calcium L-Ascorbate Dihydrate",
+          "percentage": 0.094,
+          "secondary": {
+            "name": "Ascorbic Acid",
+            "percentage": 0.826
+          }
+        },
+        {
+          "id": "citrate-tetrahydrate",
+          "name": "Citrate Tetrahydrate Calcium",
+          "percentage": 0.21,
+          "secondary": {
+            "name": "Citric Acid",
+            "percentage": 0.3367
+          }
+        },
+        {
+          "id": "citrate-malate",
+          "name": "Calcium Citrate malate",
+          "percentage": 0.66
+        },
+        {
+          "id": "aspartate",
+          "name": "Calcium Aspartate",
+          "percentage": 0.2341
+        },
+        {
+          "id": "lysinate",
+          "name": "Calcium Lysinate",
+          "percentage": 0.1212
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Infants (0-6m)",
+          "rda": 200
+        },
+        {
+          "name": "Infants (7-12m)",
+          "rda": 260
+        },
+        {
+          "name": "Children (1-3y)",
+          "rda": 700
+        },
+        {
+          "name": "Children (4-8y)",
+          "rda": 1000
+        },
+        {
+          "name": "Adolescents (9-18y)",
+          "rda": 1300
+        },
+        {
+          "name": "Adults (19-50y)",
+          "rda": 1000
+        },
+        {
+          "name": "Men (51-70y)",
+          "rda": 1000
+        },
+        {
+          "name": "Women (51-70y)",
+          "rda": 1200
+        },
+        {
+          "name": "Adults (71+y)",
+          "rda": 1200
+        },
+        {
+          "name": "Pregnancy/Lactation (14-18y)",
+          "rda": 1300
+        },
+        {
+          "name": "Pregnancy/Lactation (19-50y)",
+          "rda": 1000
+        }
+      ]
+    },
+    "chromium": {
+      "name": "Chromium",
+      "saltForms": [
+        {
+          "id": "picolinate",
+          "name": "Chromium Picolinate",
+          "percentage": 0.1242
+        },
+        {
+          "id": "chloride",
+          "name": "Chromium Chloride",
+          "percentage": 0.3283,
+          "secondary": {
+            "name": "Chloride",
+            "percentage": 0.2238
+          }
+        },
+        {
+          "id": "nicotinate",
+          "name": "Chromium Piconicotinate or Chromium nicotinate",
+          "percentage": 0.2986
+        },
+        {
+          "id": "trioxide",
+          "name": "Chromium trioxide",
+          "percentage": 0.5199
+        },
+        {
+          "id": "chloride-hexahydrate",
+          "name": "Chromium Chloride Hexahydrate",
+          "percentage": 0.1951
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Men (19-50y)",
+          "rda": 0.035
+        },
+        {
+          "name": "Women (19-50y)",
+          "rda": 0.025
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 0.03
+        },
+        {
+          "name": "Lactation",
+          "rda": 0.045
+        }
+      ]
+    },
+    "copper": {
+      "name": "Copper",
+      "saltForms": [
+        {
+          "id": "sulphate",
+          "name": "Copper Sulphate or Cupric Sulphate",
+          "percentage": 0.3981
+        },
+        {
+          "id": "citrate",
+          "name": "Cupric Citrate",
+          "percentage": 0.199
+        },
+        {
+          "id": "gluconate",
+          "name": "Copper Gluconate",
+          "percentage": 0.14
+        },
+        {
+          "id": "oxide",
+          "name": "Cupric Oxide",
+          "percentage": 0.7988
+        },
+        {
+          "id": "sulphate-pentahydrate",
+          "name": "Copper Sulphate Pentahydrate",
+          "percentage": 0.2545
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Adults (19+y)",
+          "rda": 0.9
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 1
+        },
+        {
+          "name": "Lactation",
+          "rda": 1.3
+        }
+      ]
+    },
+    "iron": {
+      "name": "Iron (Ferrous)",
+      "saltForms": [
+        {
+          "id": "gluconate",
+          "name": "Ferrous Gluconate",
+          "percentage": 0.1158
+        },
+        {
+          "id": "ammonium-citrate",
+          "name": "Ferric Ammonium Citrate",
+          "percentage": 0.2131
+        },
+        {
+          "id": "ascorbate",
+          "name": "Ferrous Ascorbate",
+          "percentage": 0.1375
+        },
+        {
+          "id": "bisglycinate",
+          "name": "Ferrous Bisglycinate",
+          "percentage": 0.2737
+        },
+        {
+          "id": "sulphate",
+          "name": "Ferrous Sulphate",
+          "percentage": 0.3675
+        },
+        {
+          "id": "aspartoglycinate",
+          "name": "Ferrous Aspartoglycinate",
+          "percentage": 0.2131
+        },
+        {
+          "id": "fumarate",
+          "name": "Ferrous Fumarate",
+          "percentage": 0.3286
+        },
+        {
+          "id": "choline-citrate",
+          "name": "Iron Choline Citrate",
+          "percentage": 0.159
+        },
+        {
+          "id": "pyrophosphate",
+          "name": "Ferric Pyrophosphate",
+          "percentage": 0.0749
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Children (1-3y)",
+          "rda": 7
+        },
+        {
+          "name": "Children (4-8y)",
+          "rda": 10
+        },
+        {
+          "name": "Men (19-50y)",
+          "rda": 8
+        },
+        {
+          "name": "Women (19-50y)",
+          "rda": 18
+        },
+        {
+          "name": "Adults (51+y)",
+          "rda": 8
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 27
+        }
+      ]
+    },
+    "magnesium": {
+      "name": "Magnesium",
+      "saltForms": [
+        {
+          "id": "oxide",
+          "name": "Magnesium Oxide",
+          "percentage": 0.603
+        },
+        {
+          "id": "dioxide",
+          "name": "Magnesium Dioxide",
+          "percentage": 0.4317
+        },
+        {
+          "id": "sulfate",
+          "name": "Magnesium Sulfate",
+          "percentage": 0.2
+        },
+        {
+          "id": "glycinate",
+          "name": "Magnesium Glycinate",
+          "percentage": 0.1409
+        },
+        {
+          "id": "biglycinate",
+          "name": "Magnesium Biglycinate",
+          "percentage": 0.14
+        },
+        {
+          "id": "hydroxide",
+          "name": "Magnesium Hydroxide",
+          "percentage": 0.4166
+        },
+        {
+          "id": "gluconate",
+          "name": "Magnesium Gluconate",
+          "percentage": 0.0539
+        },
+        {
+          "id": "chloride",
+          "name": "Magnesium Chloride",
+          "percentage": 0.2552
+        },
+        {
+          "id": "citrate",
+          "name": "Magnesium Citrate",
+          "percentage": 0.1133
+        },
+        {
+          "id": "carbonate",
+          "name": "Magnesium carbonate",
+          "percentage": 0.2882
+        },
+        {
+          "id": "l-theonate",
+          "name": "Magnesium L Theonate",
+          "percentage": 0.0825
+        },
+        {
+          "id": "acetyl-taurate",
+          "name": "Magnesium Acetyl Taurate",
+          "percentage": 0.0681
+        },
+        {
+          "id": "ascorbate",
+          "name": "Magnesium Ascorbate",
+          "percentage": 0.0648
+        },
+        {
+          "id": "hydrochloride",
+          "name": "Magnesium Hydrochloride",
+          "percentage": 0.4
+        },
+        {
+          "id": "aspartate",
+          "name": "Magnesium Aspartate",
+          "percentage": 0.0842
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Men (19-30y)",
+          "rda": 400
+        },
+        {
+          "name": "Women (19-30y)",
+          "rda": 310
+        },
+        {
+          "name": "Men (31+y)",
+          "rda": 420
+        },
+        {
+          "name": "Women (31+y)",
+          "rda": 320
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 350
+        },
+        {
+          "name": "Lactation",
+          "rda": 310
+        }
+      ]
+    },
+    "manganese": {
+      "name": "Manganese",
+      "saltForms": [
+        {
+          "id": "sulphate",
+          "name": "Manganese Sulphate",
+          "percentage": 0.3637
+        },
+        {
+          "id": "chloride",
+          "name": "Manganese Chloride",
+          "percentage": 0.4364
+        },
+        {
+          "id": "sulphate-monohydrate",
+          "name": "Manganese Sulphate Monohydrate",
+          "percentage": 0.3249
+        },
+        {
+          "id": "glycinate",
+          "name": "Manganese Glycinate",
+          "percentage": 0.2705
+        },
+        {
+          "id": "oxide",
+          "name": "Manganese Oxide",
+          "percentage": 0.6318
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Men (19+y)",
+          "rda": 2.3
+        },
+        {
+          "name": "Women (19+y)",
+          "rda": 1.8
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 2
+        },
+        {
+          "name": "Lactation",
+          "rda": 2.6
+        }
+      ]
+    },
+    "molybdenum": {
+      "name": "Molybdenum",
+      "saltForms": [
+        {
+          "id": "pentoxide",
+          "name": "Molybdenum Pentoxide",
+          "percentage": 0.6665
+        },
+        {
+          "id": "sodium-molybdate",
+          "name": "from Sodium Molybdate",
+          "percentage": 0.4659
+        },
+        {
+          "id": "sodium-molybdate-dihydrate",
+          "name": "from Sodium Molybdate Dihydrate",
+          "percentage": 0.3965
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Adults (19+y)",
+          "rda": 0.045
+        },
+        {
+          "name": "Pregnancy/Lactation",
+          "rda": 0.05
+        }
+      ]
+    },
+    "potassium": {
+      "name": "Potassium",
+      "saltForms": [
+        {
+          "id": "sulfate",
+          "name": "Potassium Sulfate",
+          "percentage": 0.4486
+        },
+        {
+          "id": "iodide",
+          "name": "Potassium Iodide",
+          "percentage": 0.2349,
+          "secondary": {
+            "name": "Iodine",
+            "percentage": 0.7644
+          }
+        },
+        {
+          "id": "chloride",
+          "name": "Potassium Chloride",
+          "percentage": 0.5243
+        },
+        {
+          "id": "citrate",
+          "name": "Potassium Citrate",
+          "percentage": 0.1275
+        },
+        {
+          "id": "aspartate",
+          "name": "Aspartate Potassium",
+          "percentage": 0.1084
+        },
+        {
+          "id": "magnesium-citrate",
+          "name": "Potassium Magnesium Citrate",
+          "percentage": 0.1548,
+          "secondary": {
+            "name": "Magnesium",
+            "percentage": 0.0962
+          }
+        },
+        {
+          "id": "phosphate-monobasic",
+          "name": "Potassium Phosphate Monobasic",
+          "percentage": 0.2873
+        },
+        {
+          "id": "carbonate",
+          "name": "Potassium Carbonate",
+          "percentage": 0.5656
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Men (19+y)",
+          "rda": 3400
+        },
+        {
+          "name": "Women (19+y)",
+          "rda": 2600
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 2900
+        },
+        {
+          "name": "Lactation",
+          "rda": 2800
+        }
+      ]
+    },
+    "selenium": {
+      "name": "Selenium",
+      "saltForms": [
+        {
+          "id": "sodium-selenite",
+          "name": "from Sodium Selenite",
+          "percentage": 0.4565
+        },
+        {
+          "id": "sodium-selenate",
+          "name": "from Sodium Selenate",
+          "percentage": 0.4179
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Adults (19+y)",
+          "rda": 0.055
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 0.06
+        },
+        {
+          "name": "Lactation",
+          "rda": 0.07
+        }
+      ]
+    },
+    "sodium": {
+      "name": "Sodium",
+      "saltForms": [
+        {
+          "id": "bicarbonate",
+          "name": "Sodium Bicarbonate",
+          "percentage": 0.2735
+        },
+        {
+          "id": "carbonate",
+          "name": "Sodium Carbonate",
+          "percentage": 0.2168
+        },
+        {
+          "id": "chloride",
+          "name": "Sodium Chloride",
+          "percentage": 0.3932,
+          "secondary": {
+            "name": "Chloride",
+            "percentage": 0.6066
+          }
+        },
+        {
+          "id": "salycinate",
+          "name": "Sodium Salycinate",
+          "percentage": 0.1435
+        },
+        {
+          "id": "salycylate-selenium",
+          "name": "Sodium Salycylate (Selenium)",
+          "percentage": 0.1135
+        },
+        {
+          "id": "molybdate",
+          "name": "Sodium Molybdate",
+          "percentage": 0.1115,
+          "secondary": {
+            "name": "Molybdenum",
+            "percentage": 0.4659
+          }
+        },
+        {
+          "id": "molybdate-dihydrate",
+          "name": "Sodium Molybdate Dihydrate",
+          "percentage": 0.0949,
+          "secondary": {
+            "name": "Molybdenum",
+            "percentage": 0.3965
+          }
+        },
+        {
+          "id": "selenite",
+          "name": "Sodium Selenite",
+          "percentage": 0.27,
+          "secondary": {
+            "name": "Selenium",
+            "percentage": 0.4565
+          }
+        },
+        {
+          "id": "selenate",
+          "name": "Sodium Selenate",
+          "percentage": null,
+          "secondary": {
+            "name": "Selenium",
+            "percentage": 0.4179
+          }
+        },
+        {
+          "id": "ascorbate",
+          "name": "Sodium Ascorbate",
+          "percentage": 0.115,
+          "secondary": {
+            "name": "Ascorbic Acid",
+            "percentage": 0.885
+          }
+        },
+        {
+          "id": "benzoate",
+          "name": "Sodium Benzoate",
+          "percentage": 0.1594
+        },
+        {
+          "id": "citrate",
+          "name": "Sodium Citrate (Trisodium Citrate)",
+          "percentage": 0.2671
+        },
+        {
+          "id": "hydrochloride",
+          "name": "Sodium Hydrochloride",
+          "percentage": 0.0287
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Adults (19+y)",
+          "rda": 1500
+        }
+      ]
+    },
+    "zinc": {
+      "name": "Zinc",
+      "saltForms": [
+        {
+          "id": "lactate",
+          "name": "Zinc Lactate",
+          "percentage": 0.2663
+        },
+        {
+          "id": "sulphate",
+          "name": "Zinc Sulphate",
+          "percentage": 0.4049
+        },
+        {
+          "id": "oxide",
+          "name": "Zinc Oxide",
+          "percentage": 0.8033
+        },
+        {
+          "id": "gluconate",
+          "name": "Zinc Gluconate",
+          "percentage": 0.1434
+        },
+        {
+          "id": "sulphate-monohydrate",
+          "name": "Zinc Sulphate Monohydrate",
+          "percentage": 0.3642
+        },
+        {
+          "id": "bisglycinate",
+          "name": "Zinc Bisglycinate",
+          "percentage": 0.3062
+        },
+        {
+          "id": "methionine",
+          "name": "Zinc Methionine",
+          "percentage": 0.2105
+        },
+        {
+          "id": "sulphate-heptahydrate",
+          "name": "Zinc Sulphate Heptahydrate",
+          "percentage": 0.2273
+        },
+        {
+          "id": "acetate",
+          "name": "Zinc Acetate",
+          "percentage": 0.3564
+        }
+      ],
+      "rdaGroups": [
+        {
+          "name": "Men (19+y)",
+          "rda": 11
+        },
+        {
+          "name": "Women (19+y)",
+          "rda": 8
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 11
+        },
+        {
+          "name": "Lactation",
+          "rda": 12
+        }
+      ]
+    }
+  },
+  "vitaminData": {
+    "a": {
+      "name": "Vitamin A",
+      "forms": [
+        {
+          "id": "retinyl-acetate",
+          "name": "Retinyl Acetate",
+          "percentage": 1,
+          "conversion": {
+            "IUToMg": 0.000344
+          }
+        },
+        {
+          "id": "retinyl-palmitate",
+          "name": "Retinyl Palmitate",
+          "percentage": 1,
+          "conversion": {
+            "IUToMg": 0.00055
+          }
+        },
+        {
+          "id": "beta-carotene",
+          "name": "Beta-Carotene",
+          "percentage": 1,
+          "conversion": {
+            "IUToMg": 0.0006
+          }
+        }
+      ],
+      "rdaUnit": "mcg",
+      "rdaGroups": [
+        {
+          "name": "Men (19+y)",
+          "rda": 900
+        },
+        {
+          "name": "Women (19+y)",
+          "rda": 700
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 770
+        },
+        {
+          "name": "Lactation",
+          "rda": 1300
+        }
+      ]
+    },
+    "b1": {
+      "name": "Thiamine (B1)",
+      "forms": [
+        {
+          "id": "mononitrate",
+          "name": "Thiamine Mononitrate",
+          "percentage": 0.8105
+        },
+        {
+          "id": "hydrochloride",
+          "name": "Thiamine Hydrochloride",
+          "percentage": 0.7845
+        }
+      ],
+      "rdaUnit": "mg",
+      "rdaGroups": [
+        {
+          "name": "Men (19+y)",
+          "rda": 1.2
+        },
+        {
+          "name": "Women (19+y)",
+          "rda": 1.1
+        },
+        {
+          "name": "Pregnancy/Lactation",
+          "rda": 1.4
+        }
+      ]
+    },
+    "b2": {
+      "name": "Riboflavin (B2)",
+      "forms": [
+        {
+          "id": "riboflavin",
+          "name": "Riboflavin",
+          "percentage": 1
+        },
+        {
+          "id": "riboflavin-5-phosphate",
+          "name": "Riboflavin 5'-Phosphate",
+          "percentage": 0.73
+        }
+      ],
+      "rdaUnit": "mg",
+      "rdaGroups": [
+        {
+          "name": "Men (19+y)",
+          "rda": 1.3
+        },
+        {
+          "name": "Women (19+y)",
+          "rda": 1.1
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 1.4
+        },
+        {
+          "name": "Lactation",
+          "rda": 1.6
+        }
+      ]
+    },
+    "b3": {
+      "name": "Niacin (B3)",
+      "forms": [
+        {
+          "id": "niacin",
+          "name": "Niacin",
+          "percentage": 1
+        },
+        {
+          "id": "niacinamide",
+          "name": "Niacinamide (Nicotinamide)",
+          "percentage": 1
+        }
+      ],
+      "rdaUnit": "mg",
+      "rdaGroups": [
+        {
+          "name": "Men (19+y)",
+          "rda": 16
+        },
+        {
+          "name": "Women (19+y)",
+          "rda": 14
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 18
+        },
+        {
+          "name": "Lactation",
+          "rda": 17
+        }
+      ]
+    },
+    "b5": {
+      "name": "Pantothenic Acid (B5)",
+      "forms": [
+        {
+          "id": "calcium-pantothenate",
+          "name": "from Calcium Pantothenate",
+          "percentage": 0.916
+        },
+        {
+          "id": "d-pantothenic-acid",
+          "name": "D-Pantothenic Acid",
+          "percentage": 1
+        }
+      ],
+      "rdaUnit": "mg",
+      "rdaGroups": [
+        {
+          "name": "Adults (19+y)",
+          "rda": 5
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 6
+        },
+        {
+          "name": "Lactation",
+          "rda": 7
+        }
+      ]
+    },
+    "b6": {
+      "name": "Pyridoxine (B6)",
+      "forms": [
+        {
+          "id": "pyridoxine-hcl",
+          "name": "Pyridoxine HCl",
+          "percentage": 0.8227
+        },
+        {
+          "id": "pyridoxal-5-phosphate",
+          "name": "Pyridoxal 5'-Phosphate (P-5-P)",
+          "percentage": 1
+        }
+      ],
+      "rdaUnit": "mg",
+      "rdaGroups": [
+        {
+          "name": "Adults (19-50y)",
+          "rda": 1.3
+        },
+        {
+          "name": "Men (51+y)",
+          "rda": 1.7
+        },
+        {
+          "name": "Women (51+y)",
+          "rda": 1.5
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 1.9
+        },
+        {
+          "name": "Lactation",
+          "rda": 2
+        }
+      ]
+    },
+    "b7": {
+      "name": "Biotin (B7)",
+      "forms": [
+        {
+          "id": "biotin",
+          "name": "Biotin",
+          "percentage": 1
+        }
+      ],
+      "rdaUnit": "mcg",
+      "rdaGroups": [
+        {
+          "name": "Adults (19+y)",
+          "rda": 30
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 30
+        },
+        {
+          "name": "Lactation",
+          "rda": 35
+        }
+      ]
+    },
+    "b9": {
+      "name": "Folate (B9)",
+      "forms": [
+        {
+          "id": "folic-acid",
+          "name": "Folic Acid",
+          "percentage": 1
+        },
+        {
+          "id": "l-methylfolate",
+          "name": "L-Methylfolate",
+          "percentage": 1
+        }
+      ],
+      "rdaUnit": "mcg",
+      "rdaGroups": [
+        {
+          "name": "Adults (19+y)",
+          "rda": 400
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 600
+        },
+        {
+          "name": "Lactation",
+          "rda": 500
+        }
+      ]
+    },
+    "b12": {
+      "name": "Cobalamin (B12)",
+      "forms": [
+        {
+          "id": "cyanocobalamin",
+          "name": "Cyanocobalamin",
+          "percentage": 1
+        },
+        {
+          "id": "methylcobalamin",
+          "name": "Methylcobalamin",
+          "percentage": 1
+        }
+      ],
+      "rdaUnit": "mcg",
+      "rdaGroups": [
+        {
+          "name": "Adults (19+y)",
+          "rda": 2.4
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 2.6
+        },
+        {
+          "name": "Lactation",
+          "rda": 2.8
+        }
+      ]
+    },
+    "c": {
+      "name": "Ascorbic Acid (C)",
+      "forms": [
+        {
+          "id": "ascorbic-acid",
+          "name": "Ascorbic Acid",
+          "percentage": 1
+        },
+        {
+          "id": "sodium-ascorbate",
+          "name": "from Sodium Ascorbate",
+          "percentage": 0.885
+        },
+        {
+          "id": "calcium-ascorbate",
+          "name": "from Calcium Ascorbate",
+          "percentage": 0.826
+        }
+      ],
+      "rdaUnit": "mg",
+      "rdaGroups": [
+        {
+          "name": "Men (19+y)",
+          "rda": 90
+        },
+        {
+          "name": "Women (19+y)",
+          "rda": 75
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 85
+        },
+        {
+          "name": "Lactation",
+          "rda": 120
+        }
+      ]
+    },
+    "d": {
+      "name": "Calciferol (D)",
+      "forms": [
+        {
+          "id": "cholecalciferol-d3",
+          "name": "Cholecalciferol (D3)",
+          "percentage": 1,
+          "conversion": {
+            "IUToMg": 0.000025
+          }
+        },
+        {
+          "id": "ergocalciferol-d2",
+          "name": "Ergocalciferol (D2)",
+          "percentage": 1,
+          "conversion": {
+            "IUToMg": 0.000025
+          }
+        }
+      ],
+      "rdaUnit": "IU",
+      "rdaGroups": [
+        {
+          "name": "Adults (19-70y)",
+          "rda": 600
+        },
+        {
+          "name": "Adults (71+y)",
+          "rda": 800
+        },
+        {
+          "name": "Pregnancy/Lactation",
+          "rda": 600
+        }
+      ]
+    },
+    "e": {
+      "name": "Tocopherol (E)",
+      "forms": [
+        {
+          "id": "d-alpha-tocopherol",
+          "name": "d-alpha-tocopherol (natural)",
+          "percentage": 1,
+          "conversion": {
+            "IUToMg": 0.67
+          }
+        },
+        {
+          "id": "dl-alpha-tocopherol",
+          "name": "dl-alpha-tocopherol (synthetic)",
+          "percentage": 1,
+          "conversion": {
+            "IUToMg": 0.45
+          }
+        }
+      ],
+      "rdaUnit": "mg",
+      "rdaGroups": [
+        {
+          "name": "Adults (19+y)",
+          "rda": 15
+        },
+        {
+          "name": "Pregnancy",
+          "rda": 15
+        },
+        {
+          "name": "Lactation",
+          "rda": 19
+        }
+      ]
+    },
+    "k": {
+      "name": "Vitamin K",
+      "forms": [
+        {
+          "id": "k1-phytonadione",
+          "name": "K1 (Phytonadione)",
+          "percentage": 1
+        },
+        {
+          "id": "k2-mk4",
+          "name": "K2 (Menaquinone-4)",
+          "percentage": 1
+        },
+        {
+          "id": "k2-mk7",
+          "name": "K2 (Menaquinone-7)",
+          "percentage": 1
+        }
+      ],
+      "rdaUnit": "mcg",
+      "rdaGroups": [
+        {
+          "name": "Men (19+y)",
+          "rda": 120
+        },
+        {
+          "name": "Women (19+y)",
+          "rda": 90
+        }
+      ]
+    }
+  }
+}

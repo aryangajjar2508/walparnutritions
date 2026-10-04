@@ -1,0 +1,6132 @@
+{
+  "ingredients": [
+    {
+      "id": "ing_1",
+      "name": "5-Hydroxytryptophan",
+      "raw_name": "5-hydroxytryptophan",
+      "aliases": [
+        "5-hydroxytryptophan"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 15579.8205
+    },
+    {
+      "id": "ing_2",
+      "name": "Abhrak Bhasma",
+      "raw_name": "abhrak bhasma",
+      "aliases": [
+        "abhrak bhasma"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 629.625
+    },
+    {
+      "id": "ing_3",
+      "name": "Acetyl L Cernitine Hcl",
+      "raw_name": "acetyl l cernitine hcl",
+      "aliases": [
+        "acetyl carnitine",
+        "acetyl cernitine",
+        "acetyl l carnitine hcl",
+        "acetyl l cernitine hcl",
+        "acetyl l-carnitine",
+        "acetyl l-carnitine hcl",
+        "acetyl-l-carnitine",
+        "acetyl-l-cernitine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2681.8
+    },
+    {
+      "id": "ing_4",
+      "name": "Aerosil",
+      "raw_name": "aerosil \"",
+      "aliases": [
+        "aerosil"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 433.9295
+    },
+    {
+      "id": "ing_5",
+      "name": "Agmatine Sulphate",
+      "raw_name": "agmatine sulphate",
+      "aliases": [
+        "agmatine sulphate"
+      ],
+      "default_unit": "g",
+      "default_dose": 5,
+      "_rate": 1410.6705
+    },
+    {
+      "id": "ing_6",
+      "name": "Akarkara Root Dry Ext",
+      "raw_name": "akarkara root dry ext",
+      "aliases": [
+        "akarkara root dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1036.15
+    },
+    {
+      "id": "ing_7",
+      "name": "Ala Lipoic Acid Pellates",
+      "raw_name": "ala lipoic acid pellates",
+      "aliases": [
+        "ala lipoic acid pellates"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 4273.4
+    },
+    {
+      "id": "ing_8",
+      "name": "Alfa Alfa Extracts",
+      "raw_name": "alfa alfa extracts",
+      "aliases": [
+        "alfa alfa extracts"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 920.0
+    },
+    {
+      "id": "ing_9",
+      "name": "Alpha Lipoic Acid",
+      "raw_name": "alpha lipoic acid \"",
+      "aliases": [
+        "alpha lipoic acid",
+        "alpha lipoic acid 100 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 4226.7215
+    },
+    {
+      "id": "ing_10",
+      "name": "Amalats Dry Extract 5:1",
+      "raw_name": "amalats dry extract 5:1",
+      "aliases": [
+        "amalats dry extract 5:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 695.75
+    },
+    {
+      "id": "ing_11",
+      "name": "Amaranthus Dubius Dry Extract",
+      "raw_name": "amaranthus dubius dry extract",
+      "aliases": [
+        "amaranthus dubius dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 713.0
+    },
+    {
+      "id": "ing_12",
+      "name": "American Icecream Sd 1687 Powder",
+      "raw_name": "american icecream sd 1687 powder",
+      "aliases": [
+        "american icecream sd 1687 powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 756.7
+    },
+    {
+      "id": "ing_13",
+      "name": "American Icecream Special 5Kg",
+      "raw_name": "american icecream special 5kg",
+      "aliases": [
+        "american icecream special 5kg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 786.669
+    },
+    {
+      "id": "ing_14",
+      "name": "Amla Dry Extract 4:1",
+      "raw_name": "amla dry extract 4:1",
+      "aliases": [
+        "amla dry extract 4:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 471.5345
+    },
+    {
+      "id": "ing_15",
+      "name": "Amylase 1:2000",
+      "raw_name": "amylase  1:2000",
+      "aliases": [
+        "amylase 1:2000"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 622.15
+    },
+    {
+      "id": "ing_16",
+      "name": "Apium Graveolens Extract",
+      "raw_name": "apium graveolens extract",
+      "aliases": [
+        "apium graveolens extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1463.8465
+    },
+    {
+      "id": "ing_17",
+      "name": "Apple Cider Vinegar Powder",
+      "raw_name": "apple cider vinegar powder",
+      "aliases": [
+        "apple cider vinegar powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 736.0
+    },
+    {
+      "id": "ing_18",
+      "name": "Apple Pectine Dry Extract",
+      "raw_name": "apple pectine dry extract",
+      "aliases": [
+        "apple pectine dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2926.75
+    },
+    {
+      "id": "ing_19",
+      "name": "Ascorbic Acid (Vitamin C Coated)",
+      "raw_name": "ascorbic acid (vitamin c coated)'",
+      "aliases": [
+        "ascorbic acid",
+        "ascorbic acid (vitamin c coated)",
+        "l-ascorbic acid",
+        "sodium ascorbate",
+        "vit c",
+        "vitamin c",
+        "vitamin c coated"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 431.25
+    },
+    {
+      "id": "ing_20",
+      "name": "Ascorbic Acid (Vitamin C Plain)",
+      "raw_name": "ascorbic acid (vitamin c plain)",
+      "aliases": [
+        "ascorbic acid",
+        "ascorbic acid (vitamin c plain)",
+        "l-ascorbic acid",
+        "sodium ascorbate",
+        "vit c",
+        "vitamin c",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c plain"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 411.8725
+    },
+    {
+      "id": "ing_21",
+      "name": "Ashwagandha Dry Extract",
+      "raw_name": "ashwagandha dry extract",
+      "aliases": [
+        "ashwagandha",
+        "ashwagandha dry extract",
+        "indian ginseng",
+        "withania somnifera"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 672.75
+    },
+    {
+      "id": "ing_22",
+      "name": "Ashwagandha Extract",
+      "raw_name": "ashwagandha extract",
+      "aliases": [
+        "ashwagandha",
+        "ashwagandha extract",
+        "indian ginseng",
+        "withania somnifera"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 670.45
+    },
+    {
+      "id": "ing_23",
+      "name": "Asparagus Adscendens Extract",
+      "raw_name": "asparagus adscendens extract",
+      "aliases": [
+        "asparagus adscendens extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 695.75
+    },
+    {
+      "id": "ing_24",
+      "name": "Aspartame",
+      "raw_name": "aspartame",
+      "aliases": [
+        "aspartame"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1086.75
+    },
+    {
+      "id": "ing_25",
+      "name": "Astaxanthin 10% Powder",
+      "raw_name": "astaxanthin 10% powder",
+      "aliases": [
+        "astaxanthin 10% powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 9916.565
+    },
+    {
+      "id": "ing_26",
+      "name": "Bang Bhasm",
+      "raw_name": "bang bhasm",
+      "aliases": [
+        "bang bhasm"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3565.0
+    },
+    {
+      "id": "ing_27",
+      "name": "Beet De",
+      "raw_name": "beet de",
+      "aliases": [
+        "beet de"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 548.55
+    },
+    {
+      "id": "ing_28",
+      "name": "Beetroot Powder (12 %)",
+      "raw_name": "beetroot powder'(12 %)",
+      "aliases": [
+        "12 %",
+        "beetroot powder",
+        "beetroot powder (12 %)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 805.0
+    },
+    {
+      "id": "ing_29",
+      "name": "Benfotiamine",
+      "raw_name": "benfotiamine '",
+      "aliases": [
+        "benfotiamine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 4170.7165
+    },
+    {
+      "id": "ing_30",
+      "name": "Berberine Dry Extract 10%",
+      "raw_name": "berberine dry extract 10%",
+      "aliases": [
+        "berberine dry extract 10%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 943.0
+    },
+    {
+      "id": "ing_31",
+      "name": "Beta Carotene 10% Powder",
+      "raw_name": "beta carotene 10% powder",
+      "aliases": [
+        "beta carotene 10% powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 6463.0
+    },
+    {
+      "id": "ing_32",
+      "name": "Beta Sitosterol Dry Extract 50%",
+      "raw_name": "beta sitosterol dry extract 50%",
+      "aliases": [
+        "beta sitosterol dry extract 50%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1561.769
+    },
+    {
+      "id": "ing_33",
+      "name": "Bhringraj Dry Extract",
+      "raw_name": "bhringraj dry extract",
+      "aliases": [
+        "bhringraj dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 518.65
+    },
+    {
+      "id": "ing_34",
+      "name": "Bhuiamla Dry Extract",
+      "raw_name": "bhuiamla dry extract",
+      "aliases": [
+        "bhuiamla dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 487.6
+    },
+    {
+      "id": "ing_35",
+      "name": "Bifidobacterium Animals",
+      "raw_name": "bifidobacterium animals",
+      "aliases": [
+        "b. animalis",
+        "bifidobacterium",
+        "bifidobacterium animalis",
+        "bifidobacterium animals",
+        "bifidobacterium bifidum 5 billion cfu",
+        "bifidobacterium probiotic",
+        "bifidobacterium spp"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 2438.0
+    },
+    {
+      "id": "ing_36",
+      "name": "Bilberry Dry Ext",
+      "raw_name": "bilberry dry ext",
+      "aliases": [
+        "bilberry dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1219.0
+    },
+    {
+      "id": "ing_37",
+      "name": "Biotin (D-Biotin)",
+      "raw_name": "biotin (d-biotin)",
+      "aliases": [
+        "biotin",
+        "biotin (d-biotin)",
+        "d-biotin",
+        "vitamin b7",
+        "vitamin c (ascorbic acid) 65 mg",
+        "vitamin h"
+      ],
+      "default_unit": "mcg",
+      "default_dose": 50,
+      "_rate": 17.457
+    },
+    {
+      "id": "ing_38",
+      "name": "Black /Orange 2",
+      "raw_name": "black /orange \"2\"",
+      "aliases": [
+        "black /orange 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_39",
+      "name": "Black Cohos Extracts 10.1",
+      "raw_name": "black cohos extracts 10.1",
+      "aliases": [
+        "black cohos extracts 10.1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2080.6605
+    },
+    {
+      "id": "ing_40",
+      "name": "Black Seed Dry Extract",
+      "raw_name": "black seed dry extract",
+      "aliases": [
+        "black seed dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 853.3
+    },
+    {
+      "id": "ing_41",
+      "name": "Blend 4 Advance Rescue",
+      "raw_name": "blend 4 advance rescue",
+      "aliases": [
+        "blend 4 advance rescue"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1435.2
+    },
+    {
+      "id": "ing_42",
+      "name": "Blessed Thistle Dry Ext",
+      "raw_name": "blessed thistle dry ext",
+      "aliases": [
+        "blessed thistle dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2377.05
+    },
+    {
+      "id": "ing_43",
+      "name": "Blue + Blue 00 (Non Veg)",
+      "raw_name": "blue + blue '00' (non veg)",
+      "aliases": [
+        "blue + blue 00",
+        "blue + blue 00 (non veg)",
+        "non veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.207
+    },
+    {
+      "id": "ing_44",
+      "name": "Blue / Blue 0",
+      "raw_name": "blue / blue \"0\"",
+      "aliases": [
+        "blue / blue 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_45",
+      "name": "Blue /Blue 2",
+      "raw_name": "blue /blue \"2\"",
+      "aliases": [
+        "blue /blue 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_46",
+      "name": "Blue Berry Dry Extract",
+      "raw_name": "blue berry dry extract",
+      "aliases": [
+        "blue berry dry extract",
+        "blue berry ext",
+        "blue berry extract",
+        "blueberry",
+        "blueberry dry ext",
+        "blueberry dry extract",
+        "blueberry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1872.9705
+    },
+    {
+      "id": "ing_47",
+      "name": "Boerhavia Diffusa Extract 10:1",
+      "raw_name": "boerhavia diffusa extract 10:1",
+      "aliases": [
+        "boerhavia diffusa extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 822.825
+    },
+    {
+      "id": "ing_48",
+      "name": "Boswellia Extract",
+      "raw_name": "boswellia extract \"",
+      "aliases": [
+        "boswellia extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 920.0
+    },
+    {
+      "id": "ing_49",
+      "name": "Boswellia Serrata Ext",
+      "raw_name": "boswellia serrata ext'",
+      "aliases": [
+        "boswellia serrata ext",
+        "boswellia serrata extract 250 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 941.0335
+    },
+    {
+      "id": "ing_50",
+      "name": "Brahmi Dry Extract",
+      "raw_name": "brahmi dry extract",
+      "aliases": [
+        "brahmi dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 481.9535
+    },
+    {
+      "id": "ing_51",
+      "name": "Brewer Yeast Protein Powder",
+      "raw_name": "brewer yeast protein powder'",
+      "aliases": [
+        "brewer yeast protein powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 534.75
+    },
+    {
+      "id": "ing_52",
+      "name": "Broccoli Sprout Dry Extraxt",
+      "raw_name": "broccoli sprout dry extraxt",
+      "aliases": [
+        "broccoli sprout dry extraxt"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 989.0
+    },
+    {
+      "id": "ing_53",
+      "name": "Butea Superba Dry Extract",
+      "raw_name": "butea superba dry extract",
+      "aliases": [
+        "butea superba dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 890.1
+    },
+    {
+      "id": "ing_54",
+      "name": "Calcium Carbonate (Algaecal)",
+      "raw_name": "calcium  carbonate  (algaecal)",
+      "aliases": [
+        "algaecal",
+        "calcium carbonate",
+        "calcium carbonate (algaecal)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3047.5
+    },
+    {
+      "id": "ing_55",
+      "name": "Calcium Ascorbate",
+      "raw_name": "calcium ascorbate",
+      "aliases": [
+        "calcium ascorbate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 835.4405
+    },
+    {
+      "id": "ing_56",
+      "name": "Calcium Aspartate",
+      "raw_name": "calcium aspartate",
+      "aliases": [
+        "calcium aspartate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 333.5
+    },
+    {
+      "id": "ing_57",
+      "name": "Calcium Carbonate ( Oystercell )",
+      "raw_name": "calcium carbonate ( oystercell )",
+      "aliases": [
+        "calcium carbonate",
+        "calcium carbonate ( oystercell )",
+        "calcium carbonate (from coral grains) 250 mg",
+        "calcium carbonate (from coral grains) equivalent to elemental calcium 250 mg",
+        "oystercell"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 25.3
+    },
+    {
+      "id": "ing_58",
+      "name": "Calcium Citrate",
+      "raw_name": "calcium citrate '",
+      "aliases": [
+        "calcium citrate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 103.5
+    },
+    {
+      "id": "ing_59",
+      "name": "Calcium Citrate Malate",
+      "raw_name": "calcium citrate malate '",
+      "aliases": [
+        "calcium citrate malate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 108.169
+    },
+    {
+      "id": "ing_60",
+      "name": "Calcium Lysinate",
+      "raw_name": "calcium lysinate",
+      "aliases": [
+        "calcium lysinate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2656.5
+    },
+    {
+      "id": "ing_61",
+      "name": "Calcium Orotate Anhydrous",
+      "raw_name": "calcium orotate anhydrous",
+      "aliases": [
+        "calcium orotate anhydrous"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1403.0
+    },
+    {
+      "id": "ing_62",
+      "name": "Caleriana Wallichi Dry Extract",
+      "raw_name": "caleriana wallichi dry extract",
+      "aliases": [
+        "caleriana wallichi dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1137.235
+    },
+    {
+      "id": "ing_63",
+      "name": "Cantewa Asiatica Dry Extract 10:1",
+      "raw_name": "cantewa asiatica dry extract 10:1",
+      "aliases": [
+        "cantewa asiatica dry extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 609.5
+    },
+    {
+      "id": "ing_64",
+      "name": "Cappuccino Coffee Flv 2700",
+      "raw_name": "cappuccino coffee flv 2700",
+      "aliases": [
+        "cappuccino coffee flv 2700"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1074.4795
+    },
+    {
+      "id": "ing_65",
+      "name": "Carbonyl Iron",
+      "raw_name": "carbonyl iron",
+      "aliases": [
+        "carbonyl iron"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 281.75
+    },
+    {
+      "id": "ing_66",
+      "name": "Carica Papaya Extract 10:1",
+      "raw_name": "carica papaya extract 10:1",
+      "aliases": [
+        "carica papaya extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 471.5
+    },
+    {
+      "id": "ing_67",
+      "name": "Cayenne Fruit Extract 20%",
+      "raw_name": "cayenne fruit extract  20%",
+      "aliases": [
+        "cayenne fruit extract 20%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1345.5
+    },
+    {
+      "id": "ing_68",
+      "name": "Chamomile Extract",
+      "raw_name": "chamomile extract",
+      "aliases": [
+        "chamomile extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1960.5545
+    },
+    {
+      "id": "ing_69",
+      "name": "Chandraprabha Vati",
+      "raw_name": "chandraprabha vati",
+      "aliases": [
+        "chandraprabha vati"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2194.2
+    },
+    {
+      "id": "ing_70",
+      "name": "Chaste Berry Extract",
+      "raw_name": "chaste berry extract",
+      "aliases": [
+        "chaste berry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2072.3
+    },
+    {
+      "id": "ing_71",
+      "name": "Chitrak Dry Extract",
+      "raw_name": "chitrak dry extract",
+      "aliases": [
+        "chitrak dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 585.35
+    },
+    {
+      "id": "ing_72",
+      "name": "Chocklet / Chocklet 0",
+      "raw_name": "chocklet / chocklet \"0\"",
+      "aliases": [
+        "chocklet / chocklet 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_73",
+      "name": "Chocklet / Chocklet 00",
+      "raw_name": "chocklet / chocklet \"00\"'",
+      "aliases": [
+        "chocklet / chocklet 00"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.207
+    },
+    {
+      "id": "ing_74",
+      "name": "Chocklet / Chocklet 1",
+      "raw_name": "chocklet / chocklet \"1\"",
+      "aliases": [
+        "chocklet / chocklet 1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1.0925
+    },
+    {
+      "id": "ing_75",
+      "name": "Chocklet / Chocklet 2",
+      "raw_name": "chocklet / chocklet \"2\"",
+      "aliases": [
+        "chocklet / chocklet 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_76",
+      "name": "Chocolate /Chocolate 0 Veg",
+      "raw_name": "chocolate /chocolate  ''0'' veg",
+      "aliases": [
+        "chocolate /chocolate 0 veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.414
+    },
+    {
+      "id": "ing_77",
+      "name": "Chocolate 7978 Powder",
+      "raw_name": "chocolate 7978 powder",
+      "aliases": [
+        "chocolate 7978 powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1041.9
+    },
+    {
+      "id": "ing_78",
+      "name": "Chocolate Brown Colour",
+      "raw_name": "chocolate brown colour",
+      "aliases": [
+        "chocolate brown colour"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1552.6265
+    },
+    {
+      "id": "ing_79",
+      "name": "Cholecalciferol (Vit D3) Vial",
+      "raw_name": "cholecalciferol (vit d3) vial",
+      "aliases": [
+        "cholecalciferol",
+        "cholecalciferol (vit d3)",
+        "cholecalciferol (vit d3) vial",
+        "cholecalciferol vial",
+        "vit d3",
+        "vitamin d",
+        "vitamin d3"
+      ],
+      "default_unit": "IU",
+      "default_dose": 600,
+      "_rate": 252.172
+    },
+    {
+      "id": "ing_80",
+      "name": "Choline Bitartrate",
+      "raw_name": "choline bitartrate",
+      "aliases": [
+        "choline bitartrate",
+        "choline bitartrate 25 mg",
+        "phosphatidylcholine (s. lecithin) 300 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 539.7295
+    },
+    {
+      "id": "ing_81",
+      "name": "Chondrotin Sulphate",
+      "raw_name": "chondrotin sulphate",
+      "aliases": [
+        "chondrotin sulphate",
+        "glucosamine sulphate 750 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2932.5
+    },
+    {
+      "id": "ing_82",
+      "name": "Chromium Picolinate",
+      "raw_name": "chromium picolinate'",
+      "aliases": [
+        "chromium picolinate",
+        "chromium picolinate 200 mcg",
+        "vitamin c (as ascorbic acid) 20 mg"
+      ],
+      "default_unit": "mcg",
+      "default_dose": 50,
+      "_rate": 2681.8
+    },
+    {
+      "id": "ing_83",
+      "name": "Cinnamon Dry Extract",
+      "raw_name": "cinnamon dry extract",
+      "aliases": [
+        "cinnamon dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 975.2
+    },
+    {
+      "id": "ing_84",
+      "name": "Cisstoca Deodorizer Compound 100Ml",
+      "raw_name": "cisstoca deodorizer compound 100ml",
+      "aliases": [
+        "cisstoca deodorizer compound 100ml"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 50.6
+    },
+    {
+      "id": "ing_85",
+      "name": "Cissus Dry Extract 10:1",
+      "raw_name": "cissus dry extract 10:1",
+      "aliases": [
+        "cissus dry extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 449.65
+    },
+    {
+      "id": "ing_86",
+      "name": "Cissus Quadrangularis Dry Extract 10:1",
+      "raw_name": "cissus quadrangularis dry extract 10:1",
+      "aliases": [
+        "cissus quadrangularis dry extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 460.0
+    },
+    {
+      "id": "ing_87",
+      "name": "Citric Acid Anhydrous",
+      "raw_name": "citric acid anhydrous '",
+      "aliases": [
+        "citric acid anhydrous"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 132.25
+    },
+    {
+      "id": "ing_88",
+      "name": "Citrus Biflavanoids Dry Extract",
+      "raw_name": "citrus biflavanoids dry extract",
+      "aliases": [
+        "citrus biflavanoids dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 585.35
+    },
+    {
+      "id": "ing_89",
+      "name": "Clear / Clear 0",
+      "raw_name": "clear / clear \"0\"",
+      "aliases": [
+        "clear / clear 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_90",
+      "name": "Clear / Clear 0 Veg",
+      "raw_name": "clear / clear \"0\" ' veg",
+      "aliases": [
+        "clear / clear 0 veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.414
+    },
+    {
+      "id": "ing_91",
+      "name": "Clear / Clear 00",
+      "raw_name": "clear / clear \"00\"",
+      "aliases": [
+        "clear / clear 00"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.2185
+    },
+    {
+      "id": "ing_92",
+      "name": "Clear / Clear 00 (Veg)",
+      "raw_name": "clear / clear \"00\" (veg)",
+      "aliases": [
+        "clear / clear 00",
+        "clear / clear 00 (veg)",
+        "veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.529
+    },
+    {
+      "id": "ing_93",
+      "name": "Clear / Clear 2 Veg",
+      "raw_name": "clear / clear \"2\" veg",
+      "aliases": [
+        "clear / clear 2 veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.3795
+    },
+    {
+      "id": "ing_94",
+      "name": "Co Enzyme Q 10",
+      "raw_name": "co enzyme q 10",
+      "aliases": [
+        "co enzyme q 10",
+        "co enzyme q10",
+        "co-enzyme q10",
+        "coenzyme q10",
+        "coq10",
+        "ubiquinol",
+        "ubiquinone"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 21275.0
+    },
+    {
+      "id": "ing_95",
+      "name": "Cocoa Mix Blisvel",
+      "raw_name": "cocoa mix blisvel",
+      "aliases": [
+        "cocoa mix blisvel"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 431.825
+    },
+    {
+      "id": "ing_96",
+      "name": "Cocoa Shell Powder",
+      "raw_name": "cocoa shell powder",
+      "aliases": [
+        "cocoa shell powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 249.573
+    },
+    {
+      "id": "ing_97",
+      "name": "Coconut Water Herbal Extract",
+      "raw_name": "coconut water herbal extract",
+      "aliases": [
+        "coconut water herbal extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 731.4
+    },
+    {
+      "id": "ing_98",
+      "name": "Collagen Peptide Org Flv",
+      "raw_name": "collagen peptide org flv",
+      "aliases": [
+        "collagen",
+        "collagen peptide",
+        "collagen peptide org flv",
+        "hydrolyzed collagen",
+        "marine collagen"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1023.1205
+    },
+    {
+      "id": "ing_99",
+      "name": "Colloidal Silicon Dioxide -Aerosil",
+      "raw_name": "colloidal silicon dioxide -aerosil",
+      "aliases": [
+        "colloidal silicon dioxide -aerosil"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 432.4
+    },
+    {
+      "id": "ing_100",
+      "name": "Conjgugated Linoleic Acid",
+      "raw_name": "conjgugated linoleic acid",
+      "aliases": [
+        "conjgugated linoleic acid"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2153.5705
+    },
+    {
+      "id": "ing_101",
+      "name": "Copper Sulphate",
+      "raw_name": "copper sulphate '",
+      "aliases": [
+        "copper sulphate",
+        "vitamin c (as ascorbic acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 368.0
+    },
+    {
+      "id": "ing_102",
+      "name": "Cordyceps Dry Extract",
+      "raw_name": "cordyceps dry extract",
+      "aliases": [
+        "cordyceps dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2133.25
+    },
+    {
+      "id": "ing_103",
+      "name": "Coriandrum Sativum Dry Ext 10:1",
+      "raw_name": "coriandrum sativum dry ext 10:1",
+      "aliases": [
+        "coriandrum sativum dry ext 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 548.55
+    },
+    {
+      "id": "ing_104",
+      "name": "Cotab Mfc Purple",
+      "raw_name": "cotab mfc purple",
+      "aliases": [
+        "cotab mfc purple"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1189.56
+    },
+    {
+      "id": "ing_105",
+      "name": "Cotab Mfc Rama",
+      "raw_name": "cotab mfc rama",
+      "aliases": [
+        "cotab mfc rama"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1189.1
+    },
+    {
+      "id": "ing_106",
+      "name": "Cow Colostrum Powder",
+      "raw_name": "cow colostrum powder '",
+      "aliases": [
+        "cow colostrum powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2296.7455
+    },
+    {
+      "id": "ing_107",
+      "name": "Cranberry Dry Ext",
+      "raw_name": "cranberry dry ext",
+      "aliases": [
+        "cranberry",
+        "cranberry dry ext",
+        "cranberry dry extract",
+        "cranberry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1138.8795
+    },
+    {
+      "id": "ing_108",
+      "name": "Cranberry Flv1267",
+      "raw_name": "cranberry flv1267",
+      "aliases": [
+        "cranberry",
+        "cranberry dry extract",
+        "cranberry extract",
+        "cranberry flv1267"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1158.05
+    },
+    {
+      "id": "ing_109",
+      "name": "Cranberry Fruic Juice Powder",
+      "raw_name": "cranberry fruic juice powder",
+      "aliases": [
+        "cranberry",
+        "cranberry dry extract",
+        "cranberry extract",
+        "cranberry extract 200 mg",
+        "cranberry fruic juice powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1462.8
+    },
+    {
+      "id": "ing_110",
+      "name": "Cros Povidone Xl-10",
+      "raw_name": "cros povidone xl-10 ''",
+      "aliases": [
+        "cros povidone xl-10"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1036.15
+    },
+    {
+      "id": "ing_111",
+      "name": "Crosscarmelose Sodium",
+      "raw_name": "crosscarmelose sodium '",
+      "aliases": [
+        "crosscarmelose sodium"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 166.75
+    },
+    {
+      "id": "ing_112",
+      "name": "Curcuim Longa Extract",
+      "raw_name": "curcuim longa extract",
+      "aliases": [
+        "curcuim longa extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 7009.25
+    },
+    {
+      "id": "ing_113",
+      "name": "Curcuma Dry Extract 10:1",
+      "raw_name": "curcuma dry extract 10:1",
+      "aliases": [
+        "curcuma dry extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 719.9
+    },
+    {
+      "id": "ing_114",
+      "name": "Curcumin 95% Extract",
+      "raw_name": "curcumin 95% extract '",
+      "aliases": [
+        "curcuma longa",
+        "curcumin",
+        "curcumin 95% extract",
+        "turmeric",
+        "turmeric extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 7084.3795
+    },
+    {
+      "id": "ing_115",
+      "name": "Curcumin Dry Extract",
+      "raw_name": "curcumin dry extract",
+      "aliases": [
+        "curcuma longa",
+        "curcumin",
+        "curcumin dry extract",
+        "turmeric",
+        "turmeric extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 724.5
+    },
+    {
+      "id": "ing_116",
+      "name": "Cyanocoblamin (Vit B12)",
+      "raw_name": "cyanocoblamin (vit b12) '",
+      "aliases": [
+        "cyanocoblamin",
+        "cyanocoblamin (vit b12)",
+        "thiamine",
+        "thiamine hcl",
+        "thiamine hydrochloride",
+        "thiamine mononitrate",
+        "vit b1",
+        "vit b12",
+        "vitamin b1"
+      ],
+      "default_unit": "mcg",
+      "default_dose": 50,
+      "_rate": 155250.0
+    },
+    {
+      "id": "ing_117",
+      "name": "D -Aspartic Acid",
+      "raw_name": "d -aspartic acid",
+      "aliases": [
+        "d -aspartic acid"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1087.9345
+    },
+    {
+      "id": "ing_118",
+      "name": "D+ Chiro Inositol",
+      "raw_name": "d+ chiro inositol",
+      "aliases": [
+        "d+ chiro inositol"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 15606.1095
+    },
+    {
+      "id": "ing_119",
+      "name": "D-Green / White 0",
+      "raw_name": "d-green  / white \"0\"",
+      "aliases": [
+        "d-green / white 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_120",
+      "name": "D-Mannose",
+      "raw_name": "d-mannose '",
+      "aliases": [
+        "d-mannose",
+        "d-mannose 300 mg",
+        "mannose"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2382.3285
+    },
+    {
+      "id": "ing_121",
+      "name": "D.Blue / D.Blue 00 (Veg)",
+      "raw_name": "d.blue / d.blue \"00\" (veg)",
+      "aliases": [
+        "d.blue / d.blue 00",
+        "d.blue / d.blue 00 (veg)",
+        "veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.552
+    },
+    {
+      "id": "ing_122",
+      "name": "Daily Flora Blend",
+      "raw_name": "daily flora blend",
+      "aliases": [
+        "daily flora blend"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2072.3
+    },
+    {
+      "id": "ing_123",
+      "name": "Dairy Creem Powder ( Dudhiya )",
+      "raw_name": "dairy creem powder ( dudhiya )",
+      "aliases": [
+        "dairy creem powder",
+        "dairy creem powder ( dudhiya )",
+        "dudhiya"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 141.542
+    },
+    {
+      "id": "ing_124",
+      "name": "Dandelion Dry Extract",
+      "raw_name": "dandelion dry extract",
+      "aliases": [
+        "dandelion dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1158.05
+    },
+    {
+      "id": "ing_125",
+      "name": "Dehydroepiandrosterone Powder(Dhea)",
+      "raw_name": "dehydroepiandrosterone powder(dhea)",
+      "aliases": [
+        "dehydroepiandrosterone powder",
+        "dehydroepiandrosterone powder(dhea)",
+        "dhea",
+        "epa (eicosapentaenoic acid) 360 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 21850.0
+    },
+    {
+      "id": "ing_126",
+      "name": "Devil S Claw Dry Extract",
+      "raw_name": "devil's claw dry extract \"",
+      "aliases": [
+        "devil s claw dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1075.687
+    },
+    {
+      "id": "ing_127",
+      "name": "Dextrose Anhydreous",
+      "raw_name": "dextrose anhydreous '",
+      "aliases": [
+        "dextrose anhydreous"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 88.021
+    },
+    {
+      "id": "ing_128",
+      "name": "Dha 10% Veg Powder",
+      "raw_name": "dha 10% veg powder '",
+      "aliases": [
+        "dha 10% veg powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 989.0
+    },
+    {
+      "id": "ing_129",
+      "name": "Di Calcium Phosphate (D.C.P)",
+      "raw_name": "di calcium phosphate (d.c.p)",
+      "aliases": [
+        "d.c.p",
+        "di calcium phosphate",
+        "di calcium phosphate (d.c.p)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 61.318
+    },
+    {
+      "id": "ing_130",
+      "name": "Di Potassium Hydrogen Orthophosphate",
+      "raw_name": "di potassium hydrogen orthophosphate",
+      "aliases": [
+        "di potassium hydrogen orthophosphate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 218.5
+    },
+    {
+      "id": "ing_131",
+      "name": "Dl Methionine",
+      "raw_name": "dl methionine",
+      "aliases": [
+        "dl methionine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 586.5
+    },
+    {
+      "id": "ing_132",
+      "name": "Drcaps Size 0 White-White",
+      "raw_name": "drcaps size '0' white-white",
+      "aliases": [
+        "drcaps size 0 white-white"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.7475
+    },
+    {
+      "id": "ing_133",
+      "name": "Dry Fruit Flv-9040",
+      "raw_name": "dry fruit flv-9040",
+      "aliases": [
+        "dry fruit flv-9040"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1058.0
+    },
+    {
+      "id": "ing_134",
+      "name": "Dummy Granules",
+      "raw_name": "dummy granules",
+      "aliases": [
+        "dummy granules"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 74.1865
+    },
+    {
+      "id": "ing_135",
+      "name": "Dummy Pellets",
+      "raw_name": "dummy pellets",
+      "aliases": [
+        "dummy pellets"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 75.555
+    },
+    {
+      "id": "ing_136",
+      "name": "Echinacea Extract",
+      "raw_name": "echinacea extract",
+      "aliases": [
+        "echinacea extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 886.535
+    },
+    {
+      "id": "ing_137",
+      "name": "Edta Disodium",
+      "raw_name": "edta disodium",
+      "aliases": [
+        "edta disodium"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 263.0625
+    },
+    {
+      "id": "ing_138",
+      "name": "Egg Albumin Powder",
+      "raw_name": "egg albumin powder",
+      "aliases": [
+        "egg albumin powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1046.5
+    },
+    {
+      "id": "ing_139",
+      "name": "Eladi Powder",
+      "raw_name": "eladi powder",
+      "aliases": [
+        "eladi powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1633.437
+    },
+    {
+      "id": "ing_140",
+      "name": "Elaichi Dry Extract",
+      "raw_name": "elaichi dry extract",
+      "aliases": [
+        "elaichi dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2852.46
+    },
+    {
+      "id": "ing_141",
+      "name": "Emblica Officinale Dry Extract",
+      "raw_name": "emblica officinale dry extract",
+      "aliases": [
+        "emblica officinale dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 487.6
+    },
+    {
+      "id": "ing_142",
+      "name": "Epa 10% Powder",
+      "raw_name": "epa 10% powder '",
+      "aliases": [
+        "epa 10% powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2195.35
+    },
+    {
+      "id": "ing_143",
+      "name": "Equisetum Arvense Stem Extract",
+      "raw_name": "equisetum arvense stem extract",
+      "aliases": [
+        "equisetum arvense stem extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1949.7905
+    },
+    {
+      "id": "ing_144",
+      "name": "Erithrocin Light Colour",
+      "raw_name": "erithrocin light colour",
+      "aliases": [
+        "erithrocin light colour"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1219.0
+    },
+    {
+      "id": "ing_145",
+      "name": "Essence Choco Dry Mix Powder",
+      "raw_name": "essence choco dry mix powder",
+      "aliases": [
+        "essence choco dry mix powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 854.8985
+    },
+    {
+      "id": "ing_146",
+      "name": "Essence Orange Dry Mix Powder",
+      "raw_name": "essence orange dry mix powder",
+      "aliases": [
+        "essence orange dry mix powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 792.35
+    },
+    {
+      "id": "ing_147",
+      "name": "Femiflora Blend",
+      "raw_name": "femiflora blend",
+      "aliases": [
+        "femiflora blend"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1469.7
+    },
+    {
+      "id": "ing_148",
+      "name": "Fennel Dry Extract",
+      "raw_name": "fennel dry extract",
+      "aliases": [
+        "fennel dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1036.15
+    },
+    {
+      "id": "ing_149",
+      "name": "Fenugreek Extracts",
+      "raw_name": "fenugreek extracts",
+      "aliases": [
+        "fenugreek extracts"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1342.3145
+    },
+    {
+      "id": "ing_150",
+      "name": "Ferric Ammonium Citrate",
+      "raw_name": "ferric ammonium citrate",
+      "aliases": [
+        "ferric ammonium citrate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 208.15
+    },
+    {
+      "id": "ing_151",
+      "name": "Ferrous Ascorbate (Dc Grade)",
+      "raw_name": "ferrous ascorbate (dc grade)'",
+      "aliases": [
+        "dc grade",
+        "ferrous ascorbate",
+        "ferrous ascorbate (dc grade)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 354.2
+    },
+    {
+      "id": "ing_152",
+      "name": "Ferrous Ascorbate (Plain)",
+      "raw_name": "ferrous ascorbate (plain)",
+      "aliases": [
+        "ferrous ascorbate",
+        "ferrous ascorbate (plain)",
+        "plain"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 382.375
+    },
+    {
+      "id": "ing_153",
+      "name": "Ferrous Bis Glycinate",
+      "raw_name": "ferrous bis glycinate'",
+      "aliases": [
+        "ferrous bis glycinate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 402.5
+    },
+    {
+      "id": "ing_154",
+      "name": "Ferrous Fumarate",
+      "raw_name": "ferrous fumarate '",
+      "aliases": [
+        "ferrous fumarate",
+        "vitamin c (as ascorbic acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 181.125
+    },
+    {
+      "id": "ing_155",
+      "name": "Ferrous Sulphate Dried",
+      "raw_name": "ferrous sulphate dried",
+      "aliases": [
+        "ferrous sulphate dried"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 48.3
+    },
+    {
+      "id": "ing_156",
+      "name": "Flax Seed Oil Caps 5000",
+      "raw_name": "flax seed oil caps 5000",
+      "aliases": [
+        "flax seed oil caps 5000"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1.219
+    },
+    {
+      "id": "ing_157",
+      "name": "Folic Acid",
+      "raw_name": "folic acid",
+      "aliases": [
+        "folate",
+        "folic acid",
+        "folic acid 0.3 mg",
+        "l-methylfolate",
+        "vitamin b9",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg"
+      ],
+      "default_unit": "mcg",
+      "default_dose": 50,
+      "_rate": 2728.812
+    },
+    {
+      "id": "ing_158",
+      "name": "Fructo Oligosaccharides Powder",
+      "raw_name": "fructo oligosaccharides powder",
+      "aliases": [
+        "fructo oligosaccharides powder",
+        "fructo-oligosaccharides (fos) 250 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 420.9
+    },
+    {
+      "id": "ing_159",
+      "name": "Fungal",
+      "raw_name": "fungal",
+      "aliases": [
+        "fungal"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 379.5
+    },
+    {
+      "id": "ing_160",
+      "name": "Gamma Aminobutyric Acid",
+      "raw_name": "gamma aminobutyric acid",
+      "aliases": [
+        "gamma aminobutyric acid"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 661.25
+    },
+    {
+      "id": "ing_161",
+      "name": "Gamma Linoleic Acid Extract",
+      "raw_name": "gamma linoleic acid extract",
+      "aliases": [
+        "gamma linoleic acid extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 753.204
+    },
+    {
+      "id": "ing_162",
+      "name": "Garcinia Cambogia Dry Ext",
+      "raw_name": "garcinia cambogia dry ext",
+      "aliases": [
+        "garcinia cambogia dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 720.0495
+    },
+    {
+      "id": "ing_163",
+      "name": "Garlic Dry Extract",
+      "raw_name": "garlic dry extract",
+      "aliases": [
+        "garlic dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1045.35
+    },
+    {
+      "id": "ing_164",
+      "name": "Geletin 170 Bloom",
+      "raw_name": "geletin 170 bloom ''",
+      "aliases": [
+        "geletin 170 bloom"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 747.5
+    },
+    {
+      "id": "ing_165",
+      "name": "Ginger Dry Extract",
+      "raw_name": "ginger dry extract",
+      "aliases": [
+        "curcumin extract 95% 500 mg",
+        "ginger dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 859.625
+    },
+    {
+      "id": "ing_166",
+      "name": "Ginko Biloba Dry Extract 10%",
+      "raw_name": "ginko biloba dry extract 10%",
+      "aliases": [
+        "ginko biloba dry extract 10%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1137.442
+    },
+    {
+      "id": "ing_167",
+      "name": "Ginseng Dry Extract 10:1",
+      "raw_name": "ginseng dry extract 10:1",
+      "aliases": [
+        "ginseng dry extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 696.4055
+    },
+    {
+      "id": "ing_168",
+      "name": "Ginseng Ext",
+      "raw_name": "ginseng ext",
+      "aliases": [
+        "ginseng ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 621.0
+    },
+    {
+      "id": "ing_169",
+      "name": "Glucosamine Sulphate Potessium Chloride",
+      "raw_name": "glucosamine sulphate potessium chloride ''",
+      "aliases": [
+        "glucosamine",
+        "glucosamine hcl",
+        "glucosamine sulphate",
+        "glucosamine sulphate 750 mg",
+        "glucosamine sulphate potessium chloride"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 582.9695
+    },
+    {
+      "id": "ing_170",
+      "name": "Glycyrrhiza Glabra",
+      "raw_name": "glycyrrhiza glabra",
+      "aliases": [
+        "glycyrrhiza glabra"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 552.0
+    },
+    {
+      "id": "ing_171",
+      "name": "Godanti Bhasma",
+      "raw_name": "godanti bhasma",
+      "aliases": [
+        "godanti bhasma"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 517.5
+    },
+    {
+      "id": "ing_172",
+      "name": "Gokhru Dry Extract",
+      "raw_name": "gokhru dry extract",
+      "aliases": [
+        "gokhru dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 644.0
+    },
+    {
+      "id": "ing_173",
+      "name": "Gokshuru Dry Ext",
+      "raw_name": "gokshuru dry ext",
+      "aliases": [
+        "gokshuru dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 627.9
+    },
+    {
+      "id": "ing_174",
+      "name": "Gold / Gold 0 (Veg)",
+      "raw_name": "gold / gold \"0\" (veg)",
+      "aliases": [
+        "gold / gold 0",
+        "gold / gold 0 (veg)",
+        "veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.4485
+    },
+    {
+      "id": "ing_175",
+      "name": "Golden / Golden 0",
+      "raw_name": "golden / golden \"0\"",
+      "aliases": [
+        "golden / golden 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1955
+    },
+    {
+      "id": "ing_176",
+      "name": "Gotu Kola Dry Extract",
+      "raw_name": "gotu kola dry extract",
+      "aliases": [
+        "gotu kola dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 487.6
+    },
+    {
+      "id": "ing_177",
+      "name": "Grape Seed Dry Extract 50%",
+      "raw_name": "grape seed dry extract 50%",
+      "aliases": [
+        "grape seed dry extract 50%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 662.975
+    },
+    {
+      "id": "ing_178",
+      "name": "Green /White 2 (Veg)",
+      "raw_name": "green /white ''2'' (veg)",
+      "aliases": [
+        "green /white 2",
+        "green /white 2 (veg)",
+        "veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.391
+    },
+    {
+      "id": "ing_179",
+      "name": "Green Coffebean Dry Extract",
+      "raw_name": "green coffebean dry extract",
+      "aliases": [
+        "green coffebean dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 780.0105
+    },
+    {
+      "id": "ing_180",
+      "name": "Green Tea Extract 50%",
+      "raw_name": "green tea extract 50%",
+      "aliases": [
+        "green tea extract 50%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 728.7435
+    },
+    {
+      "id": "ing_181",
+      "name": "Green/Green 0",
+      "raw_name": "green/green \"0\" '",
+      "aliases": [
+        "green/green 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_182",
+      "name": "Green/Green 0 Veg",
+      "raw_name": "green/green \"0\" veg",
+      "aliases": [
+        "green/green 0 veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.414
+    },
+    {
+      "id": "ing_183",
+      "name": "Green/Green 00 Veg",
+      "raw_name": "green/green \"00\" veg",
+      "aliases": [
+        "green/green 00 veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.552
+    },
+    {
+      "id": "ing_184",
+      "name": "Green/Green 2",
+      "raw_name": "green/green \"2\"",
+      "aliases": [
+        "green/green 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_185",
+      "name": "Green/Yellow 1",
+      "raw_name": "green/yellow \"1\"",
+      "aliases": [
+        "green/yellow 1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.2185
+    },
+    {
+      "id": "ing_186",
+      "name": "Guar Gum Powder",
+      "raw_name": "guar gum powder",
+      "aliases": [
+        "guar gum powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 166.75
+    },
+    {
+      "id": "ing_187",
+      "name": "Gudmar Dry Extract",
+      "raw_name": "gudmar dry extract",
+      "aliases": [
+        "gudmar dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 463.45
+    },
+    {
+      "id": "ing_188",
+      "name": "Guduchi Dry Extract",
+      "raw_name": "guduchi dry extract",
+      "aliases": [
+        "guduchi dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 500.25
+    },
+    {
+      "id": "ing_189",
+      "name": "Gymnema Extract",
+      "raw_name": "gymnema extract",
+      "aliases": [
+        "gymnema extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 471.5
+    },
+    {
+      "id": "ing_190",
+      "name": "H.P.M.C (Methocel K100)",
+      "raw_name": "h.p.m.c (methocel k100)",
+      "aliases": [
+        "h.p.m.c",
+        "h.p.m.c (methocel k100)",
+        "methocel k100"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 701.1665
+    },
+    {
+      "id": "ing_191",
+      "name": "Hadjod Dry Extract",
+      "raw_name": "hadjod dry extract",
+      "aliases": [
+        "hadjod dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 460.0
+    },
+    {
+      "id": "ing_192",
+      "name": "Hajaralyahud Bhasma",
+      "raw_name": "hajaralyahud  bhasma",
+      "aliases": [
+        "hajaralyahud bhasma"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1305.25
+    },
+    {
+      "id": "ing_193",
+      "name": "Haridara Extract",
+      "raw_name": "haridara extract",
+      "aliases": [
+        "haridara extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 792.35
+    },
+    {
+      "id": "ing_194",
+      "name": "Haritaki Dry Extract",
+      "raw_name": "haritaki dry extract",
+      "aliases": [
+        "haritaki dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 487.6
+    },
+    {
+      "id": "ing_195",
+      "name": "Hesperidin 90%",
+      "raw_name": "hesperidin 90%",
+      "aliases": [
+        "hesperidin 90%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2760.0
+    },
+    {
+      "id": "ing_196",
+      "name": "Hibiscus Dry Extract",
+      "raw_name": "hibiscus dry extract",
+      "aliases": [
+        "hibiscus dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 731.86
+    },
+    {
+      "id": "ing_197",
+      "name": "Hypericum Perforatum Extract",
+      "raw_name": "hypericum perforatum extract",
+      "aliases": [
+        "hypericum perforatum extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 6399.75
+    },
+    {
+      "id": "ing_198",
+      "name": "Inositol",
+      "raw_name": "inositol \"",
+      "aliases": [
+        "d-chiro-inositol 10 mg",
+        "inositol",
+        "inositol 100 mg",
+        "myo inositol 125 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 753.1925
+    },
+    {
+      "id": "ing_199",
+      "name": "Inula Recemosa Dry Extract",
+      "raw_name": "inula recemosa dry extract",
+      "aliases": [
+        "inula recemosa dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 596.0795
+    },
+    {
+      "id": "ing_200",
+      "name": "Inulin Powder",
+      "raw_name": "inulin powder",
+      "aliases": [
+        "inulin powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 470.35
+    },
+    {
+      "id": "ing_201",
+      "name": "Iron Carbonyl (Carbonyl Iron) Usp",
+      "raw_name": "iron carbonyl (carbonyl iron) usp",
+      "aliases": [
+        "carbonyl iron",
+        "iron carbonyl (carbonyl iron) usp",
+        "iron carbonyl usp"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 262.2
+    },
+    {
+      "id": "ing_202",
+      "name": "Iso Propayle Alcohole",
+      "raw_name": "iso propayle alcohole",
+      "aliases": [
+        "iso propayle alcohole"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 142.8645
+    },
+    {
+      "id": "ing_203",
+      "name": "Isopropyl Alcohol",
+      "raw_name": "isopropyl alcohol",
+      "aliases": [
+        "isopropyl alcohol"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 139.863
+    },
+    {
+      "id": "ing_204",
+      "name": "Jaiphal Dry Extract",
+      "raw_name": "jaiphal dry extract",
+      "aliases": [
+        "jaiphal dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1462.8
+    },
+    {
+      "id": "ing_205",
+      "name": "Jaljeera Masala(5%)",
+      "raw_name": "jaljeera masala(5%)",
+      "aliases": [
+        "5%",
+        "jaljeera masala",
+        "jaljeera masala(5%)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 152.95
+    },
+    {
+      "id": "ing_206",
+      "name": "Jamboo Dry Extract (Jamun Gutli )",
+      "raw_name": "jamboo dry extract (jamun gutli )",
+      "aliases": [
+        "jamboo dry extract",
+        "jamboo dry extract (jamun gutli )",
+        "jamun gutli"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 426.65
+    },
+    {
+      "id": "ing_207",
+      "name": "Jetun Leaves Dry Ext",
+      "raw_name": "jetun leaves dry ext",
+      "aliases": [
+        "jetun leaves dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2011.35
+    },
+    {
+      "id": "ing_208",
+      "name": "Kalonji Extract",
+      "raw_name": "kalonji extract '",
+      "aliases": [
+        "kalonji extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1048.8
+    },
+    {
+      "id": "ing_209",
+      "name": "Kanchnar Dry Extract",
+      "raw_name": "kanchnar dry extract",
+      "aliases": [
+        "kanchnar dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 670.45
+    },
+    {
+      "id": "ing_210",
+      "name": "Kapur Crystal",
+      "raw_name": "kapur crystal",
+      "aliases": [
+        "kapur crystal"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1036.15
+    },
+    {
+      "id": "ing_211",
+      "name": "Karela Dry Extract",
+      "raw_name": "karela dry extract'",
+      "aliases": [
+        "karela dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 647.7835
+    },
+    {
+      "id": "ing_212",
+      "name": "Kasani Extract 10:1",
+      "raw_name": "kasani extract 10:1",
+      "aliases": [
+        "kasani extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 598.0
+    },
+    {
+      "id": "ing_213",
+      "name": "Kaucha Beej Dry Extract",
+      "raw_name": "kaucha beej dry extract",
+      "aliases": [
+        "kaucha beej dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 678.5
+    },
+    {
+      "id": "ing_214",
+      "name": "Kesarelachi 2027",
+      "raw_name": "kesarelachi 2027",
+      "aliases": [
+        "kesarelachi 2027"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1040.3705
+    },
+    {
+      "id": "ing_215",
+      "name": "Khelin Dry Extract 10:1",
+      "raw_name": "khelin dry extract 10:1",
+      "aliases": [
+        "khelin dry extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1158.05
+    },
+    {
+      "id": "ing_216",
+      "name": "Khellin Extract",
+      "raw_name": "khellin extract",
+      "aliases": [
+        "khellin extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1219.0
+    },
+    {
+      "id": "ing_217",
+      "name": "Konjac Extract Powder",
+      "raw_name": "konjac extract powder",
+      "aliases": [
+        "konjac extract powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2615.1575
+    },
+    {
+      "id": "ing_218",
+      "name": "Kutki Dry Extract",
+      "raw_name": "kutki dry extract",
+      "aliases": [
+        "kutki dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2986.55
+    },
+    {
+      "id": "ing_219",
+      "name": "Kyron T -314",
+      "raw_name": "kyron t -314'",
+      "aliases": [
+        "kyron t -314"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 782.0
+    },
+    {
+      "id": "ing_220",
+      "name": "L -Cysteine Mono Hcl",
+      "raw_name": "l -cysteine mono hcl",
+      "aliases": [
+        "l -cysteine mono hcl"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1072.95
+    },
+    {
+      "id": "ing_221",
+      "name": "L Carnitine L Tartrate (Lclt)",
+      "raw_name": "l carnitine l tartrate (lclt)",
+      "aliases": [
+        "carnitine",
+        "l carnitine l tartrate",
+        "l carnitine l tartrate (lclt)",
+        "l-carnitine",
+        "l-carnitine l-tartrate",
+        "lclt"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1722.746
+    },
+    {
+      "id": "ing_222",
+      "name": "L Histidine Hcl Monohydrate",
+      "raw_name": "l histidine hcl monohydrate",
+      "aliases": [
+        "l histidine hcl monohydrate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2687.55
+    },
+    {
+      "id": "ing_223",
+      "name": "L Tryptophan",
+      "raw_name": "l tryptophan '",
+      "aliases": [
+        "l tryptophan"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1432.9
+    },
+    {
+      "id": "ing_224",
+      "name": "L-Arginine Base",
+      "raw_name": "l-arginine base '",
+      "aliases": [
+        "arginine",
+        "l arginine",
+        "l-arginine",
+        "l-arginine base"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 570.423
+    },
+    {
+      "id": "ing_225",
+      "name": "L-Aspartic Acid",
+      "raw_name": "l-aspartic acid",
+      "aliases": [
+        "l-aspartic acid"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 231.357
+    },
+    {
+      "id": "ing_226",
+      "name": "L-Citruline",
+      "raw_name": "l-citruline",
+      "aliases": [
+        "l-citruline"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 793.5
+    },
+    {
+      "id": "ing_227",
+      "name": "L-Cystine",
+      "raw_name": "l-cystine",
+      "aliases": [
+        "l-cysteine 18 mg",
+        "l-cystine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 908.5
+    },
+    {
+      "id": "ing_228",
+      "name": "L-Glutamic Acid",
+      "raw_name": "l-glutamic acid",
+      "aliases": [
+        "l-glutamic acid"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 287.5
+    },
+    {
+      "id": "ing_229",
+      "name": "L-Glutamine",
+      "raw_name": "l-glutamine",
+      "aliases": [
+        "l-glutamine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 808.45
+    },
+    {
+      "id": "ing_230",
+      "name": "L-Glutathion Reduced",
+      "raw_name": "l-glutathion reduced",
+      "aliases": [
+        "glutathione",
+        "gsh",
+        "l-glutathion reduced",
+        "l-glutathione",
+        "l-glutathione reduced",
+        "opitac glutathione",
+        "reduced glutathione"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 7246.909
+    },
+    {
+      "id": "ing_231",
+      "name": "L-Glycine",
+      "raw_name": "l-glycine",
+      "aliases": [
+        "l-glycine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 250.125
+    },
+    {
+      "id": "ing_232",
+      "name": "L-Isoleucine",
+      "raw_name": "l-isoleucine",
+      "aliases": [
+        "l-isoleucine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 954.661
+    },
+    {
+      "id": "ing_233",
+      "name": "L-Leucine",
+      "raw_name": "l-leucine '",
+      "aliases": [
+        "l-leucine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 773.743
+    },
+    {
+      "id": "ing_234",
+      "name": "L-Lysine Hcl",
+      "raw_name": "l-lysine hcl '",
+      "aliases": [
+        "l lysine",
+        "l-lysine",
+        "l-lysine hcl",
+        "l-lysine hydrochloride",
+        "lysine",
+        "vitamin c (as ascorbic acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 316.25
+    },
+    {
+      "id": "ing_235",
+      "name": "L-Methionine",
+      "raw_name": "l-methionine",
+      "aliases": [
+        "l-methionine",
+        "l-methionine 18 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 612.4325
+    },
+    {
+      "id": "ing_236",
+      "name": "L-Methylfolate",
+      "raw_name": "l-methylfolate",
+      "aliases": [
+        "l-methylfolate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 21125.5
+    },
+    {
+      "id": "ing_237",
+      "name": "L-Ornithime -L Aspartate (Lola)",
+      "raw_name": "l-ornithime -l aspartate (lola)",
+      "aliases": [
+        "l-ornithime -l aspartate",
+        "l-ornithime -l aspartate (lola)",
+        "lola"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1406.0705
+    },
+    {
+      "id": "ing_238",
+      "name": "L-Ornithine Hcl",
+      "raw_name": "l-ornithine hcl",
+      "aliases": [
+        "l-ornithine 50 mg",
+        "l-ornithine hcl"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1645.65
+    },
+    {
+      "id": "ing_239",
+      "name": "L-Phenylalanine",
+      "raw_name": "l-phenylalanine '",
+      "aliases": [
+        "l-phenylalanine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 747.5
+    },
+    {
+      "id": "ing_240",
+      "name": "L-Serine",
+      "raw_name": "l-serine",
+      "aliases": [
+        "l-serine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2255.15
+    },
+    {
+      "id": "ing_241",
+      "name": "L-Taurine",
+      "raw_name": "l-taurine",
+      "aliases": [
+        "l-taurine",
+        "l-taurine 500 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 231.15
+    },
+    {
+      "id": "ing_242",
+      "name": "L-Theanine",
+      "raw_name": "l-theanine",
+      "aliases": [
+        "l-theanine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2120.8645
+    },
+    {
+      "id": "ing_243",
+      "name": "L-Threonine",
+      "raw_name": "l-threonine '",
+      "aliases": [
+        "l-threonine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 322.299
+    },
+    {
+      "id": "ing_244",
+      "name": "L-Tyrosine",
+      "raw_name": "l-tyrosine",
+      "aliases": [
+        "l-tyrosine",
+        "l-tyrosine 100 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 918.7465
+    },
+    {
+      "id": "ing_245",
+      "name": "L-Valine",
+      "raw_name": "l-valine'",
+      "aliases": [
+        "l-valine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 439.3
+    },
+    {
+      "id": "ing_246",
+      "name": "L. Blue / White 2",
+      "raw_name": "l. blue / white ''2''",
+      "aliases": [
+        "l. blue / white 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_247",
+      "name": "L. Blue /White 0",
+      "raw_name": "l. blue /white \"0\"",
+      "aliases": [
+        "l. blue /white 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1495
+    },
+    {
+      "id": "ing_248",
+      "name": "L. Blue /White 0 (Veg)",
+      "raw_name": "l. blue /white \"0\"(veg)",
+      "aliases": [
+        "l. blue /white 0",
+        "l. blue /white 0 (veg)",
+        "veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.414
+    },
+    {
+      "id": "ing_249",
+      "name": "L.Blue / White 00",
+      "raw_name": "l.blue / white  ''00''",
+      "aliases": [
+        "l.blue / white 00"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.207
+    },
+    {
+      "id": "ing_250",
+      "name": "Lactase Enzyme 5000 Alu",
+      "raw_name": "lactase enzyme 5000 alu",
+      "aliases": [
+        "lactase enzyme 5000 alu"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 16675.0
+    },
+    {
+      "id": "ing_251",
+      "name": "Lactic Acid Bacillus @12%",
+      "raw_name": "lactic acid bacillus  @12%",
+      "aliases": [
+        "lactic acid bacillus @12%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 356.5
+    },
+    {
+      "id": "ing_252",
+      "name": "Lactobacillus Plantarum 100 Billion",
+      "raw_name": "lactobacillus plantarum 100 billion",
+      "aliases": [
+        "l. plantarum",
+        "lactobacillus",
+        "lactobacillus acidophilus 4 billion cfu",
+        "lactobacillus plantarum",
+        "lactobacillus plantarum 100 billion",
+        "lactobacillus probiotic",
+        "lactobacillus spp"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 10056.75
+    },
+    {
+      "id": "ing_253",
+      "name": "Lactobacillus Reuteri",
+      "raw_name": "lactobacillus reuteri",
+      "aliases": [
+        "l. reuteri",
+        "lactobacillus",
+        "lactobacillus acidophilus 4 billion cfu",
+        "lactobacillus probiotic",
+        "lactobacillus reuteri",
+        "lactobacillus spp"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 8533.0
+    },
+    {
+      "id": "ing_254",
+      "name": "Lactose",
+      "raw_name": "lactose '",
+      "aliases": [
+        "lactose"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 195.5
+    },
+    {
+      "id": "ing_255",
+      "name": "Lemon 2210 5Kg",
+      "raw_name": "lemon 2210 5kg",
+      "aliases": [
+        "lemon 2210 5kg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 914.25
+    },
+    {
+      "id": "ing_256",
+      "name": "Lemon Balm Extract",
+      "raw_name": "lemon balm extract",
+      "aliases": [
+        "lemon balm extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2377.05
+    },
+    {
+      "id": "ing_257",
+      "name": "Lemon Duradome",
+      "raw_name": "lemon duradome",
+      "aliases": [
+        "lemon duradome"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 4887.5
+    },
+    {
+      "id": "ing_258",
+      "name": "Licorice Root Dry Extracts",
+      "raw_name": "licorice root dry extracts",
+      "aliases": [
+        "licorice root dry extracts"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 566.72
+    },
+    {
+      "id": "ing_259",
+      "name": "Lipase",
+      "raw_name": "lipase",
+      "aliases": [
+        "lipase"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2194.2
+    },
+    {
+      "id": "ing_260",
+      "name": "Liposomal Iron 20 %",
+      "raw_name": "liposomal iron 20 %",
+      "aliases": [
+        "liposomal iron 20 %"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1046.5
+    },
+    {
+      "id": "ing_261",
+      "name": "Lotus Racemosa Dry Ext",
+      "raw_name": "lotus racemosa dry ext",
+      "aliases": [
+        "lotus racemosa dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 548.55
+    },
+    {
+      "id": "ing_262",
+      "name": "Lotus Rhizome Extract",
+      "raw_name": "lotus rhizome extract",
+      "aliases": [
+        "lotus rhizome extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 616.1815
+    },
+    {
+      "id": "ing_263",
+      "name": "Lutein Powder 10%",
+      "raw_name": "lutein powder 10%'",
+      "aliases": [
+        "lutein powder 10%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3559.71
+    },
+    {
+      "id": "ing_264",
+      "name": "Lycopene 10% Powder",
+      "raw_name": "lycopene 10% powder '",
+      "aliases": [
+        "lycopene 10% powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 6779.3765
+    },
+    {
+      "id": "ing_265",
+      "name": "Macaroot Dry Ext 10:1",
+      "raw_name": "macaroot dry ext 10:1",
+      "aliases": [
+        "macaroot dry ext 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1404.265
+    },
+    {
+      "id": "ing_266",
+      "name": "Magnesium Aspartate",
+      "raw_name": "magnesium aspartate",
+      "aliases": [
+        "magnesium aspartate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 534.75
+    },
+    {
+      "id": "ing_267",
+      "name": "Magnesium Bis Glycinate",
+      "raw_name": "magnesium bis glycinate",
+      "aliases": [
+        "magnesium bis glycinate",
+        "magnesium bisglycinate 856 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 586.5
+    },
+    {
+      "id": "ing_268",
+      "name": "Magnesium Bis Glycinate 22 %",
+      "raw_name": "magnesium bis glycinate 22 %",
+      "aliases": [
+        "magnesium bis glycinate 22 %"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 500.25
+    },
+    {
+      "id": "ing_269",
+      "name": "Magnesium Citrate",
+      "raw_name": "magnesium citrate",
+      "aliases": [
+        "magnesium citrate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 253.0
+    },
+    {
+      "id": "ing_270",
+      "name": "Magnesium Glycinate",
+      "raw_name": "magnesium glycinate",
+      "aliases": [
+        "magnesium glycinate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 510.2205
+    },
+    {
+      "id": "ing_271",
+      "name": "Magnesium Hydroxide",
+      "raw_name": "magnesium hydroxide '",
+      "aliases": [
+        "magnesium hydroxide"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 134.55
+    },
+    {
+      "id": "ing_272",
+      "name": "Magnesium L Threonate",
+      "raw_name": "magnesium l threonate",
+      "aliases": [
+        "magnesium bisglycinate 856 mg",
+        "magnesium l threonate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3491.446
+    },
+    {
+      "id": "ing_273",
+      "name": "Magnesium Oxide Heavy",
+      "raw_name": "magnesium oxide heavy",
+      "aliases": [
+        "magnesium (as magnesium oxide) 90 mg",
+        "magnesium oxide heavy"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 97.0255
+    },
+    {
+      "id": "ing_274",
+      "name": "Magnesium Stearate",
+      "raw_name": "magnesium stearate ''",
+      "aliases": [
+        "magnesium stearate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 143.75
+    },
+    {
+      "id": "ing_275",
+      "name": "Magnesium Sulphate Anhydrous",
+      "raw_name": "magnesium sulphate anhydrous",
+      "aliases": [
+        "magnesium sulphate anhydrous"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 92.0
+    },
+    {
+      "id": "ing_276",
+      "name": "Magnesium Sulphate",
+      "raw_name": "magnesium sulphate'",
+      "aliases": [
+        "magnesium sulphate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 97.75
+    },
+    {
+      "id": "ing_277",
+      "name": "Magnesium Taurine",
+      "raw_name": "magnesium taurine",
+      "aliases": [
+        "magnesium bisglycinate 856 mg",
+        "magnesium taurine"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2530.0
+    },
+    {
+      "id": "ing_278",
+      "name": "Maha Rasandi Kwath Dry Extract 8:1",
+      "raw_name": "maha rasandi kwath dry extract 8:1",
+      "aliases": [
+        "maha rasandi kwath dry extract 8:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 977.5
+    },
+    {
+      "id": "ing_279",
+      "name": "Maitake Mashroom Extract",
+      "raw_name": "maitake mashroom extract",
+      "aliases": [
+        "maitake mashroom extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2255.15
+    },
+    {
+      "id": "ing_280",
+      "name": "Maize Starch Powder",
+      "raw_name": "maize starch powder",
+      "aliases": [
+        "maize starch powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 48.622
+    },
+    {
+      "id": "ing_281",
+      "name": "Malic Acid",
+      "raw_name": "malic acid'",
+      "aliases": [
+        "malic acid"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 277.15
+    },
+    {
+      "id": "ing_282",
+      "name": "Malto Dextrin Powder",
+      "raw_name": "malto  dextrin powder",
+      "aliases": [
+        "malto dextrin powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 58.8225
+    },
+    {
+      "id": "ing_283",
+      "name": "Mamejavo Dry Extract",
+      "raw_name": "mamejavo dry extract",
+      "aliases": [
+        "mamejavo dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 639.4
+    },
+    {
+      "id": "ing_284",
+      "name": "Mango 2217",
+      "raw_name": "mango 2217",
+      "aliases": [
+        "mango 2217"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1252.9825
+    },
+    {
+      "id": "ing_285",
+      "name": "Mannitol",
+      "raw_name": "mannitol",
+      "aliases": [
+        "mannitol"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 454.25
+    },
+    {
+      "id": "ing_286",
+      "name": "Marine Collagen Powder (18%)",
+      "raw_name": "marine collagen powder (18%)",
+      "aliases": [
+        "18%",
+        "collagen",
+        "collagen peptide",
+        "hydrolyzed collagen",
+        "marine collagen",
+        "marine collagen powder",
+        "marine collagen powder (18%)"
+      ],
+      "default_unit": "g",
+      "default_dose": 5,
+      "_rate": 1339.75
+    },
+    {
+      "id": "ing_287",
+      "name": "Maroon / Yellow 0",
+      "raw_name": "maroon / yellow \"0\"",
+      "aliases": [
+        "maroon / yellow 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_288",
+      "name": "Marsh Mellow De",
+      "raw_name": "marsh mellow de",
+      "aliases": [
+        "marsh mellow de"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1036.15
+    },
+    {
+      "id": "ing_289",
+      "name": "Mccp-102 (Micro Crystline Cellulose Powder )",
+      "raw_name": "mccp-102 (micro crystline cellulose powder )",
+      "aliases": [
+        "mccp-102",
+        "mccp-102 (micro crystline cellulose powder )",
+        "micro crystline cellulose powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 174.4205
+    },
+    {
+      "id": "ing_290",
+      "name": "Mct Oil Powder",
+      "raw_name": "mct oil powder",
+      "aliases": [
+        "mct oil powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 914.25
+    },
+    {
+      "id": "ing_291",
+      "name": "Melatonin",
+      "raw_name": "melatonin",
+      "aliases": [
+        "melatonin"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 9786.5
+    },
+    {
+      "id": "ing_292",
+      "name": "Menthol Crystal",
+      "raw_name": "menthol crystal",
+      "aliases": [
+        "menthol crystal"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1554.8
+    },
+    {
+      "id": "ing_293",
+      "name": "Metalic Red/Metalic Red 2 (Veg)",
+      "raw_name": "metalic red/metalic red \"2\"(veg)",
+      "aliases": [
+        "metalic red/metalic red 2",
+        "metalic red/metalic red 2 (veg)",
+        "veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.3795
+    },
+    {
+      "id": "ing_294",
+      "name": "Methi Dry Extract",
+      "raw_name": "methi dry extract",
+      "aliases": [
+        "methi dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1219.0
+    },
+    {
+      "id": "ing_295",
+      "name": "Methyl Sulfonil Methane (Msm)",
+      "raw_name": "methyl sulfonil methane (msm) '",
+      "aliases": [
+        "methyl sulfonil methane",
+        "methyl sulfonil methane (msm)",
+        "methylsulfonylmethane (msm) 500 mg",
+        "msm"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 669.4725
+    },
+    {
+      "id": "ing_296",
+      "name": "Methylcobalamine",
+      "raw_name": "methylcobalamine",
+      "aliases": [
+        "cyanocobalamin",
+        "methylcobalamin",
+        "methylcobalamine",
+        "vit b12",
+        "vitamin b12",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 148537.7605
+    },
+    {
+      "id": "ing_297",
+      "name": "Methylen Di Chloride(Mdc)",
+      "raw_name": "methylen di chloride(mdc) '",
+      "aliases": [
+        "mdc",
+        "methylen di chloride",
+        "methylen di chloride(mdc)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 49.0705
+    },
+    {
+      "id": "ing_298",
+      "name": "Metprorenes 90 Billion Cfu",
+      "raw_name": "metprorenes 90 billion cfu",
+      "aliases": [
+        "metprorenes 90 billion cfu"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 24380.0
+    },
+    {
+      "id": "ing_299",
+      "name": "Milk Mix Powder",
+      "raw_name": "milk mix powder",
+      "aliases": [
+        "milk mix powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 120.911
+    },
+    {
+      "id": "ing_300",
+      "name": "Mixed Berries 4896",
+      "raw_name": "mixed berries 4896",
+      "aliases": [
+        "mixed berries 4896"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 988.425
+    },
+    {
+      "id": "ing_301",
+      "name": "Moringa Dry Extract",
+      "raw_name": "moringa dry extract",
+      "aliases": [
+        "moringa dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 672.75
+    },
+    {
+      "id": "ing_302",
+      "name": "Moringa Leaves Dry Ext",
+      "raw_name": "moringa leaves dry ext",
+      "aliases": [
+        "moringa leaves dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 672.75
+    },
+    {
+      "id": "ing_303",
+      "name": "Moringa Oleifera Extract",
+      "raw_name": "moringa oleifera extract",
+      "aliases": [
+        "moringa oleifera extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 518.65
+    },
+    {
+      "id": "ing_304",
+      "name": "Mucopolysachcharide",
+      "raw_name": "mucopolysachcharide",
+      "aliases": [
+        "mucopolysachcharide"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 9264.4
+    },
+    {
+      "id": "ing_305",
+      "name": "Mucuna Pruriens Extracts",
+      "raw_name": "mucuna pruriens extracts",
+      "aliases": [
+        "mucuna pruriens extracts"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 652.5215
+    },
+    {
+      "id": "ing_306",
+      "name": "Multivitamin Gummies (30 In Jar) Surge",
+      "raw_name": "multivitamin gummies (30 in jar) surge",
+      "aliases": [
+        "30 in jar",
+        "multivitamin gummies (30 in jar) surge",
+        "multivitamin gummies surge"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 70.15
+    },
+    {
+      "id": "ing_307",
+      "name": "Myo-Inositol",
+      "raw_name": "myo-inositol",
+      "aliases": [
+        "myo inositol 125 mg",
+        "myo-inositol",
+        "myo-inositol 400 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 937.5375
+    },
+    {
+      "id": "ing_308",
+      "name": "N-Acetyl L-Cysteine",
+      "raw_name": "n-acetyl l-cysteine'",
+      "aliases": [
+        "n-acetyl l-cysteine",
+        "n-acetyl l-cysteine 300 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1368.937
+    },
+    {
+      "id": "ing_309",
+      "name": "N-Acetyl-L-Carnitine Hcl",
+      "raw_name": "n-acetyl-l-carnitine hcl",
+      "aliases": [
+        "acetyl-l-carnitine",
+        "alc",
+        "n-acetyl-l-carnitine",
+        "n-acetyl-l-carnitine hcl"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2539.5795
+    },
+    {
+      "id": "ing_310",
+      "name": "Nagkesar Dry Extract",
+      "raw_name": "nagkesar dry extract",
+      "aliases": [
+        "nagkesar dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 585.35
+    },
+    {
+      "id": "ing_311",
+      "name": "Nardostachys Jatamansi (Jatamansi )",
+      "raw_name": "nardostachys jatamansi (jatamansi )",
+      "aliases": [
+        "jatamansi",
+        "nardostachys jatamansi",
+        "nardostachys jatamansi (jatamansi )"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1492.9415
+    },
+    {
+      "id": "ing_312",
+      "name": "Nattokinase 20000Fu/Gm",
+      "raw_name": "nattokinase 20000fu/gm",
+      "aliases": [
+        "nattokinase 20000fu/gm"
+      ],
+      "default_unit": "g",
+      "default_dose": 5,
+      "_rate": 13721.0755
+    },
+    {
+      "id": "ing_313",
+      "name": "Natural Caffeine Dry Ext 99 %",
+      "raw_name": "natural caffeine dry ext 99 %",
+      "aliases": [
+        "natural caffeine dry ext 99 %"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2495.5
+    },
+    {
+      "id": "ing_314",
+      "name": "Neem Dry Extract",
+      "raw_name": "neem dry extract",
+      "aliases": [
+        "neem dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 487.6
+    },
+    {
+      "id": "ing_315",
+      "name": "Niacinamide",
+      "raw_name": "niacinamide",
+      "aliases": [
+        "niacin",
+        "niacinamide",
+        "nicotinamide",
+        "vit b3",
+        "vitamin b3",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 626.75
+    },
+    {
+      "id": "ing_316",
+      "name": "Nigella Sativa Extracts",
+      "raw_name": "nigella sativa extracts",
+      "aliases": [
+        "nigella sativa extracts"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 966.0
+    },
+    {
+      "id": "ing_317",
+      "name": "Omega 3 Fatty Acid 10% Veg.",
+      "raw_name": "omega 3 fatty acid 10% veg.",
+      "aliases": [
+        "omega 3 fatty acid 10% veg."
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 977.5
+    },
+    {
+      "id": "ing_318",
+      "name": "Orange / Orange 2",
+      "raw_name": "orange / orange \"2\"",
+      "aliases": [
+        "orange / orange 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_319",
+      "name": "Orange 2156 Flv",
+      "raw_name": "orange 2156 flv",
+      "aliases": [
+        "orange 2156 flv"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 954.5
+    },
+    {
+      "id": "ing_320",
+      "name": "Orange Duradome 861341",
+      "raw_name": "orange duradome 861341",
+      "aliases": [
+        "orange duradome 861341"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2783.0
+    },
+    {
+      "id": "ing_321",
+      "name": "Orange Extract",
+      "raw_name": "orange extract",
+      "aliases": [
+        "orange extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 975.2
+    },
+    {
+      "id": "ing_322",
+      "name": "Orange Peel Extract",
+      "raw_name": "orange peel extract''",
+      "aliases": [
+        "orange peel extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 975.2
+    },
+    {
+      "id": "ing_323",
+      "name": "Orange Sd 2912 Dry Powder",
+      "raw_name": "orange sd 2912 dry powder",
+      "aliases": [
+        "orange sd 2912 dry powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 890.3415
+    },
+    {
+      "id": "ing_324",
+      "name": "Orange Suprime Flavours",
+      "raw_name": "orange suprime flavours",
+      "aliases": [
+        "orange suprime flavours"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 914.25
+    },
+    {
+      "id": "ing_325",
+      "name": "Oyster Mushroom Extract",
+      "raw_name": "oyster mushroom extract'",
+      "aliases": [
+        "oyster mushroom extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1767.55
+    },
+    {
+      "id": "ing_326",
+      "name": "P.V.P.K - 30",
+      "raw_name": "p.v.p.k - 30 '",
+      "aliases": [
+        "p.v.p.k - 30"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 685.423
+    },
+    {
+      "id": "ing_327",
+      "name": "Palmitoylethanolamide (Pea)",
+      "raw_name": "palmitoylethanolamide (pea)",
+      "aliases": [
+        "palmitoylethanolamide",
+        "palmitoylethanolamide (pea)",
+        "pea"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3796.2075
+    },
+    {
+      "id": "ing_328",
+      "name": "Pantothenic Acid (Vitamin B5)",
+      "raw_name": "pantothenic acid (vitamin b5) '",
+      "aliases": [
+        "calcium pantothenate",
+        "d-calcium pantothenate",
+        "pantothenic acid",
+        "pantothenic acid (vitamin b5)",
+        "vit b5",
+        "vitamin b5",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 897.138
+    },
+    {
+      "id": "ing_329",
+      "name": "Papain",
+      "raw_name": "papain",
+      "aliases": [
+        "papain"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 853.3
+    },
+    {
+      "id": "ing_330",
+      "name": "Pathyadi Kwath Dry Ext",
+      "raw_name": "pathyadi kwath dry ext",
+      "aliases": [
+        "pathyadi kwath dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 805.0
+    },
+    {
+      "id": "ing_331",
+      "name": "Pea Protein 80%",
+      "raw_name": "pea protein 80%",
+      "aliases": [
+        "pea protein 80%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 512.9
+    },
+    {
+      "id": "ing_332",
+      "name": "Pepsin (1:3000)",
+      "raw_name": "pepsin (1:3000) '",
+      "aliases": [
+        "1:3000",
+        "pepsin",
+        "pepsin (1:3000)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3839.85
+    },
+    {
+      "id": "ing_333",
+      "name": "Pine Bark Extracts",
+      "raw_name": "pine bark extracts",
+      "aliases": [
+        "pine bark extracts"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1380.0
+    },
+    {
+      "id": "ing_334",
+      "name": "Piper Longum Dry Extract",
+      "raw_name": "piper longum dry extract",
+      "aliases": [
+        "piper longum dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1462.8
+    },
+    {
+      "id": "ing_335",
+      "name": "Piper Nigrum Extract",
+      "raw_name": "piper nigrum extract",
+      "aliases": [
+        "piper nigrum extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 853.3
+    },
+    {
+      "id": "ing_336",
+      "name": "Piperine Dry Ext 95%",
+      "raw_name": "piperine dry ext 95%",
+      "aliases": [
+        "bioperine",
+        "black pepper",
+        "black pepper extract",
+        "curcumin extract 95% 500 mg",
+        "piperine",
+        "piperine dry ext 95%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 10792.75
+    },
+    {
+      "id": "ing_337",
+      "name": "Pipper Dry Ext",
+      "raw_name": "pipper dry ext",
+      "aliases": [
+        "pipper dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1381.5295
+    },
+    {
+      "id": "ing_338",
+      "name": "Placebo Pellets (Multi Colour Dummy Pellets)",
+      "raw_name": "placebo pellets (multi colour dummy pellets)",
+      "aliases": [
+        "multi colour dummy pellets",
+        "placebo pellets",
+        "placebo pellets (multi colour dummy pellets)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 156.1125
+    },
+    {
+      "id": "ing_339",
+      "name": "Placebo Pellets(Dummy Pellets)",
+      "raw_name": "placebo pellets(dummy pellets)",
+      "aliases": [
+        "dummy pellets",
+        "placebo pellets",
+        "placebo pellets(dummy pellets)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 155.25
+    },
+    {
+      "id": "ing_340",
+      "name": "Plant Sterols 95%",
+      "raw_name": "plant sterols 95%",
+      "aliases": [
+        "plant sterols 95%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2072.3
+    },
+    {
+      "id": "ing_341",
+      "name": "Pomegrante Dry Extract 10:1",
+      "raw_name": "pomegrante dry extract 10:1",
+      "aliases": [
+        "pomegrante dry extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1097.1
+    },
+    {
+      "id": "ing_342",
+      "name": "Ponceau 4R Colour (Water Soluble)",
+      "raw_name": "ponceau  4r colour (water soluble)",
+      "aliases": [
+        "ponceau 4r colour",
+        "ponceau 4r colour (water soluble)",
+        "water soluble"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 945.3
+    },
+    {
+      "id": "ing_343",
+      "name": "Potassium Citrate",
+      "raw_name": "potassium citrate",
+      "aliases": [
+        "potassium citrate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 189.75
+    },
+    {
+      "id": "ing_344",
+      "name": "Potassium Iodide",
+      "raw_name": "potassium iodide",
+      "aliases": [
+        "potassium iodide",
+        "vitamin c (as ascorbic acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 7211.65
+    },
+    {
+      "id": "ing_345",
+      "name": "Potassium Magnesium Citrate",
+      "raw_name": "potassium magnesium citrate '",
+      "aliases": [
+        "potassium magnesium citrate",
+        "potassium magnesium citrate 978 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 316.25
+    },
+    {
+      "id": "ing_346",
+      "name": "Ppt Silica (Mfil-P(S)",
+      "raw_name": "ppt silica (mfil-p(s) '",
+      "aliases": [
+        "mfil-p(s",
+        "ppt silica",
+        "ppt silica (mfil-p(s)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 146.9355
+    },
+    {
+      "id": "ing_347",
+      "name": "Pre & Probiotic Pellets",
+      "raw_name": "pre & probiotic pellets",
+      "aliases": [
+        "pre & probiotic pellets",
+        "probiotic blend",
+        "probiotic blends",
+        "probiotics"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 782.0
+    },
+    {
+      "id": "ing_348",
+      "name": "Pre And Probiotic Blends 17",
+      "raw_name": "pre and probiotic blends 17",
+      "aliases": [
+        "pre and probiotic blends 17",
+        "probiotic blend",
+        "probiotic blends",
+        "probiotics"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 1782.5
+    },
+    {
+      "id": "ing_349",
+      "name": "Probiotics Blends (12 %)",
+      "raw_name": "probiotics blends (12 %)",
+      "aliases": [
+        "12 %",
+        "probiotic blend",
+        "probiotic blends",
+        "probiotics",
+        "probiotics blends",
+        "probiotics blends (12 %)"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 3036.4255
+    },
+    {
+      "id": "ing_350",
+      "name": "Probiotics Blends (18%)",
+      "raw_name": "probiotics blends (18%)",
+      "aliases": [
+        "18%",
+        "probiotic blend",
+        "probiotic blends",
+        "probiotics",
+        "probiotics blends",
+        "probiotics blends (18%)"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 4460.298
+    },
+    {
+      "id": "ing_351",
+      "name": "Psyllium Husk Powder",
+      "raw_name": "psyllium husk powder",
+      "aliases": [
+        "psyllium husk powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 914.25
+    },
+    {
+      "id": "ing_352",
+      "name": "Pumpkin Seed Extract",
+      "raw_name": "pumpkin seed extract",
+      "aliases": [
+        "pumpkin seed extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 914.25
+    },
+    {
+      "id": "ing_353",
+      "name": "Punernava Dry Extract",
+      "raw_name": "punernava dry extract",
+      "aliases": [
+        "punernava dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 548.55
+    },
+    {
+      "id": "ing_354",
+      "name": "Purple / Purple 2",
+      "raw_name": "purple / purple \"2\"",
+      "aliases": [
+        "purple / purple 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_355",
+      "name": "Pushpdhanva Ras Powder",
+      "raw_name": "pushpdhanva ras powder",
+      "aliases": [
+        "pushpdhanva ras powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 5119.8
+    },
+    {
+      "id": "ing_356",
+      "name": "Pyridoxal 5 Phosphate",
+      "raw_name": "pyridoxal 5 phosphate",
+      "aliases": [
+        "pyridoxal 5 phosphate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 15870.0
+    },
+    {
+      "id": "ing_357",
+      "name": "Pyridoxine Hcl ( Vitamin B 6 )",
+      "raw_name": "pyridoxine hcl ( vitamin b 6 )",
+      "aliases": [
+        "pyridoxine",
+        "pyridoxine hcl",
+        "pyridoxine hcl ( vitamin b 6 )",
+        "pyridoxine hydrochloride",
+        "vit b6",
+        "vitamin b 6",
+        "vitamin b6",
+        "vitamin b6 2.4 mg",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2685.25
+    },
+    {
+      "id": "ing_358",
+      "name": "Quercetin Extract 95%",
+      "raw_name": "quercetin extract 95%",
+      "aliases": [
+        "quercetin extract 95%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 7626.3745
+    },
+    {
+      "id": "ing_359",
+      "name": "Rapidcoat Brown",
+      "raw_name": "rapidcoat brown",
+      "aliases": [
+        "rapidcoat brown"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1407.7035
+    },
+    {
+      "id": "ing_360",
+      "name": "Rapidcoat Fcu (Brown)",
+      "raw_name": "rapidcoat fcu (brown)",
+      "aliases": [
+        "brown",
+        "rapidcoat fcu",
+        "rapidcoat fcu (brown)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 977.5
+    },
+    {
+      "id": "ing_361",
+      "name": "Rasberry Extract",
+      "raw_name": "rasberry extract",
+      "aliases": [
+        "rasberry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1577.9265
+    },
+    {
+      "id": "ing_362",
+      "name": "Raspberry Keton Dry Extract",
+      "raw_name": "raspberry keton dry extract",
+      "aliases": [
+        "raspberry keton dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1046.5
+    },
+    {
+      "id": "ing_363",
+      "name": "Rasvanti Dry Extract",
+      "raw_name": "rasvanti dry extract",
+      "aliases": [
+        "rasvanti dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 548.55
+    },
+    {
+      "id": "ing_364",
+      "name": "Red Clover Dry Extract",
+      "raw_name": "red clover dry extract",
+      "aliases": [
+        "red clover dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2081.5
+    },
+    {
+      "id": "ing_365",
+      "name": "Red Rasberry Ext",
+      "raw_name": "red rasberry ext",
+      "aliases": [
+        "red rasberry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1523.75
+    },
+    {
+      "id": "ing_366",
+      "name": "Red/Yellow 0",
+      "raw_name": "red/yellow \"0\"",
+      "aliases": [
+        "red/yellow 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_367",
+      "name": "Reshi Dry Extract",
+      "raw_name": "reshi dry extract",
+      "aliases": [
+        "reshi dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1889.45
+    },
+    {
+      "id": "ing_368",
+      "name": "Resveratrol 98%",
+      "raw_name": "resveratrol 98%",
+      "aliases": [
+        "resveratrol 98%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 17804.3
+    },
+    {
+      "id": "ing_369",
+      "name": "Rhodiola Rosea Extract",
+      "raw_name": "rhodiola rosea extract",
+      "aliases": [
+        "rhodiola rosea extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1706.6
+    },
+    {
+      "id": "ing_370",
+      "name": "Riboflavin (Vit B2 ) Plain",
+      "raw_name": "riboflavin (vit b2 ) plain",
+      "aliases": [
+        "riboflavin",
+        "riboflavin (vit b2 ) plain",
+        "riboflavin 5 phosphate",
+        "riboflavin plain",
+        "riboflavin sodium phosphate",
+        "vit b2",
+        "vitamin b2",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 4037.1095
+    },
+    {
+      "id": "ing_371",
+      "name": "Rose Sd 1820 Flv",
+      "raw_name": "rose sd 1820 flv",
+      "aliases": [
+        "rose sd 1820 flv"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 963.263
+    },
+    {
+      "id": "ing_372",
+      "name": "Rosehip Dry Extract",
+      "raw_name": "rosehip dry extract",
+      "aliases": [
+        "rosehip dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 656.3625
+    },
+    {
+      "id": "ing_373",
+      "name": "Rosemary Extract",
+      "raw_name": "rosemary extract",
+      "aliases": [
+        "rosemary extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2087.5375
+    },
+    {
+      "id": "ing_374",
+      "name": "Rutin",
+      "raw_name": "rutin'",
+      "aliases": [
+        "rutin"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3291.3
+    },
+    {
+      "id": "ing_375",
+      "name": "S-Adenosyl Methionine (Same)",
+      "raw_name": "s-adenosyl methionine (same)",
+      "aliases": [
+        "s-adenosyl methionine",
+        "s-adenosyl methionine (same)",
+        "same"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 14018.5
+    },
+    {
+      "id": "ing_376",
+      "name": "S.Red / S.Red 2",
+      "raw_name": "s.red / s.red \"2\"",
+      "aliases": [
+        "s.red / s.red 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_377",
+      "name": "S.Red / S.Red 00 (Veg)",
+      "raw_name": "s.red / s.red ''00'' (veg)",
+      "aliases": [
+        "s.red / s.red 00",
+        "s.red / s.red 00 (veg)",
+        "veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.437
+    },
+    {
+      "id": "ing_378",
+      "name": "S.Red/ S.Red 0",
+      "raw_name": "s.red/ s.red \"0\"",
+      "aliases": [
+        "s.red/ s.red 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.207
+    },
+    {
+      "id": "ing_379",
+      "name": "S.Red/ S.Red 0 Veg",
+      "raw_name": "s.red/ s.red \"0\" veg",
+      "aliases": [
+        "s.red/ s.red 0 veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.414
+    },
+    {
+      "id": "ing_380",
+      "name": "S.Red/ S.Red 1",
+      "raw_name": "s.red/ s.red \"1\"",
+      "aliases": [
+        "s.red/ s.red 1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1.0925
+    },
+    {
+      "id": "ing_381",
+      "name": "Saccharomyces Boulardii 12%",
+      "raw_name": "saccharomyces boulardii 12%",
+      "aliases": [
+        "saccharomyces boulardii 12%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 4266.5
+    },
+    {
+      "id": "ing_382",
+      "name": "Safed Musali Dry Extract",
+      "raw_name": "safed musali dry extract",
+      "aliases": [
+        "safed musali dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1145.86
+    },
+    {
+      "id": "ing_383",
+      "name": "Sallaki Dry Extract 65%",
+      "raw_name": "sallaki dry extract 65%",
+      "aliases": [
+        "sallaki dry extract 65%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 975.2
+    },
+    {
+      "id": "ing_384",
+      "name": "Satavari Dry Ext",
+      "raw_name": "satavari dry ext",
+      "aliases": [
+        "satavari dry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 622.15
+    },
+    {
+      "id": "ing_385",
+      "name": "Saw Palmetto Extract",
+      "raw_name": "saw palmetto extract \"",
+      "aliases": [
+        "saw palmetto extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1401.85
+    },
+    {
+      "id": "ing_386",
+      "name": "Sea Buckthorns Extract",
+      "raw_name": "sea buckthorns extract",
+      "aliases": [
+        "sea buckthorns extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2072.3
+    },
+    {
+      "id": "ing_387",
+      "name": "Seaweeed Extract",
+      "raw_name": "seaweeed extract",
+      "aliases": [
+        "seaweeed extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2194.2
+    },
+    {
+      "id": "ing_388",
+      "name": "Sesbania Extract",
+      "raw_name": "sesbania extract",
+      "aliases": [
+        "sesbania extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2926.75
+    },
+    {
+      "id": "ing_389",
+      "name": "Shaitake Mushroom Extract",
+      "raw_name": "shaitake mushroom extract",
+      "aliases": [
+        "shaitake mushroom extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3496.0
+    },
+    {
+      "id": "ing_390",
+      "name": "Shankh Bhasma",
+      "raw_name": "shankh bhasma",
+      "aliases": [
+        "shankh bhasma"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 509.8295
+    },
+    {
+      "id": "ing_391",
+      "name": "Shatavari Dry Extract",
+      "raw_name": "shatavari dry extract",
+      "aliases": [
+        "shatavari dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 609.5
+    },
+    {
+      "id": "ing_392",
+      "name": "Shilajit Extract",
+      "raw_name": "shilajit extract",
+      "aliases": [
+        "shilajit extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2187.369
+    },
+    {
+      "id": "ing_393",
+      "name": "Shudh Sonageru",
+      "raw_name": "shudh sonageru",
+      "aliases": [
+        "shudh sonageru"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 426.65
+    },
+    {
+      "id": "ing_394",
+      "name": "Silimarine 70%",
+      "raw_name": "silimarine 70%",
+      "aliases": [
+        "silimarine 70%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2804.16
+    },
+    {
+      "id": "ing_395",
+      "name": "Silimarine 80%",
+      "raw_name": "silimarine 80%",
+      "aliases": [
+        "silimarine 80%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3645.5
+    },
+    {
+      "id": "ing_396",
+      "name": "Silymarin 80% Dry Ext.",
+      "raw_name": "silymarin 80% dry ext.",
+      "aliases": [
+        "silymarin 80% dry ext."
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 4327.3925
+    },
+    {
+      "id": "ing_397",
+      "name": "Size 0 Ct/Ct Dr Capsule",
+      "raw_name": "size \"0\" ct/ct dr capsule",
+      "aliases": [
+        "size 0 ct/ct dr capsule"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.7475
+    },
+    {
+      "id": "ing_398",
+      "name": "Size 0 Off White/Off White Hpmc (Veg)",
+      "raw_name": "size \"0\"off white/off white hpmc (veg)",
+      "aliases": [
+        "size 0 off white/off white hpmc",
+        "size 0 off white/off white hpmc (veg)",
+        "veg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.7475
+    },
+    {
+      "id": "ing_399",
+      "name": "Skimmed Milk Powder (Ajanta Premium)",
+      "raw_name": "skimmed milk powder (ajanta premium)",
+      "aliases": [
+        "ajanta premium",
+        "skimmed milk powder",
+        "skimmed milk powder (ajanta premium)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 317.4
+    },
+    {
+      "id": "ing_400",
+      "name": "Skimmed Milk Powder (Amul)",
+      "raw_name": "skimmed milk powder (amul)",
+      "aliases": [
+        "amul",
+        "skimmed milk powder",
+        "skimmed milk powder (amul)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 409.4
+    },
+    {
+      "id": "ing_401",
+      "name": "Skimmed Milk Powder (Prayag Shakti)",
+      "raw_name": "skimmed milk powder (prayag shakti)",
+      "aliases": [
+        "prayag shakti",
+        "skimmed milk powder",
+        "skimmed milk powder (prayag shakti)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 349.255
+    },
+    {
+      "id": "ing_402",
+      "name": "Skullcap Rood Dry Extract",
+      "raw_name": "skullcap rood dry extract",
+      "aliases": [
+        "skullcap rood dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2139.0
+    },
+    {
+      "id": "ing_403",
+      "name": "Sodium Ascorbate",
+      "raw_name": "sodium ascorbate",
+      "aliases": [
+        "sodium ascorbate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 609.5
+    },
+    {
+      "id": "ing_404",
+      "name": "Sodium Benzoate",
+      "raw_name": "sodium benzoate",
+      "aliases": [
+        "sodium benzoate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 197.225
+    },
+    {
+      "id": "ing_405",
+      "name": "Sodium Benzoate . (Ganesh)",
+      "raw_name": "sodium benzoate . (ganesh)",
+      "aliases": [
+        "ganesh",
+        "sodium benzoate .",
+        "sodium benzoate . (ganesh)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 205.344
+    },
+    {
+      "id": "ing_406",
+      "name": "Sodium Citrate",
+      "raw_name": "sodium citrate",
+      "aliases": [
+        "sodium citrate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 97.75
+    },
+    {
+      "id": "ing_407",
+      "name": "Sodium Hyaluronate Acid",
+      "raw_name": "sodium hyaluronate acid'",
+      "aliases": [
+        "sodium hyaluronate acid"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 5828.913
+    },
+    {
+      "id": "ing_408",
+      "name": "Sodium Meta B1 Sulphate",
+      "raw_name": "sodium meta b1 sulphate",
+      "aliases": [
+        "sodium meta b1 sulphate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 92.0
+    },
+    {
+      "id": "ing_409",
+      "name": "Sodium Selenite",
+      "raw_name": "sodium selenite",
+      "aliases": [
+        "selenium",
+        "selenium 0.04 mg",
+        "sodium selenate",
+        "sodium selenite",
+        "vitamin c (as ascorbic acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2231.92
+    },
+    {
+      "id": "ing_410",
+      "name": "Sodium Starch Glycolate",
+      "raw_name": "sodium starch glycolate",
+      "aliases": [
+        "sodium starch glycolate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 52.1295
+    },
+    {
+      "id": "ing_411",
+      "name": "Sodium Starch Glycolate (Ssg)",
+      "raw_name": "sodium starch glycolate ' (ssg)",
+      "aliases": [
+        "sodium starch glycolate",
+        "sodium starch glycolate (ssg)",
+        "ssg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 54.8205
+    },
+    {
+      "id": "ing_412",
+      "name": "Sodium Stearyl Fumarate",
+      "raw_name": "sodium stearyl fumarate '",
+      "aliases": [
+        "sodium stearyl fumarate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3169.4
+    },
+    {
+      "id": "ing_413",
+      "name": "Sorbitol Powder",
+      "raw_name": "sorbitol powder",
+      "aliases": [
+        "sorbitol powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 195.5
+    },
+    {
+      "id": "ing_414",
+      "name": "Soya Isoflavone 40% (Kg)",
+      "raw_name": "soya isoflavone 40% (kg)",
+      "aliases": [
+        "kg",
+        "soya isoflavone 40%",
+        "soya isoflavone 40% (kg)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2081.5
+    },
+    {
+      "id": "ing_415",
+      "name": "Soya Lecithin Powder",
+      "raw_name": "soya lecithin powder'",
+      "aliases": [
+        "soya lecithin powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 542.8
+    },
+    {
+      "id": "ing_416",
+      "name": "Spirulina Powder",
+      "raw_name": "spirulina powder",
+      "aliases": [
+        "spirulina powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 621.0
+    },
+    {
+      "id": "ing_417",
+      "name": "Starch + D.C.P(Dummy)",
+      "raw_name": "starch + d.c.p(dummy)",
+      "aliases": [
+        "dummy",
+        "starch + d.c.p",
+        "starch + d.c.p(dummy)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 79.35
+    },
+    {
+      "id": "ing_418",
+      "name": "Stevia Dry Extract",
+      "raw_name": "stevia dry extract",
+      "aliases": [
+        "stevia dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 6095.0
+    },
+    {
+      "id": "ing_419",
+      "name": "Stinging Nettle Leaf Extract",
+      "raw_name": "stinging nettle leaf extract",
+      "aliases": [
+        "stinging nettle leaf extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 977.5
+    },
+    {
+      "id": "ing_420",
+      "name": "Strawberry No. 01",
+      "raw_name": "strawberry no. 01",
+      "aliases": [
+        "strawberry no. 01"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 966.0
+    },
+    {
+      "id": "ing_421",
+      "name": "Sucralose",
+      "raw_name": "sucralose",
+      "aliases": [
+        "sucralose"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2771.5
+    },
+    {
+      "id": "ing_422",
+      "name": "Suddh Shilajit Extract",
+      "raw_name": "suddh shilajit extract",
+      "aliases": [
+        "suddh shilajit extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1219.0
+    },
+    {
+      "id": "ing_423",
+      "name": "Suddha Phatakadi",
+      "raw_name": "suddha phatakadi",
+      "aliases": [
+        "suddha phatakadi"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 384.1
+    },
+    {
+      "id": "ing_424",
+      "name": "Suddha Tankan Khar Powder",
+      "raw_name": "suddha tankan khar powder",
+      "aliases": [
+        "suddha tankan khar powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 934.95
+    },
+    {
+      "id": "ing_425",
+      "name": "Sudhha Guggul Dry Extract",
+      "raw_name": "sudhha guggul dry extract",
+      "aliases": [
+        "sudhha guggul dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 552.0
+    },
+    {
+      "id": "ing_426",
+      "name": "Sunset Yellow Colour",
+      "raw_name": "sunset yellow colour",
+      "aliases": [
+        "sunset yellow colour"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 816.5
+    },
+    {
+      "id": "ing_427",
+      "name": "Sunth Dry Extract",
+      "raw_name": "sunth dry extract",
+      "aliases": [
+        "sunth dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 982.675
+    },
+    {
+      "id": "ing_428",
+      "name": "Suran Dry Extract",
+      "raw_name": "suran dry extract",
+      "aliases": [
+        "suran dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 639.975
+    },
+    {
+      "id": "ing_429",
+      "name": "T Green/Clear 0",
+      "raw_name": "t green/clear ''0''",
+      "aliases": [
+        "t green/clear 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_430",
+      "name": "T. Green / Clear 1",
+      "raw_name": "t. green / clear ''1''",
+      "aliases": [
+        "t. green / clear 1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_431",
+      "name": "T. Green / Clear 2",
+      "raw_name": "t. green / clear ''2\"",
+      "aliases": [
+        "t. green / clear 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_432",
+      "name": "T.Red / Clear 0",
+      "raw_name": "t.red / clear ''0''",
+      "aliases": [
+        "t.red / clear 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_433",
+      "name": "T.Red / Clear Trans 0",
+      "raw_name": "t.red / clear trans \"0\"",
+      "aliases": [
+        "t.red / clear trans 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_434",
+      "name": "T.Red /Clear 2",
+      "raw_name": "t.red /clear \"2\"",
+      "aliases": [
+        "t.red /clear 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_435",
+      "name": "T.Red/Clear 1",
+      "raw_name": "t.red/clear \"1\"",
+      "aliases": [
+        "t.red/clear 1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.506
+    },
+    {
+      "id": "ing_436",
+      "name": "Talam Khana Dry Extract",
+      "raw_name": "talam khana dry extract",
+      "aliases": [
+        "talam khana dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 885.5
+    },
+    {
+      "id": "ing_437",
+      "name": "Talcum Powder",
+      "raw_name": "talcum powder",
+      "aliases": [
+        "talcum powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 17.7445
+    },
+    {
+      "id": "ing_438",
+      "name": "Tart Cherry Ext",
+      "raw_name": "tart cherry ext",
+      "aliases": [
+        "tart cherry ext"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2559.9
+    },
+    {
+      "id": "ing_439",
+      "name": "Tartrazine Supra Colour (Water Soluble)",
+      "raw_name": "tartrazine supra colour (water soluble) '",
+      "aliases": [
+        "tartrazine supra colour",
+        "tartrazine supra colour (water soluble)",
+        "water soluble"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 793.0055
+    },
+    {
+      "id": "ing_440",
+      "name": "Tomato Dry Extract 10:1",
+      "raw_name": "tomato dry extract 10:1",
+      "aliases": [
+        "tomato dry extract 10:1"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 609.5
+    },
+    {
+      "id": "ing_441",
+      "name": "Tongkat Ali Dry Extract",
+      "raw_name": "tongkat ali dry extract",
+      "aliases": [
+        "tongkat ali dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1725.0
+    },
+    {
+      "id": "ing_442",
+      "name": "Tribang Bhasm",
+      "raw_name": "tribang bhasm",
+      "aliases": [
+        "tribang bhasm"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2530.0
+    },
+    {
+      "id": "ing_443",
+      "name": "Tribulous Terrestris Dry Extract",
+      "raw_name": "tribulous terrestris dry extract",
+      "aliases": [
+        "tribulous terrestris dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 293.687
+    },
+    {
+      "id": "ing_444",
+      "name": "Tribulus Terrestric",
+      "raw_name": "tribulus terrestric",
+      "aliases": [
+        "tribulus terrestric"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 304.75
+    },
+    {
+      "id": "ing_445",
+      "name": "Triphala Extract",
+      "raw_name": "triphala extract",
+      "aliases": [
+        "triphala extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 487.6
+    },
+    {
+      "id": "ing_446",
+      "name": "Trivikram Ras",
+      "raw_name": "trivikram ras",
+      "aliases": [
+        "trivikram ras"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2925.6
+    },
+    {
+      "id": "ing_447",
+      "name": "Trucap Kiwi",
+      "raw_name": "trucap kiwi",
+      "aliases": [
+        "trucap kiwi"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1279.95
+    },
+    {
+      "id": "ing_448",
+      "name": "Tulsi Dry Extract",
+      "raw_name": "tulsi dry extract",
+      "aliases": [
+        "tulsi dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 683.1
+    },
+    {
+      "id": "ing_449",
+      "name": "Turmeric Dry Extract 10%",
+      "raw_name": "turmeric dry extract 10%",
+      "aliases": [
+        "curcuma longa",
+        "curcumin",
+        "turmeric",
+        "turmeric dry extract 10%",
+        "turmeric extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 637.767
+    },
+    {
+      "id": "ing_450",
+      "name": "Turmeric Powder 5%",
+      "raw_name": "turmeric powder 5%",
+      "aliases": [
+        "curcuma longa",
+        "curcumin",
+        "curcumin extract 95% 500 mg",
+        "turmeric",
+        "turmeric extract",
+        "turmeric powder 5%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 293.25
+    },
+    {
+      "id": "ing_451",
+      "name": "Turnera Diffusa Dry Extract",
+      "raw_name": "turnera diffusa dry extract",
+      "aliases": [
+        "turnera diffusa dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 670.45
+    },
+    {
+      "id": "ing_452",
+      "name": "Uc-Ii",
+      "raw_name": "uc-ii",
+      "aliases": [
+        "uc-ii"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 207000.0
+    },
+    {
+      "id": "ing_453",
+      "name": "Undenatured Collagen Type -2",
+      "raw_name": "undenatured collagen type -2",
+      "aliases": [
+        "collagen",
+        "collagen peptide",
+        "hydrolyzed collagen",
+        "marine collagen",
+        "undenatured collagen type -2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 63388.0
+    },
+    {
+      "id": "ing_454",
+      "name": "Uva Ursi Dry Extract",
+      "raw_name": "uva ursi dry extract",
+      "aliases": [
+        "uva ursi dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2194.2
+    },
+    {
+      "id": "ing_455",
+      "name": "Valerian Extract",
+      "raw_name": "valerian extract",
+      "aliases": [
+        "valerian extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1104.0
+    },
+    {
+      "id": "ing_456",
+      "name": "Vanilla 3202 Flavour",
+      "raw_name": "vanilla 3202 flavour '",
+      "aliases": [
+        "vanilla 3202 flavour"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 845.089
+    },
+    {
+      "id": "ing_457",
+      "name": "Varunchhal Dry Extract",
+      "raw_name": "varunchhal dry extract",
+      "aliases": [
+        "varunchhal dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 670.45
+    },
+    {
+      "id": "ing_458",
+      "name": "Vasaka Pan Dry Extract",
+      "raw_name": "vasaka  pan dry extract",
+      "aliases": [
+        "vasaka pan dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 644.575
+    },
+    {
+      "id": "ing_459",
+      "name": "Vasaka Dry Extract",
+      "raw_name": "vasaka dry extract",
+      "aliases": [
+        "vasaka dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 396.75
+    },
+    {
+      "id": "ing_460",
+      "name": "Veg Flax Seed Oil Caps 5000",
+      "raw_name": "veg flax seed oil caps 5000",
+      "aliases": [
+        "veg flax seed oil caps 5000"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2.3805
+    },
+    {
+      "id": "ing_461",
+      "name": "Vijaysar Extract",
+      "raw_name": "vijaysar extract",
+      "aliases": [
+        "vijaysar extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 552.0
+    },
+    {
+      "id": "ing_462",
+      "name": "Vintex Nigundo Extract",
+      "raw_name": "vintex nigundo extract",
+      "aliases": [
+        "vintex nigundo extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 523.25
+    },
+    {
+      "id": "ing_463",
+      "name": "Vitamin A Acetate Dry Powder",
+      "raw_name": "vitamin a acetate dry powder '",
+      "aliases": [
+        "retinyl palmitate",
+        "vit a",
+        "vitamin a",
+        "vitamin a acetate",
+        "vitamin a acetate dry powder",
+        "vitamin a palmitate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 6478.3295
+    },
+    {
+      "id": "ing_464",
+      "name": "Vitamin A Palmitate 1.7 Miu",
+      "raw_name": "vitamin a palmitate 1.7 miu",
+      "aliases": [
+        "retinyl palmitate",
+        "vit a",
+        "vitamin a",
+        "vitamin a acetate",
+        "vitamin a palmitate",
+        "vitamin a palmitate 1.7 miu",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 8625.0
+    },
+    {
+      "id": "ing_465",
+      "name": "Vitamin B1 Mono(Thimine Mono)",
+      "raw_name": "vitamin b1 mono(thimine mono)",
+      "aliases": [
+        "thiamine",
+        "thiamine hcl",
+        "thiamine hydrochloride",
+        "thiamine mononitrate",
+        "thimine mono",
+        "vit b1",
+        "vitamin b1",
+        "vitamin b1 mono",
+        "vitamin b1 mono(thimine mono)",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2430.203
+    },
+    {
+      "id": "ing_466",
+      "name": "Vitamin D3 Stabilized 100000Iu",
+      "raw_name": "vitamin d3 stabilized 100000iu",
+      "aliases": [
+        "cholecalciferol",
+        "cholecalciferol (vit d3)",
+        "vit d3",
+        "vitamin d",
+        "vitamin d3",
+        "vitamin d3 stabilized 100000iu"
+      ],
+      "default_unit": "IU",
+      "default_dose": 600,
+      "_rate": 1466.25
+    },
+    {
+      "id": "ing_467",
+      "name": "Vitamin D3 Stabilized 500000Iu",
+      "raw_name": "vitamin d3 stabilized 500000iu",
+      "aliases": [
+        "cholecalciferol",
+        "cholecalciferol (vit d3)",
+        "vit d3",
+        "vitamin d",
+        "vitamin d3",
+        "vitamin d3 stabilized 500000iu"
+      ],
+      "default_unit": "IU",
+      "default_dose": 600,
+      "_rate": 4463.679
+    },
+    {
+      "id": "ing_468",
+      "name": "Vitamin D3 Veg Source",
+      "raw_name": "vitamin d3 veg source",
+      "aliases": [
+        "cholecalciferol",
+        "cholecalciferol (vit d3)",
+        "vit d3",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg",
+        "vitamin d",
+        "vitamin d3",
+        "vitamin d3 125 mcg",
+        "vitamin d3 400 iu",
+        "vitamin d3 4000 iu",
+        "vitamin d3 600 iu",
+        "vitamin d3 veg source"
+      ],
+      "default_unit": "IU",
+      "default_dose": 600,
+      "_rate": 75821.8
+    },
+    {
+      "id": "ing_469",
+      "name": "Vitamin E Acetate Liquid",
+      "raw_name": "vitamin e acetate liquid",
+      "aliases": [
+        "d-alpha tocopherol",
+        "tocopherol",
+        "tocopheryl acetate",
+        "vit e",
+        "vitamin e",
+        "vitamin e acetate liquid"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3565.0
+    },
+    {
+      "id": "ing_470",
+      "name": "Vitamin E Acetate Powder 50 %",
+      "raw_name": "vitamin e acetate powder 50 %",
+      "aliases": [
+        "d-alpha tocopherol",
+        "tocopherol",
+        "tocopheryl acetate",
+        "vit e",
+        "vitamin c (as ascorbic acid) 20 mg",
+        "vitamin c (ascorbic acid) 65 mg",
+        "vitamin e",
+        "vitamin e 10 mg",
+        "vitamin e acetate powder 50 %"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2070.0
+    },
+    {
+      "id": "ing_471",
+      "name": "Vitamin K-27",
+      "raw_name": "vitamin k-27",
+      "aliases": [
+        "menaquinone",
+        "menaquinone-7",
+        "mk-7",
+        "vit k2",
+        "vitamin d3 125 mcg",
+        "vitamin d3 4000 iu",
+        "vitamin k",
+        "vitamin k-27",
+        "vitamin k2",
+        "vitamin k2-7"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 33.787
+    },
+    {
+      "id": "ing_472",
+      "name": "Vitamin Pallets Blend 66 Vita 66 (Straberry)",
+      "raw_name": "vitamin pallets blend 66 vita 66 (straberry)",
+      "aliases": [
+        "straberry",
+        "vitamin pallets blend 66 vita 66",
+        "vitamin pallets blend 66 vita 66 (straberry)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 354.2
+    },
+    {
+      "id": "ing_473",
+      "name": "Vitamin Pallets Blend 66 Vita-66 (Orange)",
+      "raw_name": "vitamin pallets blend 66 vita-66 (orange)",
+      "aliases": [
+        "orange",
+        "vitamin pallets blend 66 vita-66",
+        "vitamin pallets blend 66 vita-66 (orange)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 354.2
+    },
+    {
+      "id": "ing_474",
+      "name": "Vitamin Pellets Blands Vita 12",
+      "raw_name": "vitamin pellets blands vita 12",
+      "aliases": [
+        "vitamin pellets blands vita 12"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 402.201
+    },
+    {
+      "id": "ing_475",
+      "name": "Vitamin Pellets Blands Vita 123",
+      "raw_name": "vitamin pellets blands vita 123",
+      "aliases": [
+        "vitamin pellets blands vita 123"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 494.5
+    },
+    {
+      "id": "ing_476",
+      "name": "Vitamin Pellets Blands Vita-33",
+      "raw_name": "vitamin pellets blands vita-33",
+      "aliases": [
+        "vitamin pellets blands vita-33"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 914.25
+    },
+    {
+      "id": "ing_477",
+      "name": "Vitamins Pellets Blend 17 Vita17",
+      "raw_name": "vitamins pellets blend 17 vita17",
+      "aliases": [
+        "vitamins pellets blend 17 vita17"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1767.55
+    },
+    {
+      "id": "ing_478",
+      "name": "Vitamins Pellets Blend 170-Vita170",
+      "raw_name": "vitamins pellets blend 170-vita170",
+      "aliases": [
+        "vitamins pellets blend 170-vita170"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 914.25
+    },
+    {
+      "id": "ing_479",
+      "name": "Vitamins Pellets Blend 208- Vita 208",
+      "raw_name": "vitamins pellets blend 208- vita 208",
+      "aliases": [
+        "vitamins pellets blend 208- vita 208"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1125.3325
+    },
+    {
+      "id": "ing_480",
+      "name": "Vitamins Pellets Blend 50 Vita 50",
+      "raw_name": "vitamins pellets blend 50 vita 50",
+      "aliases": [
+        "vitamins pellets blend 50 vita 50"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 713.92
+    },
+    {
+      "id": "ing_481",
+      "name": "Vitamins Pellets Blend 51 Vita51",
+      "raw_name": "vitamins pellets blend 51 vita51",
+      "aliases": [
+        "vitamins pellets blend 51 vita51"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 586.5
+    },
+    {
+      "id": "ing_482",
+      "name": "Vitamins Pellets Blend 56 Vita56",
+      "raw_name": "vitamins pellets blend 56 vita56",
+      "aliases": [
+        "vitamins pellets blend 56 vita56"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2288.5
+    },
+    {
+      "id": "ing_483",
+      "name": "Vitamins Pellets Blend 62- Vita 62",
+      "raw_name": "vitamins pellets blend 62- vita 62",
+      "aliases": [
+        "vitamins pellets blend 62- vita 62"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 274.85
+    },
+    {
+      "id": "ing_484",
+      "name": "Vitamins Pellets Blend 68- Vita68",
+      "raw_name": "vitamins pellets blend 68- vita68",
+      "aliases": [
+        "vitamins pellets blend 68- vita68"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 512.9
+    },
+    {
+      "id": "ing_485",
+      "name": "Vitamins Pellets Blend 78 Vita78",
+      "raw_name": "vitamins pellets blend 78 vita78",
+      "aliases": [
+        "vitamins pellets blend 78 vita78"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 793.5
+    },
+    {
+      "id": "ing_486",
+      "name": "Vitex Negundo Dry Extract",
+      "raw_name": "vitex negundo dry extract",
+      "aliases": [
+        "vitex negundo dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 538.775
+    },
+    {
+      "id": "ing_487",
+      "name": "Watermelon",
+      "raw_name": "watermelon",
+      "aliases": [
+        "watermelon"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1193.7
+    },
+    {
+      "id": "ing_488",
+      "name": "Wheatgerm Powder(0%)",
+      "raw_name": "wheatgerm powder(0%)",
+      "aliases": [
+        "0%",
+        "wheatgerm powder",
+        "wheatgerm powder(0%)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 488.75
+    },
+    {
+      "id": "ing_489",
+      "name": "Whey Protein Concentrate 34%",
+      "raw_name": "whey protein concentrate 34%",
+      "aliases": [
+        "whey protein concentrate 34%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 532.611
+    },
+    {
+      "id": "ing_490",
+      "name": "Whey Protein Concentrate 80%",
+      "raw_name": "whey protein concentrate 80%",
+      "aliases": [
+        "whey protein concentrate 80%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1735.35
+    },
+    {
+      "id": "ing_491",
+      "name": "Whey Protein Isolate 90%",
+      "raw_name": "whey protein isolate 90%",
+      "aliases": [
+        "whey protein isolate 90%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 3105.0
+    },
+    {
+      "id": "ing_492",
+      "name": "White / White 2",
+      "raw_name": "white / white \"2\"",
+      "aliases": [
+        "white / white 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_493",
+      "name": "White /White 0",
+      "raw_name": "white /white \"0\"",
+      "aliases": [
+        "white /white 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_494",
+      "name": "White Dummy Pallets",
+      "raw_name": "white dummy pallets",
+      "aliases": [
+        "white dummy pallets"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 152.95
+    },
+    {
+      "id": "ing_495",
+      "name": "White Dummy Pellets",
+      "raw_name": "white dummy pellets",
+      "aliases": [
+        "white dummy pellets"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 154.675
+    },
+    {
+      "id": "ing_496",
+      "name": "White/White 0 Veg Cap",
+      "raw_name": "white/white \"0\" veg cap",
+      "aliases": [
+        "white/white 0 veg cap"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.414
+    },
+    {
+      "id": "ing_497",
+      "name": "White/White 00 (Non Veg)",
+      "raw_name": "white/white ''00''(non veg)",
+      "aliases": [
+        "non veg",
+        "white/white 00",
+        "white/white 00 (non veg)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.207
+    },
+    {
+      "id": "ing_498",
+      "name": "White/White 00 (Veg)",
+      "raw_name": "white/white\"00\"(veg)",
+      "aliases": [
+        "veg",
+        "white/white 00",
+        "white/white 00 (veg)"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.529
+    },
+    {
+      "id": "ing_499",
+      "name": "Yellow / Yellow 0",
+      "raw_name": "yellow / yellow \"0\"",
+      "aliases": [
+        "yellow / yellow 0"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.1265
+    },
+    {
+      "id": "ing_500",
+      "name": "Yellow/ Yellow 2",
+      "raw_name": "yellow/ yellow \"2\"",
+      "aliases": [
+        "yellow/ yellow 2"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.115
+    },
+    {
+      "id": "ing_501",
+      "name": "Yellow/Yellow Mettalic 00",
+      "raw_name": "yellow/yellow mettalic \"00\"",
+      "aliases": [
+        "yellow/yellow mettalic 00"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 0.253
+    },
+    {
+      "id": "ing_502",
+      "name": "Yohimbe Dry Extract 5%",
+      "raw_name": "yohimbe dry extract 5%",
+      "aliases": [
+        "yohimbe dry extract 5%"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 1829.5465
+    },
+    {
+      "id": "ing_503",
+      "name": "Zeaxanthin 10% Powder",
+      "raw_name": "zeaxanthin 10% powder",
+      "aliases": [
+        "zeaxanthin 10% powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 10361.5
+    },
+    {
+      "id": "ing_504",
+      "name": "Zeopure High Oleic Sun Flower Oil 70% Powder",
+      "raw_name": "zeopure high oleic sun flower oil 70% powder",
+      "aliases": [
+        "zeopure high oleic sun flower oil 70% powder"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 414.7245
+    },
+    {
+      "id": "ing_505",
+      "name": "Zinc Bis Glycinate",
+      "raw_name": "zinc bis glycinate'",
+      "aliases": [
+        "zinc",
+        "zinc bis glycinate",
+        "zinc bisglycinate",
+        "zinc element"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 465.75
+    },
+    {
+      "id": "ing_506",
+      "name": "Zinc Gluconate",
+      "raw_name": "zinc gluconate \"",
+      "aliases": [
+        "zinc",
+        "zinc element",
+        "zinc gluconate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 335.179
+    },
+    {
+      "id": "ing_507",
+      "name": "Zinc Oxide",
+      "raw_name": "zinc oxide",
+      "aliases": [
+        "zinc",
+        "zinc element",
+        "zinc oxide"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 322.0
+    },
+    {
+      "id": "ing_508",
+      "name": "Zinc Picolinate",
+      "raw_name": "zinc picolinate",
+      "aliases": [
+        "zinc",
+        "zinc element",
+        "zinc picolinate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 2035.5
+    },
+    {
+      "id": "ing_509",
+      "name": "Zinc Sulphate Monohydrate",
+      "raw_name": "zinc sulphate monohydrate'",
+      "aliases": [
+        "magnesium (as magnesium oxide) 90 mg",
+        "zinc",
+        "zinc element",
+        "zinc sulfate",
+        "zinc sulphate",
+        "zinc sulphate monohydrate"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 132.25
+    },
+    {
+      "id": "ing_510",
+      "name": "Zingiber Offcinalis Dry Extract",
+      "raw_name": "zingiber offcinalis dry extract",
+      "aliases": [
+        "zingiber offcinalis dry extract"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 827.0455
+    },
+    {
+      "id": "ing_511",
+      "name": "Hjdsj",
+      "raw_name": "hjdsj",
+      "aliases": [
+        "hjdsj"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 50000.0
+    },
+    {
+      "id": "ing_512",
+      "name": "Marine Collagen Powder",
+      "raw_name": "marine collagen powder",
+      "aliases": [
+        "collagen",
+        "collagen peptide",
+        "hydrolyzed collagen",
+        "marine collagen",
+        "marine collagen powder"
+      ],
+      "default_unit": "g",
+      "default_dose": 5,
+      "_rate": 2800.0
+    },
+    {
+      "id": "ing_513",
+      "name": "Shark Cartilage",
+      "raw_name": "Shark cartilage",
+      "aliases": [
+        "shark cartilage"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 60000.0
+    },
+    {
+      "id": "ing_514",
+      "name": "10 Billion Cfu/Gm",
+      "raw_name": "10 billion CFU/gm",
+      "aliases": [
+        "10 billion cfu/gm"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 1800.0
+    },
+    {
+      "id": "ing_515",
+      "name": "7.5 Billion Cfu/Gm",
+      "raw_name": "7.5 billion CFU/gm",
+      "aliases": [
+        "7.5 billion cfu/gm"
+      ],
+      "default_unit": "Billion CFU",
+      "default_dose": 5,
+      "_rate": 1450.0
+    },
+    {
+      "id": "ing_516",
+      "name": "Ksm-66 Ashwagandha",
+      "raw_name": "KSM-66 Ashwagandha",
+      "aliases": [
+        "ashwagandha",
+        "indian ginseng",
+        "ksm-66 (ashwagandha root extract) 60 mg",
+        "ksm-66 ashwagandha",
+        "withania somnifera"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 5200.0
+    },
+    {
+      "id": "ing_517",
+      "name": "Rice Water",
+      "raw_name": "rice water",
+      "aliases": [
+        "rice water"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 90.0
+    },
+    {
+      "id": "ing_518",
+      "name": "Opitac Glutathione",
+      "raw_name": "opitac glutathione",
+      "aliases": [
+        "glutathione",
+        "gsh",
+        "l-glutathione",
+        "l-glutathione reduced",
+        "opitac glutathione",
+        "reduced glutathione"
+      ],
+      "default_unit": "mg",
+      "default_dose": 100,
+      "_rate": 22000.0
+    }
+  ]
+}

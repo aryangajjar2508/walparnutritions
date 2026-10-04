@@ -1,0 +1,4069 @@
+{
+  "stats": {
+    "total_scans_learned": 67,
+    "total_ingredient_pairs_learned": 387,
+    "last_training_time": "2026-10-04 17:46:18",
+    "model_version": "1.0.0-auto-distilled",
+    "accuracy_confidence": 0.995
+  },
+  "learned_patterns": {
+    "vitamin c ascorbic acid": {
+      "canonical_name": "Vitamin C (Ascorbic Acid)",
+      "canonical_id": "custom",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 500 mg",
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 2.0,
+      "occurrences": 12
+    },
+    "zinc as zinc sulphate": {
+      "canonical_name": "Zinc (as Zinc Sulphate)",
+      "canonical_id": "custom",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 500 mg",
+        "Vitamin C (Ascorbic Acid) 65 mg",
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 2.0,
+      "occurrences": 14
+    },
+    "vitamin d3 cholecalciferol": {
+      "canonical_name": "Vitamin D3 (Cholecalciferol)",
+      "canonical_id": "custom",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 500 mg"
+      ],
+      "default_unit": "IU",
+      "confidence_weight": 2.0,
+      "occurrences": 10
+    },
+    "elderberry extract": {
+      "canonical_name": "Elderberry Extract",
+      "canonical_id": "custom",
+      "variations": [
+        "Elderberry Extract 150 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 2.0,
+      "occurrences": 10
+    },
+    "coenzyme q10 ubiquinol": {
+      "canonical_name": "Co-Enzyme Q10 (Ubiquinol)",
+      "canonical_id": "custom_1",
+      "variations": [
+        "Co-Enzyme Q10 (Ubiquinol) 200 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "larginine": {
+      "canonical_name": "L-Arginine",
+      "canonical_id": "custom",
+      "variations": [
+        "L-Arginine 3 gm",
+        "L-Arginine 50 mg"
+      ],
+      "default_unit": "gm",
+      "confidence_weight": 1.9000000000000008,
+      "occurrences": 9
+    },
+    "lcarnitine ltartrate": {
+      "canonical_name": "L-Carnitine L-Tartrate",
+      "canonical_id": "custom",
+      "variations": [
+        "L-Carnitine L-Tartrate 500 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "folic acid": {
+      "canonical_name": "Folic Acid",
+      "canonical_id": "ing_157",
+      "variations": [
+        "Folic Acid 0.3 mg",
+        "Folic acid 300 mcg",
+        "Folic Acid 0.5 mg",
+        "Folic Acid 25 mcg",
+        "Folic Acid 176.47 mcg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.7000000000000006,
+      "occurrences": 7
+    },
+    "zinc": {
+      "canonical_name": "Zinc",
+      "canonical_id": "custom",
+      "variations": [
+        "Zinc 12 mg",
+        "Zinc 5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.4000000000000004,
+      "occurrences": 4
+    },
+    "vitamin d3 as plant based cholecalciferol from wildharvested lichen": {
+      "canonical_name": "Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen)",
+      "canonical_id": "custom",
+      "variations": [
+        "Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen) 125 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "vitamin k2 mk7 as menaquinone": {
+      "canonical_name": "Vitamin K2 MK7 (as Menaquinone)",
+      "canonical_id": "custom",
+      "variations": [
+        "Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen) 125 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "lglutathione": {
+      "canonical_name": "L-Glutathione",
+      "canonical_id": "custom",
+      "variations": [
+        "L-Glutathione 100 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.6000000000000005,
+      "occurrences": 6
+    },
+    "alpha lipoic acid": {
+      "canonical_name": "Alpha Lipoic Acid",
+      "canonical_id": "ing_9",
+      "variations": [
+        "Alpha Lipoic Acid 100 mg",
+        "Alpha Lipoic Acid 75 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.8000000000000007,
+      "occurrences": 8
+    },
+    "vitamin c": {
+      "canonical_name": "Vitamin C",
+      "canonical_id": "custom",
+      "variations": [
+        "Vitamin C 50 mg",
+        "Vitamin C 10 mg",
+        "Vitamin C 40 mg",
+        "Vitamin C 80 mg",
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 2.0,
+      "occurrences": 14
+    },
+    "grape seed extract": {
+      "canonical_name": "Grape Seed Extract",
+      "canonical_id": "custom",
+      "variations": [
+        "Grape Seed Extract 50 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.6000000000000005,
+      "occurrences": 6
+    },
+    "opitac lglutathione reduced": {
+      "canonical_name": "Opitac™ L-Glutathione (Reduced)",
+      "canonical_id": "custom",
+      "variations": [
+        "Opitac L-Glutathione (Reduced) 100 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.5000000000000004,
+      "occurrences": 5
+    },
+    "nacetyl lcysteine": {
+      "canonical_name": "N-Acetyl L-Cysteine",
+      "canonical_id": "ing_308",
+      "variations": [
+        "N-Acetyl L-Cysteine 300 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.5000000000000004,
+      "occurrences": 5
+    },
+    "ltaurine": {
+      "canonical_name": "L-Taurine",
+      "canonical_id": "ing_241",
+      "variations": [
+        "L-Taurine 500 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.5000000000000004,
+      "occurrences": 5
+    },
+    "energy": {
+      "canonical_name": "Energy",
+      "canonical_id": "custom_5",
+      "variations": [
+        "Energy 0.76 Kcal"
+      ],
+      "default_unit": "Kcal",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "carbohydrate": {
+      "canonical_name": "Carbohydrate",
+      "canonical_id": "custom_6",
+      "variations": [
+        "Carbohydrate 0.19 g"
+      ],
+      "default_unit": "g",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "protein": {
+      "canonical_name": "Protein",
+      "canonical_id": "custom",
+      "variations": [
+        "Protein 0.0 g"
+      ],
+      "default_unit": "g",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "fat  fatty acids": {
+      "canonical_name": "Fat & Fatty Acids",
+      "canonical_id": "custom_8",
+      "variations": [
+        "Fat & Fatty Acids 0.0 g"
+      ],
+      "default_unit": "g",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "cholesterol": {
+      "canonical_name": "Cholesterol",
+      "canonical_id": "custom_9",
+      "variations": [
+        "Cholesterol 0.0 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "myo inositol": {
+      "canonical_name": "Myo Inositol",
+      "canonical_id": "ing_307",
+      "variations": [
+        "Myo Inositol 125 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "iron as ferrous sulphate": {
+      "canonical_name": "Iron (as Ferrous Sulphate)",
+      "canonical_id": "custom_3",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "choline bitartrate": {
+      "canonical_name": "Choline Bitartrate",
+      "canonical_id": "ing_80",
+      "variations": [
+        "Choline Bitartrate 25 mg",
+        "Phosphatidylcholine (S. Lecithin) 300 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "lcysteine": {
+      "canonical_name": "L-Cysteine",
+      "canonical_id": "ing_227",
+      "variations": [
+        "L-Cysteine 18 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "lmethionine": {
+      "canonical_name": "L-Methionine",
+      "canonical_id": "ing_235",
+      "variations": [
+        "L-Methionine 18 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b3 niacin": {
+      "canonical_name": "Vitamin B3 (Niacin)",
+      "canonical_id": "ing_315",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin e": {
+      "canonical_name": "Vitamin E",
+      "canonical_id": "ing_470",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg",
+        "Vitamin E 10 mg",
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.5000000000000004,
+      "occurrences": 5
+    },
+    "vitamin b5 pantothenic acid": {
+      "canonical_name": "Vitamin B5 (Pantothenic Acid)",
+      "canonical_id": "ing_328",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "d chiro inositol": {
+      "canonical_name": "D Chiro Inositol",
+      "canonical_id": "custom",
+      "variations": [
+        "Myo Inositol 125 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b2 riboflavin": {
+      "canonical_name": "Vitamin B2 (Riboflavin)",
+      "canonical_id": "ing_370",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "inositol": {
+      "canonical_name": "Inositol",
+      "canonical_id": "ing_198",
+      "variations": [
+        "Myo Inositol 125 mg",
+        "Inositol 100 mg",
+        "Inositol 2.5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.4000000000000004,
+      "occurrences": 4
+    },
+    "vitamin b6 pyridoxine": {
+      "canonical_name": "Vitamin B6 (Pyridoxine)",
+      "canonical_id": "ing_357",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "copper": {
+      "canonical_name": "Copper",
+      "canonical_id": "custom_15",
+      "variations": [
+        "Copper 1.7 mg",
+        "Copper 30 mcg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "vitamin b1 thiamine": {
+      "canonical_name": "Vitamin B1 (Thiamine)",
+      "canonical_id": "ing_465",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b9 folic acid": {
+      "canonical_name": "Vitamin B9 (Folic Acid)",
+      "canonical_id": "ing_157",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "iodine": {
+      "canonical_name": "Iodine",
+      "canonical_id": "custom_18",
+      "variations": [
+        "Iodine 0.14 mg",
+        "Iodine 100 mcg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "vitamin a beta carotene": {
+      "canonical_name": "Vitamin A (Beta Carotene)",
+      "canonical_id": "ing_464",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "chromium": {
+      "canonical_name": "Chromium",
+      "canonical_id": "custom_20",
+      "variations": [
+        "Chromium 0.05 mg",
+        "Chromium 5 mcg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "selenium": {
+      "canonical_name": "Selenium",
+      "canonical_id": "ing_409",
+      "variations": [
+        "Selenium 0.04 mg",
+        "Selenium 40 mcg",
+        "Selenium 10 mcg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.4000000000000004,
+      "occurrences": 4
+    },
+    "vitamin b12 cyanocobalamin": {
+      "canonical_name": "Vitamin B12 (Cyanocobalamin)",
+      "canonical_id": "ing_296",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b7 biotin": {
+      "canonical_name": "Vitamin B7 (Biotin)",
+      "canonical_id": "ing_37",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin d cholecalciferol": {
+      "canonical_name": "Vitamin D (Cholecalciferol)",
+      "canonical_id": "ing_468",
+      "variations": [
+        "Vitamin C (Ascorbic Acid) 65 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "potassium magnesium citrate": {
+      "canonical_name": "Potassium Magnesium Citrate",
+      "canonical_id": "ing_345",
+      "variations": [
+        "Potassium Magnesium Citrate 978 mg",
+        "Potassium Magnesium Citrate 975 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "dmannose": {
+      "canonical_name": "D-Mannose",
+      "canonical_id": "ing_120",
+      "variations": [
+        "D-Mannose 300 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "cranberry extract": {
+      "canonical_name": "Cranberry Extract",
+      "canonical_id": "ing_109",
+      "variations": [
+        "Cranberry Extract 200 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "folliflora complex": {
+      "canonical_name": "Folliflora Complex",
+      "canonical_id": "custom_1",
+      "variations": [
+        "FolliFlora Complex 340 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "fembalance complex": {
+      "canonical_name": "Fembalance Complex",
+      "canonical_id": "custom_2",
+      "variations": [
+        "FolliFlora Complex 340 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "solubilized keratin": {
+      "canonical_name": "Solubilized Keratin",
+      "canonical_id": "custom_3",
+      "variations": [
+        "Solubilized Keratin 25 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "bamboo extract bambusa vulgaris": {
+      "canonical_name": "Bamboo Extract (Bambusa Vulgaris)",
+      "canonical_id": "custom_4",
+      "variations": [
+        "Bamboo Extract (Bambusa vulgaris) 25 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "lycopene": {
+      "canonical_name": "Lycopene",
+      "canonical_id": "custom_5",
+      "variations": [
+        "Lycopene 10 mg",
+        "Lycopene 1000 mcg",
+        "Lycopene 75 mcg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.5000000000000004,
+      "occurrences": 5
+    },
+    "vitamin c as ascorbic acid": {
+      "canonical_name": "Vitamin C (as Ascorbic Acid)",
+      "canonical_id": "ing_20",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin e as dalpha tocopherol": {
+      "canonical_name": "Vitamin E (as D-Alpha Tocopherol)",
+      "canonical_id": "ing_470",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b1as thiamine hydrochloride": {
+      "canonical_name": "Vitamin B1(as Thiamine Hydrochloride)",
+      "canonical_id": "ing_465",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b2 as riboflavin 5 phosphate": {
+      "canonical_name": "Vitamin B2 (as Riboflavin 5 Phosphate)",
+      "canonical_id": "ing_370",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b3 as nicotinamide": {
+      "canonical_name": "Vitamin B3 (as Nicotinamide)",
+      "canonical_id": "ing_315",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b5 as dpnthenol": {
+      "canonical_name": "Vitamin B5 (as D-Pnthenol)",
+      "canonical_id": "ing_328",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b6 as pyridoxine hydrochloride": {
+      "canonical_name": "Vitamin B6 (as Pyridoxine Hydrochloride)",
+      "canonical_id": "ing_357",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin a palmitate": {
+      "canonical_name": "Vitamin A Palmitate",
+      "canonical_id": "ing_464",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "IU",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b9 as folic acid": {
+      "canonical_name": "Vitamin B9 (as Folic Acid)",
+      "canonical_id": "ing_157",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin d as cholecalciferol": {
+      "canonical_name": "Vitamin D (as Cholecalciferol)",
+      "canonical_id": "ing_468",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "IU",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b12 as cyanocobalamin": {
+      "canonical_name": "Vitamin B12 (as Cyanocobalamin)",
+      "canonical_id": "ing_296",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "iron as ferrous fumarate": {
+      "canonical_name": "Iron (as Ferrous Fumarate)",
+      "canonical_id": "ing_154",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "manganese as manganese sulphate": {
+      "canonical_name": "Manganese (as Manganese Sulphate)",
+      "canonical_id": "custom_14",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "iodine as potassium iodide": {
+      "canonical_name": "Iodine (as Potassium Iodide)",
+      "canonical_id": "ing_344",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "copper as copper sulphate": {
+      "canonical_name": "Copper (as Copper Sulphate)",
+      "canonical_id": "ing_101",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "selenium as sodium selenite": {
+      "canonical_name": "Selenium (as Sodium Selenite)",
+      "canonical_id": "ing_409",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "chromium as chromium picolinate": {
+      "canonical_name": "Chromium (as Chromium Picolinate)",
+      "canonical_id": "ing_82",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "molybdenum sodium molybdate dehydrate": {
+      "canonical_name": "Molybdenum (Sodium Molybdate Dehydrate)",
+      "canonical_id": "custom_19",
+      "variations": [
+        "Molybdenum (Sodium molybdate dehydrate) 5 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "llysine as llysine hcl": {
+      "canonical_name": "L-Lysine (as L-Lysine HCL)",
+      "canonical_id": "ing_234",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "ltyrosine": {
+      "canonical_name": "L-Tyrosine",
+      "canonical_id": "ing_244",
+      "variations": [
+        "L-Tyrosine 100 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "magnesium as magnesium oxide": {
+      "canonical_name": "Magnesium (as Magnesium Oxide)",
+      "canonical_id": "ing_273",
+      "variations": [
+        "Magnesium (as Magnesium Oxide) 90 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "zinc as zinc oxide": {
+      "canonical_name": "Zinc (as Zinc Oxide)",
+      "canonical_id": "ing_509",
+      "variations": [
+        "Magnesium (as Magnesium Oxide) 90 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin b6": {
+      "canonical_name": "Vitamin B6",
+      "canonical_id": "ing_357",
+      "variations": [
+        "Vitamin B6 2.4 mg",
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "vitamin d3": {
+      "canonical_name": "Vitamin D3",
+      "canonical_id": "ing_468",
+      "variations": [
+        "Vitamin D3 4000 IU",
+        "Vitamin D3 125 mcg",
+        "Vitamin D3 400 IU",
+        "Vitamin D3 600 IU",
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "IU",
+      "confidence_weight": 2.0,
+      "occurrences": 14
+    },
+    "vitamin k2": {
+      "canonical_name": "Vitamin K2",
+      "canonical_id": "ing_471",
+      "variations": [
+        "Vitamin D3 4000 IU"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "lactobacillus acidophilus": {
+      "canonical_name": "Lactobacillus Acidophilus",
+      "canonical_id": "ing_253",
+      "variations": [
+        "Lactobacillus acidophilus 4 Billion CFU"
+      ],
+      "default_unit": "Billion CFU",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "lactobacillus rhamnosus": {
+      "canonical_name": "Lactobacillus Rhamnosus",
+      "canonical_id": "ing_253",
+      "variations": [
+        "Lactobacillus acidophilus 4 Billion CFU"
+      ],
+      "default_unit": "Billion CFU",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "lactobacillus casei": {
+      "canonical_name": "Lactobacillus Casei",
+      "canonical_id": "ing_253",
+      "variations": [
+        "Lactobacillus acidophilus 4 Billion CFU"
+      ],
+      "default_unit": "Billion CFU",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "lactobacillus plantarum": {
+      "canonical_name": "Lactobacillus Plantarum",
+      "canonical_id": "ing_252",
+      "variations": [
+        "Lactobacillus acidophilus 4 Billion CFU"
+      ],
+      "default_unit": "Billion CFU",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "bifidobacterium bifidum": {
+      "canonical_name": "Bifidobacterium Bifidum",
+      "canonical_id": "ing_35",
+      "variations": [
+        "Bifidobacterium bifidum 5 Billion CFU"
+      ],
+      "default_unit": "Billion CFU",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "bifidobacterium longum": {
+      "canonical_name": "Bifidobacterium Longum",
+      "canonical_id": "ing_35",
+      "variations": [
+        "Bifidobacterium bifidum 5 Billion CFU"
+      ],
+      "default_unit": "Billion CFU",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "bifidobacterium infantis": {
+      "canonical_name": "Bifidobacterium Infantis",
+      "canonical_id": "ing_35",
+      "variations": [
+        "Bifidobacterium bifidum 5 Billion CFU"
+      ],
+      "default_unit": "Billion CFU",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "fructooligosaccharides fos": {
+      "canonical_name": "Fructo-Oligosaccharides (Fos)",
+      "canonical_id": "ing_158",
+      "variations": [
+        "Fructo-oligosaccharides (FOS) 250 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "myoinositol": {
+      "canonical_name": "Myo-Inositol",
+      "canonical_id": "ing_307",
+      "variations": [
+        "Myo-Inositol 400 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "dchiroinositol": {
+      "canonical_name": "D-Chiro-inositol",
+      "canonical_id": "ing_198",
+      "variations": [
+        "D-Chiro-Inositol 10 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "vitex chaste tree extract": {
+      "canonical_name": "Vitex (Chaste Tree) Extract",
+      "canonical_id": "custom_3",
+      "variations": [
+        "Vitex (Chaste Tree) Extract 80 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "ksm66 ashwagandha root extract": {
+      "canonical_name": "Ksm-66® (Ashwagandha Root Extract)",
+      "canonical_id": "ing_516",
+      "variations": [
+        "KSM-66 (Ashwagandha Root Extract) 60 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "chromium picolinate": {
+      "canonical_name": "Chromium Picolinate",
+      "canonical_id": "ing_82",
+      "variations": [
+        "Chromium Picolinate 200 mcg",
+        "Chromium picolinate 50 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin k2 mk7": {
+      "canonical_name": "Vitamin K2 Mk7",
+      "canonical_id": "ing_471",
+      "variations": [
+        "Vitamin D3 125 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "calcium carbonate from coral grains equivalent to elemental calcium": {
+      "canonical_name": "Calcium Carbonate (from Coral Grains) Equivalent To Elemental Calcium",
+      "canonical_id": "ing_57",
+      "variations": [
+        "Calcium Carbonate (from CORAL GRAINS) Equivalent to elemental calcium 250 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "epa eicosapentaenoic acid": {
+      "canonical_name": "Epa (Eicosapentaenoic Acid)",
+      "canonical_id": "custom_1",
+      "variations": [
+        "EPA (Eicosapentaenoic acid) 360 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "dha docosahexaenoic acid": {
+      "canonical_name": "Dha (Docosahexaenoic Acid)",
+      "canonical_id": "ing_125",
+      "variations": [
+        "EPA (Eicosapentaenoic acid) 360 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "wheat germ oil": {
+      "canonical_name": "Wheat Germ Oil",
+      "canonical_id": "custom_3",
+      "variations": [
+        "Wheat germ oil 100 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "grape seed oil": {
+      "canonical_name": "Grape Seed Oil",
+      "canonical_id": "custom_4",
+      "variations": [
+        "Wheat germ oil 100 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "phosphatidylcholine s lecithin": {
+      "canonical_name": "Phosphatidylcholine (S. Lecithin)",
+      "canonical_id": "custom_1",
+      "variations": [
+        "Phosphatidylcholine (S. Lecithin) 300 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "silymarin": {
+      "canonical_name": "Silymarin",
+      "canonical_id": "custom_2",
+      "variations": [
+        "Silymarin 140 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "coq10": {
+      "canonical_name": "CoQ10",
+      "canonical_id": "custom",
+      "variations": [
+        "CoQ10 50 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "lornithine": {
+      "canonical_name": "L-Ornithine",
+      "canonical_id": "ing_238",
+      "variations": [
+        "L-Ornithine 50 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "curcumin extract 95": {
+      "canonical_name": "Curcumin Extract 95%",
+      "canonical_id": "ing_450",
+      "variations": [
+        "Curcumin Extract 95% 500 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "piperine black pepper extract 95": {
+      "canonical_name": "Piperine (Black Pepper Extract 95%)",
+      "canonical_id": "ing_336",
+      "variations": [
+        "Curcumin Extract 95% 500 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "ginger extract": {
+      "canonical_name": "Ginger Extract",
+      "canonical_id": "ing_165",
+      "variations": [
+        "Curcumin Extract 95% 500 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "glucosamine sulphate": {
+      "canonical_name": "Glucosamine Sulphate",
+      "canonical_id": "ing_169",
+      "variations": [
+        "Glucosamine Sulphate 750 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "chondroitin sulphate": {
+      "canonical_name": "Chondroitin Sulphate",
+      "canonical_id": "ing_81",
+      "variations": [
+        "Glucosamine Sulphate 750 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "methylsulfonylmethane msm": {
+      "canonical_name": "Methylsulfonylmethane (Msm)",
+      "canonical_id": "ing_295",
+      "variations": [
+        "Methylsulfonylmethane (MSM) 500 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "boswellia serrata extract": {
+      "canonical_name": "Boswellia Serrata Extract",
+      "canonical_id": "ing_49",
+      "variations": [
+        "Boswellia Serrata Extract 250 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "calcium carbonate from coral grains": {
+      "canonical_name": "Calcium Carbonate (from Coral Grains)",
+      "canonical_id": "ing_57",
+      "variations": [
+        "Calcium Carbonate (from CORAL GRAINS) 250 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "magnesium bisglycinate": {
+      "canonical_name": "Magnesium Bisglycinate",
+      "canonical_id": "ing_267",
+      "variations": [
+        "Magnesium Bisglycinate 856 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.7000000000000006,
+      "occurrences": 7
+    },
+    "magnesium l threonate": {
+      "canonical_name": "Magnesium L Threonate",
+      "canonical_id": "ing_272",
+      "variations": [
+        "Magnesium Bisglycinate 856 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.7000000000000006,
+      "occurrences": 7
+    },
+    "magnesium acetyl taurate": {
+      "canonical_name": "Magnesium Acetyl Taurate",
+      "canonical_id": "ing_277",
+      "variations": [
+        "Magnesium Bisglycinate 856 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.7000000000000006,
+      "occurrences": 7
+    },
+    "pyridoxine": {
+      "canonical_name": "Pyridoxine",
+      "canonical_id": "custom",
+      "variations": [
+        "Pyridoxine 2.4 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.7000000000000006,
+      "occurrences": 7
+    },
+    "sodium": {
+      "canonical_name": "Sodium",
+      "canonical_id": "custom_1",
+      "variations": [
+        "Sodium 50 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "copper  as copper sulphate": {
+      "canonical_name": "Copper ( as Copper Sulphate)",
+      "canonical_id": "ing_117",
+      "variations": [
+        "Zinc (as Zinc Sulphate) 10 mg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "selenium as sodium selenate": {
+      "canonical_name": "Selenium (as Sodium Selenate)",
+      "canonical_id": "ing_483",
+      "variations": [
+        "Vitamin C (as Ascorbic Acid) 20 mg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "amla extract": {
+      "canonical_name": "Amla Extract",
+      "canonical_id": "ing_20",
+      "variations": [
+        "Amla extract 420 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "pyridoxine hydrochloride": {
+      "canonical_name": "Pyridoxine Hydrochloride",
+      "canonical_id": "ing_564",
+      "variations": [
+        "Pyridoxine Hydrochloride 2.4 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "nicotinamide": {
+      "canonical_name": "Nicotinamide",
+      "canonical_id": "ing_372",
+      "variations": [
+        "Nicotinamide 18 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "ferrous bisglycinate": {
+      "canonical_name": "Ferrous Bisglycinate",
+      "canonical_id": "ing_182",
+      "variations": [
+        "Ferrous Bisglycinate 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "cyanocobalamin": {
+      "canonical_name": "Cyanocobalamin",
+      "canonical_id": "ing_140",
+      "variations": [
+        "Cyanocobalamin 2.5 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "zinc sulphate": {
+      "canonical_name": "Zinc Sulphate",
+      "canonical_id": "ing_601",
+      "variations": [
+        "Zinc sulphate 22.5 mg",
+        "Zinc Sulphate 25 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.3000000000000003,
+      "occurrences": 3
+    },
+    "broccoli sprout extract": {
+      "canonical_name": "Broccoli Sprout Extract",
+      "canonical_id": "ing_63",
+      "variations": [
+        "Broccoli Sprout Extract 400 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "betacarotene 10": {
+      "canonical_name": "Betacarotene (10%)",
+      "canonical_id": "ing_41",
+      "variations": [
+        "Betacarotene (10%) 40 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "vitamin e 50 dry powder": {
+      "canonical_name": "Vitamin E (50% Dry Powder)",
+      "canonical_id": "ing_570",
+      "variations": [
+        "Vitamin E (50% Dry Powder) 10 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "astaxanthin 1": {
+      "canonical_name": "Astaxanthin (1%)",
+      "canonical_id": "ing_29",
+      "variations": [
+        "Astaxanthin (1%) 8 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "agmatine sulphate": {
+      "canonical_name": "Agmatine Sulphate",
+      "canonical_id": "ing_9",
+      "variations": [
+        "Agmatine sulphate 500 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "cytidine monophosphate": {
+      "canonical_name": "Cytidine Monophosphate",
+      "canonical_id": "ing_141",
+      "variations": [
+        "Cytidine monophosphate 2.5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "palmitoylethanolamide": {
+      "canonical_name": "Palmitoylethanolamide",
+      "canonical_id": "ing_388",
+      "variations": [
+        "Palmitoylethanolamide 300 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "uridine monophosphate": {
+      "canonical_name": "Uridine Monophosphate",
+      "canonical_id": "ing_532",
+      "variations": [
+        "Cytidine monophosphate 2.5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "ferrous ascorbate equivalent to elemental iron": {
+      "canonical_name": "Ferrous Ascorbate Equivalent To Elemental Iron",
+      "canonical_id": "ing_181",
+      "variations": [
+        "Ferrous Ascorbate Equivalent to Elemental Iron 30 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "liposomal iron as ferric pyrophosphate": {
+      "canonical_name": "Liposomal Iron (as Ferric Pyrophosphate)",
+      "canonical_id": "ing_307",
+      "variations": [
+        "Liposomal Iron (As Ferric Pyrophosphate) 10 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "llysine": {
+      "canonical_name": "L-Lysine",
+      "canonical_id": "custom_3",
+      "variations": [
+        "L-Lysine 70 mg",
+        "L-Lysine 5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.2000000000000002,
+      "occurrences": 2
+    },
+    "ferric iron": {
+      "canonical_name": "Ferric Iron",
+      "canonical_id": "custom_1",
+      "variations": [
+        "Ferric Iron 210 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "ferric citrate": {
+      "canonical_name": "Ferric Citrate",
+      "canonical_id": "custom_2",
+      "variations": [
+        "Ferric Iron 210 mg"
+      ],
+      "default_unit": "g",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "vitamin b3": {
+      "canonical_name": "Vitamin B3",
+      "canonical_id": "ing_569",
+      "variations": [
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "vitamin b5": {
+      "canonical_name": "Vitamin B5",
+      "canonical_id": "ing_563",
+      "variations": [
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "vitamin b2": {
+      "canonical_name": "Vitamin B2",
+      "canonical_id": "ing_562",
+      "variations": [
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "vitamin b1": {
+      "canonical_name": "Vitamin B1",
+      "canonical_id": "ing_561",
+      "variations": [
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "vitamin a": {
+      "canonical_name": "Vitamin A",
+      "canonical_id": "ing_559",
+      "variations": [
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "IU",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "biotin": {
+      "canonical_name": "Biotin",
+      "canonical_id": "ing_143",
+      "variations": [
+        "Biotin 10 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "vitamin b12": {
+      "canonical_name": "Vitamin B12",
+      "canonical_id": "ing_354",
+      "variations": [
+        "Vitamin C 20 mg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "magnesium": {
+      "canonical_name": "Magnesium",
+      "canonical_id": "ing_318",
+      "variations": [
+        "Magnesium 5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "iron": {
+      "canonical_name": "Iron",
+      "canonical_id": "custom_15",
+      "variations": [
+        "Iron 2 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "manganese": {
+      "canonical_name": "Manganese",
+      "canonical_id": "custom_16",
+      "variations": [
+        "Manganese 0.5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "potassium": {
+      "canonical_name": "Potassium",
+      "canonical_id": "custom_18",
+      "variations": [
+        "Potassium 33 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "molybdenum": {
+      "canonical_name": "Molybdenum",
+      "canonical_id": "custom_21",
+      "variations": [
+        "Molybdenum 5 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "lleucine": {
+      "canonical_name": "L-Leucine",
+      "canonical_id": "ing_273",
+      "variations": [
+        "L-Leucine 1 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "dlmethionine": {
+      "canonical_name": "Dl-Methionine",
+      "canonical_id": "ing_159",
+      "variations": [
+        "DL-Methionine 0.5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "lhistidine": {
+      "canonical_name": "L-Histidine",
+      "canonical_id": "custom_26",
+      "variations": [
+        "L-Histidine 1 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "lisoleucine": {
+      "canonical_name": "L-Isoleucine",
+      "canonical_id": "ing_272",
+      "variations": [
+        "L-Isoleucine 0.5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "lphenylalanine": {
+      "canonical_name": "L-Phenylalanine",
+      "canonical_id": "ing_278",
+      "variations": [
+        "L-Phenylalanine 0.5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "ltryptophan": {
+      "canonical_name": "L-Tryptophan",
+      "canonical_id": "ing_284",
+      "variations": [
+        "L-Tryptophan 0.5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "taurine": {
+      "canonical_name": "Taurine",
+      "canonical_id": "ing_281",
+      "variations": [
+        "Taurine 2.5 mg"
+      ],
+      "default_unit": "mg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    },
+    "choline": {
+      "canonical_name": "Choline",
+      "canonical_id": "custom_33",
+      "variations": [
+        "Choline 20 mcg"
+      ],
+      "default_unit": "mcg",
+      "confidence_weight": 1.1,
+      "occurrences": 1
+    }
+  },
+  "records": [
+    {
+      "image": "sample_immunity_booster.png",
+      "timestamp": "2026-09-23 13:30:44",
+      "items_count": 4,
+      "teacher": "Google Gemini 2.5 Flash",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "sample_immunity_booster.png",
+      "timestamp": "2026-09-23 13:35:10",
+      "items_count": 4,
+      "teacher": "Google Gemini 2.5 Flash",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "912760a3c4_WhatsApp Image 2026-09-23 at 13.00.04 (1).jpeg",
+      "timestamp": "2026-09-23 13:47:21",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Co-Enzyme Q10 (Ubiquinol)",
+          "dosage": 200,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Arginine",
+          "dosage": 3,
+          "unit": "gm"
+        },
+        {
+          "name": "L-Carnitine L-Tartrate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Folic Acid",
+          "dosage": 0.3,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc",
+          "dosage": 12,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "sample_immunity_booster.png",
+      "timestamp": "2026-09-23 14:14:28",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "60f7e23699_sample_immunity_booster.png",
+      "timestamp": "2026-09-23 14:18:02",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "c3b1ccc0681d_WhatsApp_Image__1____test.png",
+      "timestamp": "2026-09-23 14:22:54",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "c6e6bcd581c7_Customer_Formula_Photo__Label_.png",
+      "timestamp": "2026-09-23 14:24:09",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "be3caa802cf9_Customer_Formula_Photo__Label_.png",
+      "timestamp": "2026-09-23 14:28:44",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "468c69ab38cf_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-23 14:29:33",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Co-Enzyme Q10 (Ubiquinol)",
+          "dosage": 200,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Arginine",
+          "dosage": 3,
+          "unit": "gm"
+        },
+        {
+          "name": "L-Carnitine L-Tartrate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Folic Acid",
+          "dosage": 0.3,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc",
+          "dosage": 12,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "eeaf1dbf62be_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-23 14:29:58",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen)",
+          "dosage": 125,
+          "unit": "mcg"
+        },
+        {
+          "name": "Vitamin K2 MK7 (as Menaquinone)",
+          "dosage": 120,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "7416bec82acb_mobile_photo.jpg",
+      "timestamp": "2026-09-23 14:32:06",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "1a067fb7760c_phone_scan.jpg",
+      "timestamp": "2026-09-23 14:44:59",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "e302436f7b56_179015625844761119672557577453.jpg",
+      "timestamp": "2026-09-23 15:08:21",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "L-Glutathione",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "Grape Seed Extract",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Arginine",
+          "dosage": 50,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "4681e49c180f_179015644537517048914996188283.jpg",
+      "timestamp": "2026-09-23 15:11:10",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "L-Glutathione",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "Grape Seed Extract",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Arginine",
+          "dosage": 50,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "9bc5c8c93c3c_179015653479035156587158112311.jpg",
+      "timestamp": "2026-09-23 15:13:01",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "L-Glutathione",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "Grape Seed Extract",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Arginine",
+          "dosage": 50,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "24354534130f_20260924_150111.jpg",
+      "timestamp": "2026-09-24 15:35:15",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Opitac™ L-Glutathione (Reduced)",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "N-Acetyl L-Cysteine",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Taurine",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 10,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "39f08fcd9b51_formula_upload.jpg",
+      "timestamp": "2026-09-24 15:36:04",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Co-Enzyme Q10 (Ubiquinol)",
+          "dosage": 200,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Arginine",
+          "dosage": 3,
+          "unit": "gm"
+        },
+        {
+          "name": "L-Carnitine L-Tartrate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Folic Acid",
+          "dosage": 0.3,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc",
+          "dosage": 12,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "ce9f19711a27_20260924_150111.jpg",
+      "timestamp": "2026-09-24 16:07:19",
+      "items_count": 9,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Opitac™ L-Glutathione (Reduced)",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "N-Acetyl L-Cysteine",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Taurine",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 10,
+          "unit": "mg"
+        },
+        {
+          "name": "Energy",
+          "dosage": 0.76,
+          "unit": "Kcal"
+        },
+        {
+          "name": "Carbohydrate",
+          "dosage": 0.19,
+          "unit": "g"
+        },
+        {
+          "name": "Protein",
+          "dosage": 0.0,
+          "unit": "g"
+        },
+        {
+          "name": "Fat & Fatty Acids",
+          "dosage": 0.0,
+          "unit": "g"
+        },
+        {
+          "name": "Cholesterol",
+          "dosage": 0.0,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "b0ec2a9ce8df_20260923_131911.jpg",
+      "timestamp": "2026-09-24 16:09:30",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "L-Glutathione",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "Grape Seed Extract",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Arginine",
+          "dosage": 50,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "067589e4e2fc_user_photo.png",
+      "timestamp": "2026-09-24 16:34:34",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "L-Glutathione",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "Grape Seed Extract",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Arginine",
+          "dosage": 50,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "53799f6e35eb_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-24 17:05:49",
+      "items_count": 24,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Myo Inositol",
+          "dosage": 125,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 65,
+          "unit": "mg"
+        },
+        {
+          "name": "Iron (As Ferrous Sulphate)",
+          "dosage": 29,
+          "unit": "mg"
+        },
+        {
+          "name": "Choline Bitartrate",
+          "dosage": 25,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Cysteine",
+          "dosage": 18,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Methionine",
+          "dosage": 18,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B3 (Niacin)",
+          "dosage": 14,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (As Zinc Sulphate)",
+          "dosage": 13.2,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin E",
+          "dosage": 7.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B5 (Pantothenic Acid)",
+          "dosage": 5,
+          "unit": "mg"
+        },
+        {
+          "name": "D Chiro Inositol",
+          "dosage": 3.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B2 (Riboflavin)",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Inositol",
+          "dosage": 2,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B6 (Pyridoxine)",
+          "dosage": 1.9,
+          "unit": "mg"
+        },
+        {
+          "name": "Copper",
+          "dosage": 1.7,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B1 (Thiamine)",
+          "dosage": 1.7,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B9 (Folic acid)",
+          "dosage": 0.22,
+          "unit": "mg"
+        },
+        {
+          "name": "Iodine",
+          "dosage": 0.14,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin A (Beta Carotene)",
+          "dosage": 0.1,
+          "unit": "mg"
+        },
+        {
+          "name": "Chromium",
+          "dosage": 0.05,
+          "unit": "mg"
+        },
+        {
+          "name": "Selenium",
+          "dosage": 0.04,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B12 (Cyanocobalamin)",
+          "dosage": 0.0022,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B7 (Biotin)",
+          "dosage": 0.03,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D (Cholecalciferol)",
+          "dosage": 0.015,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "d5bfa5bf6099_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-24 17:06:22",
+      "items_count": 3,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Potassium Magnesium Citrate",
+          "dosage": 978,
+          "unit": "mg"
+        },
+        {
+          "name": "D-Mannose",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "Cranberry Extract",
+          "dosage": 200,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "5a1026c2b939_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-26 15:15:01",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "FolliFlora Complex",
+          "dosage": 340,
+          "unit": "mg"
+        },
+        {
+          "name": "FemBalance Complex",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "Solubilized Keratin",
+          "dosage": 25,
+          "unit": "mg"
+        },
+        {
+          "name": "Bamboo Extract (Bambusa vulgaris)",
+          "dosage": 25,
+          "unit": "mg"
+        },
+        {
+          "name": "Lycopene",
+          "dosage": 10,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "f3143b86fa0b_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-26 15:32:40",
+      "items_count": 21,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (as Ascorbic Acid)",
+          "dosage": 20,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin E (as D-alpha Tocopherol)",
+          "dosage": 2.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B1(as Thiamine Hydrochloride)",
+          "dosage": 1.25,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B2 (as Riboflavin 5 Phosphate)",
+          "dosage": 2.1,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B3 (as Nicotinamide)",
+          "dosage": 15,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B5 (as D-Pnthenol)",
+          "dosage": 2.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B6 (as Pyridoxine hydrochloride)",
+          "dosage": 1,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin A Palmitate",
+          "dosage": 1250,
+          "unit": "IU"
+        },
+        {
+          "name": "Vitamin B9 (as Folic Acid)",
+          "dosage": 200,
+          "unit": "mcg"
+        },
+        {
+          "name": "Vitamin D (as Cholecalciferol)",
+          "dosage": 400,
+          "unit": "IU"
+        },
+        {
+          "name": "Vitamin B12 (as Cyanocobalamin)",
+          "dosage": 1,
+          "unit": "mcg"
+        },
+        {
+          "name": "Iron (as ferrous fumarate)",
+          "dosage": 2,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 10,
+          "unit": "mg"
+        },
+        {
+          "name": "Manganese (as Manganese Sulphate)",
+          "dosage": 0.8,
+          "unit": "mg"
+        },
+        {
+          "name": "Iodine (as Potassium Iodide)",
+          "dosage": 50,
+          "unit": "mcg"
+        },
+        {
+          "name": "Copper (as copper sulphate)",
+          "dosage": 25,
+          "unit": "mcg"
+        },
+        {
+          "name": "Selenium (as Sodium Selenite)",
+          "dosage": 20,
+          "unit": "mcg"
+        },
+        {
+          "name": "Chromium (as Chromium picolinate)",
+          "dosage": 5,
+          "unit": "mcg"
+        },
+        {
+          "name": "Molybdenum (Sodium molybdate dehydrate)",
+          "dosage": 5,
+          "unit": "mcg"
+        },
+        {
+          "name": "L-Lysine (as L-Lysine hcl)",
+          "dosage": 75,
+          "unit": "mg"
+        },
+        {
+          "name": "Lycopene",
+          "dosage": 1000,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "95c672249652_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-26 15:38:38",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen)",
+          "dosage": 125,
+          "unit": "mcg"
+        },
+        {
+          "name": "Vitamin K2 MK7 (as Menaquinone)",
+          "dosage": 120,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "7dcf33b14611_179041745831370434798468317026.jpg",
+      "timestamp": "2026-09-26 15:42:45",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "L-Tyrosine",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium (as Magnesium Oxide)",
+          "dosage": 90,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Oxide)",
+          "dosage": 17,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B6",
+          "dosage": 2.4,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "07d2b8942bdd_20260926_154700.jpg",
+      "timestamp": "2026-09-26 15:47:35",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin D3",
+          "dosage": 4000,
+          "unit": "IU"
+        },
+        {
+          "name": "Vitamin K2",
+          "dosage": 80,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "8053a98b0978_20260926_154858.jpg",
+      "timestamp": "2026-09-26 15:50:04",
+      "items_count": 8,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Lactobacillus acidophilus",
+          "dosage": 4,
+          "unit": "Billion CFU"
+        },
+        {
+          "name": "Lactobacillus rhamnosus",
+          "dosage": 2,
+          "unit": "Billion CFU"
+        },
+        {
+          "name": "Lactobacillus casei",
+          "dosage": 2,
+          "unit": "Billion CFU"
+        },
+        {
+          "name": "Lactobacillus plantarum",
+          "dosage": 2,
+          "unit": "Billion CFU"
+        },
+        {
+          "name": "Bifidobacterium bifidum",
+          "dosage": 5,
+          "unit": "Billion CFU"
+        },
+        {
+          "name": "Bifidobacterium longum",
+          "dosage": 5,
+          "unit": "Billion CFU"
+        },
+        {
+          "name": "Bifidobacterium infantis",
+          "dosage": 5,
+          "unit": "Billion CFU"
+        },
+        {
+          "name": "Fructo-oligosaccharides (FOS)",
+          "dosage": 250,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "d1ed6fcbea60_20260926_155301.jpg",
+      "timestamp": "2026-09-26 15:53:57",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Myo-Inositol",
+          "dosage": 400,
+          "unit": "mg"
+        },
+        {
+          "name": "D-Chiro-Inositol",
+          "dosage": 10,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitex (Chaste Tree) Extract",
+          "dosage": 80,
+          "unit": "mg"
+        },
+        {
+          "name": "KSM-66® (Ashwagandha Root Extract)",
+          "dosage": 60,
+          "unit": "mg"
+        },
+        {
+          "name": "Chromium Picolinate",
+          "dosage": 200,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "2fe0c2dffd04_179041851549417959554581197227.jpg",
+      "timestamp": "2026-09-26 15:59:17",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "L-Glutathione",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "Grape Seed Extract",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Arginine",
+          "dosage": 50,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "ec9ab62e33e3_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-27 13:01:02",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin D3",
+          "dosage": 125,
+          "unit": "mcg"
+        },
+        {
+          "name": "Vitamin K2 MK7",
+          "dosage": 120,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "7bfbfcb19008_WhatsApp_Image_2026-09-27_at_1.jpeg",
+      "timestamp": "2026-09-27 14:12:42",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Calcium Carbonate (from CORAL GRAINS) Equivalent to elemental calcium",
+          "dosage": 250,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 400,
+          "unit": "IU"
+        }
+      ]
+    },
+    {
+      "image": "5eaea2987caa_WhatsApp_Image_2026-09-27_at_1.jpeg",
+      "timestamp": "2026-09-27 14:34:51",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "EPA (Eicosapentaenoic acid)",
+          "dosage": 360,
+          "unit": "mg"
+        },
+        {
+          "name": "DHA (Docosahexaenoic acid)",
+          "dosage": 240,
+          "unit": "mg"
+        },
+        {
+          "name": "Wheat germ oil",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Grape seed oil",
+          "dosage": 15,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin E",
+          "dosage": 10,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "8c600ecbd7cd_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-28 23:42:05",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin D3 (as Plant based Cholecalciferol from Wild-harvested Lichen)",
+          "dosage": 125,
+          "unit": "mcg"
+        },
+        {
+          "name": "Vitamin K2 MK7 (as Menaquinone)",
+          "dosage": 120,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "aae4431b708d_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-28 23:59:31",
+      "items_count": 24,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Myo Inositol",
+          "dosage": 125,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 65,
+          "unit": "mg"
+        },
+        {
+          "name": "Iron (As Ferrous Sulphate)",
+          "dosage": 29,
+          "unit": "mg"
+        },
+        {
+          "name": "Choline Bitartrate",
+          "dosage": 25,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Cysteine",
+          "dosage": 18,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Methionine",
+          "dosage": 18,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B3 (Niacin)",
+          "dosage": 14,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (As Zinc Sulphate)",
+          "dosage": 13.2,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin E",
+          "dosage": 7.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B5 (Pantothenic Acid)",
+          "dosage": 5,
+          "unit": "mg"
+        },
+        {
+          "name": "D Chiro Inositol",
+          "dosage": 3.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B2 (Riboflavin)",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Inositol",
+          "dosage": 2,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B6 (Pyridoxine)",
+          "dosage": 1.9,
+          "unit": "mg"
+        },
+        {
+          "name": "Copper",
+          "dosage": 1.7,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B1 (Thiamine)",
+          "dosage": 1.7,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B9 (Folic acid)",
+          "dosage": 0.22,
+          "unit": "mg"
+        },
+        {
+          "name": "Iodine",
+          "dosage": 0.14,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin A (Beta Carotene)",
+          "dosage": 0.1,
+          "unit": "mg"
+        },
+        {
+          "name": "Chromium",
+          "dosage": 0.05,
+          "unit": "mg"
+        },
+        {
+          "name": "Selenium",
+          "dosage": 0.04,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B12 (Cyanocobalamin)",
+          "dosage": 0.0022,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B7 (Biotin)",
+          "dosage": 0.03,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D (Cholecalciferol)",
+          "dosage": 0.015,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "bd6b0090cb04_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-29 00:00:20",
+      "items_count": 7,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Phosphatidylcholine (S. Lecithin)",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "Silymarin",
+          "dosage": 140,
+          "unit": "mg"
+        },
+        {
+          "name": "Inositol",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "CoQ10",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "Choline Bitartrate",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 40,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Ornithine",
+          "dosage": 50,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "2c7255cb0180_sample_curcumin_synergy.png",
+      "timestamp": "2026-09-29 00:30:45",
+      "items_count": 3,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Curcumin Extract 95%",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Piperine (Black Pepper Extract 95%)",
+          "dosage": 5,
+          "unit": "mg"
+        },
+        {
+          "name": "Ginger Extract",
+          "dosage": 100,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "8f3f253f5e3b_sample_curcumin_synergy.png",
+      "timestamp": "2026-09-29 00:32:48",
+      "items_count": 3,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Curcumin Extract 95%",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Piperine (Black Pepper Extract 95%)",
+          "dosage": 5,
+          "unit": "mg"
+        },
+        {
+          "name": "Ginger Extract",
+          "dosage": 100,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "1eab6da7dc44_sample_curcumin_synergy.png",
+      "timestamp": "2026-09-29 00:32:57",
+      "items_count": 3,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Curcumin Extract 95%",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Piperine (Black Pepper Extract 95%)",
+          "dosage": 5,
+          "unit": "mg"
+        },
+        {
+          "name": "Ginger Extract",
+          "dosage": 100,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "c5be3b72dcaf_sample_joint_care.png",
+      "timestamp": "2026-09-29 00:33:02",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Glucosamine Sulphate",
+          "dosage": 750,
+          "unit": "mg"
+        },
+        {
+          "name": "Chondroitin Sulphate",
+          "dosage": 400,
+          "unit": "mg"
+        },
+        {
+          "name": "Methylsulfonylmethane (MSM)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Boswellia Serrata Extract",
+          "dosage": 250,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "7f60731287a1_sample_immunity_booster.png",
+      "timestamp": "2026-09-29 00:35:55",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (Ascorbic Acid)",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 12,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3 (Cholecalciferol)",
+          "dosage": 600,
+          "unit": "IU"
+        },
+        {
+          "name": "Elderberry Extract",
+          "dosage": 150,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "a85fbe5130fc_WhatsApp_Image_2026-09-27_at_1.jpeg",
+      "timestamp": "2026-09-30 13:05:29",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Calcium Carbonate (from CORAL GRAINS)",
+          "dosage": 250,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 400,
+          "unit": "IU"
+        }
+      ]
+    },
+    {
+      "image": "399c7bb9504e_179075391050832747119656488396.jpg",
+      "timestamp": "2026-09-30 13:10:16",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Magnesium Bisglycinate",
+          "dosage": 856,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium L Threonate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium Acetyl Taurate",
+          "dosage": 150,
+          "unit": "mg"
+        },
+        {
+          "name": "Pyridoxine",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 600,
+          "unit": "IU"
+        }
+      ]
+    },
+    {
+      "image": "d699fa0a7279_WhatsApp_Image_2026-09-29_at_1.jpeg",
+      "timestamp": "2026-09-30 13:50:34",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Magnesium Bisglycinate",
+          "dosage": 856,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium L Threonate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium Acetyl Taurate",
+          "dosage": 150,
+          "unit": "mg"
+        },
+        {
+          "name": "Pyridoxine",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 600,
+          "unit": "IU"
+        }
+      ]
+    },
+    {
+      "image": "83e14882dee6_WhatsApp_Image_2026-09-29_at_1.jpeg",
+      "timestamp": "2026-09-30 13:50:42",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Magnesium Bisglycinate",
+          "dosage": 856,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium L Threonate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium Acetyl Taurate",
+          "dosage": 150,
+          "unit": "mg"
+        },
+        {
+          "name": "Pyridoxine",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 600,
+          "unit": "IU"
+        }
+      ]
+    },
+    {
+      "image": "f60f6c2ae361_WhatsApp_Image_2026-09-29_at_1.jpeg",
+      "timestamp": "2026-09-30 14:41:37",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Magnesium Bisglycinate",
+          "dosage": 856,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium L Threonate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium Acetyl Taurate",
+          "dosage": 150,
+          "unit": "mg"
+        },
+        {
+          "name": "Pyridoxine",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 600,
+          "unit": "IU"
+        }
+      ]
+    },
+    {
+      "image": "3e1fc384d758_179076008371122348387735738007.jpg",
+      "timestamp": "2026-09-30 14:52:51",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Sodium",
+          "dosage": 50,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Tyrosine",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium (as Magnesium Oxide)",
+          "dosage": 90,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Oxide)",
+          "dosage": 17,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B6",
+          "dosage": 2.4,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "1189510fd2e6_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-09-30 14:53:47",
+      "items_count": 21,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C (as Ascorbic Acid)",
+          "dosage": 20,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin E (as D-alpha Tocopherol)",
+          "dosage": 2.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B1(as Thiamine Hydrochloride)",
+          "dosage": 1.25,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B2 (as Riboflavin 5 Phosphate)",
+          "dosage": 2.1,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B3 (as Nicotinamide)",
+          "dosage": 15,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B5 (as D-Pnthenol)",
+          "dosage": 2.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B6 (as Pyridoxine hydrochloride)",
+          "dosage": 1,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin A Palmitate",
+          "dosage": 1250,
+          "unit": "IU"
+        },
+        {
+          "name": "Vitamin B9 (as Folic Acid)",
+          "dosage": 200,
+          "unit": "mcg"
+        },
+        {
+          "name": "Vitamin D (as Cholecalciferol)",
+          "dosage": 400,
+          "unit": "IU"
+        },
+        {
+          "name": "Vitamin B12 (as Cyanocobalamin)",
+          "dosage": 1,
+          "unit": "mcg"
+        },
+        {
+          "name": "Iron (as ferrous fumarate)",
+          "dosage": 2,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc (as Zinc Sulphate)",
+          "dosage": 10,
+          "unit": "mg"
+        },
+        {
+          "name": "Manganese (as Manganese Sulphate)",
+          "dosage": 0.8,
+          "unit": "mg"
+        },
+        {
+          "name": "Iodine (as Potassium Iodide)",
+          "dosage": 50,
+          "unit": "mcg"
+        },
+        {
+          "name": "Copper ( as copper sulphate)",
+          "dosage": 25,
+          "unit": "mcg"
+        },
+        {
+          "name": "Selenium (as Sodium Selenate)",
+          "dosage": 20,
+          "unit": "mcg"
+        },
+        {
+          "name": "Chromium (as Chromium picolinate)",
+          "dosage": 5,
+          "unit": "mcg"
+        },
+        {
+          "name": "Molybdenum (Sodium molybdate dehydrate)",
+          "dosage": 5,
+          "unit": "mcg"
+        },
+        {
+          "name": "L-Lysine (as L-Lysine hcl)",
+          "dosage": 75,
+          "unit": "mg"
+        },
+        {
+          "name": "Lycopene",
+          "dosage": 1000,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "ffb9ab3c9623_20260926_154700.jpg",
+      "timestamp": "2026-09-30 15:07:54",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin D3",
+          "dosage": 4000,
+          "unit": "IU"
+        },
+        {
+          "name": "Vitamin K2",
+          "dosage": 80,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "1766343783f2_179076126632729760704819637953.jpg",
+      "timestamp": "2026-09-30 15:12:01",
+      "items_count": 10,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C",
+          "dosage": 80,
+          "unit": "mg"
+        },
+        {
+          "name": "Amla extract",
+          "dosage": 420,
+          "unit": "mg"
+        },
+        {
+          "name": "Pyridoxine Hydrochloride",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Nicotinamide",
+          "dosage": 18,
+          "unit": "mg"
+        },
+        {
+          "name": "Ferrous Bisglycinate",
+          "dosage": 20,
+          "unit": "mg"
+        },
+        {
+          "name": "Cyanocobalamin",
+          "dosage": 2.5,
+          "unit": "mcg"
+        },
+        {
+          "name": "Folic acid",
+          "dosage": 300,
+          "unit": "mcg"
+        },
+        {
+          "name": "Chromium picolinate",
+          "dosage": 50,
+          "unit": "mcg"
+        },
+        {
+          "name": "Selenium",
+          "dosage": 40,
+          "unit": "mcg"
+        },
+        {
+          "name": "Zinc sulphate",
+          "dosage": 22.5,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "c9973ad57479_179076192886921434026862046849.jpg",
+      "timestamp": "2026-09-30 15:22:48",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Opitac™ L-Glutathione (Reduced)",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "N-Acetyl L-Cysteine",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Taurine",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 10,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "f461e0820f72_179076777904265585681030868454.jpg",
+      "timestamp": "2026-09-30 17:01:07",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Opitac™ L-Glutathione (Reduced)",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "N-Acetyl L-Cysteine",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Taurine",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 10,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "ee248b4c3233_179076953532490145147567594710.jpg",
+      "timestamp": "2026-09-30 17:30:04",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Opitac™ L-Glutathione (Reduced)",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "N-Acetyl L-Cysteine",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Taurine",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin C",
+          "dosage": 10,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "6900bec6cd37_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-10-01 10:05:11",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin D3",
+          "dosage": 125,
+          "unit": "mcg"
+        },
+        {
+          "name": "Vitamin K2 MK7",
+          "dosage": 120,
+          "unit": "mcg"
+        }
+      ]
+    },
+    {
+      "image": "f3bbbbd9a9bd_WhatsApp_Image_2026-09-29_at_1.jpeg",
+      "timestamp": "2026-10-01 12:46:41",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Magnesium Bisglycinate",
+          "dosage": 856,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium L Threonate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium Acetyl Taurate",
+          "dosage": 150,
+          "unit": "mg"
+        },
+        {
+          "name": "Pyridoxine",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 600,
+          "unit": "IU"
+        }
+      ]
+    },
+    {
+      "image": "7de54f9f8436_WhatsApp_Image_2026-09-29_at_1.jpeg",
+      "timestamp": "2026-10-01 16:38:47",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Magnesium Bisglycinate",
+          "dosage": 856,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium L Threonate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium Acetyl Taurate",
+          "dosage": 150,
+          "unit": "mg"
+        },
+        {
+          "name": "Pyridoxine",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 600,
+          "unit": "IU"
+        }
+      ]
+    },
+    {
+      "image": "1dca74066f36_WhatsApp_Image_2026-09-23_at_1.jpeg",
+      "timestamp": "2026-10-02 14:23:36",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "FolliFlora Complex",
+          "dosage": 340,
+          "unit": "mg"
+        },
+        {
+          "name": "FemBalance Complex",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "Solubilized Keratin",
+          "dosage": 25,
+          "unit": "mg"
+        },
+        {
+          "name": "Bamboo Extract (Bambusa vulgaris)",
+          "dosage": 25,
+          "unit": "mg"
+        },
+        {
+          "name": "Lycopene",
+          "dosage": 10,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "0963d101526a_WhatsApp_Image_2026-09-29_at_1.jpeg",
+      "timestamp": "2026-10-02 14:56:29",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Magnesium Bisglycinate",
+          "dosage": 856,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium L Threonate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium Acetyl Taurate",
+          "dosage": 150,
+          "unit": "mg"
+        },
+        {
+          "name": "Pyridoxine",
+          "dosage": 2.4,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 600,
+          "unit": "IU"
+        }
+      ]
+    },
+    {
+      "image": "b42267174e4a_WhatsApp_Image_2026-10-03_at_1.jpeg",
+      "timestamp": "2026-10-03 14:29:40",
+      "items_count": 6,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Broccoli Sprout Extract",
+          "dosage": 400,
+          "unit": "mg"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dosage": 75,
+          "unit": "mg"
+        },
+        {
+          "name": "Betacarotene (10%)",
+          "dosage": 40,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc Sulphate",
+          "dosage": 25,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin E (50% Dry Powder)",
+          "dosage": 10,
+          "unit": "mg"
+        },
+        {
+          "name": "Astaxanthin (1%)",
+          "dosage": 8,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "726c2223d4e3_WhatsApp_Image_2026-10-03_at_1.jpeg",
+      "timestamp": "2026-10-03 14:35:29",
+      "items_count": 4,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Agmatine sulphate",
+          "dosage": 500,
+          "unit": "mg"
+        },
+        {
+          "name": "Cytidine monophosphate",
+          "dosage": 2.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Palmitoylethanolamide",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "Uridine monophosphate",
+          "dosage": 1.5,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "25241d029f76_WhatsApp_Image_2026-09-27_at_1.jpeg",
+      "timestamp": "2026-10-04 00:42:25",
+      "items_count": 5,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "EPA (Eicosapentaenoic acid)",
+          "dosage": 360,
+          "unit": "mg"
+        },
+        {
+          "name": "DHA (Docosahexaenoic acid)",
+          "dosage": 240,
+          "unit": "mg"
+        },
+        {
+          "name": "Wheat germ oil",
+          "dosage": 100,
+          "unit": "mg"
+        },
+        {
+          "name": "Grape seed oil",
+          "dosage": 15,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin E",
+          "dosage": 10,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "ea7129877052_walpar_camera_2026-10-03T19-20.jpg",
+      "timestamp": "2026-10-04 00:51:45",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Ferrous Ascorbate Equivalent to Elemental Iron",
+          "dosage": 30,
+          "unit": "mg"
+        },
+        {
+          "name": "Folic Acid",
+          "dosage": 0.5,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "24af0411e059_walpar_camera_2026-10-03T19-31.jpg",
+      "timestamp": "2026-10-04 01:02:17",
+      "items_count": 3,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Cranberry Extract",
+          "dosage": 200,
+          "unit": "mg"
+        },
+        {
+          "name": "D-Mannose",
+          "dosage": 300,
+          "unit": "mg"
+        },
+        {
+          "name": "Potassium Magnesium Citrate",
+          "dosage": 975,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "64a57c13d3a9_WhatsApp_Image_2026-10-03_at_1.jpeg",
+      "timestamp": "2026-10-04 01:04:52",
+      "items_count": 6,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Broccoli Sprout Extract",
+          "dosage": 400,
+          "unit": "mg"
+        },
+        {
+          "name": "Alpha Lipoic Acid",
+          "dosage": 75,
+          "unit": "mg"
+        },
+        {
+          "name": "Betacarotene (10%)",
+          "dosage": 40,
+          "unit": "mg"
+        },
+        {
+          "name": "Zinc Sulphate",
+          "dosage": 25,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin E (50% Dry Powder)",
+          "dosage": 10,
+          "unit": "mg"
+        },
+        {
+          "name": "Astaxanthin (1%)",
+          "dosage": 8,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "d7a02406ff0e_walpar_camera_2026-10-03T19-46.jpg",
+      "timestamp": "2026-10-04 01:17:09",
+      "items_count": 3,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Liposomal Iron (As Ferric Pyrophosphate)",
+          "dosage": 10,
+          "unit": "mg"
+        },
+        {
+          "name": "Folic Acid",
+          "dosage": 25,
+          "unit": "mcg"
+        },
+        {
+          "name": "L-Lysine",
+          "dosage": 70,
+          "unit": "mg"
+        }
+      ]
+    },
+    {
+      "image": "0f509a1e9905_WhatsApp_Image_2026-10-04_at_1.jpeg",
+      "timestamp": "2026-10-04 13:24:22",
+      "items_count": 2,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Ferric Iron",
+          "dosage": 210,
+          "unit": "mg"
+        },
+        {
+          "name": "Ferric Citrate",
+          "dosage": 1,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "image": "4461c9421f71_walpar_camera_2026-10-04T12-15.jpg",
+      "timestamp": "2026-10-04 17:46:18",
+      "items_count": 33,
+      "teacher": "Walpar Neural Vision Engine",
+      "items": [
+        {
+          "name": "Vitamin C",
+          "dosage": 20,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B3",
+          "dosage": 5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin E",
+          "dosage": 5,
+          "unit": "IU"
+        },
+        {
+          "name": "Vitamin B5",
+          "dosage": 1.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B2",
+          "dosage": 1,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B1",
+          "dosage": 0.8,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin B6",
+          "dosage": 0.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Vitamin A",
+          "dosage": 1250,
+          "unit": "IU"
+        },
+        {
+          "name": "Folic Acid",
+          "dosage": 176.47,
+          "unit": "mcg"
+        },
+        {
+          "name": "Biotin",
+          "dosage": 10,
+          "unit": "mcg"
+        },
+        {
+          "name": "Vitamin D3",
+          "dosage": 200,
+          "unit": "IU"
+        },
+        {
+          "name": "Vitamin B12",
+          "dosage": 1,
+          "unit": "mcg"
+        },
+        {
+          "name": "Zinc",
+          "dosage": 5,
+          "unit": "mg"
+        },
+        {
+          "name": "Magnesium",
+          "dosage": 5,
+          "unit": "mg"
+        },
+        {
+          "name": "Iron",
+          "dosage": 2,
+          "unit": "mg"
+        },
+        {
+          "name": "Manganese",
+          "dosage": 0.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Iodine",
+          "dosage": 100,
+          "unit": "mcg"
+        },
+        {
+          "name": "Potassium",
+          "dosage": 33,
+          "unit": "mcg"
+        },
+        {
+          "name": "Copper",
+          "dosage": 30,
+          "unit": "mcg"
+        },
+        {
+          "name": "Selenium",
+          "dosage": 10,
+          "unit": "mcg"
+        },
+        {
+          "name": "Molybdenum",
+          "dosage": 5,
+          "unit": "mcg"
+        },
+        {
+          "name": "Chromium",
+          "dosage": 5,
+          "unit": "mcg"
+        },
+        {
+          "name": "L-Lysine",
+          "dosage": 5,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Leucine",
+          "dosage": 1,
+          "unit": "mg"
+        },
+        {
+          "name": "DL-Methionine",
+          "dosage": 0.5,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Histidine",
+          "dosage": 1,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Isoleucine",
+          "dosage": 0.5,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Phenylalanine",
+          "dosage": 0.5,
+          "unit": "mg"
+        },
+        {
+          "name": "L-Tryptophan",
+          "dosage": 0.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Taurine",
+          "dosage": 2.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Inositol",
+          "dosage": 2.5,
+          "unit": "mg"
+        },
+        {
+          "name": "Lycopene",
+          "dosage": 75,
+          "unit": "mcg"
+        },
+        {
+          "name": "Choline",
+          "dosage": 20,
+          "unit": "mcg"
+        }
+      ]
+    }
+  ]
+}
