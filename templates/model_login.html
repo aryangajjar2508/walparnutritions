@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Trainer Access — Walpar AI Subagent</title>
+    <!-- Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="/static/css/tailwind.min.css?v=20261004_model">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="/static/js/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-teal-950 min-h-screen flex items-center justify-center p-4 text-slate-100">
+
+    <div class="w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+        
+        <!-- Subtle Glow -->
+        <div class="absolute -top-24 -left-24 w-48 h-48 bg-teal-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Brand Header -->
+        <div class="text-center mb-8 relative">
+            <div class="w-16 h-16 bg-gradient-to-tr from-teal-500 to-emerald-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-teal-500/30">
+                <i data-lucide="brain-circuit" class="w-9 h-9 text-slate-950 stroke-[2.2]"></i>
+            </div>
+            <h1 class="text-2xl font-black tracking-tight text-white">WALPAR MODEL SUBAGENT</h1>
+            <p class="text-xs uppercase tracking-widest text-teal-400 font-semibold mt-0.5">Autonomous Knowledge Engine</p>
+            <div class="mt-3 inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] text-teal-300 font-mono">
+                <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+                <span>Model Trainer Access Only</span>
+            </div>
+        </div>
+
+        <!-- Error Notification -->
+        {% if error %}
+        <div class="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center space-x-2.5 animate-shake">
+            <i data-lucide="alert-triangle" class="w-4 h-4 flex-shrink-0 text-rose-400"></i>
+            <span>{{ error }}</span>
+        </div>
+        {% endif %}
+
+        <!-- Login Form -->
+        <form action="/api/auth/login" method="POST" class="space-y-5">
+            <input type="hidden" name="redirect" value="/model">
+
+            <div>
+                <label for="username" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Trainer Username</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                        <i data-lucide="user" class="w-4 h-4"></i>
+                    </div>
+                    <input type="text" id="username" name="username" value="tanmay" required 
+                           class="w-full pl-10 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm font-medium text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                           placeholder="Enter trainer username">
+                </div>
+            </div>
+
+            <div>
+                <label for="password" class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Security Password</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                        <i data-lucide="lock" class="w-4 h-4"></i>
+                    </div>
+                    <input type="password" id="password" name="password" required
+                           class="w-full pl-10 pr-4 py-3 bg-black/40 border border-white/10 rounded-xl text-sm font-medium text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition"
+                           placeholder="Enter security password">
+                </div>
+            </div>
+
+            <button type="submit" 
+                    class="w-full py-3.5 px-4 bg-gradient-to-r from-teal-500 via-teal-600 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white rounded-xl text-sm font-bold shadow-lg shadow-teal-500/25 active:scale-[0.98] transition flex items-center justify-center space-x-2">
+                <span>Authenticate &amp; Enter Subagent</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+        </form>
+
+        <div class="mt-8 text-center text-[11px] text-slate-500 font-mono">
+            Trainer ID: <span class="text-teal-400">tanmay</span>
+        </div>
+    </div>
+
+    <script>
+        if (window.lucide) lucide.createIcons();
+    </script>
+</body>
+</html>

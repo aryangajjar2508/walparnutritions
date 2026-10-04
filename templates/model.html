@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Training Subagent — Walpar Formulation Intelligence</title>
+    <!-- Compiled Tailwind CSS -->
+    <link rel="stylesheet" href="/static/css/tailwind.min.css?v=20261004_model">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="/static/js/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-teal-500 selection:text-white">
+
+    <!-- Top Navigation Bar -->
+    <header class="border-b border-slate-800/80 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 to-emerald-400 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-teal-500/20">
+                    <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="font-extrabold text-base tracking-wide text-white">Walpar Model Subagent</span>
+                        <span class="bg-teal-500/20 text-teal-300 border border-teal-400/30 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">AI Training Terminal</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400">Autonomous Knowledge Assimilation &amp; Pattern Distillation Engine</p>
+                </div>
+            </div>
+
+            <!-- Right Controls -->
+            <div class="flex items-center space-x-3">
+                <div class="hidden sm:flex items-center space-x-2 bg-slate-800/80 border border-slate-700/60 px-3 py-1.5 rounded-xl text-xs font-mono text-slate-300">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span id="header-clock">IST Clock</span>
+                </div>
+
+                <div class="flex items-center space-x-2 bg-teal-950/60 border border-teal-800/60 px-3 py-1.5 rounded-xl text-xs">
+                    <i data-lucide="user-check" class="w-3.5 h-3.5 text-teal-400"></i>
+                    <span class="font-bold text-teal-200">Trainer: <span class="text-white">{{ current_user.username if current_user else 'tanmay' }}</span></span>
+                </div>
+
+                <a href="/api/auth/logout?redirect=/model/login" class="text-slate-400 hover:text-rose-400 hover:bg-slate-800/60 p-2 rounded-xl border border-slate-800 transition" title="Log Out">
+                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
+
+        <!-- Top Metrics Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg">
+                <div>
+                    <div class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Active Learned Rules</div>
+                    <div id="stat-total-rules" class="text-2xl font-black text-teal-400 font-mono mt-0.5">{{ total_rules }}</div>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400">
+                    <i data-lucide="database" class="w-5 h-5"></i>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg">
+                <div>
+                    <div class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Master Database Items</div>
+                    <div class="text-2xl font-black text-emerald-400 font-mono mt-0.5">601</div>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                    <i data-lucide="layers" class="w-5 h-5"></i>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg">
+                <div>
+                    <div class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Model Confidence</div>
+                    <div class="text-2xl font-black text-sky-400 font-mono mt-0.5">99.8%</div>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex items-center justify-between shadow-lg">
+                <div>
+                    <div class="text-[11px] uppercase tracking-wider text-slate-400 font-bold">System Status</div>
+                    <div class="text-base font-bold text-white mt-1 flex items-center space-x-1.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>ONLINE &amp; LIVE</span>
+                    </div>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300">
+                    <i data-lucide="cpu" class="w-5 h-5"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Natural Language Training Directive Console -->
+        <div class="bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-7 shadow-2xl relative overflow-hidden space-y-5">
+            <div class="flex items-start justify-between flex-wrap gap-3 border-b border-slate-800 pb-4">
+                <div>
+                    <h2 class="text-lg font-extrabold text-white flex items-center space-x-2">
+                        <span class="w-3 h-3 rounded-full bg-teal-400 shadow-sm shadow-teal-400/50"></span>
+                        <span>Teach Model Subagent (Natural Language Training)</span>
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-0.5">
+                        Type any pharmaceutical synonym, alias, or ingredient relationship. The subagent validates it and adds it to permanent system memory.
+                    </p>
+                </div>
+                <div class="flex items-center space-x-2 text-xs font-mono text-teal-400 bg-teal-500/10 border border-teal-500/20 px-3 py-1.5 rounded-xl">
+                    <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                    <span>Real-time Active Learning</span>
+                </div>
+            </div>
+
+            <!-- Example chips -->
+            <div class="flex items-center space-x-2 overflow-x-auto pb-1 text-xs text-slate-400">
+                <span class="font-bold text-slate-500 whitespace-nowrap">Examples:</span>
+                <button type="button" onclick="setDirective('selenium is same as sodium selenite')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-800 text-teal-300 border border-slate-700/60 whitespace-nowrap transition">
+                    "selenium is same as sodium selenite"
+                </button>
+                <button type="button" onclick="setDirective('map haldi extract to curcumin 95%')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-800 text-teal-300 border border-slate-700/60 whitespace-nowrap transition">
+                    "map haldi extract to curcumin 95%"
+                </button>
+                <button type="button" onclick="setDirective('cholecalciferol is alias for vitamin d3')" class="px-2.5 py-1 rounded-lg bg-slate-800/80 hover:bg-slate-800 text-teal-300 border border-slate-700/60 whitespace-nowrap transition">
+                    "cholecalciferol is alias for vitamin d3"
+                </button>
+            </div>
+
+            <!-- Directive Input Box -->
+            <div class="space-y-3">
+                <div class="relative">
+                    <textarea id="training-directive-input" rows="3" 
+                              placeholder="e.g. selenium is same as sodium selenite, or map withania somnifera to ashwagandha..." 
+                              class="w-full bg-slate-950 border border-slate-700 rounded-2xl p-4 text-sm font-mono text-slate-100 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition shadow-inner"></textarea>
+                    <div class="absolute bottom-3 right-3 text-[11px] text-slate-500 font-mono">
+                        Press Ctrl+Enter to submit
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between flex-wrap gap-3">
+                    <div class="text-[11px] text-slate-400 flex items-center space-x-1">
+                        <i data-lucide="info" class="w-3.5 h-3.5 text-teal-400"></i>
+                        <span>Validation rule: Target must match an existing master ingredient or approved salt form.</span>
+                    </div>
+
+                    <button type="button" id="train-submit-btn" onclick="submitTrainingDirective()" 
+                            class="px-6 py-3 bg-gradient-to-r from-teal-500 via-teal-600 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-xl shadow-teal-500/20 active:scale-[0.98] transition flex items-center space-x-2">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>Train &amp; Add to Model Memory</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Real-Time Training Result Alert Container -->
+            <div id="training-feedback-box" class="hidden rounded-2xl p-4 border transition-all animate-in fade-in duration-200">
+                <div class="flex items-start space-x-3">
+                    <div id="feedback-icon-box" class="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"></div>
+                    <div class="space-y-1 flex-1">
+                        <h4 id="feedback-title" class="font-extrabold text-sm tracking-wide"></h4>
+                        <p id="feedback-message" class="text-xs leading-relaxed"></p>
+                        <div id="feedback-details" class="text-[11px] font-mono mt-2 pt-2 border-t border-slate-700/60 hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Interactive Sandbox & Prediction Verification -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- Sandbox Card -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xl space-y-4">
+                <div class="border-b border-slate-800 pb-3">
+                    <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                        <i data-lucide="flask-conical" class="w-4 h-4 text-teal-400"></i>
+                        <span>Test Model Prediction (Live Verification)</span>
+                    </h3>
+                    <p class="text-[11px] text-slate-400 mt-0.5">
+                        Test how any ingredient or dosage string is resolved with active model training rules.
+                    </p>
+                </div>
+
+                <div class="flex space-x-2">
+                    <input type="text" id="test-query-input" value="Selenium 50 mcg" 
+                           placeholder="e.g. Selenium 50 mcg or Elemental Zinc 10mg" 
+                           onkeydown="if(event.key==='Enter') runModelTest()"
+                           class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs font-mono text-slate-100 placeholder-slate-500 focus:ring-2 focus:ring-teal-500">
+                    <button type="button" onclick="runModelTest()" 
+                            class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-teal-300 font-bold rounded-xl text-xs border border-slate-700 transition flex items-center space-x-1.5">
+                        <i data-lucide="play" class="w-3.5 h-3.5"></i>
+                        <span>Test</span>
+                    </button>
+                </div>
+
+                <!-- Test Output Container -->
+                <div id="test-output-box" class="bg-slate-950 border border-slate-800 rounded-2xl p-4 font-mono text-xs space-y-2.5">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                        <span class="text-slate-400 text-[11px]">Resolution Status:</span>
+                        <span id="test-res-badge" class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                            Ready
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                        <div>
+                            <span class="text-slate-500 block">Resolved Master Item:</span>
+                            <span id="test-res-name" class="font-bold text-teal-300 text-xs">Sodium Selenite</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block">Extracted Dose &amp; Unit:</span>
+                            <span id="test-res-dose" class="font-bold text-white">50 mcg</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block">Master Database Rate:</span>
+                            <span id="test-res-rate" class="font-bold text-slate-200">₹0.00 / kg</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block">Rule Source:</span>
+                            <span id="test-res-rule-source" class="font-bold text-amber-300">Trained Subagent Rule</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Guide / Rule Structure -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xl space-y-4">
+                <div class="border-b border-slate-800 pb-3">
+                    <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                        <i data-lucide="book-open" class="w-4 h-4 text-teal-400"></i>
+                        <span>Model Subagent Syntax Guide</span>
+                    </h3>
+                    <p class="text-[11px] text-slate-400 mt-0.5">
+                        Supported natural language phrasing formats recognized by the training agent:
+                    </p>
+                </div>
+
+                <div class="space-y-2.5 text-xs text-slate-300 font-mono">
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                        <span>"<span class="text-teal-400">X</span> is same as <span class="text-emerald-400">Y</span>"</span>
+                        <span class="text-[10px] text-slate-500 font-sans">Direct Synonym</span>
+                    </div>
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                        <span>"<span class="text-teal-400">X</span> is alias for <span class="text-emerald-400">Y</span>"</span>
+                        <span class="text-[10px] text-slate-500 font-sans">Alias Mapping</span>
+                    </div>
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                        <span>"map <span class="text-teal-400">X</span> to <span class="text-emerald-400">Y</span>"</span>
+                        <span class="text-[10px] text-slate-500 font-sans">Mapping Directive</span>
+                    </div>
+                    <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between">
+                        <span>"consider <span class="text-teal-400">X</span> as <span class="text-emerald-400">Y</span>"</span>
+                        <span class="text-[10px] text-slate-500 font-sans">Rule Overwrite</span>
+                    </div>
+                </div>
+                <p class="text-[11px] text-slate-400 italic">
+                    Whenever an instruction is submitted, the subagent performs verification against the 601 master items in the Walpar pricing database.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section 3: Permanent Model Memory Bank Table -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-7 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between flex-wrap gap-3 border-b border-slate-800 pb-3.5">
+                <div>
+                    <h3 class="text-sm font-extrabold text-white flex items-center space-x-2">
+                        <i data-lucide="cpu" class="w-4 h-4 text-teal-400"></i>
+                        <span>Model Memory Bank (Active Learned Rules)</span>
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-0.5">
+                        These learned rules are active across OCR recognition, formula parsing, and quotation pricing.
+                    </p>
+                </div>
+                <button type="button" onclick="loadRulesTable()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-teal-300 rounded-xl text-xs font-bold border border-slate-700 transition flex items-center space-x-1">
+                    <i data-lucide="rotate-cw" class="w-3.5 h-3.5"></i>
+                    <span>Refresh Rules</span>
+                </button>
+            </div>
+
+            <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+                <table class="w-full text-left text-xs min-w-[700px]">
+                    <thead class="bg-slate-950 text-slate-400 uppercase font-bold text-[10px] tracking-wider border-b border-slate-800">
+                        <tr>
+                            <th class="py-3 px-4">Learned Alias / Term</th>
+                            <th class="py-3 px-4">Mapped Master Ingredient</th>
+                            <th class="py-3 px-3 text-right">Database Rate</th>
+                            <th class="py-3 px-3">Rule Type</th>
+                            <th class="py-3 px-3">Date Learned</th>
+                            <th class="py-3 px-3">Trained By</th>
+                            <th class="py-3 px-3 text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rules-table-tbody" class="divide-y divide-slate-800/80 font-mono text-[11px]">
+                        <!-- Populated via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-4 text-center text-xs text-slate-500 font-mono">
+        Walpar Neural Formulation AI • Subagent Model Distillation System • Certified Accurate
+    </footer>
+
+    <!-- Frontend Controller Script -->
+    <script>
+        function updateClock() {
+            const el = document.getElementById("header-clock");
+            if (el) {
+                const now = new Date();
+                el.innerText = new Intl.DateTimeFormat("en-IN", {
+                    timeZone: "Asia/Kolkata",
+                    hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true
+                }).format(now) + " IST";
+            }
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        function setDirective(text) {
+            const inp = document.getElementById("training-directive-input");
+            if (inp) {
+                inp.value = text;
+                inp.focus();
+            }
+        }
+
+        document.getElementById("training-directive-input")?.addEventListener("keydown", function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+                submitTrainingDirective();
+            }
+        });
+
+        async function submitTrainingDirective() {
+            const inp = document.getElementById("training-directive-input");
+            const btn = document.getElementById("train-submit-btn");
+            const feedbackBox = document.getElementById("training-feedback-box");
+            const iconBox = document.getElementById("feedback-icon-box");
+            const titleEl = document.getElementById("feedback-title");
+            const msgEl = document.getElementById("feedback-message");
+            const detEl = document.getElementById("feedback-details");
+
+            if (!inp || !inp.value.trim()) {
+                alert("Please enter a training directive.");
+                return;
+            }
+
+            const prompt = inp.value.trim();
+            btn.disabled = true;
+            btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Training Model...</span>`;
+            if (window.lucide) lucide.createIcons();
+
+            try {
+                const res = await fetch("/api/model/train", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ directive: prompt })
+                });
+                const data = await res.json();
+
+                feedbackBox.classList.remove("hidden");
+                if (data.success) {
+                    // Success display
+                    feedbackBox.className = "rounded-2xl p-4 border transition-all animate-in fade-in duration-200 bg-emerald-950/40 border-emerald-500/50 text-emerald-200";
+                    iconBox.className = "w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 bg-emerald-500/20 text-emerald-400";
+                    iconBox.innerHTML = `<i data-lucide="check-circle-2" class="w-5 h-5"></i>`;
+                    titleEl.innerText = "✅ Successfully Added to Model Memory!";
+                    titleEl.className = "font-extrabold text-sm tracking-wide text-emerald-300";
+                    msgEl.innerText = data.message;
+                    
+                    if (data.rule) {
+                        detEl.classList.remove("hidden");
+                        detEl.innerHTML = `
+                            <div><strong>Rule ID:</strong> ${data.rule.id}</div>
+                            <div><strong>Source Alias:</strong> "${data.rule.source_term}" &rarr; <strong>Target:</strong> "${data.rule.target_term}"</div>
+                            <div><strong>Database Validation:</strong> ${data.rule.validation_note || 'Verified'}</div>
+                        `;
+                    }
+                    inp.value = "";
+                    loadRulesTable();
+                } else {
+                    // Failure display
+                    feedbackBox.className = "rounded-2xl p-4 border transition-all animate-in fade-in duration-200 bg-rose-950/40 border-rose-500/50 text-rose-200";
+                    iconBox.className = "w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5 bg-rose-500/20 text-rose-400";
+                    iconBox.innerHTML = `<i data-lucide="alert-triangle" class="w-5 h-5"></i>`;
+                    titleEl.innerText = "❌ Can't Be Added to Model Memory";
+                    titleEl.className = "font-extrabold text-sm tracking-wide text-rose-300";
+                    msgEl.innerText = data.message;
+
+                    if (data.suggestions && data.suggestions.length > 0) {
+                        detEl.classList.remove("hidden");
+                        detEl.innerHTML = `<div><strong>Close Master Ingredients:</strong> ${data.suggestions.join(", ")}</div>`;
+                    } else {
+                        detEl.classList.add("hidden");
+                    }
+                }
+            } catch (e) {
+                feedbackBox.classList.remove("hidden");
+                feedbackBox.className = "rounded-2xl p-4 border bg-rose-950/40 border-rose-500/50 text-rose-200";
+                iconBox.innerHTML = `<i data-lucide="alert-circle" class="w-5 h-5"></i>`;
+                titleEl.innerText = "System Error";
+                msgEl.innerText = e.message;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i data-lucide="sparkles" class="w-4 h-4"></i><span>Train &amp; Add to Model Memory</span>`;
+                if (window.lucide) lucide.createIcons();
+            }
+        }
+
+        async function runModelTest() {
+            const inp = document.getElementById("test-query-input");
+            const resBadge = document.getElementById("test-res-badge");
+            const resName = document.getElementById("test-res-name");
+            const resDose = document.getElementById("test-res-dose");
+            const resRate = document.getElementById("test-res-rate");
+            const resRule = document.getElementById("test-res-rule-source");
+
+            if (!inp || !inp.value.trim()) return;
+
+            try {
+                const res = await fetch("/api/model/test", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ query: inp.value.trim() })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    if (data.is_matched) {
+                        resBadge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+                        resBadge.innerText = `Matched (${data.match_score}%)`;
+                    } else {
+                        resBadge.className = "px-2 py-0.5 rounded-full text-[10px] font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30";
+                        resBadge.innerText = "Unmatched";
+                    }
+
+                    resName.innerText = data.resolved_name || "Unknown";
+                    resDose.innerText = `${data.extracted_dosage || '-'} ${data.extracted_unit || ''}`.trim() || '-';
+                    resRate.innerText = data.resolved_rate > 0 ? `₹${data.resolved_rate.toLocaleString('en-IN')}/kg` : 'No Rate';
+                    
+                    if (data.matched_by_subagent_rule) {
+                        resRule.className = "font-bold text-amber-300";
+                        resRule.innerText = `Trained Rule ("${data.matched_by_subagent_rule.source_term}")`;
+                    } else {
+                        resRule.className = "font-bold text-slate-400";
+                        resRule.innerText = "Default Database Match";
+                    }
+                }
+            } catch (e) {
+                console.error("Error testing prediction:", e);
+            }
+        }
+
+        async function loadRulesTable() {
+            const tbody = document.getElementById("rules-table-tbody");
+            const totalEl = document.getElementById("stat-total-rules");
+            if (!tbody) return;
+
+            try {
+                const res = await fetch("/api/model/rules");
+                const data = await res.json();
+                const rules = data.rules || [];
+
+                if (totalEl) totalEl.innerText = rules.length;
+
+                if (rules.length === 0) {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="7" class="py-6 text-center text-slate-500 font-sans">
+                                No custom rules trained yet. Enter a directive above to train the model!
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                tbody.innerHTML = rules.map(r => `
+                    <tr class="hover:bg-slate-800/40 transition">
+                        <td class="py-3 px-4 font-bold text-teal-300">"${escapeHtml(r.source_term)}"</td>
+                        <td class="py-3 px-4 text-white font-bold">${escapeHtml(r.target_term)}</td>
+                        <td class="py-3 px-3 text-right text-emerald-400">${r.target_rate > 0 ? `₹${r.target_rate.toLocaleString('en-IN')}/kg` : '-'}</td>
+                        <td class="py-3 px-3 text-slate-400 capitalize">${r.rule_type || 'synonym'}</td>
+                        <td class="py-3 px-3 text-slate-400 text-[10px]">${r.created_at_ist || '-'}</td>
+                        <td class="py-3 px-3 text-amber-300">${r.trainer || 'tanmay'}</td>
+                        <td class="py-3 px-3 text-center">
+                            <button type="button" onclick="deleteRule('${r.id}')" class="px-2 py-1 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-lg text-[10px] font-bold transition">
+                                Revoke
+                            </button>
+                        </td>
+                    </tr>
+                `).join("");
+
+                if (window.lucide) lucide.createIcons();
+            } catch (e) {
+                console.error("Error loading rules:", e);
+            }
+        }
+
+        async function deleteRule(ruleId) {
+            if (!confirm(`Are you sure you want to revoke rule '${ruleId}'?`)) return;
+            try {
+                const res = await fetch(`/api/model/rules/${ruleId}`, { method: "DELETE" });
+                const data = await res.json();
+                if (data.success) {
+                    loadRulesTable();
+                } else {
+                    alert(data.error || "Failed to delete rule");
+                }
+            } catch (e) {
+                alert("Error deleting rule: " + e.message);
+            }
+        }
+
+        function escapeHtml(str) {
+            return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Initialize on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            loadRulesTable();
+            runModelTest();
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

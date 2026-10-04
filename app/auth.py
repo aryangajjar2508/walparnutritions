@@ -165,6 +165,19 @@ def init_auth_db():
             """, ("admin", default_admin_pass, "Walpar Chief Administrator", "admin", 1, get_current_ist_str()))
             print("[Auth] Created default administrator: admin / admin123")
 
+        # Check if dedicated model training specialist tanmay exists
+        cursor.execute("SELECT id FROM users WHERE username = 'tanmay'")
+        tanmay_row = cursor.fetchone()
+        tanmay_pass = hash_password("Tanmay@123")
+        if not tanmay_row:
+            cursor.execute("""
+                INSERT INTO users (username, password_hash, full_name, role, is_active, created_at_ist)
+                VALUES (?, ?, ?, ?, ?, ?)
+            """, ("tanmay", tanmay_pass, "Tanmay (AI Model Trainer)", "model_trainer", 1, get_current_ist_str()))
+            print("[Auth] Created dedicated model trainer: tanmay / Tanmay@123")
+        else:
+            cursor.execute("UPDATE users SET password_hash = ?, is_active = 1 WHERE username = 'tanmay'", (tanmay_pass,))
+
         conn.commit()
 
 # Run initialization

@@ -50,6 +50,7 @@ from app.learning_engine import SelfLearningEngine
 from app.evaluator import FormulaEvaluator
 from app.batch_master import BatchMasterEngine
 from app.salt_rda_engine import SaltRDAEngine
+from app.model_subagent import ModelTrainingSubagent
 from app.auth import (
     authenticate_user, create_session_token, verify_session_token,
     log_login_event, log_upload_event, log_batch_download_event,
@@ -89,6 +90,7 @@ learning_engine = SelfLearningEngine.get_instance()
 evaluator = FormulaEvaluator()
 batch_master_engine = BatchMasterEngine.get_instance()
 salt_rda_engine = SaltRDAEngine.get_instance()
+model_subagent = ModelTrainingSubagent.get_instance()
 
 def get_current_user(request: Request) -> Optional[Dict[str, Any]]:
     cookie = request.cookies.get("walpar_session")
@@ -106,6 +108,12 @@ class IngredientItem(BaseModel):
 class EvaluatePayload(BaseModel):
     ingredients: List[Dict[str, Any]]
     dosage_form: Optional[str] = "tablets"
+
+class ModelTrainPayload(BaseModel):
+    directive: str
+
+class ModelTestPayload(BaseModel):
+    query: str
 
 # ══════════════════════════════════════════════════════════════════
 # AUTHENTICATION & ACCESS CONTROL (ID / PASSWORD WALL)
@@ -129,7 +137,8 @@ async def login_page(request: Request):
 async def api_auth_login(
     request: Request,
     username: str = Form(...),
-    password: str = Form(...)
+    password: str = Form(...),
+    redirect: Optional[str] = Form(None)
 ):
     ip = request.client.host if request.client else "127.0.0.1"
     forwarded = request.headers.get("x-forwarded-for")
@@ -140,12 +149,15 @@ async def api_auth_login(
     user = authenticate_user(username, password)
     if not user:
         log_login_event(username, ip, user_agent, status="FAILED")
+        if redirect == "/model" or username.lower() == "tanmay":
+            return RedirectResponse(url="/model/login?error=Invalid+Trainer+Credentials", status_code=303)
         return RedirectResponse(url="/login?error=Invalid+User+ID+or+Password", status_code=303)
 
     log_login_event(user["username"], ip, user_agent, status="SUCCESS")
     token = create_session_token(user["username"], user["role"])
 
-    response = RedirectResponse(url="/", status_code=303)
+    target_redirect = redirect if redirect else ("/model" if user["username"].lower() == "tanmay" else "/")
+    response = RedirectResponse(url=target_redirect, status_code=303)
     response.set_cookie(
         key="walpar_session",
         value=token,
@@ -157,10 +169,62 @@ async def api_auth_login(
     return response
 
 @app.get("/api/auth/logout")
-async def api_auth_logout():
-    response = RedirectResponse(url="/login", status_code=303)
+async def api_auth_logout(request: Request):
+    redir = request.query_params.get("redirect", "/login")
+    response = RedirectResponse(url=redir, status_code=303)
     response.delete_cookie(key="walpar_session", path="/")
     return response
+
+# ══════════════════════════════════════════════════════════════════
+# MODEL TRAINING SUBAGENT INTERFACE (/model)
+# ══════════════════════════════════════════════════════════════════
+
+@app.get("/model/login", response_class=HTMLResponse)
+async def model_login_page(request: Request):
+    user = get_current_user(request)
+    if user and (user.get("username").lower() == "tanmay" or user.get("role") in ["admin", "model_trainer"]):
+        return RedirectResponse(url="/model", status_code=303)
+    error = request.query_params.get("error")
+    return render_template(request, "model_login.html", {
+        "error": error
+    })
+
+@app.get("/model", response_class=HTMLResponse)
+async def model_training_subagent_page(request: Request):
+    user = get_current_user(request)
+    if not user:
+        return RedirectResponse(url="/model/login", status_code=303)
+    if user.get("username").lower() != "tanmay" and user.get("role") not in ["admin", "model_trainer"]:
+        return RedirectResponse(url="/model/login?error=Access+Restricted+to+Model+Trainer+(tanmay)", status_code=303)
+    
+    rules = model_subagent.get_all_rules()
+    return render_template(request, "model.html", {
+        "current_user": user,
+        "total_rules": len(rules),
+        "rules": rules
+    })
+
+@app.post("/api/model/train")
+async def api_model_train(payload: ModelTrainPayload, request: Request):
+    user = get_current_user(request)
+    username = user.get("username", "tanmay") if user else "tanmay"
+    res = model_subagent.train_from_text(payload.directive, trainer_username=username)
+    return res
+
+@app.post("/api/model/test")
+async def api_model_test(payload: ModelTestPayload):
+    res = model_subagent.test_resolution(payload.query)
+    return res
+
+@app.get("/api/model/rules")
+async def api_model_rules():
+    rules = model_subagent.get_all_rules()
+    return {"success": True, "rules": rules, "count": len(rules)}
+
+@app.delete("/api/model/rules/{rule_id}")
+async def api_model_delete_rule(rule_id: str):
+    res = model_subagent.delete_rule(rule_id)
+    return res
 
 @app.get("/admin", response_class=HTMLResponse)
 async def admin_panel(request: Request):
@@ -246,6 +310,8 @@ async def index_page(request: Request):
     user = get_current_user(request)
     if not user:
         return RedirectResponse(url="/login", status_code=303)
+    if user.get("username", "").lower() == "tanmay":
+        return RedirectResponse(url="/model", status_code=303)
 
     samples = [
         {

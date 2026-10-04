@@ -1,0 +1,23 @@
+{
+  "stats": {
+    "total_rules": 1,
+    "last_trained_at": "04/10/2026, 08:48:19 PM IST",
+    "trainer": "tanmay",
+    "model_version": "subagent-v2.5"
+  },
+  "rules": [
+    {
+      "id": "rule_1791127099_9362",
+      "raw_directive": "selenium is same as sodium selenite",
+      "source_term": "selenium",
+      "source_term_clean": "selenium",
+      "target_term": "Sodium Selenite",
+      "target_rate": 0.0,
+      "rule_type": "synonym",
+      "trainer": "tanmay",
+      "created_at_ist": "04/10/2026, 08:48:19 PM IST",
+      "status": "active",
+      "validation_note": "Verified against master DB item 'Sodium Selenite'"
+    }
+  ]
+}
