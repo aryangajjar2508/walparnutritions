@@ -308,14 +308,42 @@ Return ONLY a valid JSON list, no markdown, no explanation:
   {"name": "Vitamin C", "dosage": 50, "unit": "mg"}
 ]
 """
-            try:
-                response = self.gemini_model.generate_content([prompt, pil_img])
-            except Exception as api_err:
-                err_str = str(api_err).lower()
-                if "quota" in err_str or "429" in err_str or "resource_exhausted" in err_str or "resourceexhausted" in err_str:
-                    print("[OCRManager] Quota limit hit. Activating 10-minute local engine cooldown.")
-                    self._gemini_quota_exhausted_until = time.time() + 600
-                raise api_err
+            # Downscale image if exceptionally large to conserve bandwidth and processing time
+            gemini_pil = pil_img
+            if max(pil_img.size) > 1600:
+                scale = 1600 / max(pil_img.size)
+                gemini_pil = pil_img.resize((int(pil_img.size[0] * scale), int(pil_img.size[1] * scale)), Image.Resampling.LANCZOS)
+
+            response = None
+            last_err = None
+
+            # Candidate vision models prioritized by quota availability & accuracy
+            models_to_try = [GEMINI_MODEL]
+            for candidate in ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-flash-latest"]:
+                if candidate not in models_to_try:
+                    models_to_try.append(candidate)
+
+            for m_name in models_to_try:
+                try:
+                    curr_model = genai.GenerativeModel(m_name)
+                    res = curr_model.generate_content([prompt, gemini_pil])
+                    if res and res.text and len(res.text.strip()) > 5:
+                        response = res
+                        self.gemini_model = curr_model
+                        print(f"[OCRManager] Successfully processed via {m_name}")
+                        break
+                except Exception as api_err:
+                    last_err = api_err
+                    print(f"[OCRManager] Model '{m_name}' notice: {api_err}. Trying next candidate...")
+                    continue
+
+            if not response or not response.text:
+                if last_err:
+                    err_str = str(last_err).lower()
+                    if "quota" in err_str or "429" in err_str or "resource_exhausted" in err_str:
+                        self._gemini_quota_exhausted_until = time.time() + 600
+                    raise last_err
+                raise RuntimeError("Empty response received from vision models")
 
             resp_text = response.text.strip()
 
@@ -362,9 +390,23 @@ Return ONLY a valid JSON list, no markdown, no explanation:
 
         except Exception as e:
             print(f"[OCRManager Fallback -> local engine]: {e}")
-            preprocessed_cv = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
-            rapid_lines = self._extract_rapid(preprocessed_cv)
-            return rapid_lines, None
+            try:
+                # Downscale image to max 1024 to prevent memory exhaustion on low-memory servers
+                max_d = 1024
+                if max(pil_img.size) > max_d:
+                    s = max_d / max(pil_img.size)
+                    small_img = pil_img.resize((int(pil_img.size[0] * s), int(pil_img.size[1] * s)), Image.Resampling.BILINEAR)
+                    preprocessed_cv = cv2.cvtColor(np.array(small_img), cv2.COLOR_RGB2BGR)
+                else:
+                    preprocessed_cv = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
+
+                rapid_lines = self._extract_rapid(preprocessed_cv)
+                import gc
+                gc.collect()
+                return rapid_lines, None
+            except Exception as local_err:
+                print(f"[OCRManager] Local fallback notice: {local_err}")
+                return [], None
 
     # ─────────────────────────────────────────────────────────
     #  RapidOCR (ONNX local with multi-angle auto-scan)

@@ -914,15 +914,31 @@ async function handleFileUpload(file, skipCrop = true, cropCorners = null, rotat
             method: "POST",
             body: formData
         });
-        const data = await res.json();
-        if (data.success) {
+        const resText = await res.text();
+        let data;
+        try {
+            data = JSON.parse(resText);
+        } catch (parseErr) {
+            if (res.status === 502) {
+                throw new Error("Server was temporarily busy or restarting. Please re-upload in a few moments.");
+            } else if (res.status === 413) {
+                throw new Error("File size too large. Please upload an image under 10MB.");
+            } else if (res.status === 401 || res.status === 403) {
+                window.location.href = "/login?error=Session+expired.+Please+log+in+again";
+                return;
+            } else {
+                throw new Error(`Server returned HTTP ${res.status}`);
+            }
+        }
+
+        if (data && data.success) {
             processExtractionResult(data);
         } else {
-            alert("Error running OCR: " + (data.error || "Unknown error"));
+            alert("Error running OCR: " + ((data && data.error) || "Unknown error"));
         }
     } catch (err) {
         console.error("Upload error:", err);
-        alert("Upload error: " + (err.message || "Failed to process formula photo"));
+        alert("Upload notice: " + (err.message || "Failed to process formula photo"));
     } finally {
         showLoading(false);
         const scanningOverlay = document.getElementById("scanning-overlay");
@@ -952,14 +968,25 @@ async function loadSample(sampleName) {
         const res = await fetch(`/api/sample/${sampleName}?engine=${engine}`, {
             method: "POST"
         });
-        const data = await res.json();
-        if (data.success) {
+        const resText = await res.text();
+        let data;
+        try {
+            data = JSON.parse(resText);
+        } catch (parseErr) {
+            if (res.status === 502) {
+                throw new Error("Server temporarily busy. Please retry.");
+            } else {
+                throw new Error(`Server returned HTTP ${res.status}`);
+            }
+        }
+
+        if (data && data.success) {
             processExtractionResult(data);
         } else {
-            alert("Error loading sample: " + data.error);
+            alert("Error loading sample: " + ((data && data.error) || "Unknown error"));
         }
     } catch (err) {
-        alert("Failed to load sample: " + err.message);
+        alert("Notice: " + err.message);
     } finally {
         showLoading(false);
     }
