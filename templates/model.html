@@ -36,6 +36,9 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-teal-500 selection:text-white">
 
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-50 space-y-2 pointer-events-none"></div>
+
     <!-- Top Navigation Bar -->
     <header class="border-b border-slate-800/80 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
@@ -314,7 +317,30 @@
                         </tr>
                     </thead>
                     <tbody id="rules-table-tbody" class="divide-y divide-slate-800/80 font-mono text-[11px]">
-                        <!-- Populated via JavaScript -->
+                        {% if rules and rules|length > 0 %}
+                            {% for r in rules %}
+                            <tr id="rule-row-{{ r.id }}" class="hover:bg-slate-800/40 transition">
+                                <td class="py-3 px-4 font-bold text-teal-300">"{{ r.source_term }}"</td>
+                                <td class="py-3 px-4 text-white font-bold">{{ r.target_term }}</td>
+                                <td class="py-3 px-3 text-right text-emerald-400">{% if r.target_rate > 0 %}₹{{ "{:,.2f}".format(r.target_rate) }}/kg{% else %}-{% endif %}</td>
+                                <td class="py-3 px-3 text-slate-400 capitalize">{{ r.rule_type or 'synonym' }}</td>
+                                <td class="py-3 px-3 text-slate-400 text-[10px]">{{ r.created_at_ist or '-' }}</td>
+                                <td class="py-3 px-3 text-amber-300">{{ r.trainer or 'tanmay' }}</td>
+                                <td class="py-3 px-3 text-center">
+                                    <button type="button" onclick="deleteRule('{{ r.id }}')" class="px-2 py-1 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 hover:text-rose-300 border border-rose-500/30 rounded-lg text-[10px] font-bold transition flex items-center justify-center space-x-1 mx-auto">
+                                        <i data-lucide="trash-2" class="w-3 h-3"></i>
+                                        <span>Revoke</span>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="7" class="py-6 text-center text-slate-500 font-sans">
+                                    No custom rules trained yet. Enter a directive above to train the model!
+                                </td>
+                            </tr>
+                        {% endif %}
                     </tbody>
                 </table>
             </div>
@@ -475,6 +501,27 @@
             }
         }
 
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            if (!container) return;
+            const toast = document.createElement('div');
+            const isSuccess = type === 'success';
+            toast.className = `p-3.5 px-5 rounded-2xl border shadow-2xl text-xs font-bold flex items-center space-x-2.5 transition-all duration-300 pointer-events-auto ${
+                isSuccess 
+                ? 'bg-emerald-950/95 border-emerald-500/60 text-emerald-200' 
+                : 'bg-rose-950/95 border-rose-500/60 text-rose-200'
+            }`;
+            const icon = isSuccess ? 'check-circle' : 'alert-circle';
+            toast.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4 flex-shrink-0"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            if (window.lucide) lucide.createIcons();
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
         async function loadRulesTable() {
             const tbody = document.getElementById("rules-table-tbody");
             const totalEl = document.getElementById("stat-total-rules");
@@ -499,7 +546,7 @@
                 }
 
                 tbody.innerHTML = rules.map(r => `
-                    <tr class="hover:bg-slate-800/40 transition">
+                    <tr id="rule-row-${r.id}" class="hover:bg-slate-800/40 transition">
                         <td class="py-3 px-4 font-bold text-teal-300">"${escapeHtml(r.source_term)}"</td>
                         <td class="py-3 px-4 text-white font-bold">${escapeHtml(r.target_term)}</td>
                         <td class="py-3 px-3 text-right text-emerald-400">${r.target_rate > 0 ? `₹${r.target_rate.toLocaleString('en-IN')}/kg` : '-'}</td>
@@ -507,8 +554,9 @@
                         <td class="py-3 px-3 text-slate-400 text-[10px]">${r.created_at_ist || '-'}</td>
                         <td class="py-3 px-3 text-amber-300">${r.trainer || 'tanmay'}</td>
                         <td class="py-3 px-3 text-center">
-                            <button type="button" onclick="deleteRule('${r.id}')" class="px-2 py-1 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-lg text-[10px] font-bold transition">
-                                Revoke
+                            <button type="button" onclick="deleteRule('${r.id}')" class="px-2.5 py-1 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 hover:text-rose-300 border border-rose-500/30 rounded-lg text-[10px] font-bold transition flex items-center justify-center space-x-1 mx-auto">
+                                <i data-lucide="trash-2" class="w-3 h-3"></i>
+                                <span>Revoke</span>
                             </button>
                         </td>
                     </tr>
@@ -521,17 +569,27 @@
         }
 
         async function deleteRule(ruleId) {
-            if (!confirm(`Are you sure you want to revoke rule '${ruleId}'?`)) return;
+            if (!confirm(`Are you sure you want to revoke and delete rule '${ruleId}' from the database & model memory?`)) return;
+
+            const rowEl = document.getElementById(`rule-row-${ruleId}`);
+            if (rowEl) rowEl.style.opacity = '0.3';
+
             try {
-                const res = await fetch(`/api/model/rules/${ruleId}`, { method: "DELETE" });
+                let res = await fetch(`/api/model/rules/${encodeURIComponent(ruleId)}`, { method: "DELETE" });
+                if (!res.ok) {
+                    res = await fetch(`/api/model/rules/${encodeURIComponent(ruleId)}/delete`, { method: "POST" });
+                }
                 const data = await res.json();
                 if (data.success) {
-                    loadRulesTable();
+                    showToast(`Rule '${ruleId}' revoked and deleted from database successfully!`, 'success');
+                    await loadRulesTable();
                 } else {
-                    alert(data.error || "Failed to delete rule");
+                    if (rowEl) rowEl.style.opacity = '1';
+                    showToast(data.error || "Failed to revoke rule", 'error');
                 }
             } catch (e) {
-                alert("Error deleting rule: " + e.message);
+                if (rowEl) rowEl.style.opacity = '1';
+                showToast("Error revoking rule: " + e.message, 'error');
             }
         }
 

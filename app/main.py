@@ -226,6 +226,19 @@ async def api_model_delete_rule(rule_id: str):
     res = model_subagent.delete_rule(rule_id)
     return res
 
+@app.post("/api/model/rules/{rule_id}/delete")
+async def api_model_delete_rule_post(rule_id: str):
+    res = model_subagent.delete_rule(rule_id)
+    return res
+
+class DeleteRuleBody(BaseModel):
+    rule_id: str
+
+@app.post("/api/model/rules/delete")
+async def api_model_delete_rule_body(payload: DeleteRuleBody):
+    res = model_subagent.delete_rule(payload.rule_id)
+    return res
+
 @app.get("/admin", response_class=HTMLResponse)
 async def admin_panel(request: Request):
     user = get_current_user(request)

@@ -5,12 +5,50 @@ from rapidfuzz import fuzz, process
 from app.config import INGREDIENTS_DB_PATH
 
 class FormulaParser:
+    _instances = []
+
     def __init__(self, db_path: str = None):
         self.db_path = db_path or INGREDIENTS_DB_PATH
         self.ingredients_master = []
         self.alias_to_ingredient = {}
         self.canonical_names = []
         self.load_database()
+        self.load_subagent_rules()
+        if self not in FormulaParser._instances:
+            FormulaParser._instances.append(self)
+
+    @classmethod
+    def reload_all_subagent_rules(cls):
+        """Reloads all subagent rules across all active parser instances"""
+        for inst in list(cls._instances):
+            try:
+                inst.load_database()
+                inst.load_subagent_rules()
+            except Exception as e:
+                print(f"[FormulaParser] Error reloading subagent rules: {e}")
+
+    def load_subagent_rules(self):
+        """Loads all active trained rules from SQLite DB and JSON memory"""
+        try:
+            from app.auth import db_get_all_training_rules
+            db_rules = db_get_all_training_rules()
+            for r in db_rules:
+                if r.get("status") == "active":
+                    source = str(r.get("source_term", "")).strip().lower()
+                    target_name = str(r.get("target_term", "")).strip().lower()
+                    target_item = self.alias_to_ingredient.get(target_name)
+                    if not target_item:
+                        for item in self.ingredients_master:
+                            if item["name"].strip().lower() == target_name:
+                                target_item = item
+                                break
+                    if target_item and source:
+                        self.alias_to_ingredient[source] = target_item
+                        self.alias_to_ingredient[source.replace(" ", "")] = target_item
+                        self.alias_to_ingredient[source.replace("-", " ")] = target_item
+                        self.alias_to_ingredient[re.sub(r'\b([ld])\s+', r'\1-', source)] = target_item
+        except Exception:
+            pass
 
     def load_database(self):
         try:

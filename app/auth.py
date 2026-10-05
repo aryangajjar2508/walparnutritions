@@ -155,6 +155,25 @@ def init_auth_db():
             except Exception:
                 pass
 
+        # 6. Model Training Rules Table (Autonomous Subagent Memory Bank)
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS model_training_rules (
+                id TEXT PRIMARY KEY,
+                raw_directive TEXT NOT NULL,
+                source_term TEXT NOT NULL,
+                source_term_clean TEXT NOT NULL,
+                target_term TEXT NOT NULL,
+                target_rate REAL DEFAULT 0.0,
+                rule_type TEXT DEFAULT 'synonym',
+                trainer TEXT DEFAULT 'tanmay',
+                created_at_ist TEXT NOT NULL,
+                status TEXT DEFAULT 'active',
+                validation_note TEXT DEFAULT ''
+            )
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_rule_source ON model_training_rules(source_term_clean)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_rule_status ON model_training_rules(status)")
+
         # Check if default admin exists
         cursor.execute("SELECT id FROM users WHERE username = 'admin'")
         if not cursor.fetchone():
@@ -694,4 +713,56 @@ def get_per_user_quotation_stats() -> List[Dict[str, Any]]:
             ORDER BY total_quotes DESC, u.username ASC
         """).fetchall()
         return [dict(r) for r in rows]
+
+# ══════════════════════════════════════════════════════════════════
+# MODEL TRAINING RULES PERSISTENCE (SQLITE DATABASE)
+# ══════════════════════════════════════════════════════════════════
+
+def db_get_all_training_rules() -> List[Dict[str, Any]]:
+    """Returns all active model training rules from SQLite database"""
+    with get_db() as conn:
+        cursor = conn.cursor()
+        rows = cursor.execute("""
+            SELECT id, raw_directive, source_term, source_term_clean, target_term,
+                   target_rate, rule_type, trainer, created_at_ist, status, validation_note
+            FROM model_training_rules
+            WHERE status = 'active'
+            ORDER BY rowid ASC
+        """).fetchall()
+        return [dict(r) for r in rows]
+
+def db_insert_training_rule(rule: Dict[str, Any]) -> bool:
+    """Inserts or updates a model training rule in SQLite database"""
+    with get_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT OR REPLACE INTO model_training_rules (
+                id, raw_directive, source_term, source_term_clean, target_term,
+                target_rate, rule_type, trainer, created_at_ist, status, validation_note
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            rule.get("id"),
+            rule.get("raw_directive", ""),
+            rule.get("source_term", ""),
+            rule.get("source_term_clean", ""),
+            rule.get("target_term", ""),
+            float(rule.get("target_rate") or 0.0),
+            rule.get("rule_type", "synonym"),
+            rule.get("trainer", "tanmay"),
+            rule.get("created_at_ist", get_current_ist_str()),
+            rule.get("status", "active"),
+            rule.get("validation_note", "")
+        ))
+        conn.commit()
+        return True
+
+def db_delete_training_rule(rule_id: str) -> bool:
+    """Deletes/revokes a model training rule from SQLite database"""
+    with get_db() as conn:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM model_training_rules WHERE id = ?", (rule_id,))
+        deleted = cursor.rowcount > 0
+        conn.commit()
+        return deleted
+
 

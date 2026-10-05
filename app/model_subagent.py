@@ -46,22 +46,50 @@ class ModelTrainingSubagent:
         self.sync_rules_to_parser()
 
     def load_memory(self):
-        """Loads persistent model training rules from disk"""
+        """Loads persistent model training rules from SQLite DB and JSON memory with bidirectional synchronization"""
+        from app.auth import db_get_all_training_rules, db_insert_training_rule
         try:
+            # 1. Fetch from SQLite database (Source of Truth)
+            db_rules = db_get_all_training_rules()
+
+            # 2. Check JSON file
+            json_rules = []
             if SUBAGENT_MEMORY_PATH.exists():
                 with open(SUBAGENT_MEMORY_PATH, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                    self.rules = data.get("rules", [])
+                    json_rules = data.get("rules", [])
                     self.stats.update(data.get("stats", {}))
-            else:
-                self.rules = []
-                self.save_memory()
+
+            # 3. Synchronize SQLite & JSON memory:
+            # If SQLite is empty but JSON has historical rules, seed SQLite from JSON:
+            if not db_rules and json_rules:
+                for r in json_rules:
+                    db_insert_training_rule(r)
+                db_rules = db_get_all_training_rules()
+            elif db_rules and json_rules:
+                # Merge any missing rules from JSON into SQLite
+                existing_ids = {r.get("id") for r in db_rules}
+                for r in json_rules:
+                    if r.get("id") and r.get("id") not in existing_ids:
+                        db_insert_training_rule(r)
+                db_rules = db_get_all_training_rules()
+
+            self.rules = db_rules if db_rules else json_rules
+            self.stats["total_rules"] = len(self.rules)
+
+            # Persist clean synced snapshot to JSON
+            DATA_DIR.mkdir(parents=True, exist_ok=True)
+            with open(SUBAGENT_MEMORY_PATH, "w", encoding="utf-8") as f:
+                json.dump({"stats": self.stats, "rules": self.rules}, f, indent=2, ensure_ascii=False)
+
+            print(f"[ModelSubagent] Loaded {len(self.rules)} rules synchronized with SQLite database.")
         except Exception as e:
             print(f"[ModelSubagent] Error loading memory: {e}")
             self.rules = []
 
     def save_memory(self):
-        """Persists trained rules to disk"""
+        """Persists trained rules to both SQLite database and JSON file"""
+        from app.auth import db_insert_training_rule
         try:
             DATA_DIR.mkdir(parents=True, exist_ok=True)
             self.stats["total_rules"] = len(self.rules)
@@ -71,6 +99,10 @@ class ModelTrainingSubagent:
             }
             with open(SUBAGENT_MEMORY_PATH, "w", encoding="utf-8") as f:
                 json.dump(payload, f, indent=2, ensure_ascii=False)
+
+            # Ensure every rule is inserted/updated in SQLite database
+            for r in self.rules:
+                db_insert_training_rule(r)
         except Exception as e:
             print(f"[ModelSubagent] Error saving memory: {e}")
 
@@ -325,10 +357,16 @@ If the instruction cannot be parsed into a source and target ingredient, return:
         # 4. Immediately activate in runtime memory
         self._inject_alias_into_parser(clean_src, target_item)
 
-        # 5. Save memory
+        # 5. Persist to SQLite DB & JSON memory
+        from app.auth import db_insert_training_rule
+        db_insert_training_rule(new_rule)
+
         self.stats["last_trained_at"] = timestamp
         self.stats["trainer"] = trainer_username
         self.save_memory()
+
+        # 6. Synchronize all FormulaParser instances project-wide
+        FormulaParser.reload_all_subagent_rules()
 
         rate_msg = f" (Database Rate: ₹{target_rate:,.2f}/kg)" if target_rate > 0 else ""
         return {
@@ -380,23 +418,46 @@ If the instruction cannot be parsed into a source and target ingredient, return:
         }
 
     def delete_rule(self, rule_id: str) -> Dict[str, Any]:
-        """Deletes a learned rule from memory and updates parser"""
+        """Revokes/deletes a learned rule from SQLite database, JSON memory, and active runtime parsers"""
+        from app.auth import db_delete_training_rule
+        rule_id_clean = str(rule_id or "").strip()
         found = False
         removed_rule = None
+
         for i, r in enumerate(self.rules):
-            if r.get("id") == rule_id:
+            if r.get("id") == rule_id_clean:
                 removed_rule = self.rules.pop(i)
                 found = True
                 break
 
-        if found:
+        # Always delete from SQLite database table
+        db_deleted = db_delete_training_rule(rule_id_clean)
+
+        if found or db_deleted:
             self.save_memory()
-            # Reload parser aliases to ensure deleted alias is purged
+            # Reload parser aliases to ensure deleted alias is purged completely
             self.formula_parser = FormulaParser()
             self.sync_rules_to_parser()
-            return {"success": True, "message": f"Rule '{rule_id}' deleted successfully", "deleted_rule": removed_rule}
+            FormulaParser.reload_all_subagent_rules()
 
-        return {"success": False, "error": f"Rule with ID '{rule_id}' not found"}
+            # Clean from learning engine if present
+            if removed_rule:
+                src_clean = removed_rule.get("source_term_clean") or removed_rule.get("source_term", "").strip().lower()
+                try:
+                    learning_engine = SelfLearningEngine.get_instance()
+                    if src_clean in learning_engine.learned_patterns:
+                        del learning_engine.learned_patterns[src_clean]
+                except Exception:
+                    pass
+
+            return {
+                "success": True, 
+                "message": f"Rule '{rule_id_clean}' revoked and deleted from database & memory successfully", 
+                "deleted_rule": removed_rule,
+                "remaining_rules": len(self.rules)
+            }
+
+        return {"success": False, "error": f"Rule with ID '{rule_id_clean}' not found in database"}
 
     def get_all_rules(self) -> List[Dict[str, Any]]:
         """Returns all rules in memory"""
