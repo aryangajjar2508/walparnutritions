@@ -587,7 +587,7 @@ async def upload_and_process(
                                 clean_l = raw_l.strip()
                                 if clean_l and len(clean_l) > 1:
                                     document_extracted_lines.append(clean_l)
-                        pix = page.get_pixmap(dpi=300)
+                        pix = page.get_pixmap(dpi=150)
                         p_img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
                         page_images.append(p_img)
                     doc.close()

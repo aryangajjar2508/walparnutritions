@@ -149,7 +149,7 @@ class OCRManager:
         self._gemini_quota_exhausted_until = 0.0
         self._load_cache()
         self._init_gemini()
-        self._init_rapid()
+        # RapidOCR is lazy-loaded on demand to preserve low memory footprint (Render 512MB limit)
 
     def _load_cache(self):
         try:
@@ -247,20 +247,25 @@ class OCRManager:
         """
         engine_id = (engine or "gemini").lower()
 
-        if engine_id in ["gemini", "google", "ai"]:
-            return self._extract_gemini_with_fallback(image_input)
-        elif engine_id in ["rapidocr", "rapid"]:
-            return self._extract_rapid(image_input), None
-        elif engine_id in ["easyocr", "easy"]:
-            return self._extract_easyocr(image_input), None
-        elif engine_id in ["paddleocr", "paddle"]:
-            return self._extract_paddle(image_input), None
-        elif engine_id in ["tesseract", "tess"]:
-            return self._extract_tesseract(image_input), None
-        elif engine_id in ["ensemble", "multi"]:
-            return self._extract_ensemble(image_input), None
-        else:
-            return self._extract_gemini_with_fallback(image_input)
+        try:
+            if engine_id in ["gemini", "google", "ai"]:
+                res = self._extract_gemini_with_fallback(image_input)
+            elif engine_id in ["rapidocr", "rapid"]:
+                res = (self._extract_rapid(image_input), None)
+            elif engine_id in ["easyocr", "easy"]:
+                res = (self._extract_easyocr(image_input), None)
+            elif engine_id in ["paddleocr", "paddle"]:
+                res = (self._extract_paddle(image_input), None)
+            elif engine_id in ["tesseract", "tess"]:
+                res = (self._extract_tesseract(image_input), None)
+            elif engine_id in ["ensemble", "multi"]:
+                res = (self._extract_ensemble(image_input), None)
+            else:
+                res = self._extract_gemini_with_fallback(image_input)
+            return res
+        finally:
+            import gc
+            gc.collect()
 
     # ─────────────────────────────────────────────────────────
     #  Gemini Vision API

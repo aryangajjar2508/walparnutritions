@@ -156,8 +156,8 @@ def warp_perspective_quad(image_input: Union[str, Path, np.ndarray],
     height_b = np.linalg.norm(tl - bl)
     max_h = int(max(height_a, height_b))
 
-    max_w = max(60, min(max_w, 4500))
-    max_h = max(60, min(max_h, 4500))
+    max_w = max(60, min(max_w, 1600))
+    max_h = max(60, min(max_h, 1600))
 
     dst = np.array([
         [0, 0],
@@ -288,6 +288,16 @@ def _load_and_fix_exif(image_input: Union[str, Path, np.ndarray]) -> Image.Image
     # Ensure RGB
     if pil_img.mode not in ("RGB", "L"):
         pil_img = pil_img.convert("RGB")
+
+    # Downscale oversized images (e.g., 12MP/48MP phone photos) to prevent OOM on 512MB RAM servers
+    # 1600px preserves complete label resolution (>300 DPI) while keeping memory usage under ~6 MB
+    max_dim = 1600
+    w, h = pil_img.size
+    if max(w, h) > max_dim:
+        scale = max_dim / float(max(w, h))
+        new_w = max(1, int(w * scale))
+        new_h = max(1, int(h * scale))
+        pil_img = pil_img.resize((new_w, new_h), Image.Resampling.BILINEAR)
 
     return pil_img
 
