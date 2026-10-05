@@ -171,11 +171,13 @@ class OCRManager:
             print(f"Error saving to knowledge cache: {e}")
 
     def _init_gemini(self):
-        if GENAI_AVAILABLE and GEMINI_API_KEY:
+        api_key = os.environ.get("GEMINI_API_KEY") or GEMINI_API_KEY
+        model_name = os.environ.get("GEMINI_MODEL") or GEMINI_MODEL or "gemini-2.5-flash"
+        if GENAI_AVAILABLE and api_key:
             try:
-                genai.configure(api_key=GEMINI_API_KEY)
-                self.gemini_model = genai.GenerativeModel(GEMINI_MODEL)
-                print(f"Gemini API ({GEMINI_MODEL}) initialized successfully.")
+                genai.configure(api_key=api_key)
+                self.gemini_model = genai.GenerativeModel(model_name)
+                print(f"Gemini API ({model_name}) initialized successfully.")
             except Exception as e:
                 print(f"Error configuring Gemini API: {e}")
 

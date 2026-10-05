@@ -39,6 +39,7 @@ from fastapi import FastAPI, File, UploadFile, Request, Form, Query
 from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from starlette.concurrency import run_in_threadpool
 from pydantic import BaseModel
 
 from app.config import (
@@ -718,7 +719,7 @@ async def upload_and_process(
                 pass
 
         # Run chosen OCR engine
-        ocr_lines, gemini_items = ocr_manager.extract_text(str(dest_path), engine=engine)
+        ocr_lines, gemini_items = await run_in_threadpool(ocr_manager.extract_text, str(dest_path), engine=engine)
         
         # Match ingredients against database
         learning_result = None
@@ -821,7 +822,7 @@ async def scan_sample(
         if not sample_path.exists():
             return JSONResponse({"success": False, "error": f"Sample image {sample_name} not found"}, status_code=404)
 
-        ocr_lines, gemini_items = ocr_manager.extract_text(str(sample_path), engine=engine)
+        ocr_lines, gemini_items = await run_in_threadpool(ocr_manager.extract_text, str(sample_path), engine=engine)
 
         learning_result = None
         if gemini_items:
@@ -858,6 +859,14 @@ async def scan_sample(
         })
     except Exception as e:
         return JSONResponse({"success": False, "error": str(e)}, status_code=500)
+
+@app.post("/api/sample/{sample_name}")
+async def api_sample_by_path(
+    request: Request,
+    sample_name: str,
+    engine: str = "gemini"
+):
+    return await scan_sample(request, sample_name=sample_name, engine=engine)
 
 # ══════════════════════════════════════════════════════════════════
 # ELEMENTAL SALT & RDA CALCULATION ENGINE (PDF + INDEX (1).HTML)
