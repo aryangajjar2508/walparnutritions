@@ -21,7 +21,12 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 SAMPLE_DIR.mkdir(parents=True, exist_ok=True)
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-# Google Gemini API Configuration
+# Ollama Local Intelligence Model Configuration (100% Offline, Zero Cloud API)
+OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "walpar-gemma3:latest")
+DEFAULT_OCR_ENGINE = os.environ.get("DEFAULT_OCR_ENGINE", "ollama")
+
+# Google Gemini API Configuration (Optional Cloud Fallback)
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
 

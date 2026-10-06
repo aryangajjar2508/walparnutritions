@@ -168,8 +168,49 @@ class ModelTrainingSubagent:
 
         return None
 
+    def _parse_with_ollama(self, text: str) -> Optional[Dict[str, Any]]:
+        """Uses local Ollama model (walpar-gemma3) to extract source term, target term, and rule intent (100% Offline, Zero API)"""
+        try:
+            from app.config import OLLAMA_BASE_URL, OLLAMA_MODEL
+            import requests
+
+            prompt = f"""You are an expert pharmaceutical & nutraceutical formulation AI subagent.
+A model trainer provides an instruction like: 'selenium is same as sodium selenite'.
+Extract the training directive and respond ONLY with a raw JSON object (no markdown, no backticks):
+{{
+  "source_term": "selenium",
+  "target_term": "sodium selenite",
+  "rule_type": "synonym",
+  "explanation": "Mapped selenium to sodium selenite"
+}}
+
+Instruction to parse: {text}
+"""
+            payload = {
+                "model": OLLAMA_MODEL,
+                "prompt": prompt,
+                "stream": False,
+                "options": {
+                    "num_gpu": 99,
+                    "num_ctx": 2048,
+                    "temperature": 0.0
+                }
+            }
+            res = requests.post(f"{OLLAMA_BASE_URL}/api/generate", json=payload, timeout=25)
+            if res.status_code == 200:
+                raw = res.json().get("response", "").strip()
+                raw = re.sub(r"^```(?:json)?\s*", "", raw, flags=re.MULTILINE)
+                raw = re.sub(r"\s*```$", "", raw, flags=re.MULTILINE).strip()
+                parsed = json.loads(raw)
+                if parsed.get("source_term") and parsed.get("target_term"):
+                    return parsed
+        except Exception as e:
+            print(f"[ModelSubagent] Ollama directive parse notice: {e}")
+
+        return None
+
     def _parse_with_gemini(self, text: str) -> Optional[Dict[str, Any]]:
-        """Uses Gemini API to extract source term, target term, and rule intent from natural language"""
+        """Uses Gemini API as optional cloud fallback if local models are unavailable"""
         api_key = os.environ.get("GEMINI_API_KEY") or GEMINI_API_KEY
         if not api_key:
             return None
@@ -267,10 +308,12 @@ If the instruction cannot be parsed into a source and target ingredient, return:
                 "directive": raw_text
             }
 
-        # 1. Parse directive (Try Gemini API first, then local NLP)
-        parsed = self._parse_with_gemini(raw_text)
+        # 1. Parse directive (Try Ollama local model first, then local NLP, then Gemini cloud fallback)
+        parsed = self._parse_with_ollama(raw_text)
         if not parsed:
             parsed = self._parse_with_local_nlp(raw_text)
+        if not parsed:
+            parsed = self._parse_with_gemini(raw_text)
 
         if not parsed or not parsed.get("source_term") or not parsed.get("target_term"):
             return {

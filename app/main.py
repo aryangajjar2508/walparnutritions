@@ -535,7 +535,7 @@ async def api_crop_perspective(
 async def upload_and_process(
     request: Request,
     file: UploadFile = File(...),
-    engine: str = Form("gemini"),
+    engine: str = Form("ollama"),
     crop_corners: Optional[str] = Form(None),
     rotation: int = Form(0)
 ):
@@ -815,7 +815,7 @@ async def upload_and_process(
 async def scan_sample(
     request: Request,
     sample_name: str = Form(...),
-    engine: str = Form("gemini")
+    engine: str = Form("ollama")
 ):
     try:
         sample_path = SAMPLE_DIR / sample_name
@@ -864,7 +864,7 @@ async def scan_sample(
 async def api_sample_by_path(
     request: Request,
     sample_name: str,
-    engine: str = "gemini"
+    engine: str = "ollama"
 ):
     return await scan_sample(request, sample_name=sample_name, engine=engine)
 

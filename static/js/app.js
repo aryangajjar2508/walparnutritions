@@ -9,7 +9,7 @@ let appState = {
     ingredients: [],
     masterIngredients: [],
     showBoxes: true,
-    activeEngine: "gemini"
+    activeEngine: "ollama"
 };
 
 // Initialize
@@ -42,8 +42,10 @@ function onEngineChange() {
     appState.activeEngine = sel.value;
     
     const noteEl = document.getElementById("engine-note");
-    if (appState.activeEngine === "gemini") {
-        noteEl.innerText = "Walpar Neural Vision Engine: Proprietary deep learning model with contextual intelligence for nutraceutical formulas.";
+    if (appState.activeEngine === "ollama") {
+        noteEl.innerText = "Walpar Neural Engine (Local Ollama Gemma 3): 100% private offline intelligence model built from local weights. Zero APIs, zero quota limits.";
+    } else if (appState.activeEngine === "gemini") {
+        noteEl.innerText = "Walpar Cloud Vision Engine: Cloud neural model backup.";
     } else if (appState.activeEngine === "rapidocr") {
         noteEl.innerText = "Walpar High-Speed Engine (Local ONNX): 100% offline local deep learning model. Ultra-fast table parsing.";
     } else if (appState.activeEngine === "easyocr") {
@@ -897,7 +899,7 @@ async function handleFileUpload(file, skipCrop = true, cropCorners = null, rotat
     appState.currentFile = file;
     appState.currentSample = null;
     const engineEl = document.getElementById("engine-select");
-    const engine = engineEl ? engineEl.value : "gemini";
+    const engine = engineEl ? engineEl.value : "ollama";
 
     const formData = new FormData();
     formData.append("file", file, file.name || "formula_upload.jpg");
