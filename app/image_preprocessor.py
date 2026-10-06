@@ -289,15 +289,14 @@ def _load_and_fix_exif(image_input: Union[str, Path, np.ndarray]) -> Image.Image
     if pil_img.mode not in ("RGB", "L"):
         pil_img = pil_img.convert("RGB")
 
-    # Downscale oversized images (e.g., 12MP/48MP phone photos) to prevent OOM on 512MB RAM servers
-    # 1600px preserves complete label resolution (>300 DPI) while keeping memory usage under ~6 MB
-    max_dim = 1600
+    # Downscale exceptionally large images (e.g. 12MP-48MP) to 2400px using LANCZOS to preserve maximum sharp edge fidelity
+    max_dim = 2400
     w, h = pil_img.size
     if max(w, h) > max_dim:
         scale = max_dim / float(max(w, h))
         new_w = max(1, int(w * scale))
         new_h = max(1, int(h * scale))
-        pil_img = pil_img.resize((new_w, new_h), Image.Resampling.BILINEAR)
+        pil_img = pil_img.resize((new_w, new_h), Image.Resampling.LANCZOS)
 
     return pil_img
 

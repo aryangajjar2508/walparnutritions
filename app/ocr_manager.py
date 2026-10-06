@@ -172,7 +172,7 @@ class OCRManager:
 
     def _init_gemini(self):
         api_key = os.environ.get("GEMINI_API_KEY") or GEMINI_API_KEY
-        model_name = os.environ.get("GEMINI_MODEL") or GEMINI_MODEL or "gemini-2.5-flash"
+        model_name = os.environ.get("GEMINI_MODEL") or GEMINI_MODEL or "gemini-3.6-flash"
         if GENAI_AVAILABLE and api_key:
             try:
                 genai.configure(api_key=api_key)
@@ -315,18 +315,21 @@ Return ONLY a valid JSON list, no markdown, no explanation:
   {"name": "Vitamin C", "dosage": 50, "unit": "mg"}
 ]
 """
-            # Downscale image if exceptionally large to conserve bandwidth and processing time
+            # Downscale image if exceptionally large (>2400px) to conserve bandwidth while keeping maximum sharp fidelity
             gemini_pil = pil_img
-            if max(pil_img.size) > 1600:
-                scale = 1600 / max(pil_img.size)
+            if max(pil_img.size) > 2400:
+                scale = 2400 / max(pil_img.size)
                 gemini_pil = pil_img.resize((int(pil_img.size[0] * scale), int(pil_img.size[1] * scale)), Image.Resampling.LANCZOS)
 
             response = None
             last_err = None
 
-            # Candidate vision models prioritized by quota availability & accuracy
-            models_to_try = [GEMINI_MODEL]
-            for candidate in ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-flash-latest"]:
+            # Candidate vision models prioritized by highest extraction accuracy:
+            models_to_try = []
+            pref = os.environ.get("GEMINI_MODEL") or GEMINI_MODEL or "gemini-3.6-flash"
+            if pref:
+                models_to_try.append(pref)
+            for candidate in ["gemini-3.6-flash", "gemini-2.5-flash", "gemini-flash-latest"]:
                 if candidate not in models_to_try:
                     models_to_try.append(candidate)
 
